@@ -33,12 +33,22 @@ def filter_identifiers(config):
     from_identifier = config["process_from_identifier_from_included"]
     to_identifier = config["process_to_identifier_to_included"]
     
-    # Find the indices of the from and to identifiers
-    from_index = identifiers.index(from_identifier)
-    to_index = identifiers.index(to_identifier)
+    # Start from the top and collect identifiers until we find the to_identifier
+    filtered_identifiers = []
+    found_from = False
     
-    # Extract the range (inclusive of both ends)
-    filtered_identifiers = identifiers[from_index:to_index + 1]
+    for identifier in identifiers:
+        # Start including when we find the from_identifier
+        if identifier == from_identifier:
+            found_from = True
+        
+        # Include the identifier if we've found the from_identifier
+        if found_from:
+            filtered_identifiers.append(identifier)
+            
+            # Stop when we find the to_identifier
+            if identifier == to_identifier:
+                break
     
     # Write the filtered identifiers back to the file
     with open(config["identifiers_file_path"], 'w') as f:

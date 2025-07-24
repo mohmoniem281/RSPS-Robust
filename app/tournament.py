@@ -1,6 +1,7 @@
 import os
 import json
 from pathlib import Path
+from trend_filters.slope import apply_trend_slope_filter
 
 def get_normalized_price_for_identifier(asset_name, asset_config, identifier):
     # Ensure identifier is treated as string
@@ -31,6 +32,52 @@ def run_tournament_round(identifier, config, assets_to_consider):
     
     # Calculate the index (average of all normalized prices)
     index = sum(asset_prices.values()) / len(asset_prices)
+
+    # Apply trend filtering
+    if config["prices_slope_filtering_enabled"]:
+        # Filter out assets that are not trending upward
+        trending_assets = []
+        
+        for asset_name in assets_to_consider:
+            asset_config = config["assets"][asset_name]
+            
+            # Load all normalized prices for this asset
+            with open(asset_config["normalized_history"], 'r') as f:
+                normalized_data = json.load(f)
+            
+            # Filter normalized prices up to the current identifier
+            # Include every value until we hit the current identifier, then stop
+            filtered_prices = []
+            for entry in normalized_data:
+                filtered_prices.append(entry["normalized_price"])
+                # Stop when we reach the current identifier
+                if str(entry["time"]) == str(identifier):
+                    break
+    
+            
+            # Apply slope filter to determine if asset is trending
+            slope = apply_trend_slope_filter(filtered_prices)
+            
+            # Consider asset trending if slope is positive (upward trend)
+            if slope > 0:
+                trending_assets.append(asset_name)
+            else:
+                print(f"Asset {asset_name} filtered out - slope: {slope:.6f} (not trending upward)")
+        
+        # Update assets_to_consider to only include trending assets
+        if trending_assets:
+            assets_to_consider = trending_assets
+            print(f"Trend filtering applied: {len(trending_assets)} assets remain after filtering")
+            
+            # Filter the existing asset_prices to only include trending assets
+            asset_prices = {asset: asset_prices[asset] for asset in trending_assets}
+            
+            # Recalculate the index with the filtered assets
+            index = sum(asset_prices.values()) / len(asset_prices)
+        else:
+            print("No assets passed trend filtering - declaring cash as winner")
+            # Return cash as the winner and empty ratios
+            return ["cash"], {}
     
     # Calculate ratios and find assets that advance (ratio > 1)
     advancing_assets = []
