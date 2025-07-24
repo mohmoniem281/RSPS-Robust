@@ -7,9 +7,10 @@ from pathlib import Path
 from datetime import datetime
 import json
 from typing import Optional
-from identifiers import extract_identifiers
+from identifiers import extract_identifiers, filter_identifiers
 from price_to_json import price_to_json
 from price_normalization import normalize_prices
+from tournament import run_tournament
 
 def load_config():
 
@@ -40,6 +41,14 @@ def main():
     # Normalize prices
     normalize_prices(config)
     print(f"✅ Prices normalized successfully!")
+
+    # Filter identifiers
+    filter_identifiers(config)
+    print(f"✅ Identifiers filtered successfully!")
+
+    # Run tournament
+    run_tournament(config)
+    print(f"✅ Tournament completed successfully!")
 
 
 if __name__ == "__main__":

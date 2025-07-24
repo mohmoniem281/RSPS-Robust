@@ -1,0 +1,1757 @@
+{
+  "total_identifiers": 52,
+  "tournaments": [
+    {
+      "tournament_identifier": "2025-06-01",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.006293478338055,
+            "eth": 0.9938107758295776,
+            "sol": 0.999895745832367
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-02",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9968849218179442,
+            "eth": 1.0156595173161949,
+            "sol": 0.987455560865861
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-03",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9964498250270825,
+            "eth": 1.0203815516022676,
+            "sol": 0.9831686233706499
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-04",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0001686412274862,
+            "eth": 1.0112497588252374,
+            "sol": 0.9885815999472768
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 0.9944908937904413,
+            "eth": 1.005509106209559
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-05",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.023334477758605,
+            "eth": 0.9894044836855843,
+            "sol": 0.9872610385558104
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-06",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0269518737075534,
+            "eth": 0.9791989955823045,
+            "sol": 0.9938491307101421
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-07",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9981680870542368,
+            "eth": 1.003390120898004,
+            "sol": 0.9984417920477594
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-08",
+      "total_rounds": 1,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.994334330255844,
+            "eth": 0.9940481858745712,
+            "sol": 1.011617483869585
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-09",
+      "total_rounds": 2,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9851692222690817,
+            "eth": 1.0015132968543268,
+            "sol": 1.0133174808765915
+          },
+          "advancing_assets": [
+            "eth",
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "eth": 0.9941413521409683,
+            "sol": 1.005858647859032
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-10",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9631676465284429,
+            "eth": 1.0362641724543997,
+            "sol": 1.0005681810171578
+          },
+          "advancing_assets": [
+            "eth",
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "eth": 1.0175252476603691,
+            "sol": 0.9824747523396308
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-11",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9794268497342336,
+            "eth": 1.0278754063626119,
+            "sol": 0.9926977439031545
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-12",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0198691865206517,
+            "eth": 0.9987085196757134,
+            "sol": 0.9814222938036349
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-13",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0350020687646628,
+            "eth": 0.9863961142089592,
+            "sol": 0.978601817026378
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-14",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0302431309606186,
+            "eth": 0.9892729442031417,
+            "sol": 0.9804839248362397
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-15",
+      "total_rounds": 1,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9913803812544464,
+            "eth": 0.9837482779212033,
+            "sol": 1.0248713408243502
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-16",
+      "total_rounds": 1,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9933959221540252,
+            "eth": 0.9845245624418393,
+            "sol": 1.0220795154041356
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-17",
+      "total_rounds": 2,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.010534272836345,
+            "eth": 1.0051946084699417,
+            "sol": 0.9842711186937131
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 1.0026489992855303,
+            "eth": 0.9973510007144697
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-18",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0000301287779918,
+            "eth": 1.0114323961375316,
+            "sol": 0.9885374750844768
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 0.9943313548135736,
+            "eth": 1.0056686451864265
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-19",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0001998545824362,
+            "eth": 1.0040770231328473,
+            "sol": 0.9957231222847169
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 0.9980655524226618,
+            "eth": 1.001934447577338
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-20",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0203570450592514,
+            "eth": 0.9875659701324259,
+            "sol": 0.9920769848083227
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-21",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0426307536966999,
+            "eth": 0.9729885267924115,
+            "sol": 0.9843807195108888
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-22",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0316209991827041,
+            "eth": 0.9767137613600222,
+            "sol": 0.9916652394572735
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-23",
+      "total_rounds": 2,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9828417513870722,
+            "eth": 1.0007597622422924,
+            "sol": 1.0163984863706357
+          },
+          "advancing_assets": [
+            "eth",
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "eth": 0.9922471505946064,
+            "sol": 1.0077528494053936
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-24",
+      "total_rounds": 2,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9673053313972992,
+            "eth": 1.0122014407372273,
+            "sol": 1.0204932278654735
+          },
+          "advancing_assets": [
+            "eth",
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "eth": 0.9959207906350511,
+            "sol": 1.004079209364949
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-25",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0135872939861341,
+            "eth": 0.9974975013249973,
+            "sol": 0.988915204688869
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-26",
+      "total_rounds": 2,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.025878546058738,
+            "eth": 1.0041867183374684,
+            "sol": 0.9699347356037935
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 1.0106852858879496,
+            "eth": 0.9893147141120502
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-27",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0010484866746514,
+            "eth": 1.0056973354984613,
+            "sol": 0.9932541778268875
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 0.9976833893099747,
+            "eth": 1.0023166106900254
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-28",
+      "total_rounds": 1,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9723514778191401,
+            "eth": 0.9772700561438312,
+            "sol": 1.050378466037029
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-29",
+      "total_rounds": 1,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9723249674874427,
+            "eth": 0.9912907950049853,
+            "sol": 1.036384237507572
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-06-30",
+      "total_rounds": 2,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9834508891044862,
+            "eth": 1.005042923020186,
+            "sol": 1.011506187875328
+          },
+          "advancing_assets": [
+            "eth",
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "eth": 0.9967948884457013,
+            "sol": 1.0032051115542986
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-01",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0107709189013645,
+            "eth": 0.9967698999395443,
+            "sol": 0.9924591811590912
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-02",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0047862266687724,
+            "eth": 1.0226379919963184,
+            "sol": 0.9725757813349092
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 0.9911948544546341,
+            "eth": 1.008805145545366
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-03",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9871412141397639,
+            "eth": 1.0254400248400557,
+            "sol": 0.9874187610201808
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-04",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0133181855273408,
+            "eth": 0.9962845193311467,
+            "sol": 0.9903972951415126
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-05",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0118501593430482,
+            "eth": 0.9953605980343514,
+            "sol": 0.9927892426226003
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-06",
+      "total_rounds": 2,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9898418932319276,
+            "eth": 1.0035605384884136,
+            "sol": 1.0065975682796593
+          },
+          "advancing_assets": [
+            "eth",
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "eth": 0.9984891587477521,
+            "sol": 1.0015108412522478
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-07",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9939907402010356,
+            "eth": 1.0037778890801174,
+            "sol": 1.0022313707188473
+          },
+          "advancing_assets": [
+            "eth",
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "eth": 1.0007709427828988,
+            "sol": 0.9992290572171012
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-08",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9928984527764243,
+            "eth": 1.0127467076103573,
+            "sol": 0.9943548396132184
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-09",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9719655254956788,
+            "eth": 1.0301492386158797,
+            "sol": 0.9978852358884411
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-10",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9749391646191226,
+            "eth": 1.032932502033863,
+            "sol": 0.9921283333470143
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-11",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.00208697927502,
+            "eth": 1.0133315066743793,
+            "sol": 0.9845815140506007
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 0.9944207481087668,
+            "eth": 1.0055792518912332
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-12",
+      "total_rounds": 2,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0164533974370586,
+            "eth": 1.0013097713553025,
+            "sol": 0.9822368312076388
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 1.0075051553700523,
+            "eth": 0.9924948446299475
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-13",
+      "total_rounds": 2,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0107428490779868,
+            "eth": 1.0024129073764747,
+            "sol": 0.9868442435455388
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 1.0041377532139801,
+            "eth": 0.9958622467860198
+          },
+          "advancing_assets": [
+            "btc"
+          ],
+          "eliminated_assets": [
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-14",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 1.0025323963529438,
+            "eth": 1.0061999690189025,
+            "sol": 0.9912676346281541
+          },
+          "advancing_assets": [
+            "btc",
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "btc",
+            "eth"
+          ],
+          "asset_ratios": {
+            "btc": 0.9981741855066492,
+            "eth": 1.0018258144933507
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-15",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9687676028009998,
+            "eth": 1.0347291349523187,
+            "sol": 0.9965032622466816
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-16",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9343197217355876,
+            "eth": 1.0556441294341858,
+            "sol": 1.0100361488302265
+          },
+          "advancing_assets": [
+            "eth",
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "eth": 1.0220789156404588,
+            "sol": 0.9779210843595414
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-17",
+      "total_rounds": 2,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9513525338283852,
+            "eth": 1.0407603161555252,
+            "sol": 1.0078871500160898
+          },
+          "advancing_assets": [
+            "eth",
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc"
+          ]
+        },
+        {
+          "round": 2,
+          "assets_competing": [
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "eth": 1.0160462776940666,
+            "sol": 0.9839537223059334
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-18",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9724264528102874,
+            "eth": 1.0290529247966598,
+            "sol": 0.9985206223930526
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-19",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9794506489208002,
+            "eth": 1.023806038082654,
+            "sol": 0.9967433129965457
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-20",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.969226780547383,
+            "eth": 1.0326834830199205,
+            "sol": 0.9980897364326963
+          },
+          "advancing_assets": [
+            "eth"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "sol"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-21",
+      "total_rounds": 1,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9488903029607659,
+            "eth": 0.997370854183605,
+            "sol": 1.053738842855629
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "eth"
+          ]
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-07-22-12-00-00",
+      "total_rounds": 1,
+      "winner": "sol",
+      "rounds": [
+        {
+          "round": 1,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": {
+            "btc": 0.9729772831887792,
+            "eth": 0.9486621583822654,
+            "sol": 1.0783605584289555
+          },
+          "advancing_assets": [
+            "sol"
+          ],
+          "eliminated_assets": [
+            "btc",
+            "eth"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary_stats": {
+    "total_tournaments": 52,
+    "winners_by_asset": {
+      "btc": 17,
+      "eth": 23,
+      "sol": 12
+    }
+  }
+}
