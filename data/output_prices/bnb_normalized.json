@@ -1,0 +1,2067 @@
+[
+  {
+    "time": "2024-10-03",
+    "normalized_price": 0.9060681629260183,
+    "current_price": 545.0,
+    "historical_price": 601.5,
+    "historical_identifier": "2024-09-28"
+  },
+  {
+    "time": "2024-10-04",
+    "normalized_price": 0.9325390166135259,
+    "current_price": 555.7,
+    "historical_price": 595.9,
+    "historical_identifier": "2024-09-29"
+  },
+  {
+    "time": "2024-10-05",
+    "normalized_price": 0.9920718816067653,
+    "current_price": 563.1,
+    "historical_price": 567.6,
+    "historical_identifier": "2024-09-30"
+  },
+  {
+    "time": "2024-10-06",
+    "normalized_price": 1.0418264840182647,
+    "current_price": 570.4,
+    "historical_price": 547.5,
+    "historical_identifier": "2024-10-01"
+  },
+  {
+    "time": "2024-10-07",
+    "normalized_price": 1.0398009950248754,
+    "current_price": 564.3,
+    "historical_price": 542.7,
+    "historical_identifier": "2024-10-02"
+  },
+  {
+    "time": "2024-10-08",
+    "normalized_price": 1.0655045871559634,
+    "current_price": 580.7,
+    "historical_price": 545.0,
+    "historical_identifier": "2024-10-03"
+  },
+  {
+    "time": "2024-10-09",
+    "normalized_price": 1.0259132625517364,
+    "current_price": 570.1,
+    "historical_price": 555.7,
+    "historical_identifier": "2024-10-04"
+  },
+  {
+    "time": "2024-10-10",
+    "normalized_price": 1.0005327650506126,
+    "current_price": 563.4,
+    "historical_price": 563.1,
+    "historical_identifier": "2024-10-05"
+  },
+  {
+    "time": "2024-10-11",
+    "normalized_price": 1.0054347826086958,
+    "current_price": 573.5,
+    "historical_price": 570.4,
+    "historical_identifier": "2024-10-06"
+  },
+  {
+    "time": "2024-10-12",
+    "normalized_price": 1.0219741272372853,
+    "current_price": 576.7,
+    "historical_price": 564.3,
+    "historical_identifier": "2024-10-07"
+  },
+  {
+    "time": "2024-10-13",
+    "normalized_price": 0.9853624935422766,
+    "current_price": 572.2,
+    "historical_price": 580.7,
+    "historical_identifier": "2024-10-08"
+  },
+  {
+    "time": "2024-10-14",
+    "normalized_price": 1.0336783020522715,
+    "current_price": 589.3,
+    "historical_price": 570.1,
+    "historical_identifier": "2024-10-09"
+  },
+  {
+    "time": "2024-10-15",
+    "normalized_price": 1.055378061767838,
+    "current_price": 594.6,
+    "historical_price": 563.4,
+    "historical_identifier": "2024-10-10"
+  },
+  {
+    "time": "2024-10-16",
+    "normalized_price": 1.0477768090671316,
+    "current_price": 600.9,
+    "historical_price": 573.5,
+    "historical_identifier": "2024-10-11"
+  },
+  {
+    "time": "2024-10-17",
+    "normalized_price": 1.0277440610369344,
+    "current_price": 592.7,
+    "historical_price": 576.7,
+    "historical_identifier": "2024-10-12"
+  },
+  {
+    "time": "2024-10-18",
+    "normalized_price": 1.0468367703600139,
+    "current_price": 599.0,
+    "historical_price": 572.2,
+    "historical_identifier": "2024-10-13"
+  },
+  {
+    "time": "2024-10-19",
+    "normalized_price": 1.0144238927541152,
+    "current_price": 597.8,
+    "historical_price": 589.3,
+    "historical_identifier": "2024-10-14"
+  },
+  {
+    "time": "2024-10-20",
+    "normalized_price": 1.0188361923982507,
+    "current_price": 605.8,
+    "historical_price": 594.6,
+    "historical_identifier": "2024-10-15"
+  },
+  {
+    "time": "2024-10-21",
+    "normalized_price": 0.9961724080545848,
+    "current_price": 598.6,
+    "historical_price": 600.9,
+    "historical_identifier": "2024-10-16"
+  },
+  {
+    "time": "2024-10-22",
+    "normalized_price": 1.0011810359372362,
+    "current_price": 593.4,
+    "historical_price": 592.7,
+    "historical_identifier": "2024-10-17"
+  },
+  {
+    "time": "2024-10-23",
+    "normalized_price": 0.9757929883138564,
+    "current_price": 584.5,
+    "historical_price": 599.0,
+    "historical_identifier": "2024-10-18"
+  },
+  {
+    "time": "2024-10-24",
+    "normalized_price": 0.9938106390097023,
+    "current_price": 594.1,
+    "historical_price": 597.8,
+    "historical_identifier": "2024-10-19"
+  },
+  {
+    "time": "2024-10-25",
+    "normalized_price": 0.9484978540772533,
+    "current_price": 574.6,
+    "historical_price": 605.8,
+    "historical_identifier": "2024-10-20"
+  },
+  {
+    "time": "2024-10-26",
+    "normalized_price": 0.9736050785165384,
+    "current_price": 582.8,
+    "historical_price": 598.6,
+    "historical_identifier": "2024-10-21"
+  },
+  {
+    "time": "2024-10-27",
+    "normalized_price": 0.9922480620155039,
+    "current_price": 588.8,
+    "historical_price": 593.4,
+    "historical_identifier": "2024-10-22"
+  },
+  {
+    "time": "2024-10-28",
+    "normalized_price": 1.0278870829769033,
+    "current_price": 600.8,
+    "historical_price": 584.5,
+    "historical_identifier": "2024-10-23"
+  },
+  {
+    "time": "2024-10-29",
+    "normalized_price": 1.020198619760983,
+    "current_price": 606.1,
+    "historical_price": 594.1,
+    "historical_identifier": "2024-10-24"
+  },
+  {
+    "time": "2024-10-30",
+    "normalized_price": 1.0365471632439958,
+    "current_price": 595.6,
+    "historical_price": 574.6,
+    "historical_identifier": "2024-10-25"
+  },
+  {
+    "time": "2024-10-31",
+    "normalized_price": 0.9883321894303364,
+    "current_price": 576.0,
+    "historical_price": 582.8,
+    "historical_identifier": "2024-10-26"
+  },
+  {
+    "time": "2024-11-01",
+    "normalized_price": 0.9731657608695653,
+    "current_price": 573.0,
+    "historical_price": 588.8,
+    "historical_identifier": "2024-10-27"
+  },
+  {
+    "time": "2024-11-02",
+    "normalized_price": 0.9459054593874834,
+    "current_price": 568.3,
+    "historical_price": 600.8,
+    "historical_identifier": "2024-10-28"
+  },
+  {
+    "time": "2024-11-03",
+    "normalized_price": 0.9203101798383104,
+    "current_price": 557.8,
+    "historical_price": 606.1,
+    "historical_identifier": "2024-10-29"
+  },
+  {
+    "time": "2024-11-04",
+    "normalized_price": 0.9271323035594359,
+    "current_price": 552.2,
+    "historical_price": 595.6,
+    "historical_identifier": "2024-10-30"
+  },
+  {
+    "time": "2024-11-05",
+    "normalized_price": 0.9782986111111112,
+    "current_price": 563.5,
+    "historical_price": 576.0,
+    "historical_identifier": "2024-10-31"
+  },
+  {
+    "time": "2024-11-06",
+    "normalized_price": 1.0340314136125655,
+    "current_price": 592.5,
+    "historical_price": 573.0,
+    "historical_identifier": "2024-11-01"
+  },
+  {
+    "time": "2024-11-07",
+    "normalized_price": 1.053316910082703,
+    "current_price": 598.6,
+    "historical_price": 568.3,
+    "historical_identifier": "2024-11-02"
+  },
+  {
+    "time": "2024-11-08",
+    "normalized_price": 1.071889566152743,
+    "current_price": 597.9,
+    "historical_price": 557.8,
+    "historical_identifier": "2024-11-03"
+  },
+  {
+    "time": "2024-11-09",
+    "normalized_price": 1.131655197392249,
+    "current_price": 624.9,
+    "historical_price": 552.2,
+    "historical_identifier": "2024-11-04"
+  },
+  {
+    "time": "2024-11-10",
+    "normalized_price": 1.1137533274179237,
+    "current_price": 627.6,
+    "historical_price": 563.5,
+    "historical_identifier": "2024-11-05"
+  },
+  {
+    "time": "2024-11-11",
+    "normalized_price": 1.1140928270042194,
+    "current_price": 660.1,
+    "historical_price": 592.5,
+    "historical_identifier": "2024-11-06"
+  },
+  {
+    "time": "2024-11-12",
+    "normalized_price": 1.045439358503174,
+    "current_price": 625.8,
+    "historical_price": 598.6,
+    "historical_identifier": "2024-11-07"
+  },
+  {
+    "time": "2024-11-13",
+    "normalized_price": 1.0394714835256733,
+    "current_price": 621.5,
+    "historical_price": 597.9,
+    "historical_identifier": "2024-11-08"
+  },
+  {
+    "time": "2024-11-14",
+    "normalized_price": 0.996319411105777,
+    "current_price": 622.6,
+    "historical_price": 624.9,
+    "historical_identifier": "2024-11-09"
+  },
+  {
+    "time": "2024-11-15",
+    "normalized_price": 0.9867750159337156,
+    "current_price": 619.3,
+    "historical_price": 627.6,
+    "historical_identifier": "2024-11-10"
+  },
+  {
+    "time": "2024-11-16",
+    "normalized_price": 0.9434934100893803,
+    "current_price": 622.8,
+    "historical_price": 660.1,
+    "historical_identifier": "2024-11-11"
+  },
+  {
+    "time": "2024-11-17",
+    "normalized_price": 0.9886545222115694,
+    "current_price": 618.7,
+    "historical_price": 625.8,
+    "historical_identifier": "2024-11-12"
+  },
+  {
+    "time": "2024-11-18",
+    "normalized_price": 0.9962992759452938,
+    "current_price": 619.2,
+    "historical_price": 621.5,
+    "historical_identifier": "2024-11-13"
+  },
+  {
+    "time": "2024-11-19",
+    "normalized_price": 0.9898811435913908,
+    "current_price": 616.3,
+    "historical_price": 622.6,
+    "historical_identifier": "2024-11-14"
+  },
+  {
+    "time": "2024-11-20",
+    "normalized_price": 0.9782011948974649,
+    "current_price": 605.8,
+    "historical_price": 619.3,
+    "historical_identifier": "2024-11-15"
+  },
+  {
+    "time": "2024-11-21",
+    "normalized_price": 0.9995183044315993,
+    "current_price": 622.5,
+    "historical_price": 622.8,
+    "historical_identifier": "2024-11-16"
+  },
+  {
+    "time": "2024-11-22",
+    "normalized_price": 1.023597866494262,
+    "current_price": 633.3,
+    "historical_price": 618.7,
+    "historical_identifier": "2024-11-17"
+  },
+  {
+    "time": "2024-11-23",
+    "normalized_price": 1.0507105943152455,
+    "current_price": 650.6,
+    "historical_price": 619.2,
+    "historical_identifier": "2024-11-18"
+  },
+  {
+    "time": "2024-11-24",
+    "normalized_price": 1.0710692844393965,
+    "current_price": 660.1,
+    "historical_price": 616.3,
+    "historical_identifier": "2024-11-19"
+  },
+  {
+    "time": "2024-11-25",
+    "normalized_price": 1.050181578078574,
+    "current_price": 636.2,
+    "historical_price": 605.8,
+    "historical_identifier": "2024-11-20"
+  },
+  {
+    "time": "2024-11-26",
+    "normalized_price": 0.9855421686746988,
+    "current_price": 613.5,
+    "historical_price": 622.5,
+    "historical_identifier": "2024-11-21"
+  },
+  {
+    "time": "2024-11-27",
+    "normalized_price": 1.018158850465814,
+    "current_price": 644.8,
+    "historical_price": 633.3,
+    "historical_identifier": "2024-11-22"
+  },
+  {
+    "time": "2024-11-28",
+    "normalized_price": 1.0053796495542575,
+    "current_price": 654.1,
+    "historical_price": 650.6,
+    "historical_identifier": "2024-11-23"
+  },
+  {
+    "time": "2024-11-29",
+    "normalized_price": 0.9922738978942585,
+    "current_price": 655.0,
+    "historical_price": 660.1,
+    "historical_identifier": "2024-11-24"
+  },
+  {
+    "time": "2024-11-30",
+    "normalized_price": 1.0278214397988052,
+    "current_price": 653.9,
+    "historical_price": 636.2,
+    "historical_identifier": "2024-11-25"
+  },
+  {
+    "time": "2024-12-01",
+    "normalized_price": 1.0700896495517522,
+    "current_price": 656.5,
+    "historical_price": 613.5,
+    "historical_identifier": "2024-11-26"
+  },
+  {
+    "time": "2024-12-02",
+    "normalized_price": 1.0049627791563276,
+    "current_price": 648.0,
+    "historical_price": 644.8,
+    "historical_identifier": "2024-11-27"
+  },
+  {
+    "time": "2024-12-03",
+    "normalized_price": 1.1244458033939764,
+    "current_price": 735.5,
+    "historical_price": 654.1,
+    "historical_identifier": "2024-11-28"
+  },
+  {
+    "time": "2024-12-04",
+    "normalized_price": 1.1303816793893129,
+    "current_price": 740.4,
+    "historical_price": 655.0,
+    "historical_identifier": "2024-11-29"
+  },
+  {
+    "time": "2024-12-05",
+    "normalized_price": 1.0974155069582505,
+    "current_price": 717.6,
+    "historical_price": 653.9,
+    "historical_identifier": "2024-11-30"
+  },
+  {
+    "time": "2024-12-06",
+    "normalized_price": 1.1136329017517137,
+    "current_price": 731.1,
+    "historical_price": 656.5,
+    "historical_identifier": "2024-12-01"
+  },
+  {
+    "time": "2024-12-07",
+    "normalized_price": 1.157716049382716,
+    "current_price": 750.2,
+    "historical_price": 648.0,
+    "historical_identifier": "2024-12-02"
+  },
+  {
+    "time": "2024-12-08",
+    "normalized_price": 1.0096532970768186,
+    "current_price": 742.6,
+    "historical_price": 735.5,
+    "historical_identifier": "2024-12-03"
+  },
+  {
+    "time": "2024-12-09",
+    "normalized_price": 0.9320637493246894,
+    "current_price": 690.1,
+    "historical_price": 740.4,
+    "historical_identifier": "2024-12-04"
+  },
+  {
+    "time": "2024-12-10",
+    "normalized_price": 0.9438405797101448,
+    "current_price": 677.3,
+    "historical_price": 717.6,
+    "historical_identifier": "2024-12-05"
+  },
+  {
+    "time": "2024-12-11",
+    "normalized_price": 0.9731910819313363,
+    "current_price": 711.5,
+    "historical_price": 731.1,
+    "historical_identifier": "2024-12-06"
+  },
+  {
+    "time": "2024-12-12",
+    "normalized_price": 0.9412156758197814,
+    "current_price": 706.1,
+    "historical_price": 750.2,
+    "historical_identifier": "2024-12-07"
+  },
+  {
+    "time": "2024-12-13",
+    "normalized_price": 0.9773767842714784,
+    "current_price": 725.8,
+    "historical_price": 742.6,
+    "historical_identifier": "2024-12-08"
+  },
+  {
+    "time": "2024-12-14",
+    "normalized_price": 1.036951166497609,
+    "current_price": 715.6,
+    "historical_price": 690.1,
+    "historical_identifier": "2024-12-09"
+  },
+  {
+    "time": "2024-12-15",
+    "normalized_price": 1.060534475121807,
+    "current_price": 718.3,
+    "historical_price": 677.3,
+    "historical_identifier": "2024-12-10"
+  },
+  {
+    "time": "2024-12-16",
+    "normalized_price": 1.0125087842586085,
+    "current_price": 720.4,
+    "historical_price": 711.5,
+    "historical_identifier": "2024-12-11"
+  },
+  {
+    "time": "2024-12-17",
+    "normalized_price": 1.0161450219515649,
+    "current_price": 717.5,
+    "historical_price": 706.1,
+    "historical_identifier": "2024-12-12"
+  },
+  {
+    "time": "2024-12-18",
+    "normalized_price": 0.9453017360154313,
+    "current_price": 686.1,
+    "historical_price": 725.8,
+    "historical_identifier": "2024-12-13"
+  },
+  {
+    "time": "2024-12-19",
+    "normalized_price": 0.9295695919508106,
+    "current_price": 665.2,
+    "historical_price": 715.6,
+    "historical_identifier": "2024-12-14"
+  },
+  {
+    "time": "2024-12-20",
+    "normalized_price": 0.944591396352499,
+    "current_price": 678.5,
+    "historical_price": 718.3,
+    "historical_identifier": "2024-12-15"
+  },
+  {
+    "time": "2024-12-21",
+    "normalized_price": 0.9205996668517491,
+    "current_price": 663.2,
+    "historical_price": 720.4,
+    "historical_identifier": "2024-12-16"
+  },
+  {
+    "time": "2024-12-22",
+    "normalized_price": 0.9052264808362369,
+    "current_price": 649.5,
+    "historical_price": 717.5,
+    "historical_identifier": "2024-12-17"
+  },
+  {
+    "time": "2024-12-23",
+    "normalized_price": 1.0106398484185979,
+    "current_price": 693.4,
+    "historical_price": 686.1,
+    "historical_identifier": "2024-12-18"
+  },
+  {
+    "time": "2024-12-24",
+    "normalized_price": 1.0473541791942274,
+    "current_price": 696.7,
+    "historical_price": 665.2,
+    "historical_identifier": "2024-12-19"
+  },
+  {
+    "time": "2024-12-25",
+    "normalized_price": 1.0353721444362565,
+    "current_price": 702.5,
+    "historical_price": 678.5,
+    "historical_identifier": "2024-12-20"
+  },
+  {
+    "time": "2024-12-26",
+    "normalized_price": 1.0387515078407719,
+    "current_price": 688.9,
+    "historical_price": 663.2,
+    "historical_identifier": "2024-12-21"
+  },
+  {
+    "time": "2024-12-27",
+    "normalized_price": 1.0642032332563511,
+    "current_price": 691.2,
+    "historical_price": 649.5,
+    "historical_identifier": "2024-12-22"
+  },
+  {
+    "time": "2024-12-28",
+    "normalized_price": 1.0408133833285262,
+    "current_price": 721.7,
+    "historical_price": 693.4,
+    "historical_identifier": "2024-12-23"
+  },
+  {
+    "time": "2024-12-29",
+    "normalized_price": 0.9964116549447395,
+    "current_price": 694.2,
+    "historical_price": 696.7,
+    "historical_identifier": "2024-12-24"
+  },
+  {
+    "time": "2024-12-30",
+    "normalized_price": 1.0029893238434164,
+    "current_price": 704.6,
+    "historical_price": 702.5,
+    "historical_identifier": "2024-12-25"
+  },
+  {
+    "time": "2024-12-31",
+    "normalized_price": 1.0182900275802003,
+    "current_price": 701.5,
+    "historical_price": 688.9,
+    "historical_identifier": "2024-12-26"
+  },
+  {
+    "time": "2025-01-01",
+    "normalized_price": 1.023003472222222,
+    "current_price": 707.1,
+    "historical_price": 691.2,
+    "historical_identifier": "2024-12-27"
+  },
+  {
+    "time": "2025-01-02",
+    "normalized_price": 0.977830123319939,
+    "current_price": 705.7,
+    "historical_price": 721.7,
+    "historical_identifier": "2024-12-28"
+  },
+  {
+    "time": "2025-01-03",
+    "normalized_price": 1.0293863439930855,
+    "current_price": 714.6,
+    "historical_price": 694.2,
+    "historical_identifier": "2024-12-29"
+  },
+  {
+    "time": "2025-01-04",
+    "normalized_price": 1.0124893556627874,
+    "current_price": 713.4,
+    "historical_price": 704.6,
+    "historical_identifier": "2024-12-30"
+  },
+  {
+    "time": "2025-01-05",
+    "normalized_price": 1.010976478973628,
+    "current_price": 709.2,
+    "historical_price": 701.5,
+    "historical_identifier": "2024-12-31"
+  },
+  {
+    "time": "2025-01-06",
+    "normalized_price": 1.0321029557346908,
+    "current_price": 729.8,
+    "historical_price": 707.1,
+    "historical_identifier": "2025-01-01"
+  },
+  {
+    "time": "2025-01-07",
+    "normalized_price": 0.9892305512257333,
+    "current_price": 698.1,
+    "historical_price": 705.7,
+    "historical_identifier": "2025-01-02"
+  },
+  {
+    "time": "2025-01-08",
+    "normalized_price": 0.9742513294150574,
+    "current_price": 696.2,
+    "historical_price": 714.6,
+    "historical_identifier": "2025-01-03"
+  },
+  {
+    "time": "2025-01-09",
+    "normalized_price": 0.9610316792823101,
+    "current_price": 685.6,
+    "historical_price": 713.4,
+    "historical_identifier": "2025-01-04"
+  },
+  {
+    "time": "2025-01-10",
+    "normalized_price": 0.9771573604060914,
+    "current_price": 693.0,
+    "historical_price": 709.2,
+    "historical_identifier": "2025-01-05"
+  },
+  {
+    "time": "2025-01-11",
+    "normalized_price": 0.9547821320909838,
+    "current_price": 696.8,
+    "historical_price": 729.8,
+    "historical_identifier": "2025-01-06"
+  },
+  {
+    "time": "2025-01-12",
+    "normalized_price": 0.9928377023349091,
+    "current_price": 693.1,
+    "historical_price": 698.1,
+    "historical_identifier": "2025-01-07"
+  },
+  {
+    "time": "2025-01-13",
+    "normalized_price": 0.9890835966676242,
+    "current_price": 688.6,
+    "historical_price": 696.2,
+    "historical_identifier": "2025-01-08"
+  },
+  {
+    "time": "2025-01-14",
+    "normalized_price": 1.0196907817969663,
+    "current_price": 699.1,
+    "historical_price": 685.6,
+    "historical_identifier": "2025-01-09"
+  },
+  {
+    "time": "2025-01-15",
+    "normalized_price": 1.0313131313131314,
+    "current_price": 714.7,
+    "historical_price": 693.0,
+    "historical_identifier": "2025-01-10"
+  },
+  {
+    "time": "2025-01-16",
+    "normalized_price": 1.0163605051664755,
+    "current_price": 708.2,
+    "historical_price": 696.8,
+    "historical_identifier": "2025-01-11"
+  },
+  {
+    "time": "2025-01-17",
+    "normalized_price": 1.041408166209782,
+    "current_price": 721.8,
+    "historical_price": 693.1,
+    "historical_identifier": "2025-01-12"
+  },
+  {
+    "time": "2025-01-18",
+    "normalized_price": 1.0293348823700261,
+    "current_price": 708.8,
+    "historical_price": 688.6,
+    "historical_identifier": "2025-01-13"
+  },
+  {
+    "time": "2025-01-19",
+    "normalized_price": 0.9762551852381633,
+    "current_price": 682.5,
+    "historical_price": 699.1,
+    "historical_identifier": "2025-01-14"
+  },
+  {
+    "time": "2025-01-20",
+    "normalized_price": 0.9538267804673289,
+    "current_price": 681.7,
+    "historical_price": 714.7,
+    "historical_identifier": "2025-01-15"
+  },
+  {
+    "time": "2025-01-21",
+    "normalized_price": 0.9774075120022593,
+    "current_price": 692.2,
+    "historical_price": 708.2,
+    "historical_identifier": "2025-01-16"
+  },
+  {
+    "time": "2025-01-22",
+    "normalized_price": 0.9630091438071489,
+    "current_price": 695.1,
+    "historical_price": 721.8,
+    "historical_identifier": "2025-01-17"
+  },
+  {
+    "time": "2025-01-23",
+    "normalized_price": 0.9734762979683974,
+    "current_price": 690.0,
+    "historical_price": 708.8,
+    "historical_identifier": "2025-01-18"
+  },
+  {
+    "time": "2025-01-24",
+    "normalized_price": 0.9967765567765567,
+    "current_price": 680.3,
+    "historical_price": 682.5,
+    "historical_identifier": "2025-01-19"
+  },
+  {
+    "time": "2025-01-25",
+    "normalized_price": 1.0066011441983278,
+    "current_price": 686.2,
+    "historical_price": 681.7,
+    "historical_identifier": "2025-01-20"
+  },
+  {
+    "time": "2025-01-26",
+    "normalized_price": 0.9638832707310026,
+    "current_price": 667.2,
+    "historical_price": 692.2,
+    "historical_identifier": "2025-01-21"
+  },
+  {
+    "time": "2025-01-27",
+    "normalized_price": 0.9784203711696159,
+    "current_price": 680.1,
+    "historical_price": 695.1,
+    "historical_identifier": "2025-01-22"
+  },
+  {
+    "time": "2025-01-28",
+    "normalized_price": 0.9582608695652175,
+    "current_price": 661.2,
+    "historical_price": 690.0,
+    "historical_identifier": "2025-01-23"
+  },
+  {
+    "time": "2025-01-29",
+    "normalized_price": 0.98177274731736,
+    "current_price": 667.9,
+    "historical_price": 680.3,
+    "historical_identifier": "2025-01-24"
+  },
+  {
+    "time": "2025-01-30",
+    "normalized_price": 0.987467210725736,
+    "current_price": 677.6,
+    "historical_price": 686.2,
+    "historical_identifier": "2025-01-25"
+  },
+  {
+    "time": "2025-01-31",
+    "normalized_price": 1.0152877697841725,
+    "current_price": 677.4,
+    "historical_price": 667.2,
+    "historical_identifier": "2025-01-26"
+  },
+  {
+    "time": "2025-02-01",
+    "normalized_price": 0.9602999558888399,
+    "current_price": 653.1,
+    "historical_price": 680.1,
+    "historical_identifier": "2025-01-27"
+  },
+  {
+    "time": "2025-02-02",
+    "normalized_price": 0.9337568058076224,
+    "current_price": 617.4,
+    "historical_price": 661.2,
+    "historical_identifier": "2025-01-28"
+  },
+  {
+    "time": "2025-02-03",
+    "normalized_price": 0.9246893247492141,
+    "current_price": 617.6,
+    "historical_price": 667.9,
+    "historical_identifier": "2025-01-29"
+  },
+  {
+    "time": "2025-02-04",
+    "normalized_price": 0.8454840613931522,
+    "current_price": 572.9,
+    "historical_price": 677.6,
+    "historical_identifier": "2025-01-30"
+  },
+  {
+    "time": "2025-02-05",
+    "normalized_price": 0.8407144966046649,
+    "current_price": 569.5,
+    "historical_price": 677.4,
+    "historical_identifier": "2025-01-31"
+  },
+  {
+    "time": "2025-02-06",
+    "normalized_price": 0.876129229826979,
+    "current_price": 572.2,
+    "historical_price": 653.1,
+    "historical_identifier": "2025-02-01"
+  },
+  {
+    "time": "2025-02-07",
+    "normalized_price": 0.9361839974084872,
+    "current_price": 578.0,
+    "historical_price": 617.4,
+    "historical_identifier": "2025-02-02"
+  },
+  {
+    "time": "2025-02-08",
+    "normalized_price": 0.9922279792746113,
+    "current_price": 612.8,
+    "historical_price": 617.6,
+    "historical_identifier": "2025-02-03"
+  },
+  {
+    "time": "2025-02-09",
+    "normalized_price": 1.0755803805201607,
+    "current_price": 616.2,
+    "historical_price": 572.9,
+    "historical_identifier": "2025-02-04"
+  },
+  {
+    "time": "2025-02-10",
+    "normalized_price": 1.0865671641791044,
+    "current_price": 618.8,
+    "historical_price": 569.5,
+    "historical_identifier": "2025-02-05"
+  },
+  {
+    "time": "2025-02-11",
+    "normalized_price": 1.1225096120237676,
+    "current_price": 642.3,
+    "historical_price": 572.2,
+    "historical_identifier": "2025-02-06"
+  },
+  {
+    "time": "2025-02-12",
+    "normalized_price": 1.2062283737024222,
+    "current_price": 697.2,
+    "historical_price": 578.0,
+    "historical_identifier": "2025-02-07"
+  },
+  {
+    "time": "2025-02-13",
+    "normalized_price": 1.0855091383812012,
+    "current_price": 665.2,
+    "historical_price": 612.8,
+    "historical_identifier": "2025-02-08"
+  },
+  {
+    "time": "2025-02-14",
+    "normalized_price": 1.0707562479714376,
+    "current_price": 659.8,
+    "historical_price": 616.2,
+    "historical_identifier": "2025-02-09"
+  },
+  {
+    "time": "2025-02-15",
+    "normalized_price": 1.0702973497091144,
+    "current_price": 662.3,
+    "historical_price": 618.8,
+    "historical_identifier": "2025-02-10"
+  },
+  {
+    "time": "2025-02-16",
+    "normalized_price": 1.048419741553791,
+    "current_price": 673.4,
+    "historical_price": 642.3,
+    "historical_identifier": "2025-02-11"
+  },
+  {
+    "time": "2025-02-17",
+    "normalized_price": 0.9578313253012047,
+    "current_price": 667.8,
+    "historical_price": 697.2,
+    "historical_identifier": "2025-02-12"
+  },
+  {
+    "time": "2025-02-18",
+    "normalized_price": 0.9742934455802765,
+    "current_price": 648.1,
+    "historical_price": 665.2,
+    "historical_identifier": "2025-02-13"
+  },
+  {
+    "time": "2025-02-19",
+    "normalized_price": 0.991057896332222,
+    "current_price": 653.9,
+    "historical_price": 659.8,
+    "historical_identifier": "2025-02-14"
+  },
+  {
+    "time": "2025-02-20",
+    "normalized_price": 0.9916956062207459,
+    "current_price": 656.8,
+    "historical_price": 662.3,
+    "historical_identifier": "2025-02-15"
+  },
+  {
+    "time": "2025-02-21",
+    "normalized_price": 0.9613899613899614,
+    "current_price": 647.4,
+    "historical_price": 673.4,
+    "historical_identifier": "2025-02-16"
+  },
+  {
+    "time": "2025-02-22",
+    "normalized_price": 1.0016471997604073,
+    "current_price": 668.9,
+    "historical_price": 667.8,
+    "historical_identifier": "2025-02-17"
+  },
+  {
+    "time": "2025-02-23",
+    "normalized_price": 1.0158926091652523,
+    "current_price": 658.4,
+    "historical_price": 648.1,
+    "historical_identifier": "2025-02-18"
+  },
+  {
+    "time": "2025-02-24",
+    "normalized_price": 0.9402049243003517,
+    "current_price": 614.8,
+    "historical_price": 653.9,
+    "historical_identifier": "2025-02-19"
+  },
+  {
+    "time": "2025-02-25",
+    "normalized_price": 0.9488428745432401,
+    "current_price": 623.2,
+    "historical_price": 656.8,
+    "historical_identifier": "2025-02-20"
+  },
+  {
+    "time": "2025-02-26",
+    "normalized_price": 0.944084028421378,
+    "current_price": 611.2,
+    "historical_price": 647.4,
+    "historical_identifier": "2025-02-21"
+  },
+  {
+    "time": "2025-02-27",
+    "normalized_price": 0.9052175213036329,
+    "current_price": 605.5,
+    "historical_price": 668.9,
+    "historical_identifier": "2025-02-22"
+  },
+  {
+    "time": "2025-02-28",
+    "normalized_price": 0.8935297691373025,
+    "current_price": 588.3,
+    "historical_price": 658.4,
+    "historical_identifier": "2025-02-23"
+  },
+  {
+    "time": "2025-03-01",
+    "normalized_price": 0.9894274560832791,
+    "current_price": 608.3,
+    "historical_price": 614.8,
+    "historical_identifier": "2025-02-24"
+  },
+  {
+    "time": "2025-03-02",
+    "normalized_price": 1.001765083440308,
+    "current_price": 624.3,
+    "historical_price": 623.2,
+    "historical_identifier": "2025-02-25"
+  },
+  {
+    "time": "2025-03-03",
+    "normalized_price": 0.9425719895287957,
+    "current_price": 576.1,
+    "historical_price": 611.2,
+    "historical_identifier": "2025-02-26"
+  },
+  {
+    "time": "2025-03-04",
+    "normalized_price": 0.9646573080099092,
+    "current_price": 584.1,
+    "historical_price": 605.5,
+    "historical_identifier": "2025-02-27"
+  },
+  {
+    "time": "2025-03-05",
+    "normalized_price": 1.0175080741118478,
+    "current_price": 598.6,
+    "historical_price": 588.3,
+    "historical_identifier": "2025-02-28"
+  },
+  {
+    "time": "2025-03-06",
+    "normalized_price": 0.9809304619431203,
+    "current_price": 596.7,
+    "historical_price": 608.3,
+    "historical_identifier": "2025-03-01"
+  },
+  {
+    "time": "2025-03-07",
+    "normalized_price": 0.9529072561268621,
+    "current_price": 594.9,
+    "historical_price": 624.3,
+    "historical_identifier": "2025-03-02"
+  },
+  {
+    "time": "2025-03-08",
+    "normalized_price": 1.030029508765839,
+    "current_price": 593.4,
+    "historical_price": 576.1,
+    "historical_identifier": "2025-03-03"
+  },
+  {
+    "time": "2025-03-09",
+    "normalized_price": 0.9498373566170175,
+    "current_price": 554.8,
+    "historical_price": 584.1,
+    "historical_identifier": "2025-03-04"
+  },
+  {
+    "time": "2025-03-10",
+    "normalized_price": 0.8879051119278316,
+    "current_price": 531.5,
+    "historical_price": 598.6,
+    "historical_identifier": "2025-03-05"
+  },
+  {
+    "time": "2025-03-11",
+    "normalized_price": 0.9249203955086307,
+    "current_price": 551.9,
+    "historical_price": 596.7,
+    "historical_identifier": "2025-03-06"
+  },
+  {
+    "time": "2025-03-12",
+    "normalized_price": 0.9581442259203228,
+    "current_price": 570.0,
+    "historical_price": 594.9,
+    "historical_identifier": "2025-03-07"
+  },
+  {
+    "time": "2025-03-13",
+    "normalized_price": 0.9774182676103809,
+    "current_price": 580.0,
+    "historical_price": 593.4,
+    "historical_identifier": "2025-03-08"
+  },
+  {
+    "time": "2025-03-14",
+    "normalized_price": 1.0602018745493873,
+    "current_price": 588.2,
+    "historical_price": 554.8,
+    "historical_identifier": "2025-03-09"
+  },
+  {
+    "time": "2025-03-15",
+    "normalized_price": 1.166698024459078,
+    "current_price": 620.1,
+    "historical_price": 531.5,
+    "historical_identifier": "2025-03-10"
+  },
+  {
+    "time": "2025-03-16",
+    "normalized_price": 1.091683275955789,
+    "current_price": 602.5,
+    "historical_price": 551.9,
+    "historical_identifier": "2025-03-11"
+  },
+  {
+    "time": "2025-03-17",
+    "normalized_price": 1.109298245614035,
+    "current_price": 632.3,
+    "historical_price": 570.0,
+    "historical_identifier": "2025-03-12"
+  },
+  {
+    "time": "2025-03-18",
+    "normalized_price": 1.0832758620689655,
+    "current_price": 628.3,
+    "historical_price": 580.0,
+    "historical_identifier": "2025-03-13"
+  },
+  {
+    "time": "2025-03-19",
+    "normalized_price": 1.0527031621897314,
+    "current_price": 619.2,
+    "historical_price": 588.2,
+    "historical_identifier": "2025-03-14"
+  },
+  {
+    "time": "2025-03-20",
+    "normalized_price": 1.016610224157394,
+    "current_price": 630.4,
+    "historical_price": 620.1,
+    "historical_identifier": "2025-03-15"
+  },
+  {
+    "time": "2025-03-21",
+    "normalized_price": 1.0541078838174274,
+    "current_price": 635.1,
+    "historical_price": 602.5,
+    "historical_identifier": "2025-03-16"
+  },
+  {
+    "time": "2025-03-22",
+    "normalized_price": 0.9914597501186146,
+    "current_price": 626.9,
+    "historical_price": 632.3,
+    "historical_identifier": "2025-03-17"
+  },
+  {
+    "time": "2025-03-23",
+    "normalized_price": 0.993792774152475,
+    "current_price": 624.4,
+    "historical_price": 628.3,
+    "historical_identifier": "2025-03-18"
+  },
+  {
+    "time": "2025-03-24",
+    "normalized_price": 1.0293927648578811,
+    "current_price": 637.4,
+    "historical_price": 619.2,
+    "historical_identifier": "2025-03-19"
+  },
+  {
+    "time": "2025-03-25",
+    "normalized_price": 1.0,
+    "current_price": 630.4,
+    "historical_price": 630.4,
+    "historical_identifier": "2025-03-20"
+  },
+  {
+    "time": "2025-03-26",
+    "normalized_price": 0.9735474728389228,
+    "current_price": 618.3,
+    "historical_price": 635.1,
+    "historical_identifier": "2025-03-21"
+  },
+  {
+    "time": "2025-03-27",
+    "normalized_price": 1.0170681129366725,
+    "current_price": 637.6,
+    "historical_price": 626.9,
+    "historical_identifier": "2025-03-22"
+  },
+  {
+    "time": "2025-03-28",
+    "normalized_price": 0.992632927610506,
+    "current_price": 619.8,
+    "historical_price": 624.4,
+    "historical_identifier": "2025-03-23"
+  },
+  {
+    "time": "2025-03-29",
+    "normalized_price": 0.9461876372764356,
+    "current_price": 603.1,
+    "historical_price": 637.4,
+    "historical_identifier": "2025-03-24"
+  },
+  {
+    "time": "2025-03-30",
+    "normalized_price": 0.9554251269035533,
+    "current_price": 602.3,
+    "historical_price": 630.4,
+    "historical_identifier": "2025-03-25"
+  },
+  {
+    "time": "2025-03-31",
+    "normalized_price": 0.9784894064370048,
+    "current_price": 605.0,
+    "historical_price": 618.3,
+    "historical_identifier": "2025-03-26"
+  },
+  {
+    "time": "2025-04-01",
+    "normalized_price": 0.958594730238394,
+    "current_price": 611.2,
+    "historical_price": 637.6,
+    "historical_identifier": "2025-03-27"
+  },
+  {
+    "time": "2025-04-02",
+    "normalized_price": 0.952565343659245,
+    "current_price": 590.4,
+    "historical_price": 619.8,
+    "historical_identifier": "2025-03-28"
+  },
+  {
+    "time": "2025-04-03",
+    "normalized_price": 0.9822583319515834,
+    "current_price": 592.4,
+    "historical_price": 603.1,
+    "historical_identifier": "2025-03-29"
+  },
+  {
+    "time": "2025-04-04",
+    "normalized_price": 0.9918645193425204,
+    "current_price": 597.4,
+    "historical_price": 602.3,
+    "historical_identifier": "2025-03-30"
+  },
+  {
+    "time": "2025-04-05",
+    "normalized_price": 0.9804958677685951,
+    "current_price": 593.2,
+    "historical_price": 605.0,
+    "historical_identifier": "2025-03-31"
+  },
+  {
+    "time": "2025-04-06",
+    "normalized_price": 0.9083769633507853,
+    "current_price": 555.2,
+    "historical_price": 611.2,
+    "historical_identifier": "2025-04-01"
+  },
+  {
+    "time": "2025-04-07",
+    "normalized_price": 0.9393631436314364,
+    "current_price": 554.6,
+    "historical_price": 590.4,
+    "historical_identifier": "2025-04-02"
+  },
+  {
+    "time": "2025-04-08",
+    "normalized_price": 0.9339972991222146,
+    "current_price": 553.3,
+    "historical_price": 592.4,
+    "historical_identifier": "2025-04-03"
+  },
+  {
+    "time": "2025-04-09",
+    "normalized_price": 0.974556411114831,
+    "current_price": 582.2,
+    "historical_price": 597.4,
+    "historical_identifier": "2025-04-04"
+  },
+  {
+    "time": "2025-04-10",
+    "normalized_price": 0.973701955495617,
+    "current_price": 577.6,
+    "historical_price": 593.2,
+    "historical_identifier": "2025-04-05"
+  },
+  {
+    "time": "2025-04-11",
+    "normalized_price": 1.055115273775216,
+    "current_price": 585.8,
+    "historical_price": 555.2,
+    "historical_identifier": "2025-04-06"
+  },
+  {
+    "time": "2025-04-12",
+    "normalized_price": 1.0768121168409666,
+    "current_price": 597.2,
+    "historical_price": 554.6,
+    "historical_identifier": "2025-04-07"
+  },
+  {
+    "time": "2025-04-13",
+    "normalized_price": 1.055485270197,
+    "current_price": 584.0,
+    "historical_price": 553.3,
+    "historical_identifier": "2025-04-08"
+  },
+  {
+    "time": "2025-04-14",
+    "normalized_price": 1.0036070079010648,
+    "current_price": 584.3,
+    "historical_price": 582.2,
+    "historical_identifier": "2025-04-09"
+  },
+  {
+    "time": "2025-04-15",
+    "normalized_price": 1.0034626038781163,
+    "current_price": 579.6,
+    "historical_price": 577.6,
+    "historical_identifier": "2025-04-10"
+  },
+  {
+    "time": "2025-04-16",
+    "normalized_price": 0.9947080914988052,
+    "current_price": 582.7,
+    "historical_price": 585.8,
+    "historical_identifier": "2025-04-11"
+  },
+  {
+    "time": "2025-04-17",
+    "normalized_price": 0.9884460817146683,
+    "current_price": 590.3,
+    "historical_price": 597.2,
+    "historical_identifier": "2025-04-12"
+  },
+  {
+    "time": "2025-04-18",
+    "normalized_price": 1.013013698630137,
+    "current_price": 591.6,
+    "historical_price": 584.0,
+    "historical_identifier": "2025-04-13"
+  },
+  {
+    "time": "2025-04-19",
+    "normalized_price": 1.0123224371042274,
+    "current_price": 591.5,
+    "historical_price": 584.3,
+    "historical_identifier": "2025-04-14"
+  },
+  {
+    "time": "2025-04-20",
+    "normalized_price": 1.0222567287784678,
+    "current_price": 592.5,
+    "historical_price": 579.6,
+    "historical_identifier": "2025-04-15"
+  },
+  {
+    "time": "2025-04-21",
+    "normalized_price": 1.025055774841256,
+    "current_price": 597.3,
+    "historical_price": 582.7,
+    "historical_identifier": "2025-04-16"
+  },
+  {
+    "time": "2025-04-22",
+    "normalized_price": 1.0479417245468408,
+    "current_price": 618.6,
+    "historical_price": 590.3,
+    "historical_identifier": "2025-04-17"
+  },
+  {
+    "time": "2025-04-23",
+    "normalized_price": 1.0238336713995944,
+    "current_price": 605.7,
+    "historical_price": 591.6,
+    "historical_identifier": "2025-04-18"
+  },
+  {
+    "time": "2025-04-24",
+    "normalized_price": 1.0172442941673712,
+    "current_price": 601.7,
+    "historical_price": 591.5,
+    "historical_identifier": "2025-04-19"
+  },
+  {
+    "time": "2025-04-25",
+    "normalized_price": 1.0133333333333332,
+    "current_price": 600.4,
+    "historical_price": 592.5,
+    "historical_identifier": "2025-04-20"
+  },
+  {
+    "time": "2025-04-26",
+    "normalized_price": 1.0169094257492048,
+    "current_price": 607.4,
+    "historical_price": 597.3,
+    "historical_identifier": "2025-04-21"
+  },
+  {
+    "time": "2025-04-27",
+    "normalized_price": 0.9760750080827675,
+    "current_price": 603.8,
+    "historical_price": 618.6,
+    "historical_identifier": "2025-04-22"
+  },
+  {
+    "time": "2025-04-28",
+    "normalized_price": 1.0011556876341423,
+    "current_price": 606.4,
+    "historical_price": 605.7,
+    "historical_identifier": "2025-04-23"
+  },
+  {
+    "time": "2025-04-29",
+    "normalized_price": 0.9991690211068639,
+    "current_price": 601.2,
+    "historical_price": 601.7,
+    "historical_identifier": "2025-04-24"
+  },
+  {
+    "time": "2025-04-30",
+    "normalized_price": 0.9995003331112592,
+    "current_price": 600.1,
+    "historical_price": 600.4,
+    "historical_identifier": "2025-04-25"
+  },
+  {
+    "time": "2025-05-01",
+    "normalized_price": 0.9876522884425419,
+    "current_price": 599.9,
+    "historical_price": 607.4,
+    "historical_identifier": "2025-04-26"
+  },
+  {
+    "time": "2025-05-02",
+    "normalized_price": 0.9955283206359723,
+    "current_price": 601.1,
+    "historical_price": 603.8,
+    "historical_identifier": "2025-04-27"
+  },
+  {
+    "time": "2025-05-03",
+    "normalized_price": 0.9889511873350925,
+    "current_price": 599.7,
+    "historical_price": 606.4,
+    "historical_identifier": "2025-04-28"
+  },
+  {
+    "time": "2025-05-04",
+    "normalized_price": 0.975715236194278,
+    "current_price": 586.6,
+    "historical_price": 601.2,
+    "historical_identifier": "2025-04-29"
+  },
+  {
+    "time": "2025-05-05",
+    "normalized_price": 0.9965005832361272,
+    "current_price": 598.0,
+    "historical_price": 600.1,
+    "historical_identifier": "2025-04-30"
+  },
+  {
+    "time": "2025-05-06",
+    "normalized_price": 1.0046674445740957,
+    "current_price": 602.7,
+    "historical_price": 599.9,
+    "historical_identifier": "2025-05-01"
+  },
+  {
+    "time": "2025-05-07",
+    "normalized_price": 1.0031608717351521,
+    "current_price": 603.0,
+    "historical_price": 601.1,
+    "historical_identifier": "2025-05-02"
+  },
+  {
+    "time": "2025-05-08",
+    "normalized_price": 1.0491912622978157,
+    "current_price": 629.2,
+    "historical_price": 599.7,
+    "historical_identifier": "2025-05-03"
+  },
+  {
+    "time": "2025-05-09",
+    "normalized_price": 1.1358677122400271,
+    "current_price": 666.3,
+    "historical_price": 586.6,
+    "historical_identifier": "2025-05-04"
+  },
+  {
+    "time": "2025-05-10",
+    "normalized_price": 1.110200668896321,
+    "current_price": 663.9,
+    "historical_price": 598.0,
+    "historical_identifier": "2025-05-05"
+  },
+  {
+    "time": "2025-05-11",
+    "normalized_price": 1.079641612742658,
+    "current_price": 650.7,
+    "historical_price": 602.7,
+    "historical_identifier": "2025-05-06"
+  },
+  {
+    "time": "2025-05-12",
+    "normalized_price": 1.0950248756218905,
+    "current_price": 660.3,
+    "historical_price": 603.0,
+    "historical_identifier": "2025-05-07"
+  },
+  {
+    "time": "2025-05-13",
+    "normalized_price": 1.0559440559440558,
+    "current_price": 664.4,
+    "historical_price": 629.2,
+    "historical_identifier": "2025-05-08"
+  },
+  {
+    "time": "2025-05-14",
+    "normalized_price": 0.9795887738256042,
+    "current_price": 652.7,
+    "historical_price": 666.3,
+    "historical_identifier": "2025-05-09"
+  },
+  {
+    "time": "2025-05-15",
+    "normalized_price": 0.9816237385148366,
+    "current_price": 651.7,
+    "historical_price": 663.9,
+    "historical_identifier": "2025-05-10"
+  },
+  {
+    "time": "2025-05-16",
+    "normalized_price": 0.9933917319809435,
+    "current_price": 646.4,
+    "historical_price": 650.7,
+    "historical_identifier": "2025-05-11"
+  },
+  {
+    "time": "2025-05-17",
+    "normalized_price": 0.969256398606694,
+    "current_price": 640.0,
+    "historical_price": 660.3,
+    "historical_identifier": "2025-05-12"
+  },
+  {
+    "time": "2025-05-18",
+    "normalized_price": 0.9808850090307045,
+    "current_price": 651.7,
+    "historical_price": 664.4,
+    "historical_identifier": "2025-05-13"
+  },
+  {
+    "time": "2025-05-19",
+    "normalized_price": 0.9955569174199478,
+    "current_price": 649.8,
+    "historical_price": 652.7,
+    "historical_identifier": "2025-05-14"
+  },
+  {
+    "time": "2025-05-20",
+    "normalized_price": 0.9975448826147,
+    "current_price": 650.1,
+    "historical_price": 651.7,
+    "historical_identifier": "2025-05-15"
+  },
+  {
+    "time": "2025-05-21",
+    "normalized_price": 1.042388613861386,
+    "current_price": 673.8,
+    "historical_price": 646.4,
+    "historical_identifier": "2025-05-16"
+  },
+  {
+    "time": "2025-05-22",
+    "normalized_price": 1.07234375,
+    "current_price": 686.3,
+    "historical_price": 640.0,
+    "historical_identifier": "2025-05-17"
+  },
+  {
+    "time": "2025-05-23",
+    "normalized_price": 1.0079791315022248,
+    "current_price": 656.9,
+    "historical_price": 651.7,
+    "historical_identifier": "2025-05-18"
+  },
+  {
+    "time": "2025-05-24",
+    "normalized_price": 1.0278547245306249,
+    "current_price": 667.9,
+    "historical_price": 649.8,
+    "historical_identifier": "2025-05-19"
+  },
+  {
+    "time": "2025-05-25",
+    "normalized_price": 1.0298415628364868,
+    "current_price": 669.5,
+    "historical_price": 650.1,
+    "historical_identifier": "2025-05-20"
+  },
+  {
+    "time": "2025-05-26",
+    "normalized_price": 1.0007420599584447,
+    "current_price": 674.3,
+    "historical_price": 673.8,
+    "historical_identifier": "2025-05-21"
+  },
+  {
+    "time": "2025-05-27",
+    "normalized_price": 1.0011656709893633,
+    "current_price": 687.1,
+    "historical_price": 686.3,
+    "historical_identifier": "2025-05-22"
+  },
+  {
+    "time": "2025-05-28",
+    "normalized_price": 1.0458212817780483,
+    "current_price": 687.0,
+    "historical_price": 656.9,
+    "historical_identifier": "2025-05-23"
+  },
+  {
+    "time": "2025-05-29",
+    "normalized_price": 1.010929779907172,
+    "current_price": 675.2,
+    "historical_price": 667.9,
+    "historical_identifier": "2025-05-24"
+  },
+  {
+    "time": "2025-05-30",
+    "normalized_price": 0.9793876026885736,
+    "current_price": 655.7,
+    "historical_price": 669.5,
+    "historical_identifier": "2025-05-25"
+  },
+  {
+    "time": "2025-05-31",
+    "normalized_price": 0.9764199911018835,
+    "current_price": 658.4,
+    "historical_price": 674.3,
+    "historical_identifier": "2025-05-26"
+  },
+  {
+    "time": "2025-06-01",
+    "normalized_price": 0.9623053412894775,
+    "current_price": 661.2,
+    "historical_price": 687.1,
+    "historical_identifier": "2025-05-27"
+  },
+  {
+    "time": "2025-06-02",
+    "normalized_price": 0.9698689956331877,
+    "current_price": 666.3,
+    "historical_price": 687.0,
+    "historical_identifier": "2025-05-28"
+  },
+  {
+    "time": "2025-06-03",
+    "normalized_price": 0.9798578199052133,
+    "current_price": 661.6,
+    "historical_price": 675.2,
+    "historical_identifier": "2025-05-29"
+  },
+  {
+    "time": "2025-06-04",
+    "normalized_price": 1.0115906664633214,
+    "current_price": 663.3,
+    "historical_price": 655.7,
+    "historical_identifier": "2025-05-30"
+  },
+  {
+    "time": "2025-06-05",
+    "normalized_price": 0.9629404617253949,
+    "current_price": 634.0,
+    "historical_price": 658.4,
+    "historical_identifier": "2025-05-31"
+  },
+  {
+    "time": "2025-06-06",
+    "normalized_price": 0.9732304900181488,
+    "current_price": 643.5,
+    "historical_price": 661.2,
+    "historical_identifier": "2025-06-01"
+  },
+  {
+    "time": "2025-06-07",
+    "normalized_price": 0.9776377007354045,
+    "current_price": 651.4,
+    "historical_price": 666.3,
+    "historical_identifier": "2025-06-02"
+  },
+  {
+    "time": "2025-06-08",
+    "normalized_price": 0.985943168077388,
+    "current_price": 652.3,
+    "historical_price": 661.6,
+    "historical_identifier": "2025-06-03"
+  },
+  {
+    "time": "2025-06-09",
+    "normalized_price": 1.00376903361978,
+    "current_price": 665.8,
+    "historical_price": 663.3,
+    "historical_identifier": "2025-06-04"
+  },
+  {
+    "time": "2025-06-10",
+    "normalized_price": 1.0624605678233439,
+    "current_price": 673.6,
+    "historical_price": 634.0,
+    "historical_identifier": "2025-06-05"
+  },
+  {
+    "time": "2025-06-11",
+    "normalized_price": 1.0376068376068377,
+    "current_price": 667.7,
+    "historical_price": 643.5,
+    "historical_identifier": "2025-06-06"
+  },
+  {
+    "time": "2025-06-12",
+    "normalized_price": 1.0058335891925085,
+    "current_price": 655.2,
+    "historical_price": 651.4,
+    "historical_identifier": "2025-06-07"
+  },
+  {
+    "time": "2025-06-13",
+    "normalized_price": 1.0050590219224285,
+    "current_price": 655.6,
+    "historical_price": 652.3,
+    "historical_identifier": "2025-06-08"
+  },
+  {
+    "time": "2025-06-14",
+    "normalized_price": 0.9705617302493242,
+    "current_price": 646.2,
+    "historical_price": 665.8,
+    "historical_identifier": "2025-06-09"
+  },
+  {
+    "time": "2025-06-15",
+    "normalized_price": 0.9627375296912114,
+    "current_price": 648.5,
+    "historical_price": 673.6,
+    "historical_identifier": "2025-06-10"
+  },
+  {
+    "time": "2025-06-16",
+    "normalized_price": 0.9749887674105137,
+    "current_price": 651.0,
+    "historical_price": 667.7,
+    "historical_identifier": "2025-06-11"
+  },
+  {
+    "time": "2025-06-17",
+    "normalized_price": 0.9899267399267399,
+    "current_price": 648.6,
+    "historical_price": 655.2,
+    "historical_identifier": "2025-06-12"
+  },
+  {
+    "time": "2025-06-18",
+    "normalized_price": 0.9841366687004272,
+    "current_price": 645.2,
+    "historical_price": 655.6,
+    "historical_identifier": "2025-06-13"
+  },
+  {
+    "time": "2025-06-19",
+    "normalized_price": 0.9978334880841844,
+    "current_price": 644.8,
+    "historical_price": 646.2,
+    "historical_identifier": "2025-06-14"
+  },
+  {
+    "time": "2025-06-20",
+    "normalized_price": 0.98982266769468,
+    "current_price": 641.9,
+    "historical_price": 648.5,
+    "historical_identifier": "2025-06-15"
+  },
+  {
+    "time": "2025-06-21",
+    "normalized_price": 0.966973886328725,
+    "current_price": 629.5,
+    "historical_price": 651.0,
+    "historical_identifier": "2025-06-16"
+  },
+  {
+    "time": "2025-06-22",
+    "normalized_price": 0.9503546099290779,
+    "current_price": 616.4,
+    "historical_price": 648.6,
+    "historical_identifier": "2025-06-17"
+  },
+  {
+    "time": "2025-06-23",
+    "normalized_price": 0.9936453812771233,
+    "current_price": 641.1,
+    "historical_price": 645.2,
+    "historical_identifier": "2025-06-18"
+  },
+  {
+    "time": "2025-06-24",
+    "normalized_price": 0.9984491315136477,
+    "current_price": 643.8,
+    "historical_price": 644.8,
+    "historical_identifier": "2025-06-19"
+  },
+  {
+    "time": "2025-06-25",
+    "normalized_price": 1.0068546502570495,
+    "current_price": 646.3,
+    "historical_price": 641.9,
+    "historical_identifier": "2025-06-20"
+  },
+  {
+    "time": "2025-06-26",
+    "normalized_price": 1.0206513105639397,
+    "current_price": 642.5,
+    "historical_price": 629.5,
+    "historical_identifier": "2025-06-21"
+  },
+  {
+    "time": "2025-06-27",
+    "normalized_price": 1.0483452303698897,
+    "current_price": 646.2,
+    "historical_price": 616.4,
+    "historical_identifier": "2025-06-22"
+  },
+  {
+    "time": "2025-06-28",
+    "normalized_price": 1.0121665886757136,
+    "current_price": 648.9,
+    "historical_price": 641.1,
+    "historical_identifier": "2025-06-23"
+  },
+  {
+    "time": "2025-06-29",
+    "normalized_price": 1.0175520347934142,
+    "current_price": 655.1,
+    "historical_price": 643.8,
+    "historical_identifier": "2025-06-24"
+  },
+  {
+    "time": "2025-06-30",
+    "normalized_price": 1.016710505956986,
+    "current_price": 657.1,
+    "historical_price": 646.3,
+    "historical_identifier": "2025-06-25"
+  },
+  {
+    "time": "2025-07-01",
+    "normalized_price": 1.006536964980545,
+    "current_price": 646.7,
+    "historical_price": 642.5,
+    "historical_identifier": "2025-06-26"
+  },
+  {
+    "time": "2025-07-02",
+    "normalized_price": 1.0216651191581554,
+    "current_price": 660.2,
+    "historical_price": 646.2,
+    "historical_identifier": "2025-06-27"
+  },
+  {
+    "time": "2025-07-03",
+    "normalized_price": 1.0231160425335182,
+    "current_price": 663.9,
+    "historical_price": 648.9,
+    "historical_identifier": "2025-06-28"
+  },
+  {
+    "time": "2025-07-04",
+    "normalized_price": 0.9984735154938177,
+    "current_price": 654.1,
+    "historical_price": 655.1,
+    "historical_identifier": "2025-06-29"
+  },
+  {
+    "time": "2025-07-05",
+    "normalized_price": 0.9990868969715416,
+    "current_price": 656.5,
+    "historical_price": 657.1,
+    "historical_identifier": "2025-06-30"
+  },
+  {
+    "time": "2025-07-06",
+    "normalized_price": 1.026132673573527,
+    "current_price": 663.6,
+    "historical_price": 646.7,
+    "historical_identifier": "2025-07-01"
+  },
+  {
+    "time": "2025-07-07",
+    "normalized_price": 1.0016661617691607,
+    "current_price": 661.3,
+    "historical_price": 660.2,
+    "historical_identifier": "2025-07-02"
+  },
+  {
+    "time": "2025-07-08",
+    "normalized_price": 0.9953306220816388,
+    "current_price": 660.8,
+    "historical_price": 663.9,
+    "historical_identifier": "2025-07-03"
+  },
+  {
+    "time": "2025-07-09",
+    "normalized_price": 1.023238036997401,
+    "current_price": 669.3,
+    "historical_price": 654.1,
+    "historical_identifier": "2025-07-04"
+  },
+  {
+    "time": "2025-07-10",
+    "normalized_price": 1.0446306169078445,
+    "current_price": 685.8,
+    "historical_price": 656.5,
+    "historical_identifier": "2025-07-05"
+  },
+  {
+    "time": "2025-07-11",
+    "normalized_price": 1.0396323086196504,
+    "current_price": 689.9,
+    "historical_price": 663.6,
+    "historical_identifier": "2025-07-06"
+  },
+  {
+    "time": "2025-07-12",
+    "normalized_price": 1.0370482383184636,
+    "current_price": 685.8,
+    "historical_price": 661.3,
+    "historical_identifier": "2025-07-07"
+  },
+  {
+    "time": "2025-07-13",
+    "normalized_price": 1.046912832929782,
+    "current_price": 691.8,
+    "historical_price": 660.8,
+    "historical_identifier": "2025-07-08"
+  },
+  {
+    "time": "2025-07-14",
+    "normalized_price": 1.0298819662333782,
+    "current_price": 689.3,
+    "historical_price": 669.3,
+    "historical_identifier": "2025-07-09"
+  },
+  {
+    "time": "2025-07-15",
+    "normalized_price": 1.0062700495771364,
+    "current_price": 690.1,
+    "historical_price": 685.8,
+    "historical_identifier": "2025-07-10"
+  },
+  {
+    "time": "2025-07-16",
+    "normalized_price": 1.0276851717640239,
+    "current_price": 709.0,
+    "historical_price": 689.9,
+    "historical_identifier": "2025-07-11"
+  },
+  {
+    "time": "2025-07-17",
+    "normalized_price": 1.051764362787985,
+    "current_price": 721.3,
+    "historical_price": 685.8,
+    "historical_identifier": "2025-07-12"
+  },
+  {
+    "time": "2025-07-18",
+    "normalized_price": 1.0556519225209597,
+    "current_price": 730.3,
+    "historical_price": 691.8,
+    "historical_identifier": "2025-07-13"
+  },
+  {
+    "time": "2025-07-19",
+    "normalized_price": 1.064123023357029,
+    "current_price": 733.5,
+    "historical_price": 689.3,
+    "historical_identifier": "2025-07-14"
+  },
+  {
+    "time": "2025-07-20",
+    "normalized_price": 1.096942472105492,
+    "current_price": 757.0,
+    "historical_price": 690.1,
+    "historical_identifier": "2025-07-15"
+  },
+  {
+    "time": "2025-07-21",
+    "normalized_price": 1.0813822284908323,
+    "current_price": 766.7,
+    "historical_price": 709.0,
+    "historical_identifier": "2025-07-16"
+  },
+  {
+    "time": "2025-07-22",
+    "normalized_price": 1.0909469014279773,
+    "current_price": 786.9,
+    "historical_price": 721.3,
+    "historical_identifier": "2025-07-17"
+  },
+  {
+    "time": "2025-07-23",
+    "normalized_price": 1.063946323428728,
+    "current_price": 777.0,
+    "historical_price": 730.3,
+    "historical_identifier": "2025-07-18"
+  },
+  {
+    "time": "2025-07-24",
+    "normalized_price": 1.0549420586230402,
+    "current_price": 773.8,
+    "historical_price": 733.5,
+    "historical_identifier": "2025-07-19"
+  }
+]

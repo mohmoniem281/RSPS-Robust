@@ -1,0 +1,2856 @@
+{
+  "summary_statistics": {
+    "initial_capital": 10000,
+    "final_capital": 14950.969431052707,
+    "total_return": 4950.969431052707,
+    "total_return_pct": 49.50969431052707,
+    "number_of_trades": 282,
+    "number_of_periods": 283,
+    "average_return_per_trade_pct": 0.32031997476021234,
+    "sharpe_ratio": 0.053099686848683714,
+    "sortino_ratio": 0.08505300644415344,
+    "best_trade": {
+      "identifier": "2024-12-06",
+      "asset": "hbar",
+      "pnl": 8410.375948462737
+    },
+    "worst_trade": {
+      "identifier": "2025-03-03",
+      "asset": "ada",
+      "pnl": -4762.628492514079
+    }
+  },
+  "equity_curve": [
+    {
+      "identifier": "2024-10-15",
+      "capital": 10000,
+      "pnl": 0.0,
+      "return_pct": 0.0,
+      "position": null,
+      "entry_price": null,
+      "exit_price": null,
+      "winner_asset": null
+    },
+    {
+      "identifier": "2024-10-16",
+      "capital": 10118.035653567786,
+      "pnl": 118.03565356778653,
+      "return_pct": 1.1803565356778651,
+      "position": "sui",
+      "entry_price": 2.0587,
+      "exit_price": 2.083,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-10-17",
+      "capital": 10433.570257879526,
+      "pnl": 315.5346043117405,
+      "return_pct": 3.118536197295152,
+      "position": "doge",
+      "entry_price": 0.1257,
+      "exit_price": 0.12962,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-10-18",
+      "capital": 11040.491410050576,
+      "pnl": 606.9211521710502,
+      "return_pct": 5.817003548835049,
+      "position": "doge",
+      "entry_price": 0.12962,
+      "exit_price": 0.13716,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-10-19",
+      "capital": 11595.896708456443,
+      "pnl": 555.405298405868,
+      "return_pct": 5.030621172353449,
+      "position": "doge",
+      "entry_price": 0.13716,
+      "exit_price": 0.14406,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-10-20",
+      "capital": 11437.324471085492,
+      "pnl": -158.5722373709509,
+      "return_pct": -1.3674857698181309,
+      "position": "doge",
+      "entry_price": 0.14406,
+      "exit_price": 0.14209,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-10-21",
+      "capital": 11560.479558992882,
+      "pnl": 123.1550879073886,
+      "return_pct": 1.076782321064117,
+      "position": "doge",
+      "entry_price": 0.14209,
+      "exit_price": 0.14362,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-10-22",
+      "capital": 11237.700537745413,
+      "pnl": -322.7790212474676,
+      "return_pct": -2.792090238128385,
+      "position": "doge",
+      "entry_price": 0.14362,
+      "exit_price": 0.13961,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-10-23",
+      "capital": 11450.403610975967,
+      "pnl": 212.70307323055374,
+      "return_pct": 1.892763315022699,
+      "position": "sol",
+      "entry_price": 167.48,
+      "exit_price": 170.65,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2024-10-24",
+      "capital": 11881.17765833879,
+      "pnl": 430.77404736282193,
+      "return_pct": 3.7620861412247213,
+      "position": "sol",
+      "entry_price": 170.65,
+      "exit_price": 177.07,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2024-10-25",
+      "capital": 11044.456105283587,
+      "pnl": -836.7215530552024,
+      "return_pct": -7.042412605184391,
+      "position": "sol",
+      "entry_price": 177.07,
+      "exit_price": 164.6,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2024-10-26",
+      "capital": 11451.074598588682,
+      "pnl": 406.61849330509455,
+      "return_pct": 3.6816524908870005,
+      "position": "sol",
+      "entry_price": 164.6,
+      "exit_price": 170.66,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2024-10-27",
+      "capital": 11838.905438737766,
+      "pnl": 387.8308401490835,
+      "return_pct": 3.386851048869097,
+      "position": "sol",
+      "entry_price": 170.66,
+      "exit_price": 176.44,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2024-10-28",
+      "capital": 11956.999258575548,
+      "pnl": 118.09381983778258,
+      "return_pct": 0.9975062344139598,
+      "position": "sol",
+      "entry_price": 176.44,
+      "exit_price": 178.2,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2024-10-29",
+      "capital": 13026.215961192174,
+      "pnl": 1069.2167026166271,
+      "return_pct": 8.942182561814462,
+      "position": "doge",
+      "entry_price": 0.16137,
+      "exit_price": 0.1758,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-10-30",
+      "capital": 12467.526152617718,
+      "pnl": -558.6898085744552,
+      "return_pct": -4.28896473265075,
+      "position": "doge",
+      "entry_price": 0.1758,
+      "exit_price": 0.16826,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-10-31",
+      "capital": 11962.186033986714,
+      "pnl": -505.3401186310041,
+      "return_pct": -4.053250921193387,
+      "position": "doge",
+      "entry_price": 0.16826,
+      "exit_price": 0.16144,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-11-01",
+      "capital": 11783.612766259337,
+      "pnl": -178.57326772737812,
+      "return_pct": -1.492814667988104,
+      "position": "doge",
+      "entry_price": 0.16144,
+      "exit_price": 0.15903,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-11-02",
+      "capital": 11311.770331431508,
+      "pnl": -471.8424348278293,
+      "return_pct": -4.004225564666225,
+      "position": "sui",
+      "entry_price": 1.9879,
+      "exit_price": 1.9083,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-11-03",
+      "capital": 11539.39281255448,
+      "pnl": 227.6224811229732,
+      "return_pct": 2.0122622229209237,
+      "position": "sui",
+      "entry_price": 1.9083,
+      "exit_price": 1.9467,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-11-04",
+      "capital": 11546.276522723036,
+      "pnl": 6.883710168554311,
+      "return_pct": 0.05965400676078086,
+      "position": "xrp",
+      "entry_price": 0.5029,
+      "exit_price": 0.5032,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-11-05",
+      "capital": 11796.384658847204,
+      "pnl": 250.10813612416797,
+      "return_pct": 2.1661367249602583,
+      "position": "xrp",
+      "entry_price": 0.5032,
+      "exit_price": 0.5141,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-11-06",
+      "capital": 13644.947525386553,
+      "pnl": 1848.5628665393497,
+      "return_pct": 15.670588235294113,
+      "position": "doge",
+      "entry_price": 0.17,
+      "exit_price": 0.19664,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-11-07",
+      "capital": 13420.122311888523,
+      "pnl": -224.82521349803048,
+      "return_pct": -1.6476810414971628,
+      "position": "doge",
+      "entry_price": 0.19664,
+      "exit_price": 0.1934,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-11-08",
+      "capital": 13241.997008201313,
+      "pnl": -178.12530368720908,
+      "return_pct": -1.3273001508295694,
+      "position": "sui",
+      "entry_price": 2.3205,
+      "exit_price": 2.2897,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-11-09",
+      "capital": 14351.010163525816,
+      "pnl": 1109.0131553245028,
+      "return_pct": 8.374969082364581,
+      "position": "doge",
+      "entry_price": 0.20215,
+      "exit_price": 0.21908,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-11-10",
+      "capital": 17059.347831848812,
+      "pnl": 2708.3376683229976,
+      "return_pct": 18.872104733131913,
+      "position": "ada",
+      "entry_price": 0.4965,
+      "exit_price": 0.5902,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2024-11-11",
+      "capital": 17744.380945394758,
+      "pnl": 685.0331135459468,
+      "return_pct": 4.015587936292792,
+      "position": "ada",
+      "entry_price": 0.5902,
+      "exit_price": 0.6139,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2024-11-12",
+      "capital": 19178.153150247887,
+      "pnl": 1433.7722048531282,
+      "return_pct": 8.08014779025153,
+      "position": "doge",
+      "entry_price": 0.35185,
+      "exit_price": 0.38028,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-11-13",
+      "capital": 20160.561963140568,
+      "pnl": 982.4088128926811,
+      "return_pct": 5.122541285368675,
+      "position": "doge",
+      "entry_price": 0.38028,
+      "exit_price": 0.39976,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-11-14",
+      "capital": 18288.538598942607,
+      "pnl": -1872.0233641979628,
+      "return_pct": -9.28557134280568,
+      "position": "doge",
+      "entry_price": 0.39976,
+      "exit_price": 0.36264,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-11-15",
+      "capital": 19244.218629965002,
+      "pnl": 955.6800310223963,
+      "return_pct": 5.2255680564747315,
+      "position": "doge",
+      "entry_price": 0.36264,
+      "exit_price": 0.38159,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-11-16",
+      "capital": 24166.807424996925,
+      "pnl": 4922.588795031924,
+      "return_pct": 25.579572180535326,
+      "position": "xrp",
+      "entry_price": 0.8929,
+      "exit_price": 1.1213,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-11-17",
+      "capital": 22724.945820847908,
+      "pnl": -1441.8616041490175,
+      "return_pct": -5.96628912868991,
+      "position": "xrp",
+      "entry_price": 1.1213,
+      "exit_price": 1.0544,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-11-18",
+      "capital": 24022.405739678565,
+      "pnl": 1297.459918830657,
+      "return_pct": 5.70940819423369,
+      "position": "xrp",
+      "entry_price": 1.0544,
+      "exit_price": 1.1146,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-11-19",
+      "capital": 22194.505427678072,
+      "pnl": -1827.9003120004925,
+      "return_pct": -7.609147609147622,
+      "position": "hbar",
+      "entry_price": 0.1443,
+      "exit_price": 0.13332,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-11-20",
+      "capital": 20280.03788778685,
+      "pnl": -1914.4675398912225,
+      "return_pct": -8.625862586258624,
+      "position": "hbar",
+      "entry_price": 0.13332,
+      "exit_price": 0.12182,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-11-21",
+      "capital": 21120.738850956477,
+      "pnl": 840.7009631696261,
+      "return_pct": 4.145460515514705,
+      "position": "hbar",
+      "entry_price": 0.12182,
+      "exit_price": 0.12687,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-11-22",
+      "capital": 24485.207458017485,
+      "pnl": 3364.4686070610064,
+      "return_pct": 15.929691810514681,
+      "position": "hbar",
+      "entry_price": 0.12687,
+      "exit_price": 0.14708,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-11-23",
+      "capital": 25730.44373613804,
+      "pnl": 1245.2362781205545,
+      "return_pct": 5.085667663856415,
+      "position": "hbar",
+      "entry_price": 0.14708,
+      "exit_price": 0.15456,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-11-24",
+      "capital": 24695.920740561356,
+      "pnl": -1034.5229955766827,
+      "return_pct": -4.020618556701025,
+      "position": "ada",
+      "entry_price": 1.067,
+      "exit_price": 1.0241,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2024-11-25",
+      "capital": 22752.271476144557,
+      "pnl": -1943.6492644168006,
+      "return_pct": -7.870325163558248,
+      "position": "ada",
+      "entry_price": 1.0241,
+      "exit_price": 0.9435,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2024-11-26",
+      "capital": 22486.849757142583,
+      "pnl": -265.42171900197206,
+      "return_pct": -1.166572398190058,
+      "position": "xrp",
+      "entry_price": 1.4144,
+      "exit_price": 1.3979,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-11-27",
+      "capital": 23714.384841291216,
+      "pnl": 1227.5350841486315,
+      "return_pct": 5.458901968955099,
+      "position": "ada",
+      "entry_price": 0.9599,
+      "exit_price": 1.0123,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2024-11-28",
+      "capital": 22785.97785119996,
+      "pnl": -928.4069900912552,
+      "return_pct": -3.9149528706084062,
+      "position": "link",
+      "entry_price": 18.672,
+      "exit_price": 17.941,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2024-11-29",
+      "capital": 22884.761176130163,
+      "pnl": 98.78332493020079,
+      "return_pct": 0.43352681888523226,
+      "position": "eth",
+      "entry_price": 3579.94,
+      "exit_price": 3595.46,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2024-11-30",
+      "capital": 24797.115539200415,
+      "pnl": 1912.3543630702497,
+      "return_pct": 8.356453223837535,
+      "position": "xrp",
+      "entry_price": 1.8022,
+      "exit_price": 1.9528,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-12-01",
+      "capital": 29178.007008385248,
+      "pnl": 4380.891469184833,
+      "return_pct": 17.666939778779188,
+      "position": "xrp",
+      "entry_price": 1.9528,
+      "exit_price": 2.2978,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-12-02",
+      "capital": 34652.216609444906,
+      "pnl": 5474.209601059654,
+      "return_pct": 18.761423970754628,
+      "position": "xrp",
+      "entry_price": 2.2978,
+      "exit_price": 2.7289,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-12-03",
+      "capital": 34989.12088130956,
+      "pnl": 336.9042718646533,
+      "return_pct": 0.9722445050537567,
+      "position": "hbar",
+      "entry_price": 0.31165,
+      "exit_price": 0.31468,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-12-04",
+      "capital": 32042.598371602224,
+      "pnl": -2946.522509707335,
+      "return_pct": -8.421253336723028,
+      "position": "hbar",
+      "entry_price": 0.31468,
+      "exit_price": 0.28818,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-12-05",
+      "capital": 32508.48249672199,
+      "pnl": 465.88412511976605,
+      "return_pct": 1.4539523908668286,
+      "position": "hbar",
+      "entry_price": 0.28818,
+      "exit_price": 0.29237,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-12-06",
+      "capital": 40918.85844518473,
+      "pnl": 8410.375948462737,
+      "return_pct": 25.87132742757464,
+      "position": "hbar",
+      "entry_price": 0.29237,
+      "exit_price": 0.36801,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-12-07",
+      "capital": 36970.518282176905,
+      "pnl": -3948.3401630078233,
+      "return_pct": -9.64919431537186,
+      "position": "hbar",
+      "entry_price": 0.36801,
+      "exit_price": 0.3325,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-12-08",
+      "capital": 36720.77021693948,
+      "pnl": -249.74806523742384,
+      "return_pct": -0.6755330377876383,
+      "position": "sui",
+      "entry_price": 4.2633,
+      "exit_price": 4.2345,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-12-09",
+      "capital": 32567.442023086594,
+      "pnl": -4153.328193852888,
+      "return_pct": -11.310569384345147,
+      "position": "doge",
+      "entry_price": 0.46682,
+      "exit_price": 0.41402,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2024-12-10",
+      "capital": 31521.503910603114,
+      "pnl": -1045.93811248348,
+      "return_pct": -3.2116065847051463,
+      "position": "sui",
+      "entry_price": 3.8392,
+      "exit_price": 3.7159,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-12-11",
+      "capital": 31823.037049570958,
+      "pnl": 301.5331389678419,
+      "return_pct": 0.956595027391485,
+      "position": "xrp",
+      "entry_price": 2.373,
+      "exit_price": 2.3957,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-12-12",
+      "capital": 33618.261064710525,
+      "pnl": 1795.2240151395677,
+      "return_pct": 5.641271800498284,
+      "position": "sui",
+      "entry_price": 4.3749,
+      "exit_price": 4.6217,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-12-13",
+      "capital": 33494.67300953551,
+      "pnl": -123.58805517501968,
+      "return_pct": -0.3676217961932346,
+      "position": "link",
+      "entry_price": 29.106,
+      "exit_price": 28.999,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2024-12-14",
+      "capital": 31358.795087183025,
+      "pnl": -2135.8779223524834,
+      "return_pct": -6.376768991727209,
+      "position": "sui",
+      "entry_price": 4.7626,
+      "exit_price": 4.4589,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-12-15",
+      "capital": 31505.291244501554,
+      "pnl": 146.4961573185277,
+      "return_pct": 0.46716130805167205,
+      "position": "link",
+      "entry_price": 29.112,
+      "exit_price": 29.248,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2024-12-16",
+      "capital": 30969.933963712534,
+      "pnl": -535.3572807890204,
+      "return_pct": -1.6992614879649888,
+      "position": "link",
+      "entry_price": 29.248,
+      "exit_price": 28.751,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2024-12-17",
+      "capital": 30008.014342496044,
+      "pnl": -961.9196212164902,
+      "return_pct": -3.105978922472264,
+      "position": "link",
+      "entry_price": 28.751,
+      "exit_price": 27.858,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2024-12-18",
+      "capital": 26988.045926036713,
+      "pnl": -3019.9684164593305,
+      "return_pct": -10.063872877395232,
+      "position": "xrp",
+      "entry_price": 2.5676,
+      "exit_price": 2.3092,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2024-12-19",
+      "capital": 26252.3899564367,
+      "pnl": -735.6559696000138,
+      "return_pct": -2.725858595380149,
+      "position": "btc",
+      "entry_price": 100144.96,
+      "exit_price": 97415.15,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2024-12-20",
+      "capital": 26354.47269526632,
+      "pnl": 102.08273882962042,
+      "return_pct": 0.3888512207803437,
+      "position": "btc",
+      "entry_price": 97415.15,
+      "exit_price": 97793.95,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2024-12-21",
+      "capital": 25087.60776173994,
+      "pnl": -1266.8649335263815,
+      "return_pct": -4.807020607754108,
+      "position": "sui",
+      "entry_price": 4.5808,
+      "exit_price": 4.3606,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-12-22",
+      "capital": 24866.10776200894,
+      "pnl": -221.49999973099736,
+      "return_pct": -0.8829060221070489,
+      "position": "sui",
+      "entry_price": 4.3606,
+      "exit_price": 4.3221,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-12-23",
+      "capital": 27300.525667789523,
+      "pnl": 2434.4179057805795,
+      "return_pct": 9.7901043825602,
+      "position": "hbar",
+      "entry_price": 0.26537,
+      "exit_price": 0.29135,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-12-24",
+      "capital": 26669.44367984168,
+      "pnl": -631.0819879478422,
+      "return_pct": -2.3116111229038463,
+      "position": "sui",
+      "entry_price": 4.711,
+      "exit_price": 4.6021,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2024-12-25",
+      "capital": 25399.238276178992,
+      "pnl": -1270.2054036626866,
+      "return_pct": -4.762774277975592,
+      "position": "hbar",
+      "entry_price": 0.32859,
+      "exit_price": 0.31294,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-12-26",
+      "capital": 23073.910172988195,
+      "pnl": -2325.328103190798,
+      "return_pct": -9.155109605675213,
+      "position": "hbar",
+      "entry_price": 0.31294,
+      "exit_price": 0.28429,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-12-27",
+      "capital": 22430.285326276047,
+      "pnl": -643.6248467121469,
+      "return_pct": -2.7894051848464576,
+      "position": "hbar",
+      "entry_price": 0.28429,
+      "exit_price": 0.27636,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2024-12-28",
+      "capital": 23420.047627276366,
+      "pnl": 989.7623010003174,
+      "return_pct": 4.4126157407407405,
+      "position": "bnb",
+      "entry_price": 691.2,
+      "exit_price": 721.7,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2024-12-29",
+      "capital": 22527.6389952269,
+      "pnl": -892.4086320494665,
+      "return_pct": -3.810447554385478,
+      "position": "bnb",
+      "entry_price": 721.7,
+      "exit_price": 694.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2024-12-30",
+      "capital": 22865.131714256513,
+      "pnl": 337.4927190296157,
+      "return_pct": 1.4981273408239668,
+      "position": "bnb",
+      "entry_price": 694.2,
+      "exit_price": 704.6,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2024-12-31",
+      "capital": 22764.5329230073,
+      "pnl": -100.59879124921333,
+      "return_pct": -0.43996593812092294,
+      "position": "bnb",
+      "entry_price": 704.6,
+      "exit_price": 701.5,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-01-01",
+      "capital": 22946.259771715555,
+      "pnl": 181.72684870825574,
+      "return_pct": 0.7982893799002171,
+      "position": "bnb",
+      "entry_price": 701.5,
+      "exit_price": 707.1,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-01-02",
+      "capital": 23658.741876716642,
+      "pnl": 712.4821050010866,
+      "return_pct": 3.1050032209576894,
+      "position": "xrp",
+      "entry_price": 2.3285,
+      "exit_price": 2.4008,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-03",
+      "capital": 24181.031663231966,
+      "pnl": 522.2897865153245,
+      "return_pct": 2.207597467510846,
+      "position": "xrp",
+      "entry_price": 2.4008,
+      "exit_price": 2.4538,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-04",
+      "capital": 23767.984377956815,
+      "pnl": -413.0472852751523,
+      "return_pct": -1.7081458352465746,
+      "position": "ada",
+      "entry_price": 1.0889,
+      "exit_price": 1.0703,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2025-01-05",
+      "capital": 23554.133618772114,
+      "pnl": -213.8507591847018,
+      "return_pct": -0.8997429305912612,
+      "position": "sui",
+      "entry_price": 5.2904,
+      "exit_price": 5.2428,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-01-06",
+      "capital": 23621.06717291841,
+      "pnl": 66.93355414629752,
+      "return_pct": 0.2841690347419656,
+      "position": "ada",
+      "entry_price": 1.0909,
+      "exit_price": 1.094,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2025-01-07",
+      "capital": 21186.326145918883,
+      "pnl": -2434.741026999527,
+      "return_pct": -10.30749800242286,
+      "position": "doge",
+      "entry_price": 0.38797,
+      "exit_price": 0.34798,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-01-08",
+      "capital": 21679.546227139184,
+      "pnl": 493.2200812202994,
+      "return_pct": 2.3280113683858694,
+      "position": "sui",
+      "entry_price": 4.7852,
+      "exit_price": 4.8966,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-01-09",
+      "capital": 21032.250213903928,
+      "pnl": -647.2960132352562,
+      "return_pct": -2.985745210962715,
+      "position": "sui",
+      "entry_price": 4.8966,
+      "exit_price": 4.7504,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-01-10",
+      "capital": 21259.261082607092,
+      "pnl": 227.01086870316303,
+      "return_pct": 1.079346557759623,
+      "position": "bnb",
+      "entry_price": 685.6,
+      "exit_price": 693.0,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-01-11",
+      "capital": 21375.834231400608,
+      "pnl": 116.57314879351513,
+      "return_pct": 0.5483405483405418,
+      "position": "bnb",
+      "entry_price": 693.0,
+      "exit_price": 696.8,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-01-12",
+      "capital": 20772.564375568763,
+      "pnl": -603.2698558318434,
+      "return_pct": -2.8222049689441078,
+      "position": "xrp",
+      "entry_price": 2.576,
+      "exit_price": 2.5033,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-13",
+      "capital": 20933.546978087852,
+      "pnl": 160.9826025190891,
+      "return_pct": 0.774977030319981,
+      "position": "xrp",
+      "entry_price": 2.5033,
+      "exit_price": 2.5227,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-14",
+      "capital": 22134.278039145178,
+      "pnl": 1200.7310610573268,
+      "return_pct": 5.735917865778741,
+      "position": "xrp",
+      "entry_price": 2.5227,
+      "exit_price": 2.6674,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-15",
+      "capital": 26079.18160809232,
+      "pnl": 3944.903568947143,
+      "return_pct": 17.82259878533402,
+      "position": "xrp",
+      "entry_price": 2.6674,
+      "exit_price": 3.1428,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-16",
+      "capital": 26928.904211079676,
+      "pnl": 849.7226029873556,
+      "return_pct": 3.2582410589283533,
+      "position": "xrp",
+      "entry_price": 3.1428,
+      "exit_price": 3.2452,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-17",
+      "capital": 27335.509753524795,
+      "pnl": 406.6055424451197,
+      "return_pct": 1.5099223468507315,
+      "position": "xrp",
+      "entry_price": 3.2452,
+      "exit_price": 3.2942,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-18",
+      "capital": 25849.733587664934,
+      "pnl": -1485.7761658598608,
+      "return_pct": -5.435333671318408,
+      "position": "hbar",
+      "entry_price": 0.37477,
+      "exit_price": 0.3544,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-01-19",
+      "capital": 24897.598280512117,
+      "pnl": -952.1353071528179,
+      "return_pct": -3.6833466926218574,
+      "position": "sol",
+      "entry_price": 261.99,
+      "exit_price": 252.34,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-01-20",
+      "capital": 23842.849427303452,
+      "pnl": -1054.7488532086647,
+      "return_pct": -4.236347784734881,
+      "position": "sol",
+      "entry_price": 252.34,
+      "exit_price": 241.65,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-01-21",
+      "capital": 24698.291200672873,
+      "pnl": 855.4417733694212,
+      "return_pct": 3.58783364369956,
+      "position": "sol",
+      "entry_price": 241.65,
+      "exit_price": 250.32,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-01-22",
+      "capital": 25380.07928071702,
+      "pnl": 681.7880800441442,
+      "return_pct": 2.760466602748492,
+      "position": "sol",
+      "entry_price": 250.32,
+      "exit_price": 257.23,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-01-23",
+      "capital": 24974.558440054003,
+      "pnl": -405.5208406630147,
+      "return_pct": -1.597791859425422,
+      "position": "sol",
+      "entry_price": 257.23,
+      "exit_price": 253.12,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-01-24",
+      "capital": 24512.300899664115,
+      "pnl": -462.25754038988765,
+      "return_pct": -1.8509137669017708,
+      "position": "link",
+      "entry_price": 25.663,
+      "exit_price": 25.188,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2025-01-25",
+      "capital": 24562.89225241907,
+      "pnl": 50.591352754956276,
+      "return_pct": 0.20639169273435898,
+      "position": "xrp",
+      "entry_price": 3.1009,
+      "exit_price": 3.1073,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-26",
+      "capital": 23032.74172475823,
+      "pnl": -1530.1505276608411,
+      "return_pct": -6.229520986113289,
+      "position": "sol",
+      "entry_price": 256.36,
+      "exit_price": 240.39,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-01-27",
+      "capital": 22678.047648528103,
+      "pnl": -354.6940762301268,
+      "return_pct": -1.5399559482267844,
+      "position": "eth",
+      "entry_price": 3232.56,
+      "exit_price": 3182.78,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-01-28",
+      "capital": 22497.997860375905,
+      "pnl": -180.0497881521971,
+      "return_pct": -0.7939386623693026,
+      "position": "btc",
+      "entry_price": 102146.43,
+      "exit_price": 101335.45,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-01-29",
+      "capital": 22592.239563623218,
+      "pnl": 94.24170324731153,
+      "return_pct": 0.41888928886997817,
+      "position": "xrp",
+      "entry_price": 3.0557,
+      "exit_price": 3.0685,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-01-30",
+      "capital": 22809.380420890513,
+      "pnl": 217.1408572672963,
+      "return_pct": 0.9611302883708995,
+      "position": "btc",
+      "entry_price": 103745.56,
+      "exit_price": 104742.69,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-01-31",
+      "capital": 22133.41188987499,
+      "pnl": -675.9685310155229,
+      "return_pct": -2.9635549872122833,
+      "position": "xrp",
+      "entry_price": 3.128,
+      "exit_price": 3.0353,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-02-01",
+      "capital": 20218.207910657657,
+      "pnl": -1915.203979217336,
+      "return_pct": -8.652999315001466,
+      "position": "sui",
+      "entry_price": 4.0876,
+      "exit_price": 3.7339,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-02-02",
+      "capital": 19618.65146970259,
+      "pnl": -599.5564409550681,
+      "return_pct": -2.9654282100790095,
+      "position": "btc",
+      "entry_price": 100646.51,
+      "exit_price": 97661.91,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-02-03",
+      "capital": 20370.19022538438,
+      "pnl": 751.5387556817924,
+      "return_pct": 3.830736056667331,
+      "position": "btc",
+      "entry_price": 97661.91,
+      "exit_price": 101403.08,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-02-04",
+      "capital": 20038.50987991605,
+      "pnl": -331.68034546832916,
+      "return_pct": -1.6282633681790788,
+      "position": "sui",
+      "entry_price": 3.6542,
+      "exit_price": 3.5947,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-02-05",
+      "capital": 19795.708413243436,
+      "pnl": -242.801466672617,
+      "return_pct": -1.21167426184703,
+      "position": "btc",
+      "entry_price": 97807.64,
+      "exit_price": 96622.53,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-02-06",
+      "capital": 19789.80386575881,
+      "pnl": -5.904547484624198,
+      "return_pct": -0.029827411888296067,
+      "position": "btc",
+      "entry_price": 96622.53,
+      "exit_price": 96593.71,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-02-07",
+      "capital": 19780.77699684234,
+      "pnl": -9.026868916470598,
+      "return_pct": -0.04561373613252066,
+      "position": "btc",
+      "entry_price": 96593.71,
+      "exit_price": 96549.65,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-02-08",
+      "capital": 19773.97304049382,
+      "pnl": -6.803956348520922,
+      "return_pct": -0.034396810345756666,
+      "position": "btc",
+      "entry_price": 96549.65,
+      "exit_price": 96516.44,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-02-09",
+      "capital": 19883.685031906483,
+      "pnl": 109.71199141266449,
+      "return_pct": 0.5548302872062812,
+      "position": "bnb",
+      "entry_price": 612.8,
+      "exit_price": 616.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-02-10",
+      "capital": 19967.582437104396,
+      "pnl": 83.89740519791471,
+      "return_pct": 0.42194092827002744,
+      "position": "bnb",
+      "entry_price": 616.2,
+      "exit_price": 618.8,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-02-11",
+      "capital": 20725.885907162497,
+      "pnl": 758.3034700581018,
+      "return_pct": 3.7976729153199744,
+      "position": "bnb",
+      "entry_price": 618.8,
+      "exit_price": 642.3,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-02-12",
+      "capital": 22497.4118861493,
+      "pnl": 1771.5259789868023,
+      "return_pct": 8.547407753386285,
+      "position": "bnb",
+      "entry_price": 642.3,
+      "exit_price": 697.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-02-13",
+      "capital": 21464.828437559547,
+      "pnl": -1032.5834485897556,
+      "return_pct": -4.589787722317842,
+      "position": "bnb",
+      "entry_price": 697.2,
+      "exit_price": 665.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-02-14",
+      "capital": 21184.138601095037,
+      "pnl": -280.6898364645077,
+      "return_pct": -1.3076733283987099,
+      "position": "ada",
+      "entry_price": 0.8106,
+      "exit_price": 0.8,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2025-02-15",
+      "capital": 20371.428037221685,
+      "pnl": -812.7105638733536,
+      "return_pct": -3.8364107183066842,
+      "position": "sui",
+      "entry_price": 3.5528,
+      "exit_price": 3.4165,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-02-16",
+      "capital": 20122.186645902606,
+      "pnl": -249.24139131907967,
+      "return_pct": -1.223485122710484,
+      "position": "xrp",
+      "entry_price": 2.7626,
+      "exit_price": 2.7288,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-02-17",
+      "capital": 19614.85505647205,
+      "pnl": -507.3315894305551,
+      "return_pct": -2.5212547639988263,
+      "position": "xrp",
+      "entry_price": 2.7288,
+      "exit_price": 2.66,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-02-18",
+      "capital": 18884.82849609959,
+      "pnl": -730.0265603724574,
+      "return_pct": -3.7218045112782026,
+      "position": "xrp",
+      "entry_price": 2.66,
+      "exit_price": 2.561,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-02-19",
+      "capital": 20187.81529627952,
+      "pnl": 1302.9868001799277,
+      "return_pct": 6.8996485747754726,
+      "position": "xrp",
+      "entry_price": 2.561,
+      "exit_price": 2.7377,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-02-20",
+      "capital": 19824.27681722536,
+      "pnl": -363.53847905416006,
+      "return_pct": -1.800781678050907,
+      "position": "xrp",
+      "entry_price": 2.7377,
+      "exit_price": 2.6884,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-02-21",
+      "capital": 18790.76033266428,
+      "pnl": -1033.5164845610816,
+      "return_pct": -5.213388080129393,
+      "position": "ada",
+      "entry_price": 0.8037,
+      "exit_price": 0.7618,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2025-02-22",
+      "capital": 18875.876698306933,
+      "pnl": 85.11636564265523,
+      "return_pct": 0.45296924730978605,
+      "position": "btc",
+      "entry_price": 96183.13,
+      "exit_price": 96618.81,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-02-23",
+      "capital": 18634.27430222691,
+      "pnl": -241.6023960800248,
+      "return_pct": -1.2799532437171264,
+      "position": "sui",
+      "entry_price": 3.422,
+      "exit_price": 3.3782,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-02-24",
+      "capital": 15604.867089278294,
+      "pnl": -3029.4072129486167,
+      "return_pct": -16.25717837901841,
+      "position": "sui",
+      "entry_price": 3.3782,
+      "exit_price": 2.829,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-02-25",
+      "capital": 15098.715806764285,
+      "pnl": -506.15128251400955,
+      "return_pct": -3.24354753948384,
+      "position": "btc",
+      "entry_price": 91642.56,
+      "exit_price": 88670.09,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-02-26",
+      "capital": 14807.983153232239,
+      "pnl": -290.7326535320465,
+      "return_pct": -1.9255455712451859,
+      "position": "bnb",
+      "entry_price": 623.2,
+      "exit_price": 611.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-02-27",
+      "capital": 14669.885142804516,
+      "pnl": -138.0980104277232,
+      "return_pct": -0.9325916230366567,
+      "position": "bnb",
+      "entry_price": 611.2,
+      "exit_price": 605.5,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-02-28",
+      "capital": 15694.152097038725,
+      "pnl": 1024.2669542342082,
+      "return_pct": 6.982106160092225,
+      "position": "hbar",
+      "entry_price": 0.19951,
+      "exit_price": 0.21344,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-03-01",
+      "capital": 18577.246660967176,
+      "pnl": 2883.09456392845,
+      "return_pct": 18.37050224887556,
+      "position": "hbar",
+      "entry_price": 0.21344,
+      "exit_price": 0.25265,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-03-02",
+      "capital": 19419.89556947572,
+      "pnl": 842.6489085085467,
+      "return_pct": 4.5359192558876025,
+      "position": "hbar",
+      "entry_price": 0.25265,
+      "exit_price": 0.26411,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-03-03",
+      "capital": 14657.267076961642,
+      "pnl": -4762.628492514079,
+      "return_pct": -24.524480450862978,
+      "position": "ada",
+      "entry_price": 1.1356,
+      "exit_price": 0.8571,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2025-03-04",
+      "capital": 16088.620774711833,
+      "pnl": 1431.3536977501917,
+      "return_pct": 9.76548827441372,
+      "position": "ada",
+      "entry_price": 0.8571,
+      "exit_price": 0.9408,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2025-03-05",
+      "capital": 16659.79417381406,
+      "pnl": 571.1733991022269,
+      "return_pct": 3.55017006802721,
+      "position": "ada",
+      "entry_price": 0.9408,
+      "exit_price": 0.9742,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2025-03-06",
+      "capital": 15502.056475633799,
+      "pnl": -1157.7376981802624,
+      "return_pct": -6.949291726544855,
+      "position": "ada",
+      "entry_price": 0.9742,
+      "exit_price": 0.9065,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2025-03-07",
+      "capital": 13988.617978012628,
+      "pnl": -1513.4384976211709,
+      "return_pct": -9.762824048538334,
+      "position": "ada",
+      "entry_price": 0.9065,
+      "exit_price": 0.818,
+      "winner_asset": "ada"
+    },
+    {
+      "identifier": "2025-03-08",
+      "capital": 13953.346626580422,
+      "pnl": -35.271351432205314,
+      "return_pct": -0.2521432173474533,
+      "position": "bnb",
+      "entry_price": 594.9,
+      "exit_price": 593.4,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-03-09",
+      "capital": 12621.669077530796,
+      "pnl": -1331.6775490496254,
+      "return_pct": -9.543786051389613,
+      "position": "link",
+      "entry_price": 15.256,
+      "exit_price": 13.8,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2025-03-10",
+      "capital": 12091.595376185325,
+      "pnl": -530.0737013454705,
+      "return_pct": -4.199711607786582,
+      "position": "bnb",
+      "entry_price": 554.8,
+      "exit_price": 531.5,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-03-11",
+      "capital": 12555.694239165909,
+      "pnl": 464.098862980584,
+      "return_pct": 3.838193791157099,
+      "position": "bnb",
+      "entry_price": 531.5,
+      "exit_price": 551.9,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-03-12",
+      "capital": 12967.468230339859,
+      "pnl": 411.77399117395044,
+      "return_pct": 3.2795796339916694,
+      "position": "bnb",
+      "entry_price": 551.9,
+      "exit_price": 570.0,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-03-13",
+      "capital": 12570.27757432754,
+      "pnl": -397.19065601231904,
+      "return_pct": -3.06297766809265,
+      "position": "btc",
+      "entry_price": 83702.21,
+      "exit_price": 81138.43,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-03-14",
+      "capital": 12747.995291757688,
+      "pnl": 177.71771743014898,
+      "return_pct": 1.4137931034482838,
+      "position": "bnb",
+      "entry_price": 580.0,
+      "exit_price": 588.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-03-15",
+      "capital": 12935.155573972148,
+      "pnl": 187.1602822144602,
+      "return_pct": 1.4681546229897817,
+      "position": "xrp",
+      "entry_price": 2.3567,
+      "exit_price": 2.3913,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-03-16",
+      "capital": 12405.589341926034,
+      "pnl": -529.5662320461149,
+      "return_pct": -4.094007443649902,
+      "position": "xrp",
+      "entry_price": 2.3913,
+      "exit_price": 2.2934,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-03-17",
+      "capital": 13019.176997344117,
+      "pnl": 613.5876554180834,
+      "return_pct": 4.9460580912863,
+      "position": "bnb",
+      "entry_price": 602.5,
+      "exit_price": 632.3,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-03-18",
+      "capital": 12936.816238227595,
+      "pnl": -82.36075911652138,
+      "return_pct": -0.6326111023248459,
+      "position": "bnb",
+      "entry_price": 632.3,
+      "exit_price": 628.3,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-03-19",
+      "capital": 12749.44551123751,
+      "pnl": -187.37072699008425,
+      "return_pct": -1.4483526977558348,
+      "position": "bnb",
+      "entry_price": 628.3,
+      "exit_price": 619.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-03-20",
+      "capital": 12058.680824992349,
+      "pnl": -690.7646862451619,
+      "return_pct": -5.417997870074536,
+      "position": "link",
+      "entry_price": 15.024,
+      "exit_price": 14.21,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2025-03-21",
+      "capital": 11952.141731365053,
+      "pnl": -106.53909362729675,
+      "return_pct": -0.8835053781877036,
+      "position": "eth",
+      "entry_price": 1983.01,
+      "exit_price": 1965.49,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-03-22",
+      "capital": 11797.82341582861,
+      "pnl": -154.31831553644147,
+      "return_pct": -1.2911352542906702,
+      "position": "bnb",
+      "entry_price": 635.1,
+      "exit_price": 626.9,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-03-23",
+      "capital": 11950.894933289634,
+      "pnl": 153.07151746102375,
+      "return_pct": 1.2974555735056565,
+      "position": "eth",
+      "entry_price": 1980.8,
+      "exit_price": 2006.5,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-03-24",
+      "capital": 12001.347518670764,
+      "pnl": 50.4525853811308,
+      "return_pct": 0.4221657512910884,
+      "position": "xrp",
+      "entry_price": 2.4398,
+      "exit_price": 2.4501,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-03-25",
+      "capital": 12230.309396863844,
+      "pnl": 228.9618781930803,
+      "return_pct": 1.9078014184397145,
+      "position": "sol",
+      "entry_price": 141.0,
+      "exit_price": 143.69,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-03-26",
+      "capital": 11693.227816418364,
+      "pnl": -537.0815804454791,
+      "return_pct": -4.3913981487925415,
+      "position": "sol",
+      "entry_price": 143.69,
+      "exit_price": 137.38,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-03-27",
+      "capital": 11426.831739118876,
+      "pnl": -266.3960772994896,
+      "return_pct": -2.27820822002155,
+      "position": "doge",
+      "entry_price": 0.19489,
+      "exit_price": 0.19045,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-03-28",
+      "capital": 10295.616913187903,
+      "pnl": -1131.2148259309733,
+      "return_pct": -9.899636677578325,
+      "position": "sui",
+      "entry_price": 2.7799,
+      "exit_price": 2.5047,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-03-29",
+      "capital": 9495.709917816654,
+      "pnl": -799.9069953712498,
+      "return_pct": -7.769393540144541,
+      "position": "sui",
+      "entry_price": 2.5047,
+      "exit_price": 2.3101,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-03-30",
+      "capital": 9665.474352086092,
+      "pnl": 169.76443426943808,
+      "return_pct": 1.7878013938790578,
+      "position": "sui",
+      "entry_price": 2.3101,
+      "exit_price": 2.3514,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-03-31",
+      "capital": 9316.491289871195,
+      "pnl": -348.98306221489617,
+      "return_pct": -3.6106149527940694,
+      "position": "sui",
+      "entry_price": 2.3514,
+      "exit_price": 2.2665,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-04-01",
+      "capital": 9411.96607664343,
+      "pnl": 95.47478677223444,
+      "return_pct": 1.0247933884297595,
+      "position": "bnb",
+      "entry_price": 605.0,
+      "exit_price": 611.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-04-02",
+      "capital": 9115.847740692296,
+      "pnl": -296.118335951134,
+      "return_pct": -3.1461900047215012,
+      "position": "btc",
+      "entry_price": 85184.62,
+      "exit_price": 82504.55,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-04-03",
+      "capital": 9188.467760873575,
+      "pnl": 72.62002018127933,
+      "return_pct": 0.7966348522596568,
+      "position": "btc",
+      "entry_price": 82504.55,
+      "exit_price": 83161.81,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-04-04",
+      "capital": 9264.338368331935,
+      "pnl": 75.87060745836023,
+      "return_pct": 0.8257155538101054,
+      "position": "btc",
+      "entry_price": 83161.81,
+      "exit_price": 83848.49,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-04-05",
+      "capital": 9135.576832962688,
+      "pnl": -128.7615353692475,
+      "return_pct": -1.3898621817332357,
+      "position": "doge",
+      "entry_price": 0.17124,
+      "exit_price": 0.16886,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-04-06",
+      "capital": 8186.8134649410895,
+      "pnl": -948.763368021599,
+      "return_pct": -10.385369039843246,
+      "position": "xrp",
+      "entry_price": 2.1434,
+      "exit_price": 1.9208,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-04-07",
+      "capital": 8268.519397271117,
+      "pnl": 81.705932330027,
+      "return_pct": 0.9980187368372504,
+      "position": "btc",
+      "entry_price": 78379.29,
+      "exit_price": 79161.53,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-04-08",
+      "capital": 7967.126409596019,
+      "pnl": -301.39298767509774,
+      "return_pct": -3.6450659809127055,
+      "position": "btc",
+      "entry_price": 79161.53,
+      "exit_price": 76276.04,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-04-09",
+      "capital": 8383.26585155757,
+      "pnl": 416.1394419615501,
+      "return_pct": 5.223206217242019,
+      "position": "bnb",
+      "entry_price": 553.3,
+      "exit_price": 582.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-04-10",
+      "capital": 8336.556884095866,
+      "pnl": -46.70896746170402,
+      "return_pct": -0.5571691067512278,
+      "position": "hbar",
+      "entry_price": 0.16871,
+      "exit_price": 0.16777,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-04-11",
+      "capital": 8320.655959002519,
+      "pnl": -15.900925093346842,
+      "return_pct": -0.1907373189485693,
+      "position": "hbar",
+      "entry_price": 0.16777,
+      "exit_price": 0.16745,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-04-12",
+      "capital": 8796.193000075402,
+      "pnl": 475.53704107288326,
+      "return_pct": 5.715138847417153,
+      "position": "hbar",
+      "entry_price": 0.16745,
+      "exit_price": 0.17702,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-04-13",
+      "capital": 8536.737904777458,
+      "pnl": -259.4550952979437,
+      "return_pct": -2.949629405536232,
+      "position": "sol",
+      "entry_price": 132.22,
+      "exit_price": 128.32,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-04-14",
+      "capital": 8607.92173861561,
+      "pnl": 71.18383383815323,
+      "return_pct": 0.8338528678304189,
+      "position": "sol",
+      "entry_price": 128.32,
+      "exit_price": 129.39,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-04-15",
+      "capital": 8388.382811825044,
+      "pnl": -219.5389267905663,
+      "return_pct": -2.5504289357755496,
+      "position": "sol",
+      "entry_price": 129.39,
+      "exit_price": 126.09,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-04-16",
+      "capital": 8736.318747314337,
+      "pnl": 347.9359354892925,
+      "return_pct": 4.147830914426195,
+      "position": "sol",
+      "entry_price": 126.09,
+      "exit_price": 131.32,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-04-17",
+      "capital": 8971.158872032733,
+      "pnl": 234.84012471839495,
+      "return_pct": 2.6880901614377106,
+      "position": "sol",
+      "entry_price": 131.32,
+      "exit_price": 134.85,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-04-18",
+      "capital": 8916.606775072652,
+      "pnl": -54.552096960079936,
+      "return_pct": -0.6080830552465653,
+      "position": "sol",
+      "entry_price": 134.85,
+      "exit_price": 134.03,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-04-19",
+      "capital": 9305.124148544444,
+      "pnl": 388.51737347179227,
+      "return_pct": 4.357233455196599,
+      "position": "sol",
+      "entry_price": 134.03,
+      "exit_price": 139.87,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-04-20",
+      "capital": 9170.739714569612,
+      "pnl": -134.38443397483286,
+      "return_pct": -1.4441981840280333,
+      "position": "sol",
+      "entry_price": 139.87,
+      "exit_price": 137.85,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-04-21",
+      "capital": 9084.919952278755,
+      "pnl": -85.81976229085765,
+      "return_pct": -0.9357997823721379,
+      "position": "sol",
+      "entry_price": 137.85,
+      "exit_price": 136.56,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-04-22",
+      "capital": 9742.126927549984,
+      "pnl": 657.2069752712291,
+      "return_pct": 7.2340425531914905,
+      "position": "hbar",
+      "entry_price": 0.1692,
+      "exit_price": 0.18144,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-04-23",
+      "capital": 10831.966242912798,
+      "pnl": 1089.8393153628147,
+      "return_pct": 11.186872471152405,
+      "position": "sui",
+      "entry_price": 2.6692,
+      "exit_price": 2.9678,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-04-24",
+      "capital": 12214.886928080146,
+      "pnl": 1382.9206851673487,
+      "return_pct": 12.767032818923102,
+      "position": "sui",
+      "entry_price": 2.9678,
+      "exit_price": 3.3467,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-04-25",
+      "capital": 12848.862444083232,
+      "pnl": 633.9755160030847,
+      "return_pct": 5.190187348731592,
+      "position": "sui",
+      "entry_price": 3.3467,
+      "exit_price": 3.5204,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-04-26",
+      "capital": 12848.862444083232,
+      "pnl": 0.0,
+      "return_pct": 0.0,
+      "position": "sui",
+      "entry_price": 3.5204,
+      "exit_price": 3.5204,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-04-27",
+      "capital": 12991.205824187551,
+      "pnl": 142.34338010431995,
+      "return_pct": 1.1078286558345685,
+      "position": "sui",
+      "entry_price": 3.5204,
+      "exit_price": 3.5594,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-04-28",
+      "capital": 12874.776238922736,
+      "pnl": -116.42958526481604,
+      "return_pct": -0.8962184637860385,
+      "position": "sui",
+      "entry_price": 3.5594,
+      "exit_price": 3.5275,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-04-29",
+      "capital": 12897.405186529064,
+      "pnl": 22.62894760632845,
+      "return_pct": 0.17576187101347146,
+      "position": "sui",
+      "entry_price": 3.5275,
+      "exit_price": 3.5337,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-04-30",
+      "capital": 12797.034854404224,
+      "pnl": -100.37033212484009,
+      "return_pct": -0.7782211279961473,
+      "position": "sui",
+      "entry_price": 3.5337,
+      "exit_price": 3.5062,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-05-01",
+      "capital": 13116.113818589609,
+      "pnl": 319.0789641853848,
+      "return_pct": 2.4933820046256314,
+      "position": "eth",
+      "entry_price": 1794.35,
+      "exit_price": 1839.09,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-02",
+      "capital": 13172.74598601701,
+      "pnl": 56.63216742740089,
+      "return_pct": 0.431775510724339,
+      "position": "btc",
+      "entry_price": 96499.22,
+      "exit_price": 96915.88,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-05-03",
+      "capital": 13038.482107487429,
+      "pnl": -134.26387852958064,
+      "return_pct": -1.0192550488114094,
+      "position": "btc",
+      "entry_price": 96915.88,
+      "exit_price": 95928.06,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-05-04",
+      "capital": 12865.802980809094,
+      "pnl": -172.6791266783357,
+      "return_pct": -1.3243805931917003,
+      "position": "eth",
+      "entry_price": 1834.82,
+      "exit_price": 1810.52,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-05",
+      "capital": 12941.412277428744,
+      "pnl": 75.60929661965073,
+      "return_pct": 0.5876764686388496,
+      "position": "eth",
+      "entry_price": 1810.52,
+      "exit_price": 1821.16,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-06",
+      "capital": 12913.627282148402,
+      "pnl": -27.784995280341896,
+      "return_pct": -0.2146983241450549,
+      "position": "eth",
+      "entry_price": 1821.16,
+      "exit_price": 1817.25,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-07",
+      "capital": 12920.055170292824,
+      "pnl": 6.427888144423317,
+      "return_pct": 0.049776007964153726,
+      "position": "bnb",
+      "entry_price": 602.7,
+      "exit_price": 603.0,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-05-08",
+      "capital": 13481.424068239214,
+      "pnl": 561.368897946389,
+      "return_pct": 4.344941956882263,
+      "position": "bnb",
+      "entry_price": 603.0,
+      "exit_price": 629.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-05-09",
+      "capital": 13209.328677806378,
+      "pnl": -272.095390432836,
+      "return_pct": -2.018298579256649,
+      "position": "sui",
+      "entry_price": 4.0331,
+      "exit_price": 3.9517,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-05-10",
+      "capital": 14554.160530129684,
+      "pnl": 1344.831852323306,
+      "return_pct": 10.18092505020957,
+      "position": "eth",
+      "entry_price": 2345.17,
+      "exit_price": 2583.93,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-11",
+      "capital": 13464.80507391666,
+      "pnl": -1089.3554562130246,
+      "return_pct": -7.484838812639631,
+      "position": "doge",
+      "entry_price": 0.25064,
+      "exit_price": 0.23188,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-05-12",
+      "capital": 13365.681419912597,
+      "pnl": -99.12365400406232,
+      "return_pct": -0.7361685034422047,
+      "position": "eth",
+      "entry_price": 2514.37,
+      "exit_price": 2495.86,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-13",
+      "capital": 14352.687398815295,
+      "pnl": 987.0059789026988,
+      "return_pct": 7.384628945533802,
+      "position": "eth",
+      "entry_price": 2495.86,
+      "exit_price": 2680.17,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-14",
+      "capital": 13874.145296953116,
+      "pnl": -478.542101862178,
+      "return_pct": -3.334163760172733,
+      "position": "doge",
+      "entry_price": 0.24084,
+      "exit_price": 0.23281,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-05-15",
+      "capital": 13074.390003430026,
+      "pnl": -799.7552935230904,
+      "return_pct": -5.764357201151149,
+      "position": "doge",
+      "entry_price": 0.23281,
+      "exit_price": 0.21939,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-05-16",
+      "capital": 13040.210948704746,
+      "pnl": -34.17905472528018,
+      "return_pct": -0.2614198805168992,
+      "position": "btc",
+      "entry_price": 103760.28,
+      "exit_price": 103489.03,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-05-17",
+      "capital": 12729.046649060538,
+      "pnl": -311.1642996442071,
+      "return_pct": -2.3861906902289367,
+      "position": "eth",
+      "entry_price": 2536.26,
+      "exit_price": 2475.74,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-18",
+      "capital": 13140.139078583034,
+      "pnl": 411.0924295224954,
+      "return_pct": 3.229561811314722,
+      "position": "btc",
+      "entry_price": 103155.79,
+      "exit_price": 106487.27,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-05-19",
+      "capital": 13028.983658015039,
+      "pnl": -111.15542056799498,
+      "return_pct": -0.8459227098225007,
+      "position": "btc",
+      "entry_price": 106487.27,
+      "exit_price": 105586.47,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-05-20",
+      "capital": 13182.54916572226,
+      "pnl": 153.5655077072205,
+      "return_pct": 1.1786453321150006,
+      "position": "btc",
+      "entry_price": 105586.47,
+      "exit_price": 106830.96,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-05-21",
+      "capital": 13631.398547755993,
+      "pnl": 448.8493820337332,
+      "return_pct": 3.4048754636989904,
+      "position": "doge",
+      "entry_price": 0.22644,
+      "exit_price": 0.23415,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-05-22",
+      "capital": 13883.707195954845,
+      "pnl": 252.30864819885252,
+      "return_pct": 1.8509373584443225,
+      "position": "btc",
+      "entry_price": 109674.16,
+      "exit_price": 111704.16,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-05-23",
+      "capital": 12732.243022746912,
+      "pnl": -1151.4641732079322,
+      "return_pct": -8.29363625259558,
+      "position": "doge",
+      "entry_price": 0.24561,
+      "exit_price": 0.22524,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-05-24",
+      "capital": 12753.31254713965,
+      "pnl": 21.069524392737815,
+      "return_pct": 0.1654816386641054,
+      "position": "eth",
+      "entry_price": 2525.96,
+      "exit_price": 2530.14,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-25",
+      "capital": 12741.715991061325,
+      "pnl": -11.596556078326326,
+      "return_pct": -0.09092975676289872,
+      "position": "sol",
+      "entry_price": 175.96,
+      "exit_price": 175.8,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-05-26",
+      "capital": 12681.558856405005,
+      "pnl": -60.15713465632002,
+      "return_pct": -0.4721274175199161,
+      "position": "sol",
+      "entry_price": 175.8,
+      "exit_price": 174.97,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-05-27",
+      "capital": 12814.194466550865,
+      "pnl": 132.6356101458611,
+      "return_pct": 1.0458935817568797,
+      "position": "sol",
+      "entry_price": 174.97,
+      "exit_price": 176.8,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-05-28",
+      "capital": 12812.329498647132,
+      "pnl": -1.864967903733631,
+      "return_pct": -0.014553922282058322,
+      "position": "bnb",
+      "entry_price": 687.1,
+      "exit_price": 687.0,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-05-29",
+      "capital": 12573.035154559831,
+      "pnl": -239.2943440873008,
+      "return_pct": -1.8676880274782828,
+      "position": "eth",
+      "entry_price": 2681.39,
+      "exit_price": 2631.31,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-30",
+      "capital": 12093.012993876719,
+      "pnl": -480.02216068311265,
+      "return_pct": -3.817870186333044,
+      "position": "eth",
+      "entry_price": 2631.31,
+      "exit_price": 2530.85,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-05-31",
+      "capital": 12086.849062090125,
+      "pnl": -6.163931786593646,
+      "return_pct": -0.050971017642292664,
+      "position": "eth",
+      "entry_price": 2530.85,
+      "exit_price": 2529.56,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-06-01",
+      "capital": 12133.245788948905,
+      "pnl": 46.396726858780006,
+      "return_pct": 0.38386122487705515,
+      "position": "eth",
+      "entry_price": 2529.56,
+      "exit_price": 2539.27,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-06-02",
+      "capital": 12158.068773683608,
+      "pnl": 24.8229847347022,
+      "return_pct": 0.2045865151541828,
+      "position": "btc",
+      "entry_price": 105686.34,
+      "exit_price": 105902.56,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-06-03",
+      "capital": 12104.6158937813,
+      "pnl": -53.45287990230814,
+      "return_pct": -0.43964942868235785,
+      "position": "btc",
+      "entry_price": 105902.56,
+      "exit_price": 105436.96,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-06-04",
+      "capital": 11867.49239112052,
+      "pnl": -237.12350266077982,
+      "return_pct": -1.9589510707448479,
+      "position": "xrp",
+      "entry_price": 2.2461,
+      "exit_price": 2.2021,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-06-05",
+      "capital": 11001.280977840303,
+      "pnl": -866.2114132802174,
+      "return_pct": -7.299026489608984,
+      "position": "eth",
+      "entry_price": 2607.06,
+      "exit_price": 2416.77,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-06-06",
+      "capital": 11305.23430147341,
+      "pnl": 303.9533236331082,
+      "return_pct": 2.7628902874615813,
+      "position": "btc",
+      "entry_price": 101597.23,
+      "exit_price": 104404.25,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-06-07",
+      "capital": 11391.533799957939,
+      "pnl": 86.29949848452847,
+      "return_pct": 0.7633587786259419,
+      "position": "xrp",
+      "entry_price": 2.1615,
+      "exit_price": 2.178,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-06-08",
+      "capital": 11407.387015394377,
+      "pnl": 15.853215436438665,
+      "return_pct": 0.1391666452896554,
+      "position": "btc",
+      "entry_price": 105643.13,
+      "exit_price": 105790.15,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-06-09",
+      "capital": 11676.967697033255,
+      "pnl": 269.5806816388771,
+      "return_pct": 2.3632114986111663,
+      "position": "xrp",
+      "entry_price": 2.2681,
+      "exit_price": 2.3217,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-06-10",
+      "capital": 11821.533229263849,
+      "pnl": 144.56553223059424,
+      "return_pct": 1.2380400115975636,
+      "position": "sui",
+      "entry_price": 3.449,
+      "exit_price": 3.4917,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-06-11",
+      "capital": 11394.525490920423,
+      "pnl": -427.0077383434247,
+      "return_pct": -3.612118073537026,
+      "position": "link",
+      "entry_price": 15.448,
+      "exit_price": 14.89,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2025-06-12",
+      "capital": 10866.804401175756,
+      "pnl": -527.7210897446681,
+      "return_pct": -4.631356436607875,
+      "position": "eth",
+      "entry_price": 2772.19,
+      "exit_price": 2643.8,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-06-13",
+      "capital": 10604.320805949534,
+      "pnl": -262.4835952262218,
+      "return_pct": -2.4154625917240384,
+      "position": "eth",
+      "entry_price": 2643.8,
+      "exit_price": 2579.94,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-06-14",
+      "capital": 10412.369914983912,
+      "pnl": -191.9508909656217,
+      "return_pct": -1.8101196151848595,
+      "position": "eth",
+      "entry_price": 2579.94,
+      "exit_price": 2533.24,
+      "winner_asset": "eth"
+    },
+    {
+      "identifier": "2025-06-15",
+      "capital": 10449.430346436191,
+      "pnl": 37.06043145227874,
+      "return_pct": 0.35592695759825976,
+      "position": "bnb",
+      "entry_price": 646.2,
+      "exit_price": 648.5,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-06-16",
+      "capital": 10489.713424101712,
+      "pnl": 40.28307766552117,
+      "return_pct": 0.3855050115651504,
+      "position": "bnb",
+      "entry_price": 648.5,
+      "exit_price": 651.0,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-06-17",
+      "capital": 10118.66147984586,
+      "pnl": -371.051944255852,
+      "return_pct": -3.5372934345689915,
+      "position": "xrp",
+      "entry_price": 2.239,
+      "exit_price": 2.1598,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-06-18",
+      "capital": 10065.618851058509,
+      "pnl": -53.04262878735074,
+      "return_pct": -0.5242059821153218,
+      "position": "bnb",
+      "entry_price": 648.6,
+      "exit_price": 645.2,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-06-19",
+      "capital": 10038.261585893018,
+      "pnl": -27.35726516548985,
+      "return_pct": -0.2717892021374616,
+      "position": "xrp",
+      "entry_price": 2.1708,
+      "exit_price": 2.1649,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-06-20",
+      "capital": 9567.888746347298,
+      "pnl": -470.3728395457207,
+      "return_pct": -4.685799782372135,
+      "position": "sol",
+      "entry_price": 147.04,
+      "exit_price": 140.15,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-06-21",
+      "capital": 9383.05961337533,
+      "pnl": -184.82913297196805,
+      "return_pct": -1.931765072441187,
+      "position": "bnb",
+      "entry_price": 641.9,
+      "exit_price": 629.5,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-06-22",
+      "capital": 9187.79657773559,
+      "pnl": -195.26303563974113,
+      "return_pct": -2.08101667990469,
+      "position": "bnb",
+      "entry_price": 629.5,
+      "exit_price": 616.4,
+      "winner_asset": "bnb"
+    },
+    {
+      "identifier": "2025-06-23",
+      "capital": 9587.987411448219,
+      "pnl": 400.19083371262997,
+      "return_pct": 4.355677994464919,
+      "position": "btc",
+      "entry_price": 101049.94,
+      "exit_price": 105451.35,
+      "winner_asset": "btc"
+    },
+    {
+      "identifier": "2025-06-24",
+      "capital": 9740.358329098006,
+      "pnl": 152.37091764978678,
+      "return_pct": 1.5891856247939304,
+      "position": "hbar",
+      "entry_price": 0.15165,
+      "exit_price": 0.15406,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-06-25",
+      "capital": 9479.873606808742,
+      "pnl": -260.4847222892633,
+      "return_pct": -2.6742827469817034,
+      "position": "hbar",
+      "entry_price": 0.15406,
+      "exit_price": 0.14994,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-06-26",
+      "capital": 9337.79089982903,
+      "pnl": -142.08270697971176,
+      "return_pct": -1.4987827145465684,
+      "position": "link",
+      "entry_price": 13.144,
+      "exit_price": 12.947,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2025-06-27",
+      "capital": 9416.405189477702,
+      "pnl": 78.6142896486726,
+      "return_pct": 0.8418938750289642,
+      "position": "link",
+      "entry_price": 12.947,
+      "exit_price": 13.056,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2025-06-28",
+      "capital": 9665.230234695979,
+      "pnl": 248.82504521827613,
+      "return_pct": 2.6424632352941226,
+      "position": "link",
+      "entry_price": 13.056,
+      "exit_price": 13.401,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2025-06-29",
+      "capital": 9888.09092736974,
+      "pnl": 222.86069267376075,
+      "return_pct": 2.3057980747705478,
+      "position": "link",
+      "entry_price": 13.401,
+      "exit_price": 13.71,
+      "winner_asset": "link"
+    },
+    {
+      "identifier": "2025-06-30",
+      "capital": 9987.397435965991,
+      "pnl": 99.30650859625224,
+      "return_pct": 1.0043041606886605,
+      "position": "sol",
+      "entry_price": 153.34,
+      "exit_price": 154.88,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-07-01",
+      "capital": 9474.09885906588,
+      "pnl": -513.2985769001122,
+      "return_pct": -5.139462809917361,
+      "position": "sol",
+      "entry_price": 154.88,
+      "exit_price": 146.92,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-07-02",
+      "capital": 9822.316486611182,
+      "pnl": 348.21762754530226,
+      "return_pct": 3.67546964334332,
+      "position": "sol",
+      "entry_price": 146.92,
+      "exit_price": 152.32,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-07-03",
+      "capital": 9826.830418820102,
+      "pnl": 4.51393220892014,
+      "return_pct": 0.045955882352936704,
+      "position": "sol",
+      "entry_price": 152.32,
+      "exit_price": 152.39,
+      "winner_asset": "sol"
+    },
+    {
+      "identifier": "2025-07-04",
+      "capital": 9349.383291806815,
+      "pnl": -477.44712701328706,
+      "return_pct": -4.85860757400364,
+      "position": "sui",
+      "entry_price": 3.0235,
+      "exit_price": 2.8766,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-07-05",
+      "capital": 9338.018051660996,
+      "pnl": -11.365240145818602,
+      "return_pct": -0.12156138850118972,
+      "position": "xrp",
+      "entry_price": 2.2211,
+      "exit_price": 2.2184,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-07-06",
+      "capital": 9370.220334755213,
+      "pnl": 32.20228309421758,
+      "return_pct": 0.3448513690599432,
+      "position": "sui",
+      "entry_price": 2.8998,
+      "exit_price": 2.9098,
+      "winner_asset": "sui"
+    },
+    {
+      "identifier": "2025-07-07",
+      "capital": 9317.879306085582,
+      "pnl": -52.34102866963006,
+      "return_pct": -0.5585890918220059,
+      "position": "hbar",
+      "entry_price": 0.15933,
+      "exit_price": 0.15844,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-08",
+      "capital": 9458.435551614139,
+      "pnl": 140.556245528557,
+      "return_pct": 1.508457460237316,
+      "position": "hbar",
+      "entry_price": 0.15844,
+      "exit_price": 0.16083,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-09",
+      "capital": 9839.817481790844,
+      "pnl": 381.38193017670557,
+      "return_pct": 4.032188284156786,
+      "position": "xrp",
+      "entry_price": 2.3114,
+      "exit_price": 2.4046,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-07-10",
+      "capital": 10928.015321317513,
+      "pnl": 1088.197839526668,
+      "return_pct": 11.059126264693848,
+      "position": "hbar",
+      "entry_price": 0.17099,
+      "exit_price": 0.1899,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-11",
+      "capital": 11148.417104785896,
+      "pnl": 220.40178346838374,
+      "return_pct": 2.0168509741969456,
+      "position": "hbar",
+      "entry_price": 0.1899,
+      "exit_price": 0.19373,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-12",
+      "capital": 11359.61150304411,
+      "pnl": 211.19439825821505,
+      "return_pct": 1.8943890982294838,
+      "position": "hbar",
+      "entry_price": 0.19373,
+      "exit_price": 0.1974,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-13",
+      "capital": 13899.123436323425,
+      "pnl": 2539.5119332793147,
+      "return_pct": 22.355623100303955,
+      "position": "hbar",
+      "entry_price": 0.1974,
+      "exit_price": 0.24153,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-14",
+      "capital": 13633.835649955476,
+      "pnl": -265.2877863679503,
+      "return_pct": -1.908665590195836,
+      "position": "hbar",
+      "entry_price": 0.24153,
+      "exit_price": 0.23692,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-15",
+      "capital": 13415.160251213998,
+      "pnl": -218.6753987414772,
+      "return_pct": -1.6039169339861548,
+      "position": "hbar",
+      "entry_price": 0.23692,
+      "exit_price": 0.23312,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-16",
+      "capital": 13599.883416992983,
+      "pnl": 184.72316577898584,
+      "return_pct": 1.3769732326698776,
+      "position": "hbar",
+      "entry_price": 0.23312,
+      "exit_price": 0.23633,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-17",
+      "capital": 15918.993566803912,
+      "pnl": 2319.110149810929,
+      "return_pct": 17.0524266914907,
+      "position": "hbar",
+      "entry_price": 0.23633,
+      "exit_price": 0.27663,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-18",
+      "capital": 14943.010734526162,
+      "pnl": -975.98283227775,
+      "return_pct": -6.130933015218877,
+      "position": "hbar",
+      "entry_price": 0.27663,
+      "exit_price": 0.25967,
+      "winner_asset": "hbar"
+    },
+    {
+      "identifier": "2025-07-19",
+      "capital": 14990.694678845599,
+      "pnl": 47.683944319437266,
+      "return_pct": 0.31910533403594793,
+      "position": "xrp",
+      "entry_price": 3.4158,
+      "exit_price": 3.4267,
+      "winner_asset": "xrp"
+    },
+    {
+      "identifier": "2025-07-20",
+      "capital": 16998.6818133769,
+      "pnl": 2007.987134531303,
+      "return_pct": 13.394890480725433,
+      "position": "doge",
+      "entry_price": 0.24151,
+      "exit_price": 0.27386,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-07-21",
+      "capital": 16857.160618114725,
+      "pnl": -141.52119526217558,
+      "return_pct": -0.8325421748338582,
+      "position": "doge",
+      "entry_price": 0.27386,
+      "exit_price": 0.27158,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-07-22",
+      "capital": 16814.952542334777,
+      "pnl": -42.20807577994789,
+      "return_pct": -0.2503866264084299,
+      "position": "doge",
+      "entry_price": 0.27158,
+      "exit_price": 0.2709,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "2025-07-23",
+      "capital": 14950.969431052707,
+      "pnl": -1863.9831112820707,
+      "return_pct": -11.085271317829449,
+      "position": "doge",
+      "entry_price": 0.2709,
+      "exit_price": 0.24087,
+      "winner_asset": "doge"
+    },
+    {
+      "identifier": "current_signal",
+      "capital": 14950.969431052707,
+      "pnl": 0.0,
+      "return_pct": 0.0,
+      "position": "sol",
+      "entry_price": 189.49,
+      "exit_price": null,
+      "winner_asset": "sol",
+      "signal_source": "2025-07-23"
+    }
+  ]
+}
