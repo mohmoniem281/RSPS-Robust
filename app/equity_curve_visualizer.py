@@ -300,8 +300,8 @@ def create_equity_curve_visualization(config):
                         f"${avg_loss:,.2f}",
                         f"{summary_stats.get('average_return_per_trade_pct', 0):.2f}%",
                         f"{returns_std:.2f}%",
-                        f"{summary_stats.get('sharpe_ratio', 0):.3f}",
-                        f"{summary_stats.get('sortino_ratio', 0):.3f}",
+                        f"{summary_stats.get('sharpe_ratio') or 0:.3f}",
+                        f"{summary_stats.get('sortino_ratio') or 0:.3f}",
                         f"{max_consecutive_wins}",
                         f"{max_consecutive_losses}",
                         f"{best_trade.get('asset', 'N/A')} (${best_trade.get('pnl', 0):,.0f})",
@@ -369,8 +369,8 @@ def create_equity_curve_visualization(config):
     print(f"Number of Trades: {summary_stats.get('number_of_trades', 0)}")
     print(f"Number of Periods: {summary_stats.get('number_of_periods', len(df))}")
     print(f"Average Return per Trade: {summary_stats.get('average_return_per_trade_pct', 0):.2f}%")
-    print(f"Sharpe Ratio: {summary_stats.get('sharpe_ratio', 0):.3f}")
-    print(f"Sortino Ratio: {summary_stats.get('sortino_ratio', 0):.3f}")
+    print(f"Sharpe Ratio: {summary_stats.get('sharpe_ratio') or 0:.3f}")
+    print(f"Sortino Ratio: {summary_stats.get('sortino_ratio') or 0:.3f}")
     
     best_trade = summary_stats.get('best_trade', {})
     worst_trade = summary_stats.get('worst_trade', {})
@@ -674,8 +674,8 @@ def create_filtered_equity_curve_visualization(config):
                         f"${avg_loss:,.2f}",
                         f"{summary_stats.get('average_return_per_trade_pct', 0):.2f}%",
                         f"{returns_std:.2f}%",
-                        f"{summary_stats.get('sharpe_ratio', 0):.3f}",
-                        f"{summary_stats.get('sortino_ratio', 0):.3f}",
+                        f"{summary_stats.get('sharpe_ratio') or 0:.3f}",
+                        f"{summary_stats.get('sortino_ratio') or 0:.3f}",
                         f"{max_consecutive_wins}",
                         f"{max_consecutive_losses}",
                         f"{best_trade.get('asset', 'N/A')} (${best_trade.get('pnl', 0):,.0f})",
@@ -743,8 +743,8 @@ def create_filtered_equity_curve_visualization(config):
     print(f"Number of Trades: {summary_stats.get('number_of_trades', 0)}")
     print(f"Number of Periods: {summary_stats.get('number_of_periods', len(df))}")
     print(f"Average Return per Trade: {summary_stats.get('average_return_per_trade_pct', 0):.2f}%")
-    print(f"Sharpe Ratio: {summary_stats.get('sharpe_ratio', 0):.3f}")
-    print(f"Sortino Ratio: {summary_stats.get('sortino_ratio', 0):.3f}")
+    print(f"Sharpe Ratio: {summary_stats.get('sharpe_ratio') or 0:.3f}")
+    print(f"Sortino Ratio: {summary_stats.get('sortino_ratio') or 0:.3f}")
     
     best_trade = summary_stats.get('best_trade', {})
     worst_trade = summary_stats.get('worst_trade', {})
