@@ -1,5 +1,6 @@
 import json
 from typing import Dict, List, Optional
+from pathlib import Path
 
 def calculate_ema(values: List[float], period: int) -> List[float]:
     """Calculate Exponential Moving Average"""
@@ -31,12 +32,15 @@ def calculate_dema(values: List[float], period: int) -> Optional[List[float]]:
     dema = [2 * e1 - e2 for e1, e2 in zip(ema1, ema2)]
     return dema
 
-def apply_dema_trend_filter(capital_values: List[float], config: Dict) -> bool:
-    dema_period = config.get("dema_period")
+def apply_dema_trend_filter(capital_values: List[float]) -> tuple[bool, float]:
+    config_path = Path(__file__).parent / "dema.json"
+    with open(config_path, 'r') as f:
+        dema_config = json.load(f)
+    dema_period = dema_config.get("dema_period")
     
     dema = calculate_dema(capital_values, dema_period)
     if not dema:
-        return False  # Not enough data for DEMA calculation
+        return True, 0.0  # Not enough data for DEMA calculation IF there is not enough data for DEMA calculation we will just return true and enter trades
     
     # Check if current value is above DEMA (bullish trend)
     return capital_values[-1] > dema[-1], dema[-1]
