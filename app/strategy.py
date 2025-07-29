@@ -12,7 +12,7 @@ from price_to_json import price_to_json
 from price_normalization import normalize_prices
 from tournament import run_tournament
 from build_equity_curve import build_the_equity_curve
-from equity_curve_visualizer import create_equity_curve_visualization, create_filtered_equity_curve_visualization
+from equity_curve_visualizer import create_equity_curve_visualization
 def load_config():
 
     config_path = Path(__file__).parent / "config.json"  

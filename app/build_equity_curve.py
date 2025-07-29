@@ -11,6 +11,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # try:
 from trend_filters.dema import apply_dema_trend_filter, calculate_dema
 from trend_filters.slope import apply_trend_slope_filter, calculate_trend_slope
+from equity_curve_tpi import EquityCurveTPI
 # except ImportError:
 #     # Fallback: try absolute import
 #     from app.trend_filters.dema import apply_dema_trend_filter, calculate_dema
@@ -30,16 +31,28 @@ class EquityCurveBuilder:
         # DEMA filtering configuration
         self.dema_filtering_enabled = self.config.get("equity_curve_dema_filtering_enabled", False)
         
+        # TPI configuration
+        self.tpi_enabled = self.config.get("equity_curve_tpi_enabled", False)
+        if self.tpi_enabled:
+            self.tpi_analyzer = EquityCurveTPI()
+        
         # Load data
         self.tournament_results = self._load_tournament_results()
         self.price_data = self._load_price_data()
         
-        # Initialize equity curve
+        # Initialize dual equity curves
         self.initial_capital = 10000  # Starting with $10,000
-        self.current_capital = self.initial_capital
-        self.equity_curve = []
         
-        # Track capital history for trend analysis
+        # Reference curve (always trades)
+        self.reference_capital = self.initial_capital
+        self.reference_curve = []
+        self.reference_history = []
+        
+        # Actual curve (TPI controlled)
+        self.actual_capital = self.initial_capital
+        self.equity_curve = []  # Keep this as main curve for compatibility
+        
+        # Track capital history for trend analysis (for legacy DEMA compatibility)
         self.capital_history = []
     
     def _load_tournament_results(self) -> Dict:
@@ -82,24 +95,149 @@ class EquityCurveBuilder:
         return (exit_price - entry_price) * position_size
     
     def _should_trade_based_on_trend(self) -> Tuple[bool, Optional[float]]:
-        """Determine if we should trade based on trend analysis."""
+        """Determine if we should trade based on legacy DEMA trend analysis."""
         if not self.dema_filtering_enabled or len(self.capital_history) < 2:
             return True, None  # Trade if no trend filters or insufficient history
         
         # Apply DEMA trend filter using current capital history
-        # is_trending, dema_value = apply_dema_trend_filter(self.capital_history)
         slope_value = apply_trend_slope_filter(self.capital_history)
         if slope_value >= 0:
             return True, slope_value
         return False, None
     
+    def _should_trade_based_on_tpi(self) -> Tuple[bool, Dict]:
+        """Determine if we should trade based on TPI analysis of reference curve."""
+        if not self.tpi_enabled or len(self.reference_history) < self.tpi_analyzer.min_history_length:
+            return True, {"reason": "insufficient_data", "should_trade": True}
+        
+        # Use TPI analyzer on reference curve
+        should_trade, tpi_analysis = self.tpi_analyzer.should_trade_based_on_reference_curve(self.reference_history)
+        return should_trade, tpi_analysis
+    
+    def _process_reference_curve_trade(self, current_identifier: str, previous_identifier: str, winner_asset: str):
+        """Process a trade for the reference curve (always trades)."""
+        # Get entry and exit prices
+        entry_price = self._get_price(winner_asset, previous_identifier)
+        exit_price = self._get_price(winner_asset, current_identifier)
+        
+        if entry_price is None or exit_price is None:
+            # Can't execute trade - add cash entry
+            self._add_reference_curve_cash_entry(current_identifier, winner_asset)
+            return
+        
+        # Calculate position and PnL
+        position_size = self.reference_capital / entry_price
+        pnl = (exit_price - entry_price) * position_size
+        new_capital = self.reference_capital + pnl
+        return_pct = (pnl / self.reference_capital) * 100 if self.reference_capital > 0 else 0
+        
+        # Update reference curve
+        self.reference_curve.append({
+            "identifier": current_identifier,
+            "capital": new_capital,
+            "pnl": pnl,
+            "return_pct": return_pct,
+            "position": position_size,
+            "entry_price": entry_price,
+            "exit_price": exit_price,
+            "winner_asset": winner_asset
+        })
+        
+        # Update reference capital and history
+        self.reference_capital = new_capital
+        self.reference_history.append(new_capital)
+        
+        print(f"  REFERENCE Trade: {winner_asset} | Entry: ${entry_price:.2f} | Exit: ${exit_price:.2f} | PnL: ${pnl:.2f} | Capital: ${new_capital:.2f}")
+    
+    def _process_actual_curve_trade(self, current_identifier: str, previous_identifier: str, winner_asset: str, filter_reason: str):
+        """Process a trade for the actual curve (TPI controlled)."""
+        # Get entry and exit prices
+        entry_price = self._get_price(winner_asset, previous_identifier)
+        exit_price = self._get_price(winner_asset, current_identifier)
+        
+        if entry_price is None or exit_price is None:
+            # Can't execute trade - add cash entry
+            self._add_actual_curve_cash_entry(current_identifier, winner_asset, f"No price data: {filter_reason}")
+            return
+        
+        # Calculate position and PnL
+        position_size = self.actual_capital / entry_price
+        pnl = (exit_price - entry_price) * position_size
+        new_capital = self.actual_capital + pnl
+        return_pct = (pnl / self.actual_capital) * 100 if self.actual_capital > 0 else 0
+        
+        # Update actual curve
+        tpi_signal = "trade_allowed" if self.tpi_enabled else "no_filter"
+        self.equity_curve.append({
+            "identifier": current_identifier,
+            "capital": new_capital,
+            "pnl": pnl,
+            "return_pct": return_pct,
+            "position": position_size,
+            "entry_price": entry_price,
+            "exit_price": exit_price,
+            "winner_asset": winner_asset,
+            "tpi_signal": tpi_signal,
+            "reference_capital": self.reference_capital,
+            "filter_reason": filter_reason
+        })
+        
+        # Update actual capital and history
+        self.actual_capital = new_capital
+        self.capital_history.append(new_capital)
+        
+        print(f"  ACTUAL Trade: {winner_asset} | Entry: ${entry_price:.2f} | Exit: ${exit_price:.2f} | PnL: ${pnl:.2f} | Capital: ${new_capital:.2f}")
+    
+    def _add_reference_curve_cash_entry(self, current_identifier: str, winner_asset: str):
+        """Add a cash entry to the reference curve."""
+        self.reference_curve.append({
+            "identifier": current_identifier,
+            "capital": self.reference_capital,
+            "pnl": 0.0,
+            "return_pct": 0.0,
+            "position": None,
+            "entry_price": None,
+            "exit_price": None,
+            "winner_asset": winner_asset
+        })
+        self.reference_history.append(self.reference_capital)
+    
+    def _add_actual_curve_cash_entry(self, current_identifier: str, winner_asset: str, filter_reason: str):
+        """Add a cash entry to the actual curve."""
+        tpi_signal = "trade_blocked" if self.tpi_enabled else "filter_blocked"
+        self.equity_curve.append({
+            "identifier": current_identifier,
+            "capital": self.actual_capital,
+            "pnl": 0.0,
+            "return_pct": 0.0,
+            "position": None,
+            "entry_price": None,
+            "exit_price": None,
+            "winner_asset": winner_asset,
+            "tpi_signal": tpi_signal,
+            "reference_capital": self.reference_capital,
+            "filter_reason": filter_reason
+        })
+        self.capital_history.append(self.actual_capital)
+    
+    def _add_cash_entry_both_curves(self, current_identifier: str, winner_asset: str):
+        """Add cash entries to both curves when no tournament winner."""
+        # Reference curve
+        self._add_reference_curve_cash_entry(current_identifier, winner_asset)
+        
+        # Actual curve  
+        self._add_actual_curve_cash_entry(current_identifier, winner_asset, "No tournament winner")
+    
     def build_equity_curve(self):
-        """Build the equity curve from tournament results."""
-        print(f"Building equity curve from {self.process_from} to {self.process_to}")
-        if self.dema_filtering_enabled:
+        """Build dual equity curves from tournament results."""
+        print(f"Building dual equity curves from {self.process_from} to {self.process_to}")
+        
+        if self.tpi_enabled:
+            print("TPI ENABLED - actual trades based on reference curve trend")
+        elif self.dema_filtering_enabled:
             print("DEMA trend filtering is ENABLED - trades will only execute when trending")
         else:
-            print("DEMA trend filtering is DISABLED - all trades will execute")
+            print("NO FILTERING - all trades will execute")
         
         # Get all tournament identifiers from tournament results
         tournament_identifiers = [t["tournament_identifier"] for t in self.tournament_results["tournaments"]]
@@ -113,19 +251,35 @@ class EquityCurveBuilder:
             print(f"Available tournament identifiers: {tournament_identifiers[:10]}...")  # Show first 10 for debugging
             return
         
-        # Initialize first entry
+        # Initialize first entry for both curves
         first_identifier = tournament_identifiers[start_idx]
-        self.capital_history.append(self.current_capital)
         
-        self.equity_curve.append({
+        # Reference curve initialization
+        self.reference_history.append(self.reference_capital)
+        self.reference_curve.append({
             "identifier": first_identifier,
-            "capital": self.current_capital,
+            "capital": self.reference_capital,
             "pnl": 0.0,
             "return_pct": 0.0,
             "position": None,
             "entry_price": None,
             "exit_price": None,
             "winner_asset": None
+        })
+        
+        # Actual curve initialization
+        self.capital_history.append(self.actual_capital)
+        self.equity_curve.append({
+            "identifier": first_identifier,
+            "capital": self.actual_capital,
+            "pnl": 0.0,
+            "return_pct": 0.0,
+            "position": None,
+            "entry_price": None,
+            "exit_price": None,
+            "winner_asset": None,
+            "tpi_signal": None,
+            "reference_capital": self.reference_capital
         })
         
         # Process each tournament (except the first one since we need previous data)
@@ -138,149 +292,150 @@ class EquityCurveBuilder:
             # Get the winner from the previous tournament
             winner_asset = self._get_tournament_winner(previous_identifier)
             
-            # Check trend filter BEFORE making trading decision
-            should_trade, dema_value = self._should_trade_based_on_trend()
-            
-            if winner_asset is None or not should_trade:
-                # No trade (cash position) - either no winner or trend filter blocked trade
-                self.equity_curve.append({
-                    "identifier": current_identifier,
-                    "capital": self.current_capital,
-                    "pnl": 0.0,
-                    "return_pct": 0.0,
-                    "position": None,
-                    "entry_price": None,
-                    "exit_price": None,
-                    "winner_asset": winner_asset if winner_asset else None
-                })
-                
-                # Update capital history for trend analysis
-                self.capital_history.append(self.current_capital)
-                
-                if not should_trade and winner_asset:
-                    print(f"  Trend filter BLOCKED trade: {winner_asset} | Capital: ${self.current_capital:.2f}")
+            if winner_asset is None:
+                # No tournament winner - both curves stay in cash
+                self._add_cash_entry_both_curves(current_identifier, None)
                 continue
             
-            # Get entry price (from previous identifier)
-            entry_price = self._get_price(winner_asset, previous_identifier)
-            if entry_price is None:
-                print(f"Warning: No entry price found for {winner_asset} at {previous_identifier}")
-                continue
+            # Process reference curve (ALWAYS trades the winner)
+            self._process_reference_curve_trade(current_identifier, previous_identifier, winner_asset)
             
-            # Get exit price (from current identifier)
-            exit_price = self._get_price(winner_asset, current_identifier)
-            if exit_price is None:
-                print(f"Warning: No exit price found for {winner_asset} at {current_identifier}")
-                continue
+            # Determine actual curve action based on filtering method
+            if self.tpi_enabled:
+                # Use TPI to decide actual curve trades
+                should_trade, tpi_analysis = self._should_trade_based_on_tpi()
+                filter_reason = f"TPI: {tpi_analysis.get('decision_reason', 'Unknown')}"
+            elif self.dema_filtering_enabled:
+                # Use legacy DEMA filtering
+                should_trade, dema_value = self._should_trade_based_on_trend()
+                filter_reason = f"DEMA: {'Allowed' if should_trade else 'Blocked'}"
+            else:
+                # No filtering
+                should_trade = True
+                filter_reason = "No filtering"
             
-            # Calculate position size (100% of capital)
-            position_size = self.current_capital / entry_price
-            
-            # Calculate PnL
-            pnl = self._calculate_pnl(entry_price, exit_price, position_size)
-            
-            # Update capital
-            new_capital = self.current_capital + pnl
-            return_pct = (pnl / self.current_capital) * 100 if self.current_capital > 0 else 0
-            
-            # Update current capital
-            self.current_capital = new_capital
-            
-            # Update capital history for trend analysis
-            self.capital_history.append(self.current_capital)
-            
-            # Add to equity curve
-            self.equity_curve.append({
-                "identifier": current_identifier,
-                "capital": self.current_capital,
-                "pnl": pnl,
-                "return_pct": return_pct,
-                "position": winner_asset,
-                "entry_price": entry_price,
-                "exit_price": exit_price,
-                "winner_asset": winner_asset
-            })
-            
-            print(f"  Trade EXECUTED: {winner_asset} | Entry: ${entry_price:.2f} | Exit: ${exit_price:.2f} | PnL: ${pnl:.2f} | Capital: ${self.current_capital:.2f}")
+            # Process actual curve based on decision
+            if should_trade:
+                self._process_actual_curve_trade(current_identifier, previous_identifier, winner_asset, filter_reason)
+            else:
+                self._add_actual_curve_cash_entry(current_identifier, winner_asset, filter_reason)
+                print(f"  Filter BLOCKED trade: {winner_asset} | {filter_reason}")
         
-        # Save equity curve to file
-        self._save_equity_curve()
+        # Add current signal for both curves
+        self._add_current_signal_both_curves()
         
-        # Add current signal entry based on the latest tournament result
-        self._add_current_signal_entry()
+        # Save both equity curves
+        self._save_dual_equity_curves()
         
-        # Print summary
-        self._print_summary()
+        # Print summary for both curves
+        self._print_dual_summary()
     
-    def _add_current_signal_entry(self):
-        """Add a current signal entry based on the latest tournament result."""
-        # Get the latest tournament identifier
+    def _add_current_signal_both_curves(self):
+        """Add current signal entries to both curves."""
+        # Get the latest tournament identifier and winner
         latest_tournament_identifier = self.tournament_results["tournaments"][-1]["tournament_identifier"]
-        
-        # Get the winner from the latest tournament
         latest_winner = self._get_tournament_winner(latest_tournament_identifier)
         
-        if latest_winner is None:
-            # No current signal (cash position)
-            current_signal_entry = {
-                "identifier": "current_signal",
-                "capital": self.current_capital,
-                "pnl": 0.0,
-                "return_pct": 0.0,
-                "position": None,
-                "entry_price": None,
-                "exit_price": None,
-                "winner_asset": None,
-                "signal_source": latest_tournament_identifier
-            }
-        else:
-            # Get entry price from the latest tournament identifier
+        if latest_winner:
             entry_price = self._get_price(latest_winner, latest_tournament_identifier)
-            
-            current_signal_entry = {
-                "identifier": "current_signal",
-                "capital": self.current_capital,
-                "pnl": 0.0,  # No PnL yet since trade hasn't been executed
-                "return_pct": 0.0,
-                "position": latest_winner,
-                "entry_price": entry_price,
-                "exit_price": None,  # No exit price yet
-                "winner_asset": latest_winner,
-                "signal_source": latest_tournament_identifier
-            }
+        else:
+            entry_price = None
         
-        # Add to equity curve
-        self.equity_curve.append(current_signal_entry)
+        # Add to reference curve
+        self.reference_curve.append({
+            "identifier": "current_signal",
+            "capital": self.reference_capital,
+            "pnl": 0.0,
+            "return_pct": 0.0,
+            "position": latest_winner,
+            "entry_price": entry_price,
+            "exit_price": None,
+            "winner_asset": latest_winner,
+            "signal_source": latest_tournament_identifier
+        })
         
-        # Save updated equity curve
-        self._save_equity_curve()
-        
-        print(f"\n📊 Current Signal Added:")
-        print(f"  Signal Source: {latest_tournament_identifier}")
-        print(f"  Current Position: {latest_winner if latest_winner else 'CASH'}")
-        if latest_winner and entry_price:
-            print(f"  Entry Price: ${entry_price:.2f}")
-        print(f"  Current Capital: ${self.current_capital:.2f}")
+        # Add to actual curve (with TPI info)
+        self.equity_curve.append({
+            "identifier": "current_signal",
+            "capital": self.actual_capital,
+            "pnl": 0.0,
+            "return_pct": 0.0,
+            "position": latest_winner,
+            "entry_price": entry_price,
+            "exit_price": None,
+            "winner_asset": latest_winner,
+            "tpi_signal": "current_signal",
+            "reference_capital": self.reference_capital,
+            "signal_source": latest_tournament_identifier
+        })
     
-    def _calculate_summary_statistics(self) -> Dict:
+    def _save_dual_equity_curves(self):
+        """Save both equity curves to files."""
+        # Calculate statistics for both curves
+        actual_stats = self._calculate_summary_statistics(self.equity_curve, self.initial_capital)
+        reference_stats = self._calculate_summary_statistics(self.reference_curve, self.initial_capital)
+        
+        # Create dual curve data structure
+        dual_curve_data = {
+            "actual_curve": {
+                "equity_curve": self.equity_curve,
+                "summary_statistics": actual_stats
+            },
+            "reference_curve": {
+                "equity_curve": self.reference_curve,
+                "summary_statistics": reference_stats
+            },
+            "tpi_enabled": self.tpi_enabled,
+            "dema_enabled": self.dema_filtering_enabled
+        }
+        
+        # Save to main file
+        with open(self.equity_curve_file, 'w') as f:
+            json.dump(dual_curve_data, f, indent=2)
+    
+    def _print_dual_summary(self):
+        """Print summary statistics for both curves."""
+        print(f"\n=== DUAL EQUITY CURVE SUMMARY ===")
+        print(f"Reference Curve (Always Allocated):")
+        print(f"  Final Capital: ${self.reference_capital:,.2f}")
+        print(f"  Total Return: ${self.reference_capital - self.initial_capital:,.2f}")
+        print(f"  Return %: {((self.reference_capital - self.initial_capital) / self.initial_capital) * 100:.2f}%")
+        
+        print(f"\nActual Curve (TPI Controlled):")
+        print(f"  Final Capital: ${self.actual_capital:,.2f}")
+        print(f"  Total Return: ${self.actual_capital - self.initial_capital:,.2f}")
+        print(f"  Return %: {((self.actual_capital - self.initial_capital) / self.initial_capital) * 100:.2f}%")
+    
+
+    
+
+    
+    def _calculate_summary_statistics(self, equity_curve: List[Dict], initial_capital: float) -> Dict:
         """Calculate summary statistics for the equity curve."""
-        if not self.equity_curve:
+        if not equity_curve:
             return {}
         
-        total_return = self.current_capital - self.initial_capital
-        total_return_pct = (total_return / self.initial_capital) * 100
+        # Get final capital and total return from the last non-current_signal entry
+        final_capital = initial_capital
+        for entry in reversed(equity_curve):
+            if entry["identifier"] != "current_signal":
+                final_capital = entry["capital"]
+                break
+        
+        total_return = final_capital - initial_capital
+        total_return_pct = (total_return / initial_capital) * 100
         
         # Calculate some statistics
-        returns = [entry["return_pct"] for entry in self.equity_curve if entry["return_pct"] != 0]
-        trades_count = len([entry for entry in self.equity_curve if entry["position"] is not None])
+        returns = [entry["return_pct"] for entry in equity_curve if entry["return_pct"] != 0]
+        trades_count = len([entry for entry in equity_curve if entry["position"] is not None])
         
         stats = {
-            "initial_capital": self.initial_capital,
-            "final_capital": self.current_capital,
+            "initial_capital": initial_capital,
+            "final_capital": final_capital,
             "total_return": total_return,
             "total_return_pct": total_return_pct,
             "number_of_trades": trades_count,
-            "number_of_periods": len(self.equity_curve)
+            "number_of_periods": len(equity_curve)
         }
         
         if returns:

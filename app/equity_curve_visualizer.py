@@ -1,761 +1,524 @@
 import json
-import plotly.graph_objects as go
-import plotly.express as px
-from plotly.subplots import make_subplots
 import pandas as pd
-from datetime import datetime
+import numpy as np
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import plotly.io as pio
+from typing import Dict, Any, List, Tuple
+import sys
 import os
+from collections import Counter
+from datetime import datetime
 
-def load_equity_curve_data(equity_curve_path):
-    """Load equity curve data from JSON file"""
-    with open(equity_curve_path, 'r') as f:
-        return json.load(f)
+# Configure Plotly to output to a file by default (headless mode)
+pio.renderers.default = "browser"
 
-def parse_date(identifier):
-    """Parse date from identifier string"""
+def load_equity_curve_data(file_path: str) -> Dict[str, Any]:
+    """Load equity curve data from JSON file."""
     try:
-        return datetime.strptime(identifier, '%Y-%m-%d')
-    except:
-        # For non-date identifiers like "hello", create a fallback date
-        # Use the last valid date + 1 day, or a default date
-        return None
+        with open(file_path, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"❌ Error: Equity curve file not found at {file_path}")
+        sys.exit(1)
+    except json.JSONDecodeError:
+        print(f"❌ Error: Invalid JSON in equity curve file {file_path}")
+        sys.exit(1)
 
-def create_equity_curve_visualization(config):
-    """Create comprehensive equity curve visualization using Plotly"""
+def calculate_sharpe_ratio(returns: List[float], risk_free_rate: float = 0.0) -> float:
+    """Calculate Sharpe ratio."""
+    if len(returns) == 0 or np.std(returns) == 0:
+        return 0.0
+    excess_returns = np.array(returns) - risk_free_rate
+    return np.mean(excess_returns) / np.std(excess_returns) * np.sqrt(252)  # Annualized
+
+def calculate_sortino_ratio(returns: List[float], risk_free_rate: float = 0.0) -> float:
+    """Calculate Sortino ratio (downside deviation only)."""
+    if len(returns) == 0:
+        return 0.0
+    excess_returns = np.array(returns) - risk_free_rate
+    downside_returns = excess_returns[excess_returns < 0]
+    if len(downside_returns) == 0 or np.std(downside_returns) == 0:
+        return 0.0
+    return np.mean(excess_returns) / np.std(downside_returns) * np.sqrt(252)  # Annualized
+
+def calculate_omega_ratio(returns: List[float], threshold: float = 0.0) -> float:
+    """Calculate Omega ratio."""
+    if len(returns) == 0:
+        return 0.0
+    excess_returns = np.array(returns) - threshold
+    gains = excess_returns[excess_returns > 0].sum()
+    losses = -excess_returns[excess_returns < 0].sum()
+    if losses == 0:
+        return float('inf') if gains > 0 else 1.0
+    return gains / losses
+
+def calculate_max_drawdown(capital_values: List[float]) -> Tuple[float, float]:
+    """Calculate maximum drawdown and its percentage."""
+    if len(capital_values) < 2:
+        return 0.0, 0.0
     
-    # Get paths from config
-    equity_curve_path = config['equity_curve_file']
-    output_path = config['equity_curve_visualization']
+    peak = capital_values[0]
+    max_dd = 0.0
+    max_dd_pct = 0.0
     
+    for value in capital_values:
+        if value > peak:
+            peak = value
+        dd = peak - value
+        dd_pct = (dd / peak) * 100 if peak > 0 else 0
+        if dd > max_dd:
+            max_dd = dd
+            max_dd_pct = dd_pct
+    
+    return max_dd, max_dd_pct
+
+def analyze_asset_distribution(equity_curve: List[Dict]) -> Dict[str, Any]:
+    """Analyze asset distribution and performance including cash periods."""
+    asset_periods = {}
+    asset_performance = {}
+    total_periods = 0
+    cash_periods = 0
+    
+    for entry in equity_curve:
+        # Skip initial entry and current_signal entries
+        if entry.get('identifier') and 'current_signal' not in entry.get('identifier', '') and entry.get('identifier') != '2025-01-01T00-00-00Z':
+            total_periods += 1
+            
+            # Check if actually in cash (position is null) vs just having a winner_asset
+            if pd.isna(entry.get('position')) or entry.get('position') is None:
+                cash_periods += 1
+            else:
+                asset = entry.get('winner_asset', 'unknown')
+                pnl = entry.get('pnl', 0)
+                
+                if asset not in asset_periods:
+                    asset_periods[asset] = 0
+                    asset_performance[asset] = []
+                
+                asset_periods[asset] += 1
+                asset_performance[asset].append(pnl)
+    
+    # Calculate performance metrics per asset
+    asset_stats = {}
+    for asset in asset_periods:
+        pnls = asset_performance[asset]
+        asset_stats[asset] = {
+            'periods': asset_periods[asset],
+            'allocation_percentage': (asset_periods[asset] / total_periods * 100) if total_periods > 0 else 0,
+            'total_pnl': sum(pnls),
+            'avg_pnl': np.mean(pnls) if pnls else 0,
+            'win_rate': (len([p for p in pnls if p > 0]) / len(pnls) * 100) if pnls else 0
+        }
+    
+    # Add cash to stats
+    if cash_periods > 0:
+        asset_stats['CASH'] = {
+            'periods': cash_periods,
+            'allocation_percentage': (cash_periods / total_periods * 100) if total_periods > 0 else 0,
+            'total_pnl': 0,
+            'avg_pnl': 0,
+            'win_rate': 0
+        }
+    
+    # Sort by allocation percentage
+    sorted_assets = sorted(asset_stats.items(), key=lambda x: x[1]['allocation_percentage'], reverse=True)
+    
+    return {
+        'asset_stats': dict(sorted_assets),
+        'total_periods': total_periods,
+        'cash_periods': cash_periods
+    }
+
+def create_performance_metrics(equity_curve: List[Dict], initial_capital: float) -> Dict[str, Any]:
+    """Calculate comprehensive performance metrics."""
+    if not equity_curve:
+        return {}
+    
+    # Filter out current_signal entries
+    valid_entries = [e for e in equity_curve if e.get('identifier') != 'current_signal']
+    
+    if not valid_entries:
+        return {}
+    
+    # Extract returns and capital values
+    returns = [e.get('return_pct', 0) / 100 for e in valid_entries if e.get('return_pct', 0) != 0]
+    capital_values = [e.get('capital', initial_capital) for e in valid_entries]
+    
+    # Basic metrics
+    final_capital = capital_values[-1] if capital_values else initial_capital
+    total_return = final_capital - initial_capital
+    total_return_pct = (total_return / initial_capital) * 100
+    
+    # Risk metrics
+    max_dd, max_dd_pct = calculate_max_drawdown(capital_values)
+    
+    # Ratio metrics
+    sharpe = calculate_sharpe_ratio(returns)
+    sortino = calculate_sortino_ratio(returns)
+    omega = calculate_omega_ratio(returns)
+    
+    # Trading metrics
+    profitable_trades = len([r for r in returns if r > 0])
+    total_trades = len(returns)
+    win_rate = (profitable_trades / total_trades * 100) if total_trades > 0 else 0
+    
+    # Time metrics
+    start_date = valid_entries[0].get('identifier', 'Unknown')
+    end_date = valid_entries[-1].get('identifier', 'Unknown')
+    
+    return {
+        'initial_capital': initial_capital,
+        'final_capital': final_capital,
+        'total_return': total_return,
+        'total_return_pct': total_return_pct,
+        'max_drawdown': max_dd,
+        'max_drawdown_pct': max_dd_pct,
+        'sharpe_ratio': sharpe,
+        'sortino_ratio': sortino,
+        'omega_ratio': omega,
+        'total_trades': total_trades,
+        'profitable_trades': profitable_trades,
+        'win_rate': win_rate,
+        'start_date': start_date,
+        'end_date': end_date
+    }
+
+def create_equity_curve_visualization(config: Dict[str, Any]):
+    """Create a comprehensive dual equity curve dashboard."""
+    
+    # Get paths
+    equity_curve_path = config.get("equity_curve_file", "data/equity_curve.json")
+    output_path = config.get("equity_curve_visualization", "data/equity_curve.html")
+    
+    print(f"📊 Creating comprehensive equity curve dashboard...")
+    print(f"   Input: {equity_curve_path}")
+    print(f"   Output: {output_path}")
+    
+    # Load data
     data = load_equity_curve_data(equity_curve_path)
     
-    # Extract summary statistics from the JSON data
-    summary_stats = data.get('summary_statistics', {})
-    
-    # Convert to DataFrame for easier manipulation
-    df = pd.DataFrame(data['equity_curve'])
-    
-    # Use identifiers as labels directly, no date parsing
-    df['label'] = df['identifier']
-    
-    # Sort by the order they appear in the original data
-    df = df.reset_index(drop=True)
-    
-    # Calculate additional metrics
-    df['cumulative_return_pct'] = df['return_pct'].cumsum()
-    df['drawdown'] = (df['capital'] - df['capital'].expanding().max()) / df['capital'].expanding().max() * 100
-    
-    # Create subplots - 2 columns: charts on left, summary table on right
-    fig = make_subplots(
-        rows=8, cols=2,
-        subplot_titles=(
-            'Equity Curve', 'Summary Statistics',
-            'Daily Returns', '',
-            'Cumulative Returns', '',
-            'Drawdown', '',
-            'Position Distribution', '',
-            'Asset Performance', '',
-            'PnL Distribution', '',
-            'Monthly Returns', ''
-        ),
-        specs=[
-            [{"secondary_y": False}, {"type": "table"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"type": "domain"}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}]
-        ],
-        column_widths=[0.7, 0.3],
-        vertical_spacing=0.05,
-        horizontal_spacing=0.05
-    )
-    
-    # 1. Equity Curve
-    fig.add_trace(
-        go.Scatter(
-            x=df['label'],
-            y=df['capital'],
-            mode='lines+markers',
-            name='Capital',
-            line=dict(color='#1f77b4', width=2),
-            marker=dict(size=4),
-            hovertemplate='<b>Identifier:</b> %{x}<br>' +
-                         '<b>Capital:</b> $%{y:,.2f}<br>' +
-                         '<b>Asset:</b> %{customdata[0]}<br>' +
-                         '<b>PnL:</b> $%{customdata[1]:,.2f}<br>' +
-                         '<b>Return:</b> %{customdata[2]:.2f}%<br>' +
-                         '<b>Entry Price:</b> $%{customdata[3]:,.2f}<br>' +
-                         '<b>Exit Price:</b> $%{customdata[4]:,.2f}<extra></extra>',
-            customdata=df[['position', 'pnl', 'return_pct', 'entry_price', 'exit_price']].values
-        ),
-        row=1, col=1
-    )
-    
-    # Add initial capital line using summary stats
-    initial_capital = summary_stats.get('initial_capital', 10000)
-    fig.add_hline(
-        y=initial_capital,
-        line_dash="dash",
-        line_color="red",
-        annotation_text=f"Initial Capital: ${initial_capital:,.0f}",
-        row=1, col=1
-    )
-    
-    # 2. Daily Returns
-    colors = ['green' if x >= 0 else 'red' for x in df['return_pct']]
-    fig.add_trace(
-        go.Bar(
-            x=df['label'],
-            y=df['return_pct'],
-            name='Daily Returns',
-            marker_color=colors,
-            hovertemplate='<b>Identifier:</b> %{x}<br><b>Return:</b> %{y:.2f}%<extra></extra>'
-        ),
-        row=2, col=1
-    )
-    
-    # 3. Cumulative Returns
-    fig.add_trace(
-        go.Scatter(
-            x=df['label'],
-            y=df['cumulative_return_pct'],
-            mode='lines',
-            name='Cumulative Returns',
-            line=dict(color='#2ca02c', width=2),
-            hovertemplate='<b>Identifier:</b> %{x}<br><b>Cumulative Return:</b> %{y:.2f}%<extra></extra>'
-        ),
-        row=3, col=1
-    )
-    
-    # 4. Drawdown
-    fig.add_trace(
-        go.Scatter(
-            x=df['label'],
-            y=df['drawdown'],
-            mode='lines',
-            name='Drawdown',
-            line=dict(color='#d62728', width=2),
-            fill='tonexty',
-            fillcolor='rgba(214, 39, 40, 0.3)',
-            hovertemplate='<b>Identifier:</b> %{x}<br><b>Drawdown:</b> %{y:.2f}%<extra></extra>'
-        ),
-        row=4, col=1
-    )
-    
-    # 5. Position Distribution
-    # Replace None values with "cash" for proper labeling
-    position_data = df['position'].fillna('cash')
-    position_counts = position_data.value_counts()
-    fig.add_trace(
-        go.Pie(
-            labels=position_counts.index,
-            values=position_counts.values,
-            name='Position Distribution',
-            hovertemplate='<b>Asset:</b> %{label}<br><b>Count:</b> %{value}<extra></extra>'
-        ),
-        row=5, col=1
-    )
-    
-    # 6. Asset Performance
-    asset_performance = df.groupby('position').agg({
-        'pnl': 'sum',
-        'return_pct': 'sum'
-    }).reset_index()
-    # Replace None with "cash" for display
-    asset_performance['position'] = asset_performance['position'].fillna('cash')
-    
-    fig.add_trace(
-        go.Bar(
-            x=asset_performance['position'],
-            y=asset_performance['pnl'],
-            name='Asset PnL',
-            marker_color=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'],
-            hovertemplate='<b>Asset:</b> %{x}<br><b>Total PnL:</b> $%{y:,.2f}<extra></extra>'
-        ),
-        row=6, col=1
-    )
-    
-    # 7. PnL Distribution
-    pnl_data = df[df['pnl'] != 0]['pnl']
-    fig.add_trace(
-        go.Histogram(
-            x=pnl_data,
-            nbinsx=20,
-            name='PnL Distribution',
-            marker_color='#9467bd',
-            hovertemplate='<b>PnL Range:</b> %{x}<br><b>Frequency:</b> %{y}<extra></extra>'
-        ),
-        row=7, col=1
-    )
-    
-    # 8. Monthly Returns
-    # Only include entries that can be parsed as dates for monthly grouping
-    date_entries = df[df['label'].str.match(r'^\d{4}-\d{2}-\d{2}$')].copy()
-    if not date_entries.empty:
-        date_entries['month'] = date_entries['label'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d').strftime('%Y-%m'))
-        monthly_returns = date_entries.groupby('month')['return_pct'].sum().reset_index()
-        monthly_returns['month'] = monthly_returns['month'].astype(str)
-        
-        colors_monthly = ['green' if x >= 0 else 'red' for x in monthly_returns['return_pct']]
-        fig.add_trace(
-            go.Bar(
-                x=monthly_returns['month'],
-                y=monthly_returns['return_pct'],
-                name='Monthly Returns',
-                marker_color=colors_monthly,
-                hovertemplate='<b>Month:</b> %{x}<br><b>Return:</b> %{y:.2f}%<extra></extra>'
-            ),
-            row=8, col=1
-        )
+    # Handle both single and dual equity curves
+    if 'equity_curve' in data:
+        # Legacy single curve format
+        df = pd.DataFrame(data['equity_curve'])
+        df = df[df['identifier'] != 'current_signal']
+        reference_df = df.copy()
+        actual_df = df.copy()
+        curve_type = "Single"
     else:
-        # If no valid dates, create a simple bar with total return
-        fig.add_trace(
-            go.Bar(
-                x=['Total'],
-                y=[df['return_pct'].sum()],
-                name='Total Return',
-                marker_color=['green' if df['return_pct'].sum() >= 0 else 'red'],
-                hovertemplate='<b>Total Return:</b> %{y:.2f}%<extra></extra>'
-            ),
-            row=8, col=1
-        )
+        # New dual curve format
+        reference_data = data.get('reference_curve', {}).get('equity_curve', [])
+        actual_data = data.get('actual_curve', {}).get('equity_curve', [])
+        
+        reference_df = pd.DataFrame(reference_data) if reference_data else pd.DataFrame()
+        actual_df = pd.DataFrame(actual_data) if actual_data else pd.DataFrame()
+        curve_type = "Dual"
     
-    # Add Summary Statistics Table
-    best_trade = summary_stats.get('best_trade', {})
-    worst_trade = summary_stats.get('worst_trade', {})
+    if reference_df.empty or actual_df.empty:
+        print("❌ No data to visualize")
+        return
     
-    # Calculate additional statistics
-    winning_trades = df[df['pnl'] > 0]
-    losing_trades = df[df['pnl'] < 0]
-    total_trades = len(df[df['pnl'] != 0])
+    # Filter out current_signal entries and convert timestamps
+    reference_df = reference_df[reference_df['identifier'] != 'current_signal'].copy()
+    actual_df = actual_df[actual_df['identifier'] != 'current_signal'].copy()
     
-    win_rate = len(winning_trades) / total_trades * 100 if total_trades > 0 else 0
-    avg_win = winning_trades['pnl'].mean() if len(winning_trades) > 0 else 0
-    avg_loss = losing_trades['pnl'].mean() if len(losing_trades) > 0 else 0
-    profit_factor = abs(winning_trades['pnl'].sum() / losing_trades['pnl'].sum()) if len(losing_trades) > 0 and losing_trades['pnl'].sum() != 0 else float('inf')
+    # Convert identifiers to datetime
+    reference_df['identifier'] = pd.to_datetime(reference_df['identifier'], format='%Y-%m-%dT%H-%M-%SZ')
+    actual_df['identifier'] = pd.to_datetime(actual_df['identifier'], format='%Y-%m-%dT%H-%M-%SZ')
     
-    # Calculate volatility (standard deviation of returns)
-    returns_std = df['return_pct'].std()
+    # Calculate performance metrics
+    initial_capital = 10000  # Default starting capital
+    ref_metrics = create_performance_metrics(reference_data if 'reference_curve' in data else data['equity_curve'], initial_capital)
+    actual_metrics = create_performance_metrics(actual_data if 'actual_curve' in data else data['equity_curve'], initial_capital)
     
-    # Calculate max consecutive wins and losses
-    consecutive_wins = 0
-    consecutive_losses = 0
-    max_consecutive_wins = 0
-    max_consecutive_losses = 0
+    # Analyze asset distribution
+    ref_asset_analysis = analyze_asset_distribution(reference_data if 'reference_curve' in data else data['equity_curve'])
+    actual_asset_analysis = analyze_asset_distribution(actual_data if 'actual_curve' in data else data['equity_curve'])
     
-    for pnl in df['pnl']:
-        if pnl > 0:
-            consecutive_wins += 1
-            consecutive_losses = 0
-            max_consecutive_wins = max(max_consecutive_wins, consecutive_wins)
-        elif pnl < 0:
-            consecutive_losses += 1
-            consecutive_wins = 0
-            max_consecutive_losses = max(max_consecutive_losses, consecutive_losses)
+    # Create subplots: 2 equity curves + 2 asset distribution charts
+    fig = make_subplots(
+        rows=2, cols=2,
+        subplot_titles=[
+            'Reference Curve (Always Allocated)',
+            'Actual Curve (TPI Controlled)',
+            'Reference Asset Distribution',
+            'Actual Asset Distribution'
+        ],
+        specs=[[{"secondary_y": False}, {"secondary_y": False}],
+               [{"type": "pie"}, {"type": "pie"}]],
+        vertical_spacing=0.12,
+        horizontal_spacing=0.1
+    )
     
+    # Add reference equity curve
     fig.add_trace(
-        go.Table(
-            header=dict(
-                values=['Metric', 'Value'],
-                fill_color='#1f77b4',
-                font=dict(color='white', size=14),
-                align='left'
+        go.Scatter(
+            x=reference_df['identifier'],
+            y=reference_df['capital'],
+            mode='lines+markers',
+            name='Reference Curve',
+            line=dict(color='#2E86AB', width=2),
+            marker=dict(size=4),
+            hovertemplate='<b>Reference Curve</b><br>' +
+                         'Date: %{x}<br>' +
+                         'Capital: $%{y:,.2f}<br>' +
+                         'Asset: %{customdata[0]}<br>' +
+                         'PnL: $%{customdata[1]:,.2f}<br>' +
+                         '<extra></extra>',
+            customdata=list(zip(
+                reference_df['winner_asset'].fillna('cash'),
+                reference_df['pnl'].fillna(0)
+            ))
+        ),
+        row=1, col=1
+    )
+    
+    # Add actual equity curve with detailed asset information
+    # First, let's create a combined trace that shows all points
+    # Determine actual allocation based on position (null = cash, regardless of winner_asset)
+    def get_allocation_type(row):
+        if pd.isna(row.get('position')) or row.get('position') is None:
+            return 'CASH'
+        elif row.get('winner_asset'):
+            return row['winner_asset'].upper()
+        else:
+            return 'CASH'
+    
+    actual_df['allocation_type'] = actual_df.apply(get_allocation_type, axis=1)
+    actual_df['asset_display'] = actual_df['allocation_type']
+    
+    # Create color mapping for assets
+    color_map = {
+        'CASH': '#F18F01',
+        'BTC': '#FF6B35', 
+        'ETH': '#A23B72'
+    }
+    
+    # Add all points with detailed hover information
+    fig.add_trace(
+        go.Scatter(
+            x=actual_df['identifier'],
+            y=actual_df['capital'],
+            mode='lines+markers',
+            name='Actual Curve',
+            line=dict(color='#A23B72', width=2),
+            marker=dict(
+                size=6,
+                color=[color_map.get(alloc, '#666666') for alloc in actual_df['allocation_type']],
+                line=dict(width=1, color='white')
             ),
-            cells=dict(
-                values=[
-                    [
-                        'Initial Capital',
-                        'Final Capital', 
-                        'Total Return',
-                        'Total Return %',
-                        'Number of Trades',
-                        'Number of Periods',
-                        'Win Rate',
-                        'Profit Factor',
-                        'Avg Win',
-                        'Avg Loss',
-                        'Avg Return/Trade',
-                        'Volatility (Std Dev)',
-                        'Sharpe Ratio',
-                        'Sortino Ratio',
-                        'Max Consecutive Wins',
-                        'Max Consecutive Losses',
-                        'Best Trade',
-                        'Worst Trade',
-                        'Max Drawdown'
-                    ],
-                    [
-                        f"${summary_stats.get('initial_capital', 0):,.2f}",
-                        f"${summary_stats.get('final_capital', 0):,.2f}",
-                        f"${summary_stats.get('total_return', 0):,.2f}",
-                        f"{summary_stats.get('total_return_pct', 0):.2f}%",
-                        f"{summary_stats.get('number_of_trades', 0)}",
-                        f"{summary_stats.get('number_of_periods', len(df))}",
-                        f"{win_rate:.1f}%",
-                        f"{profit_factor:.2f}" if profit_factor != float('inf') else "∞",
-                        f"${avg_win:,.2f}",
-                        f"${avg_loss:,.2f}",
-                        f"{summary_stats.get('average_return_per_trade_pct', 0):.2f}%",
-                        f"{returns_std:.2f}%",
-                        f"{summary_stats.get('sharpe_ratio') or 0:.3f}",
-                        f"{summary_stats.get('sortino_ratio') or 0:.3f}",
-                        f"{max_consecutive_wins}",
-                        f"{max_consecutive_losses}",
-                        f"{best_trade.get('asset', 'N/A')} (${best_trade.get('pnl', 0):,.0f})",
-                        f"{worst_trade.get('asset', 'N/A')} (${worst_trade.get('pnl', 0):,.0f})",
-                        f"{df['drawdown'].min():.2f}%"
-                    ]
-                ],
-                fill_color='rgba(240, 240, 240, 0.8)',
-                font=dict(size=11),
-                align='left',
-                height=25
-            )
+            hovertemplate='<b>Actual Curve</b><br>' +
+                         'Date: %{x}<br>' +
+                         'Capital: $%{y:,.2f}<br>' +
+                         'Allocation: %{customdata[0]}<br>' +
+                         'PnL: $%{customdata[1]:,.2f}<br>' +
+                         'Return: %{customdata[2]:.2f}%<br>' +
+                         'Entry: $%{customdata[3]}<br>' +
+                         'Exit: $%{customdata[4]}<br>' +
+                         '<extra></extra>',
+            customdata=list(zip(
+                actual_df['allocation_type'],
+                actual_df['pnl'].fillna(0),
+                actual_df['return_pct'].fillna(0),
+                actual_df['entry_price'].fillna('N/A'),
+                actual_df['exit_price'].fillna('N/A')
+            ))
         ),
         row=1, col=2
     )
     
-    # Update layout using summary stats
-    final_capital = summary_stats.get('final_capital', df['capital'].iloc[-1])
-    total_return_pct = summary_stats.get('total_return_pct', 0)
-    
-    fig.update_layout(
-        title={
-            'text': f'Equity Curve Analysis<br><sub>Initial Capital: ${initial_capital:,.0f} | Final Capital: ${final_capital:,.2f} | Total Return: {total_return_pct:.2f}%</sub>',
-            'x': 0.5,
-            'xanchor': 'center',
-            'font': {'size': 20}
-        },
-        height=2000,  # Increased height for 8 stacked charts
-        width=1400,   # Increased width for side-by-side layout
-        showlegend=False,
-        template='plotly_white'
-    )
-    
-    # Update axes labels (only for left column charts)
-    fig.update_xaxes(title_text="Identifier", row=1, col=1, type='category', showticklabels=False)
-    fig.update_yaxes(title_text="Capital ($)", row=1, col=1)
-    fig.update_xaxes(title_text="Identifier", row=2, col=1, type='category', showticklabels=False)
-    fig.update_yaxes(title_text="Daily Return (%)", row=2, col=1)
-    fig.update_xaxes(title_text="Identifier", row=3, col=1, type='category', showticklabels=False)
-    fig.update_yaxes(title_text="Cumulative Return (%)", row=3, col=1)
-    fig.update_xaxes(title_text="Identifier", row=4, col=1, type='category', showticklabels=False)
-    fig.update_yaxes(title_text="Drawdown (%)", row=4, col=1)
-    fig.update_xaxes(title_text="Asset", row=6, col=1, showticklabels=True)
-    fig.update_yaxes(title_text="Total PnL ($)", row=6, col=1)
-    fig.update_xaxes(title_text="PnL ($)", row=7, col=1, showticklabels=True)
-    fig.update_yaxes(title_text="Frequency", row=7, col=1)
-    fig.update_xaxes(title_text="Month", row=8, col=1, showticklabels=True)
-    fig.update_yaxes(title_text="Monthly Return (%)", row=8, col=1)
-    
-    # Hide the empty subplots in the right column
-    for row in range(2, 9):
-        fig.update_xaxes(showticklabels=False, showgrid=False, row=row, col=2)
-        fig.update_yaxes(showticklabels=False, showgrid=False, row=row, col=2)
-    
-    # Save the visualization
-    fig.write_html(output_path)
-    print(f"Equity curve visualization saved to: {output_path}")
-    
-    # Print comprehensive summary statistics
-    print("\n=== EQUITY CURVE SUMMARY ===")
-    print(f"Initial Capital: ${summary_stats.get('initial_capital', 0):,.2f}")
-    print(f"Final Capital: ${summary_stats.get('final_capital', 0):,.2f}")
-    print(f"Total Return: ${summary_stats.get('total_return', 0):,.2f}")
-    print(f"Total Return %: {summary_stats.get('total_return_pct', 0):.2f}%")
-    print(f"Number of Trades: {summary_stats.get('number_of_trades', 0)}")
-    print(f"Number of Periods: {summary_stats.get('number_of_periods', len(df))}")
-    print(f"Average Return per Trade: {summary_stats.get('average_return_per_trade_pct', 0):.2f}%")
-    print(f"Sharpe Ratio: {summary_stats.get('sharpe_ratio') or 0:.3f}")
-    print(f"Sortino Ratio: {summary_stats.get('sortino_ratio') or 0:.3f}")
-    
-    best_trade = summary_stats.get('best_trade', {})
-    worst_trade = summary_stats.get('worst_trade', {})
-    print(f"Best Trade: {best_trade.get('asset', 'N/A')} on {best_trade.get('identifier', 'N/A')} - ${best_trade.get('pnl', 0):,.2f}")
-    print(f"Worst Trade: {worst_trade.get('asset', 'N/A')} on {worst_trade.get('identifier', 'N/A')} - ${worst_trade.get('pnl', 0):,.2f}")
-    print(f"Max Drawdown: {df['drawdown'].min():.2f}%")
-    
-    return fig
-
-def create_filtered_equity_curve_visualization(config):
-    """Create comprehensive equity curve visualization for filtered data using Plotly"""
-    
-    # Get paths from config
-    equity_curve_path = config['equity_curve_file_filtered']
-    output_path = config['equity_curve_visualization_filtered']
-    
-    data = load_equity_curve_data(equity_curve_path)
-    
-    # Extract summary statistics from the JSON data
-    summary_stats = data.get('summary_statistics', {})
-    
-    # Convert to DataFrame for easier manipulation
-    df = pd.DataFrame(data['equity_curve'])
-    
-    # Use identifiers as labels directly, no date parsing
-    df['label'] = df['identifier']
-    
-    # Sort by the order they appear in the original data
-    df = df.reset_index(drop=True)
-    
-    # Calculate additional metrics
-    df['cumulative_return_pct'] = df['return_pct'].cumsum()
-    df['drawdown'] = (df['capital'] - df['capital'].expanding().max()) / df['capital'].expanding().max() * 100
-    
-    # Create subplots - 2 columns: charts on left, summary table on right
-    fig = make_subplots(
-        rows=8, cols=2,
-        subplot_titles=(
-            'Filtered Equity Curve', 'Summary Statistics',
-            'Daily Returns', '',
-            'Cumulative Returns', '',
-            'Drawdown', '',
-            'Position Distribution', '',
-            'Asset Performance', '',
-            'PnL Distribution', '',
-            'Monthly Returns', ''
-        ),
-        specs=[
-            [{"secondary_y": False}, {"type": "table"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"type": "domain"}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
-            [{"secondary_y": False}, {"type": "scatter"}]
-        ],
-        column_widths=[0.7, 0.3],
-        vertical_spacing=0.05,
-        horizontal_spacing=0.05
-    )
-    
-    # 1. Equity Curve
-    fig.add_trace(
-        go.Scatter(
-            x=df['label'],
-            y=df['capital'],
-            mode='lines+markers',
-            name='Capital',
-            line=dict(color='#1f77b4', width=2),
-            marker=dict(size=4),
-            hovertemplate='<b>Identifier:</b> %{x}<br>' +
-                         '<b>Capital:</b> $%{y:,.2f}<br>' +
-                         '<b>Asset:</b> %{customdata[0]}<br>' +
-                         '<b>PnL:</b> $%{customdata[1]:,.2f}<br>' +
-                         '<b>Return:</b> %{customdata[2]:.2f}%<br>' +
-                         '<b>Entry Price:</b> $%{customdata[3]:,.2f}<br>' +
-                         '<b>Exit Price:</b> $%{customdata[4]:,.2f}<extra></extra>',
-            customdata=df[['position', 'pnl', 'return_pct', 'entry_price', 'exit_price']].values
-        ),
-        row=1, col=1
-    )
-    
-    # Add DEMA line
-    fig.add_trace(
-        go.Scatter(
-            x=df['label'],
-            y=df['dema_value'],
-            mode='lines',
-            name='DEMA',
-            line=dict(color='#ff7f0e', width=2, dash='dash'),
-            hovertemplate='<b>Identifier:</b> %{x}<br>' +
-                         '<b>DEMA:</b> $%{y:,.2f}<extra></extra>'
-        ),
-        row=1, col=1
-    )
-    
-    # Add initial capital line using summary stats
-    initial_capital = summary_stats.get('initial_capital', 10000)
-    fig.add_hline(
-        y=initial_capital,
-        line_dash="dash",
-        line_color="red",
-        annotation_text=f"Initial Capital: ${initial_capital:,.0f}",
-        row=1, col=1
-    )
-    
-    # 2. Daily Returns
-    colors = ['green' if x >= 0 else 'red' for x in df['return_pct']]
-    fig.add_trace(
-        go.Bar(
-            x=df['label'],
-            y=df['return_pct'],
-            name='Daily Returns',
-            marker_color=colors,
-            hovertemplate='<b>Identifier:</b> %{x}<br><b>Return:</b> %{y:.2f}%<extra></extra>'
-        ),
-        row=2, col=1
-    )
-    
-    # 3. Cumulative Returns
-    fig.add_trace(
-        go.Scatter(
-            x=df['label'],
-            y=df['cumulative_return_pct'],
-            mode='lines',
-            name='Cumulative Returns',
-            line=dict(color='#2ca02c', width=2),
-            hovertemplate='<b>Identifier:</b> %{x}<br><b>Cumulative Return:</b> %{y:.2f}%<extra></extra>'
-        ),
-        row=3, col=1
-    )
-    
-    # 4. Drawdown
-    fig.add_trace(
-        go.Scatter(
-            x=df['label'],
-            y=df['drawdown'],
-            mode='lines',
-            name='Drawdown',
-            line=dict(color='#d62728', width=2),
-            fill='tonexty',
-            fillcolor='rgba(214, 39, 40, 0.3)',
-            hovertemplate='<b>Identifier:</b> %{x}<br><b>Drawdown:</b> %{y:.2f}%<extra></extra>'
-        ),
-        row=4, col=1
-    )
-    
-    # 5. Position Distribution
-    # Replace None values with "cash" for proper labeling
-    position_data = df['position'].fillna('cash')
-    position_counts = position_data.value_counts()
-    fig.add_trace(
-        go.Pie(
-            labels=position_counts.index,
-            values=position_counts.values,
-            name='Position Distribution',
-            hovertemplate='<b>Asset:</b> %{label}<br><b>Count:</b> %{value}<extra></extra>'
-        ),
-        row=5, col=1
-    )
-    
-    # 6. Asset Performance
-    asset_performance = df.groupby('position').agg({
-        'pnl': 'sum',
-        'return_pct': 'sum'
-    }).reset_index()
-    # Replace None with "cash" for display
-    asset_performance['position'] = asset_performance['position'].fillna('cash')
-    
-    fig.add_trace(
-        go.Bar(
-            x=asset_performance['position'],
-            y=asset_performance['pnl'],
-            name='Asset PnL',
-            marker_color=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'],
-            hovertemplate='<b>Asset:</b> %{x}<br><b>Total PnL:</b> $%{y:,.2f}<extra></extra>'
-        ),
-        row=6, col=1
-    )
-    
-    # 7. PnL Distribution
-    pnl_data = df[df['pnl'] != 0]['pnl']
-    fig.add_trace(
-        go.Histogram(
-            x=pnl_data,
-            nbinsx=20,
-            name='PnL Distribution',
-            marker_color='#9467bd',
-            hovertemplate='<b>PnL Range:</b> %{x}<br><b>Frequency:</b> %{y}<extra></extra>'
-        ),
-        row=7, col=1
-    )
-    
-    # 8. Monthly Returns
-    # Only include entries that can be parsed as dates for monthly grouping
-    date_entries = df[df['label'].str.match(r'^\d{4}-\d{2}-\d{2}$')].copy()
-    if not date_entries.empty:
-        date_entries['month'] = date_entries['label'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d').strftime('%Y-%m'))
-        monthly_returns = date_entries.groupby('month')['return_pct'].sum().reset_index()
-        monthly_returns['month'] = monthly_returns['month'].astype(str)
+    # Add asset distribution pie charts
+    if ref_asset_analysis['asset_stats']:
+        ref_assets = list(ref_asset_analysis['asset_stats'].keys())
+        ref_periods = [ref_asset_analysis['asset_stats'][asset]['periods'] for asset in ref_assets]
         
-        colors_monthly = ['green' if x >= 0 else 'red' for x in monthly_returns['return_pct']]
         fig.add_trace(
-            go.Bar(
-                x=monthly_returns['month'],
-                y=monthly_returns['return_pct'],
-                name='Monthly Returns',
-                marker_color=colors_monthly,
-                hovertemplate='<b>Month:</b> %{x}<br><b>Return:</b> %{y:.2f}%<extra></extra>'
+            go.Pie(
+                labels=ref_assets,
+                values=ref_periods,
+                name="Reference Assets",
+                textinfo='label+percent',
+                textposition='auto',
+                marker_colors=['#2E86AB', '#A23B72', '#F18F01', '#F3A712', '#C73E1D']
             ),
-            row=8, col=1
-        )
-    else:
-        # If no valid dates, create a simple bar with total return
-        fig.add_trace(
-            go.Bar(
-                x=['Total'],
-                y=[df['return_pct'].sum()],
-                name='Total Return',
-                marker_color=['green' if df['return_pct'].sum() >= 0 else 'red'],
-                hovertemplate='<b>Total Return:</b> %{y:.2f}%<extra></extra>'
-            ),
-            row=8, col=1
+            row=2, col=1
         )
     
-    # Add Summary Statistics Table
-    best_trade = summary_stats.get('best_trade', {})
-    worst_trade = summary_stats.get('worst_trade', {})
-    
-    # Calculate additional statistics
-    winning_trades = df[df['pnl'] > 0]
-    losing_trades = df[df['pnl'] < 0]
-    total_trades = len(df[df['pnl'] != 0])
-    
-    win_rate = len(winning_trades) / total_trades * 100 if total_trades > 0 else 0
-    avg_win = winning_trades['pnl'].mean() if len(winning_trades) > 0 else 0
-    avg_loss = losing_trades['pnl'].mean() if len(losing_trades) > 0 else 0
-    profit_factor = abs(winning_trades['pnl'].sum() / losing_trades['pnl'].sum()) if len(losing_trades) > 0 and losing_trades['pnl'].sum() != 0 else float('inf')
-    
-    # Calculate volatility (standard deviation of returns)
-    returns_std = df['return_pct'].std()
-    
-    # Calculate max consecutive wins and losses
-    consecutive_wins = 0
-    consecutive_losses = 0
-    max_consecutive_wins = 0
-    max_consecutive_losses = 0
-    
-    for pnl in df['pnl']:
-        if pnl > 0:
-            consecutive_wins += 1
-            consecutive_losses = 0
-            max_consecutive_wins = max(max_consecutive_wins, consecutive_wins)
-        elif pnl < 0:
-            consecutive_losses += 1
-            consecutive_wins = 0
-            max_consecutive_losses = max(max_consecutive_losses, consecutive_losses)
+    if actual_asset_analysis['asset_stats']:
+        actual_assets = list(actual_asset_analysis['asset_stats'].keys())
+        actual_periods = [actual_asset_analysis['asset_stats'][asset]['periods'] for asset in actual_assets]
     
     fig.add_trace(
-        go.Table(
-            header=dict(
-                values=['Metric', 'Value'],
-                fill_color='#1f77b4',
-                font=dict(color='white', size=14),
-                align='left'
+            go.Pie(
+                labels=actual_assets,
+                values=actual_periods,
+                name="Actual Assets",
+                textinfo='label+percent',
+                textposition='auto',
+                marker_colors=['#2E86AB', '#A23B72', '#F18F01', '#F3A712', '#C73E1D']
             ),
-            cells=dict(
-                values=[
-                    [
-                        'Initial Capital',
-                        'Final Capital', 
-                        'Total Return',
-                        'Total Return %',
-                        'Number of Trades',
-                        'Number of Periods',
-                        'Win Rate',
-                        'Profit Factor',
-                        'Avg Win',
-                        'Avg Loss',
-                        'Avg Return/Trade',
-                        'Volatility (Std Dev)',
-                        'Sharpe Ratio',
-                        'Sortino Ratio',
-                        'Max Consecutive Wins',
-                        'Max Consecutive Losses',
-                        'Best Trade',
-                        'Worst Trade',
-                        'Max Drawdown'
-                    ],
-                    [
-                        f"${summary_stats.get('initial_capital', 0):,.2f}",
-                        f"${summary_stats.get('final_capital', 0):,.2f}",
-                        f"${summary_stats.get('total_return', 0):,.2f}",
-                        f"{summary_stats.get('total_return_pct', 0):.2f}%",
-                        f"{summary_stats.get('number_of_trades', 0)}",
-                        f"{summary_stats.get('number_of_periods', len(df))}",
-                        f"{win_rate:.1f}%",
-                        f"{profit_factor:.2f}" if profit_factor != float('inf') else "∞",
-                        f"${avg_win:,.2f}",
-                        f"${avg_loss:,.2f}",
-                        f"{summary_stats.get('average_return_per_trade_pct', 0):.2f}%",
-                        f"{returns_std:.2f}%",
-                        f"{summary_stats.get('sharpe_ratio') or 0:.3f}",
-                        f"{summary_stats.get('sortino_ratio') or 0:.3f}",
-                        f"{max_consecutive_wins}",
-                        f"{max_consecutive_losses}",
-                        f"{best_trade.get('asset', 'N/A')} (${best_trade.get('pnl', 0):,.0f})",
-                        f"{worst_trade.get('asset', 'N/A')} (${worst_trade.get('pnl', 0):,.0f})",
-                        f"{df['drawdown'].min():.2f}%"
-                    ]
-                ],
-                fill_color='rgba(240, 240, 240, 0.8)',
-                font=dict(size=11),
-                align='left',
-                height=25
-            )
-        ),
-        row=1, col=2
-    )
+            row=2, col=2
+        )
     
-    # Update layout using summary stats
-    final_capital = summary_stats.get('final_capital', df['capital'].iloc[-1])
-    total_return_pct = summary_stats.get('total_return_pct', 0)
-    
+    # Update layout
     fig.update_layout(
         title={
-            'text': f'Filtered Equity Curve Analysis<br><sub>Initial Capital: ${initial_capital:,.0f} | Final Capital: ${final_capital:,.2f} | Total Return: {total_return_pct:.2f}%</sub>',
+            'text': f'<b>RSPS-Robust Strategy Dashboard</b><br><span style="font-size:14px">Performance Analysis: {curve_type} Equity Curve System</span>',
             'x': 0.5,
             'xanchor': 'center',
             'font': {'size': 20}
         },
-        height=2000,  # Increased height for 8 stacked charts
-        width=1400,   # Increased width for side-by-side layout
-        showlegend=False,
-        template='plotly_white'
+        height=1000,
+        showlegend=True,
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        ),
+        font=dict(family="Arial, sans-serif", size=12),
+        plot_bgcolor='white',
+        paper_bgcolor='white'
     )
     
-    # Update axes labels (only for left column charts)
-    fig.update_xaxes(title_text="Identifier", row=1, col=1, type='category', showticklabels=False)
-    fig.update_yaxes(title_text="Capital ($)", row=1, col=1)
-    fig.update_xaxes(title_text="Identifier", row=2, col=1, type='category', showticklabels=False)
-    fig.update_yaxes(title_text="Daily Return (%)", row=2, col=1)
-    fig.update_xaxes(title_text="Identifier", row=3, col=1, type='category', showticklabels=False)
-    fig.update_yaxes(title_text="Cumulative Return (%)", row=3, col=1)
-    fig.update_xaxes(title_text="Identifier", row=4, col=1, type='category', showticklabels=False)
-    fig.update_yaxes(title_text="Drawdown (%)", row=4, col=1)
-    fig.update_xaxes(title_text="Asset", row=6, col=1, showticklabels=True)
-    fig.update_yaxes(title_text="Total PnL ($)", row=6, col=1)
-    fig.update_xaxes(title_text="PnL ($)", row=7, col=1, showticklabels=True)
-    fig.update_yaxes(title_text="Frequency", row=7, col=1)
-    fig.update_xaxes(title_text="Month", row=8, col=1, showticklabels=True)
-    fig.update_yaxes(title_text="Monthly Return (%)", row=8, col=1)
+    # Update axes
+    fig.update_xaxes(title_text="Date", row=1, col=1, showgrid=True, gridcolor='lightgray')
+    fig.update_xaxes(title_text="Date", row=1, col=2, showgrid=True, gridcolor='lightgray')
+    fig.update_yaxes(title_text="Capital ($)", row=1, col=1, showgrid=True, gridcolor='lightgray')
+    fig.update_yaxes(title_text="Capital ($)", row=1, col=2, showgrid=True, gridcolor='lightgray')
     
-    # Hide the empty subplots in the right column
-    for row in range(2, 9):
-        fig.update_xaxes(showticklabels=False, showgrid=False, row=row, col=2)
-        fig.update_yaxes(showticklabels=False, showgrid=False, row=row, col=2)
+    # Create performance metrics HTML
+    def format_metric(value, format_type="number"):
+        if format_type == "currency":
+            return f"${value:,.2f}"
+        elif format_type == "percentage":
+            return f"{value:.2f}%"
+        elif format_type == "ratio":
+            return f"{value:.3f}"
+        else:
+            return f"{value:,.0f}"
     
-    # Save the visualization
-    fig.write_html(output_path)
-    print(f"Filtered equity curve visualization saved to: {output_path}")
+    def create_metrics_table(metrics, title):
+        return f"""
+        <div style="margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+            <h3 style="margin-top: 0; color: #2E86AB;">{title}</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                <div><strong>Initial Capital:</strong> {format_metric(metrics.get('initial_capital', 0), 'currency')}</div>
+                <div><strong>Final Capital:</strong> {format_metric(metrics.get('final_capital', 0), 'currency')}</div>
+                <div><strong>Total Return:</strong> {format_metric(metrics.get('total_return_pct', 0), 'percentage')}</div>
+                <div><strong>Max Drawdown:</strong> {format_metric(metrics.get('max_drawdown_pct', 0), 'percentage')}</div>
+                <div><strong>Sharpe Ratio:</strong> {format_metric(metrics.get('sharpe_ratio', 0), 'ratio')}</div>
+                <div><strong>Sortino Ratio:</strong> {format_metric(metrics.get('sortino_ratio', 0), 'ratio')}</div>
+                <div><strong>Omega Ratio:</strong> {format_metric(metrics.get('omega_ratio', 0), 'ratio')}</div>
+                <div><strong>Total Trades:</strong> {format_metric(metrics.get('total_trades', 0))}</div>
+                <div><strong>Win Rate:</strong> {format_metric(metrics.get('win_rate', 0), 'percentage')}</div>
+            </div>
+        </div>
+        """
     
-    # Print comprehensive summary statistics
-    print("\n=== FILTERED EQUITY CURVE SUMMARY ===")
-    print(f"Initial Capital: ${summary_stats.get('initial_capital', 0):,.2f}")
-    print(f"Final Capital: ${summary_stats.get('final_capital', 0):,.2f}")
-    print(f"Total Return: ${summary_stats.get('total_return', 0):,.2f}")
-    print(f"Total Return %: {summary_stats.get('total_return_pct', 0):.2f}%")
-    print(f"Number of Trades: {summary_stats.get('number_of_trades', 0)}")
-    print(f"Number of Periods: {summary_stats.get('number_of_periods', len(df))}")
-    print(f"Average Return per Trade: {summary_stats.get('average_return_per_trade_pct', 0):.2f}%")
-    print(f"Sharpe Ratio: {summary_stats.get('sharpe_ratio') or 0:.3f}")
-    print(f"Sortino Ratio: {summary_stats.get('sortino_ratio') or 0:.3f}")
+    def create_asset_table(asset_analysis, title):
+        if not asset_analysis['asset_stats']:
+            return f"<div><h3>{title}</h3><p>No asset data available</p></div>"
+        
+        rows = ""
+        for asset, stats in asset_analysis['asset_stats'].items():
+            # For cash, show different display format
+            if asset == 'CASH':
+                rows += f"""
+                <tr style="background-color: #fff3cd;">
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>{asset}</strong></td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">{stats['periods']}</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">{stats['allocation_percentage']:.1f}%</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">$0.00</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">$0.00</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">-</td>
+                </tr>
+                """
+            else:
+                rows += f"""
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">{asset.upper()}</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">{stats['periods']}</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">{stats['allocation_percentage']:.1f}%</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">${stats['total_pnl']:,.2f}</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">${stats['avg_pnl']:,.2f}</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">{stats['win_rate']:.1f}%</td>
+                </tr>
+                """
+        
+        return f"""
+        <div style="margin: 20px 0;">
+            <h3 style="color: #2E86AB;">{title}</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 10px 0;">
+                <thead>
+                    <tr style="background-color: #f5f5f5;">
+                        <th style="padding: 10px; border-bottom: 2px solid #ddd; text-align: left;">Asset</th>
+                        <th style="padding: 10px; border-bottom: 2px solid #ddd; text-align: left;">Periods</th>
+                        <th style="padding: 10px; border-bottom: 2px solid #ddd; text-align: left;">% Allocation</th>
+                        <th style="padding: 10px; border-bottom: 2px solid #ddd; text-align: left;">Total PnL</th>
+                        <th style="padding: 10px; border-bottom: 2px solid #ddd; text-align: left;">Avg PnL</th>
+                        <th style="padding: 10px; border-bottom: 2px solid #ddd; text-align: left;">Win Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows}
+                </tbody>
+            </table>
+            <p style="margin-top: 10px; color: #666; font-style: italic;">
+                Cash Periods: {asset_analysis['cash_periods']} | Total Periods: {asset_analysis['total_periods']}
+            </p>
+        </div>
+        """
     
-    best_trade = summary_stats.get('best_trade', {})
-    worst_trade = summary_stats.get('worst_trade', {})
-    print(f"Best Trade: {best_trade.get('asset', 'N/A')} on {best_trade.get('identifier', 'N/A')} - ${best_trade.get('pnl', 0):,.2f}")
-    print(f"Worst Trade: {worst_trade.get('asset', 'N/A')} on {worst_trade.get('identifier', 'N/A')} - ${worst_trade.get('pnl', 0):,.2f}")
-    print(f"Max Drawdown: {df['drawdown'].min():.2f}%")
+    # Generate the complete HTML
+    metrics_html = f"""
+    <div style="font-family: Arial, sans-serif; margin: 20px; background-color: white;">
+        <h1 style="text-align: center; color: #2E86AB; margin-bottom: 30px;">
+            🚀 RSPS-Robust Strategy Performance Dashboard
+        </h1>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            {create_metrics_table(ref_metrics, "📊 Reference Curve Metrics (Always Allocated)")}
+            {create_metrics_table(actual_metrics, "🎯 Actual Curve Metrics (TPI Controlled)")}
+        </div>
+        
+        <div style="margin: 30px 0;">
+            <h2 style="color: #2E86AB; text-align: center;">Asset Performance Analysis</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>{create_asset_table(ref_asset_analysis, "Reference Curve Asset Distribution")}</div>
+                <div>{create_asset_table(actual_asset_analysis, "Actual Curve Asset Distribution")}</div>
+            </div>
+        </div>
+        
+        <div style="margin: 30px 0; padding: 20px; background-color: #e8f4f8; border-radius: 10px;">
+            <h3 style="color: #2E86AB; margin-top: 0;">🎯 Strategy Performance Summary</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; font-size: 16px;">
+                <div><strong>Strategy Type:</strong> {curve_type} Equity Curve System</div>
+                <div><strong>Analysis Period:</strong> {ref_metrics.get('start_date', 'N/A')} to {ref_metrics.get('end_date', 'N/A')}</div>
+                <div><strong>TPI Performance Boost:</strong> {(actual_metrics.get('total_return_pct', 0) / ref_metrics.get('total_return_pct', 1) if ref_metrics.get('total_return_pct', 0) > 0 else 0):.1f}x</div>
+                <div><strong>Capital Multiplier:</strong> {(actual_metrics.get('final_capital', 0) / actual_metrics.get('initial_capital', 1)):.2f}x</div>
+            </div>
+        </div>
+    </div>
+    """
     
-    return fig
+    # Combine the plot with metrics
+    html_string = fig.to_html(include_plotlyjs=True)
+    
+    # Insert metrics before the closing body tag
+    html_string = html_string.replace('</body>', f'{metrics_html}</body>')
+    
+    # Save to file
+    with open(output_path, 'w') as f:
+        f.write(html_string)
+    
+    print(f"✅ Comprehensive equity curve dashboard saved to {output_path}")
 
 if __name__ == "__main__":
-    # Load config for standalone execution
-    with open('app/config.json', 'r') as f:
+    # Load config
+    with open("app/config.json", "r") as f:
         config = json.load(f)
+    
     create_equity_curve_visualization(config)
