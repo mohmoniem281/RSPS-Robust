@@ -2,6 +2,7 @@ import json
 import os
 import math
 import sys
+import pandas as pd
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 
@@ -11,6 +12,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # try:
 from trend_filters.dema import apply_dema_trend_filter, calculate_dema
 from trend_filters.slope import apply_trend_slope_filter, calculate_trend_slope
+from trend_filters.chandelier_exit import chandelier_exit_close_only
 # except ImportError:
 #     # Fallback: try absolute import
 #     from app.trend_filters.dema import apply_dema_trend_filter, calculate_dema
@@ -86,11 +88,14 @@ class EquityCurveBuilder:
         if not self.dema_filtering_enabled or len(self.capital_history) < 2:
             return True, None  # Trade if no trend filters or insufficient history
         
-        # Apply DEMA trend filter using current capital history
-        # is_trending, dema_value = apply_dema_trend_filter(self.capital_history)
-        slope_value = apply_trend_slope_filter(self.capital_history)
-        if slope_value >= 0:
-            return True, slope_value
+        # Apply Chandelier Exit
+        ce_trend = chandelier_exit_close_only(self.capital_history)
+        print("Mody")
+        print(ce_trend)
+        signal = ce_trend.iloc[-1]
+        
+        if signal == 1:
+            return True, signal
         return False, None
     
     def build_equity_curve(self):
