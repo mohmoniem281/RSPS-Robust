@@ -39,6 +39,7 @@ class EquityCurveBuilder:
         # Initialize equity curve
         self.initial_capital = 10000  # Starting with $10,000
         self.current_capital = self.initial_capital
+        self.current_capital_trend_filtered = self.initial_capital
         self.equity_curve = []
         
         # Track capital history for trend analysis
@@ -88,10 +89,14 @@ class EquityCurveBuilder:
         if not self.dema_filtering_enabled or len(self.capital_history) < 2:
             return True, None  # Trade if no trend filters or insufficient history
         
+        # Apply DEMA trend filter
+        dema_trend,signal = apply_dema_trend_filter(self.capital_history)
+        return dema_trend,signal
+
         # Apply Chandelier Exit
         ce_trend = chandelier_exit_close_only(self.capital_history)
-        print("Mody")
-        print(ce_trend)
+        # print("Mody")
+        # print(ce_trend)
         signal = ce_trend.iloc[-1]
         
         if signal == 1:
@@ -146,7 +151,7 @@ class EquityCurveBuilder:
             # Check trend filter BEFORE making trading decision
             should_trade, dema_value = self._should_trade_based_on_trend()
             
-            if winner_asset is None or not should_trade:
+            if winner_asset is None:
                 # No trade (cash position) - either no winner or trend filter blocked trade
                 self.equity_curve.append({
                     "identifier": current_identifier,
@@ -156,55 +161,80 @@ class EquityCurveBuilder:
                     "position": None,
                     "entry_price": None,
                     "exit_price": None,
-                    "winner_asset": winner_asset if winner_asset else None
+                    "winner_asset": winner_asset if winner_asset else None,
+                    "trend_filtered_position": None,
+                    "trend_filtered_pnl": 0.0,
+                    "trend_filtered_return_pct": 0.0,
+                    "trend_filtered_capital": self.current_capital_trend_filtered
                 })
                 
                 # Update capital history for trend analysis
-                self.capital_history.append(self.current_capital)
-                
-                if not should_trade and winner_asset:
-                    print(f"  Trend filter BLOCKED trade: {winner_asset} | Capital: ${self.current_capital:.2f}")
+                self.capital_history.append(self.current_capital)                
+                print(f"  BLOCKED trade no winner asset: {winner_asset} | Capital: ${self.current_capital:.2f}")
                 continue
             
             # Get entry price (from previous identifier)
             entry_price = self._get_price(winner_asset, previous_identifier)
-            if entry_price is None:
-                print(f"Warning: No entry price found for {winner_asset} at {previous_identifier}")
-                continue
             
             # Get exit price (from current identifier)
             exit_price = self._get_price(winner_asset, current_identifier)
-            if exit_price is None:
-                print(f"Warning: No exit price found for {winner_asset} at {current_identifier}")
-                continue
             
             # Calculate position size (100% of capital)
             position_size = self.current_capital / entry_price
             
             # Calculate PnL
             pnl = self._calculate_pnl(entry_price, exit_price, position_size)
+            if should_trade:
+                pnl_trend_filtered = pnl
+            else:
+                pnl_trend_filtered = 0.0
             
             # Update capital
             new_capital = self.current_capital + pnl
+            new_capital_trend_filtered = self.current_capital_trend_filtered + pnl_trend_filtered
             return_pct = (pnl / self.current_capital) * 100 if self.current_capital > 0 else 0
-            
+            return_pct_trend_filtered = (pnl_trend_filtered / self.current_capital_trend_filtered) * 100 if self.current_capital_trend_filtered > 0 else 0
             # Update current capital
             self.current_capital = new_capital
-            
+            self.current_capital_trend_filtered = new_capital_trend_filtered
+
             # Update capital history for trend analysis
             self.capital_history.append(self.current_capital)
             
-            # Add to equity curve
-            self.equity_curve.append({
-                "identifier": current_identifier,
-                "capital": self.current_capital,
-                "pnl": pnl,
-                "return_pct": return_pct,
-                "position": winner_asset,
-                "entry_price": entry_price,
-                "exit_price": exit_price,
-                "winner_asset": winner_asset
-            })
+            if should_trade:
+                # Add to equity curve
+                self.equity_curve.append({
+                    "identifier": current_identifier,
+                    "capital": self.current_capital,
+                    "pnl": pnl,
+                    "return_pct": return_pct,
+                    "position": winner_asset,
+                    "entry_price": entry_price,
+                    "exit_price": exit_price,
+                    "winner_asset": winner_asset,
+                    "trend_filtered_position": winner_asset,
+                    "trend_filtered_pnl": pnl_trend_filtered,
+                    "trend_filtered_return_pct": return_pct_trend_filtered,
+                    "trend_filtered_capital": self.current_capital_trend_filtered
+                })
+            else:
+                print(f"  BLOCKED trade down trend: {winner_asset} | Capital: ${self.current_capital:.2f}")
+               # Add to equity curve
+                self.equity_curve.append({
+                    "identifier": current_identifier,
+                    "capital": self.current_capital,
+                    "pnl": pnl,
+                    "return_pct": return_pct,
+                    "position": winner_asset,
+                    "entry_price": entry_price,
+                    "exit_price": exit_price,
+                    "winner_asset": winner_asset,
+                    "trend_filtered_position": None,
+                    "trend_filtered_pnl": 0.0,
+                    "trend_filtered_return_pct": 0.0,
+                    "trend_filtered_capital": self.current_capital_trend_filtered
+                })
+            
             
             print(f"  Trade EXECUTED: {winner_asset} | Entry: ${entry_price:.2f} | Exit: ${exit_price:.2f} | PnL: ${pnl:.2f} | Capital: ${self.current_capital:.2f}")
         
@@ -212,12 +242,12 @@ class EquityCurveBuilder:
         self._save_equity_curve()
         
         # Add current signal entry based on the latest tournament result
-        self._add_current_signal_entry()
+        self._add_current_signal_entry(should_trade)
         
         # Print summary
         self._print_summary()
     
-    def _add_current_signal_entry(self):
+    def _add_current_signal_entry(self,should_trade:bool):
         """Add a current signal entry based on the latest tournament result."""
         # Get the latest tournament identifier
         latest_tournament_identifier = self.tournament_results["tournaments"][-1]["tournament_identifier"]
@@ -236,23 +266,47 @@ class EquityCurveBuilder:
                 "entry_price": None,
                 "exit_price": None,
                 "winner_asset": None,
-                "signal_source": latest_tournament_identifier
+                "signal_source": latest_tournament_identifier,
+                "trend_filtered_position": None,
+                "trend_filtered_pnl": 0.0,
+                "trend_filtered_return_pct": 0.0,
+                "trend_filtered_capital": self.current_capital_trend_filtered
             }
         else:
             # Get entry price from the latest tournament identifier
             entry_price = self._get_price(latest_winner, latest_tournament_identifier)
-            
-            current_signal_entry = {
-                "identifier": "current_signal",
-                "capital": self.current_capital,
-                "pnl": 0.0,  # No PnL yet since trade hasn't been executed
-                "return_pct": 0.0,
-                "position": latest_winner,
-                "entry_price": entry_price,
-                "exit_price": None,  # No exit price yet
-                "winner_asset": latest_winner,
-                "signal_source": latest_tournament_identifier
-            }
+            if should_trade:
+                current_signal_entry = {
+                    "identifier": "current_signal",
+                    "capital": self.current_capital,
+                    "pnl": 0.0,  # No PnL yet since trade hasn't been executed
+                    "return_pct": 0.0,
+                    "position": latest_winner,
+                    "entry_price": entry_price,
+                    "exit_price": None,  # No exit price yet
+                    "winner_asset": latest_winner,
+                    "signal_source": latest_tournament_identifier,
+                    "trend_filtered_position": latest_winner,
+                    "trend_filtered_pnl": 0.0,
+                    "trend_filtered_return_pct": 0.0,
+                    "trend_filtered_capital": self.current_capital_trend_filtered
+                }
+            else:
+                current_signal_entry = {
+                    "identifier": "current_signal",
+                    "capital": self.current_capital,
+                    "pnl": 0.0,  # No PnL yet since trade hasn't been executed
+                    "return_pct": 0.0,
+                    "position": latest_winner,
+                    "entry_price": entry_price,
+                    "exit_price": None,  # No exit price yet
+                    "winner_asset": latest_winner,
+                    "signal_source": latest_tournament_identifier,
+                    "trend_filtered_position": None,
+                    "trend_filtered_pnl": 0.0,
+                    "trend_filtered_return_pct": 0.0,
+                    "trend_filtered_capital": self.current_capital_trend_filtered
+                }
         
         # Add to equity curve
         self.equity_curve.append(current_signal_entry)
@@ -326,6 +380,27 @@ class EquityCurveBuilder:
                 stats["sortino_ratio"] = sortino_ratio
             else:
                 stats["sortino_ratio"] = None
+            
+            # Calculate Omega ratio
+            # Omega ratio = E[max(R - L, 0)] / E[max(L - R, 0)]
+            # where R is return and L is the threshold (risk-free rate)
+            threshold = risk_free_rate
+            
+            # Calculate expected value of gains above threshold
+            gains = [max(r - threshold, 0) for r in returns_decimal]
+            expected_gains = sum(gains) / len(gains)
+            
+            # Calculate expected value of losses below threshold
+            losses = [max(threshold - r, 0) for r in returns_decimal]
+            expected_losses = sum(losses) / len(losses)
+            
+            # Calculate Omega ratio
+            if expected_losses > 0:
+                omega_ratio = expected_gains / expected_losses
+                stats["omega_ratio"] = omega_ratio
+            else:
+                # If no losses, Omega ratio is undefined (infinite)
+                stats["omega_ratio"] = None
         
         # Find best and worst trades
         if self.equity_curve:
@@ -345,13 +420,125 @@ class EquityCurveBuilder:
         
         return stats
 
+    def _calculate_trend_filtered_summary_statistics(self) -> Dict:
+        """Calculate summary statistics for the trend-filtered equity curve."""
+        if not self.equity_curve:
+            return {}
+        
+        # Get the final trend-filtered capital from the last entry
+        final_trend_filtered_capital = self.initial_capital
+        for entry in reversed(self.equity_curve):
+            if "trend_filtered_capital" in entry:
+                final_trend_filtered_capital = entry["trend_filtered_capital"]
+                break
+        
+        total_return = final_trend_filtered_capital - self.initial_capital
+        total_return_pct = (total_return / self.initial_capital) * 100
+        
+        # Calculate statistics for trend-filtered fields
+        trend_filtered_returns = [entry["trend_filtered_return_pct"] for entry in self.equity_curve 
+                                if "trend_filtered_return_pct" in entry and entry["trend_filtered_return_pct"] != 0]
+        trend_filtered_trades_count = len([entry for entry in self.equity_curve 
+                                         if "trend_filtered_position" in entry and entry["trend_filtered_position"] is not None])
+        
+        stats = {
+            "initial_capital": self.initial_capital,
+            "final_capital": final_trend_filtered_capital,
+            "total_return": total_return,
+            "total_return_pct": total_return_pct,
+            "number_of_trades": trend_filtered_trades_count,
+            "number_of_periods": len(self.equity_curve)
+        }
+        
+        if trend_filtered_returns:
+            avg_return = sum(trend_filtered_returns) / len(trend_filtered_returns)
+            stats["average_return_per_trade_pct"] = avg_return
+            
+            # Convert percentage returns to decimal
+            returns_decimal = [r / 100 for r in trend_filtered_returns]
+            
+            # Calculate mean return
+            mean_return = sum(returns_decimal) / len(returns_decimal)
+            
+            # Calculate standard deviation (for Sharpe ratio)
+            variance = sum((r - mean_return) ** 2 for r in returns_decimal) / len(returns_decimal)
+            std_dev = math.sqrt(variance)
+            
+            # Calculate downside deviation (for Sortino ratio)
+            downside_returns = [r for r in returns_decimal if r < 0]
+            if downside_returns:
+                downside_variance = sum((r - mean_return) ** 2 for r in downside_returns) / len(returns_decimal)
+                downside_deviation = math.sqrt(downside_variance)
+            else:
+                downside_deviation = 0
+            
+            # Risk-free rate (assuming 0% for simplicity, can be adjusted)
+            risk_free_rate = 0.0
+            
+            # Calculate Sharpe ratio
+            if std_dev > 0:
+                sharpe_ratio = (mean_return - risk_free_rate) / std_dev
+                stats["sharpe_ratio"] = sharpe_ratio
+            else:
+                stats["sharpe_ratio"] = None
+            
+            # Calculate Sortino ratio
+            if downside_deviation > 0:
+                sortino_ratio = (mean_return - risk_free_rate) / downside_deviation
+                stats["sortino_ratio"] = sortino_ratio
+            else:
+                stats["sortino_ratio"] = None
+            
+            # Calculate Omega ratio
+            # Omega ratio = E[max(R - L, 0)] / E[max(L - R, 0)]
+            # where R is return and L is the threshold (risk-free rate)
+            threshold = risk_free_rate
+            
+            # Calculate expected value of gains above threshold
+            gains = [max(r - threshold, 0) for r in returns_decimal]
+            expected_gains = sum(gains) / len(gains)
+            
+            # Calculate expected value of losses below threshold
+            losses = [max(threshold - r, 0) for r in returns_decimal]
+            expected_losses = sum(losses) / len(losses)
+            
+            # Calculate Omega ratio
+            if expected_losses > 0:
+                omega_ratio = expected_gains / expected_losses
+                stats["omega_ratio"] = omega_ratio
+            else:
+                # If no losses, Omega ratio is undefined (infinite)
+                stats["omega_ratio"] = None
+        
+        # Find best and worst trend-filtered trades
+        if self.equity_curve:
+            trend_filtered_entries = [entry for entry in self.equity_curve if "trend_filtered_pnl" in entry]
+            if trend_filtered_entries:
+                best_trade = max(trend_filtered_entries, key=lambda x: x["trend_filtered_pnl"])
+                worst_trade = min(trend_filtered_entries, key=lambda x: x["trend_filtered_pnl"])
+                
+                stats["best_trade"] = {
+                    "identifier": best_trade["identifier"],
+                    "asset": best_trade.get("trend_filtered_position"),
+                    "pnl": best_trade["trend_filtered_pnl"]
+                }
+                stats["worst_trade"] = {
+                    "identifier": worst_trade["identifier"],
+                    "asset": worst_trade.get("trend_filtered_position"),
+                    "pnl": worst_trade["trend_filtered_pnl"]
+                }
+        
+        return stats
+
     def _save_equity_curve(self):
         """Save the equity curve to JSON file."""
         # Calculate summary statistics
         summary_stats = self._calculate_summary_statistics()
+        trend_filtered_summary_stats = self._calculate_trend_filtered_summary_statistics()
         
         equity_curve_data = {
             "summary_statistics": summary_stats,
+            "trend_filtered_summary_statistics": trend_filtered_summary_stats,
             "equity_curve": self.equity_curve
         }
         
@@ -366,6 +553,7 @@ class EquityCurveBuilder:
     def _print_summary(self):
         """Print a summary of the equity curve results."""
         summary_stats = self._calculate_summary_statistics()
+        trend_filtered_summary_stats = self._calculate_trend_filtered_summary_statistics()
         
         if not summary_stats:
             print("No equity curve data to summarize")
@@ -392,6 +580,12 @@ class EquityCurveBuilder:
                 print(f"Sortino Ratio: {summary_stats['sortino_ratio']:.3f}")
             else:
                 print("Sortino Ratio: N/A (no downside volatility)")
+            
+            # Print Omega ratio
+            if 'omega_ratio' in summary_stats and summary_stats['omega_ratio'] is not None:
+                print(f"Omega Ratio: {summary_stats['omega_ratio']:.3f}")
+            else:
+                print("Omega Ratio: N/A (no losses or insufficient data)")
         
         # Print best and worst trades
         if 'best_trade' in summary_stats:
@@ -399,6 +593,43 @@ class EquityCurveBuilder:
             worst = summary_stats['worst_trade']
             print(f"Best Trade: {best['identifier']} - {best['asset']} - ${best['pnl']:.2f}")
             print(f"Worst Trade: {worst['identifier']} - {worst['asset']} - ${worst['pnl']:.2f}")
+        
+        # Print trend-filtered summary
+        if trend_filtered_summary_stats:
+            print(f"\n=== TREND-FILTERED EQUITY CURVE SUMMARY ===")
+            print(f"Initial Capital: ${trend_filtered_summary_stats['initial_capital']:,.2f}")
+            print(f"Final Capital: ${trend_filtered_summary_stats['final_capital']:,.2f}")
+            print(f"Total Return: ${trend_filtered_summary_stats['total_return']:,.2f} ({trend_filtered_summary_stats['total_return_pct']:.2f}%)")
+            print(f"Number of Trades: {trend_filtered_summary_stats['number_of_trades']}")
+            print(f"Number of Periods: {trend_filtered_summary_stats['number_of_periods']}")
+            
+            if 'average_return_per_trade_pct' in trend_filtered_summary_stats:
+                print(f"Average Return per Trade: {trend_filtered_summary_stats['average_return_per_trade_pct']:.2f}%")
+                
+                # Print Sharpe ratio
+                if trend_filtered_summary_stats['sharpe_ratio'] is not None:
+                    print(f"Sharpe Ratio: {trend_filtered_summary_stats['sharpe_ratio']:.3f}")
+                else:
+                    print("Sharpe Ratio: N/A (no volatility)")
+                
+                # Print Sortino ratio
+                if trend_filtered_summary_stats['sortino_ratio'] is not None:
+                    print(f"Sortino Ratio: {trend_filtered_summary_stats['sortino_ratio']:.3f}")
+                else:
+                    print("Sortino Ratio: N/A (no downside volatility)")
+                
+                # Print Omega ratio
+                if 'omega_ratio' in trend_filtered_summary_stats and trend_filtered_summary_stats['omega_ratio'] is not None:
+                    print(f"Omega Ratio: {trend_filtered_summary_stats['omega_ratio']:.3f}")
+                else:
+                    print("Omega Ratio: N/A (no losses or insufficient data)")
+            
+            # Print best and worst trend-filtered trades
+            if 'best_trade' in trend_filtered_summary_stats:
+                best = trend_filtered_summary_stats['best_trade']
+                worst = trend_filtered_summary_stats['worst_trade']
+                print(f"Best Trade: {best['identifier']} - {best['asset']} - ${best['pnl']:.2f}")
+                print(f"Worst Trade: {worst['identifier']} - {worst['asset']} - ${worst['pnl']:.2f}")
 
 def build_the_equity_curve(config: Dict):
     """Build equity curve using the provided config."""

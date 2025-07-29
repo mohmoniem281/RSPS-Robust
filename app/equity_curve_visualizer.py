@@ -31,6 +31,7 @@ def create_equity_curve_visualization(config):
     
     # Extract summary statistics from the JSON data
     summary_stats = data.get('summary_statistics', {})
+    trend_filtered_summary_stats = data.get('trend_filtered_summary_statistics', {})
     
     # Convert to DataFrame for easier manipulation
     df = pd.DataFrame(data['equity_curve'])
@@ -45,12 +46,17 @@ def create_equity_curve_visualization(config):
     df['cumulative_return_pct'] = df['return_pct'].cumsum()
     df['drawdown'] = (df['capital'] - df['capital'].expanding().max()) / df['capital'].expanding().max() * 100
     
-    # Create subplots - 2 columns: charts on left, summary table on right
+    # Calculate trend filtered metrics if available
+    if 'trend_filtered_capital' in df.columns:
+        df['trend_filtered_cumulative_return_pct'] = df['trend_filtered_return_pct'].cumsum()
+        df['trend_filtered_drawdown'] = (df['trend_filtered_capital'] - df['trend_filtered_capital'].expanding().max()) / df['trend_filtered_capital'].expanding().max() * 100
+    
+    # Create subplots - 2 columns: charts on left, summary tables on right
     fig = make_subplots(
         rows=8, cols=2,
         subplot_titles=(
             'Equity Curve', 'Summary Statistics',
-            'Daily Returns', '',
+            'Daily Returns', 'Trend Filtered Summary Statistics',
             'Cumulative Returns', '',
             'Drawdown', '',
             'Position Distribution', '',
@@ -60,7 +66,7 @@ def create_equity_curve_visualization(config):
         ),
         specs=[
             [{"secondary_y": False}, {"type": "table"}],
-            [{"secondary_y": False}, {"type": "scatter"}],
+            [{"secondary_y": False}, {"type": "table"}],
             [{"secondary_y": False}, {"type": "scatter"}],
             [{"secondary_y": False}, {"type": "scatter"}],
             [{"type": "domain"}, {"type": "scatter"}],
@@ -94,6 +100,40 @@ def create_equity_curve_visualization(config):
         row=1, col=1
     )
     
+    # Add trend filtered curve if available
+    if 'trend_filtered_capital' in df.columns:
+        print(f"Found trend_filtered_capital column with {len(df)} entries")
+        print(f"Sample trend_filtered_capital values: {df['trend_filtered_capital'].head(10).tolist()}")
+        print(f"Sample regular capital values: {df['capital'].head(10).tolist()}")
+        
+        # Check if there are differences between regular and trend filtered capital
+        differences = df[df['capital'] != df['trend_filtered_capital']]
+        print(f"Found {len(differences)} entries where regular and trend filtered capital differ")
+        if len(differences) > 0:
+            print(f"Sample differences: {differences[['capital', 'trend_filtered_capital']].head(5)}")
+        
+        fig.add_trace(
+            go.Scatter(
+                x=df['label'],
+                y=df['trend_filtered_capital'],
+                mode='lines+markers',
+                name='Trend Filtered Capital',
+                line=dict(color='#ff7f0e', width=2),
+                marker=dict(size=4, symbol='diamond'),
+                hovertemplate='<b>Identifier:</b> %{x}<br>' +
+                             '<b>Trend Filtered Capital:</b> $%{y:,.2f}<br>' +
+                             '<b>Asset:</b> %{customdata[0]}<br>' +
+                             '<b>PnL:</b> $%{customdata[1]:,.2f}<br>' +
+                             '<b>Return:</b> %{customdata[2]:.2f}%<br>' +
+                             '<b>Entry Price:</b> $%{customdata[3]:,.2f}<br>' +
+                             '<b>Exit Price:</b> $%{customdata[4]:,.2f}<extra></extra>',
+                customdata=df[['trend_filtered_position', 'trend_filtered_pnl', 'trend_filtered_return_pct', 'entry_price', 'exit_price']].values
+            ),
+            row=1, col=1
+        )
+    else:
+        print("trend_filtered_capital column not found in data")
+    
     # Add initial capital line using summary stats
     initial_capital = summary_stats.get('initial_capital', 10000)
     fig.add_hline(
@@ -117,6 +157,21 @@ def create_equity_curve_visualization(config):
         row=2, col=1
     )
     
+    # Add trend filtered daily returns if available
+    if 'trend_filtered_return_pct' in df.columns:
+        colors_filtered = ['green' if x >= 0 else 'red' for x in df['trend_filtered_return_pct']]
+        fig.add_trace(
+            go.Bar(
+                x=df['label'],
+                y=df['trend_filtered_return_pct'],
+                name='Trend Filtered Daily Returns',
+                marker_color=colors_filtered,
+                opacity=0.7,
+                hovertemplate='<b>Identifier:</b> %{x}<br><b>Trend Filtered Return:</b> %{y:.2f}%<extra></extra>'
+            ),
+            row=2, col=1
+        )
+    
     # 3. Cumulative Returns
     fig.add_trace(
         go.Scatter(
@@ -129,6 +184,20 @@ def create_equity_curve_visualization(config):
         ),
         row=3, col=1
     )
+    
+    # Add trend filtered cumulative returns if available
+    if 'trend_filtered_cumulative_return_pct' in df.columns:
+        fig.add_trace(
+            go.Scatter(
+                x=df['label'],
+                y=df['trend_filtered_cumulative_return_pct'],
+                mode='lines',
+                name='Trend Filtered Cumulative Returns',
+                line=dict(color='#ff7f0e', width=2),
+                hovertemplate='<b>Identifier:</b> %{x}<br><b>Trend Filtered Cumulative Return:</b> %{y:.2f}%<extra></extra>'
+            ),
+            row=3, col=1
+        )
     
     # 4. Drawdown
     fig.add_trace(
@@ -144,6 +213,22 @@ def create_equity_curve_visualization(config):
         ),
         row=4, col=1
     )
+    
+    # Add trend filtered drawdown if available
+    if 'trend_filtered_drawdown' in df.columns:
+        fig.add_trace(
+            go.Scatter(
+                x=df['label'],
+                y=df['trend_filtered_drawdown'],
+                mode='lines',
+                name='Trend Filtered Drawdown',
+                line=dict(color='#ff7f0e', width=2),
+                fill='tonexty',
+                fillcolor='rgba(255, 127, 14, 0.3)',
+                hovertemplate='<b>Identifier:</b> %{x}<br><b>Trend Filtered Drawdown:</b> %{y:.2f}%<extra></extra>'
+            ),
+            row=4, col=1
+        )
     
     # 5. Position Distribution
     # Replace None values with "cash" for proper labeling
@@ -256,6 +341,7 @@ def create_equity_curve_visualization(config):
             consecutive_wins = 0
             max_consecutive_losses = max(max_consecutive_losses, consecutive_losses)
     
+    # First table - Regular Summary Statistics
     fig.add_trace(
         go.Table(
             header=dict(
@@ -281,6 +367,7 @@ def create_equity_curve_visualization(config):
                         'Volatility (Std Dev)',
                         'Sharpe Ratio',
                         'Sortino Ratio',
+                        'Omega Ratio',
                         'Max Consecutive Wins',
                         'Max Consecutive Losses',
                         'Best Trade',
@@ -302,6 +389,7 @@ def create_equity_curve_visualization(config):
                         f"{returns_std:.2f}%",
                         f"{summary_stats.get('sharpe_ratio', 0):.3f}",
                         f"{summary_stats.get('sortino_ratio', 0):.3f}",
+                        f"{summary_stats.get('omega_ratio', 0):.3f}",
                         f"{max_consecutive_wins}",
                         f"{max_consecutive_losses}",
                         f"{best_trade.get('asset', 'N/A')} (${best_trade.get('pnl', 0):,.0f})",
@@ -318,6 +406,105 @@ def create_equity_curve_visualization(config):
         row=1, col=2
     )
     
+    # Second table - Trend Filtered Summary Statistics
+    if trend_filtered_summary_stats:
+        trend_filtered_best_trade = trend_filtered_summary_stats.get('best_trade', {})
+        trend_filtered_worst_trade = trend_filtered_summary_stats.get('worst_trade', {})
+        
+        # Calculate trend filtered statistics
+        if 'trend_filtered_pnl' in df.columns:
+            trend_filtered_winning_trades = df[df['trend_filtered_pnl'] > 0]
+            trend_filtered_losing_trades = df[df['trend_filtered_pnl'] < 0]
+            trend_filtered_total_trades = len(df[df['trend_filtered_pnl'] != 0])
+            
+            trend_filtered_win_rate = len(trend_filtered_winning_trades) / trend_filtered_total_trades * 100 if trend_filtered_total_trades > 0 else 0
+            trend_filtered_avg_win = trend_filtered_winning_trades['trend_filtered_pnl'].mean() if len(trend_filtered_winning_trades) > 0 else 0
+            trend_filtered_avg_loss = trend_filtered_losing_trades['trend_filtered_pnl'].mean() if len(trend_filtered_losing_trades) > 0 else 0
+            trend_filtered_profit_factor = abs(trend_filtered_winning_trades['trend_filtered_pnl'].sum() / trend_filtered_losing_trades['trend_filtered_pnl'].sum()) if len(trend_filtered_losing_trades) > 0 and trend_filtered_losing_trades['trend_filtered_pnl'].sum() != 0 else float('inf')
+            
+            # Calculate trend filtered volatility
+            trend_filtered_returns_std = df['trend_filtered_return_pct'].std()
+            
+            # Calculate trend filtered max consecutive wins and losses
+            trend_filtered_consecutive_wins = 0
+            trend_filtered_consecutive_losses = 0
+            trend_filtered_max_consecutive_wins = 0
+            trend_filtered_max_consecutive_losses = 0
+            
+            for pnl in df['trend_filtered_pnl']:
+                if pnl > 0:
+                    trend_filtered_consecutive_wins += 1
+                    trend_filtered_consecutive_losses = 0
+                    trend_filtered_max_consecutive_wins = max(trend_filtered_max_consecutive_wins, trend_filtered_consecutive_wins)
+                elif pnl < 0:
+                    trend_filtered_consecutive_losses += 1
+                    trend_filtered_consecutive_wins = 0
+                    trend_filtered_max_consecutive_losses = max(trend_filtered_max_consecutive_losses, trend_filtered_consecutive_losses)
+            
+            fig.add_trace(
+                go.Table(
+                    header=dict(
+                        values=['Metric', 'Value'],
+                        fill_color='#ff7f0e',
+                        font=dict(color='white', size=14),
+                        align='left'
+                    ),
+                    cells=dict(
+                        values=[
+                            [
+                                'Initial Capital',
+                                'Final Capital', 
+                                'Total Return',
+                                'Total Return %',
+                                'Number of Trades',
+                                'Number of Periods',
+                                'Win Rate',
+                                'Profit Factor',
+                                'Avg Win',
+                                'Avg Loss',
+                                'Avg Return/Trade',
+                                'Volatility (Std Dev)',
+                                'Sharpe Ratio',
+                                'Sortino Ratio',
+                                'Omega Ratio',
+                                'Max Consecutive Wins',
+                                'Max Consecutive Losses',
+                                'Best Trade',
+                                'Worst Trade',
+                                'Max Drawdown'
+                            ],
+                            [
+                                f"${trend_filtered_summary_stats.get('initial_capital', 0):,.2f}",
+                                f"${trend_filtered_summary_stats.get('final_capital', 0):,.2f}",
+                                f"${trend_filtered_summary_stats.get('total_return', 0):,.2f}",
+                                f"{trend_filtered_summary_stats.get('total_return_pct', 0):.2f}%",
+                                f"{trend_filtered_summary_stats.get('number_of_trades', 0)}",
+                                f"{trend_filtered_summary_stats.get('number_of_periods', len(df))}",
+                                f"{trend_filtered_win_rate:.1f}%",
+                                f"{trend_filtered_profit_factor:.2f}" if trend_filtered_profit_factor != float('inf') else "∞",
+                                f"${trend_filtered_avg_win:,.2f}",
+                                f"${trend_filtered_avg_loss:,.2f}",
+                                f"{trend_filtered_summary_stats.get('average_return_per_trade_pct', 0):.2f}%",
+                                f"{trend_filtered_returns_std:.2f}%",
+                                f"{trend_filtered_summary_stats.get('sharpe_ratio', 0):.3f}",
+                                f"{trend_filtered_summary_stats.get('sortino_ratio', 0):.3f}",
+                                f"{trend_filtered_summary_stats.get('omega_ratio', 0):.3f}",
+                                f"{trend_filtered_max_consecutive_wins}",
+                                f"{trend_filtered_max_consecutive_losses}",
+                                f"{trend_filtered_best_trade.get('asset', 'N/A')} (${trend_filtered_best_trade.get('pnl', 0):,.0f})",
+                                f"{trend_filtered_worst_trade.get('asset', 'N/A')} (${trend_filtered_worst_trade.get('pnl', 0):,.0f})",
+                                f"{df['trend_filtered_drawdown'].min():.2f}%" if 'trend_filtered_drawdown' in df.columns else "N/A"
+                            ]
+                        ],
+                        fill_color='rgba(255, 127, 14, 0.1)',
+                        font=dict(size=11),
+                        align='left',
+                        height=25
+                    )
+                ),
+                row=2, col=2
+            )
+    
     # Update layout using summary stats
     final_capital = summary_stats.get('final_capital', df['capital'].iloc[-1])
     total_return_pct = summary_stats.get('total_return_pct', 0)
@@ -329,9 +516,16 @@ def create_equity_curve_visualization(config):
             'xanchor': 'center',
             'font': {'size': 20}
         },
-        height=2000,  # Increased height for 8 stacked charts
+        height=2200,  # Increased height for 8 stacked charts + second table
         width=1400,   # Increased width for side-by-side layout
-        showlegend=False,
+        showlegend=True,  # Show legend for multiple curves
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        ),
         template='plotly_white'
     )
     
@@ -352,7 +546,7 @@ def create_equity_curve_visualization(config):
     fig.update_yaxes(title_text="Monthly Return (%)", row=8, col=1)
     
     # Hide the empty subplots in the right column
-    for row in range(2, 9):
+    for row in range(3, 9):
         fig.update_xaxes(showticklabels=False, showgrid=False, row=row, col=2)
         fig.update_yaxes(showticklabels=False, showgrid=False, row=row, col=2)
     
@@ -371,12 +565,34 @@ def create_equity_curve_visualization(config):
     print(f"Average Return per Trade: {summary_stats.get('average_return_per_trade_pct', 0):.2f}%")
     print(f"Sharpe Ratio: {summary_stats.get('sharpe_ratio', 0):.3f}")
     print(f"Sortino Ratio: {summary_stats.get('sortino_ratio', 0):.3f}")
+    print(f"Omega Ratio: {summary_stats.get('omega_ratio', 0):.3f}")
     
     best_trade = summary_stats.get('best_trade', {})
     worst_trade = summary_stats.get('worst_trade', {})
     print(f"Best Trade: {best_trade.get('asset', 'N/A')} on {best_trade.get('identifier', 'N/A')} - ${best_trade.get('pnl', 0):,.2f}")
     print(f"Worst Trade: {worst_trade.get('asset', 'N/A')} on {worst_trade.get('identifier', 'N/A')} - ${worst_trade.get('pnl', 0):,.2f}")
     print(f"Max Drawdown: {df['drawdown'].min():.2f}%")
+    
+    # Print trend filtered summary if available
+    if trend_filtered_summary_stats:
+        print("\n=== TREND FILTERED SUMMARY ===")
+        print(f"Initial Capital: ${trend_filtered_summary_stats.get('initial_capital', 0):,.2f}")
+        print(f"Final Capital: ${trend_filtered_summary_stats.get('final_capital', 0):,.2f}")
+        print(f"Total Return: ${trend_filtered_summary_stats.get('total_return', 0):,.2f}")
+        print(f"Total Return %: {trend_filtered_summary_stats.get('total_return_pct', 0):.2f}%")
+        print(f"Number of Trades: {trend_filtered_summary_stats.get('number_of_trades', 0)}")
+        print(f"Number of Periods: {trend_filtered_summary_stats.get('number_of_periods', len(df))}")
+        print(f"Average Return per Trade: {trend_filtered_summary_stats.get('average_return_per_trade_pct', 0):.2f}%")
+        print(f"Sharpe Ratio: {trend_filtered_summary_stats.get('sharpe_ratio', 0):.3f}")
+        print(f"Sortino Ratio: {trend_filtered_summary_stats.get('sortino_ratio', 0):.3f}")
+        print(f"Omega Ratio: {trend_filtered_summary_stats.get('omega_ratio', 0):.3f}")
+        
+        trend_filtered_best_trade = trend_filtered_summary_stats.get('best_trade', {})
+        trend_filtered_worst_trade = trend_filtered_summary_stats.get('worst_trade', {})
+        print(f"Best Trade: {trend_filtered_best_trade.get('asset', 'N/A')} on {trend_filtered_best_trade.get('identifier', 'N/A')} - ${trend_filtered_best_trade.get('pnl', 0):,.2f}")
+        print(f"Worst Trade: {trend_filtered_worst_trade.get('asset', 'N/A')} on {trend_filtered_worst_trade.get('identifier', 'N/A')} - ${trend_filtered_worst_trade.get('pnl', 0):,.2f}")
+        if 'trend_filtered_drawdown' in df.columns:
+            print(f"Max Drawdown: {df['trend_filtered_drawdown'].min():.2f}%")
     
     return fig
 
@@ -655,6 +871,7 @@ def create_filtered_equity_curve_visualization(config):
                         'Volatility (Std Dev)',
                         'Sharpe Ratio',
                         'Sortino Ratio',
+                        'Omega Ratio',
                         'Max Consecutive Wins',
                         'Max Consecutive Losses',
                         'Best Trade',
@@ -676,6 +893,7 @@ def create_filtered_equity_curve_visualization(config):
                         f"{returns_std:.2f}%",
                         f"{summary_stats.get('sharpe_ratio', 0):.3f}",
                         f"{summary_stats.get('sortino_ratio', 0):.3f}",
+                        f"{summary_stats.get('omega_ratio', 0):.3f}",
                         f"{max_consecutive_wins}",
                         f"{max_consecutive_losses}",
                         f"{best_trade.get('asset', 'N/A')} (${best_trade.get('pnl', 0):,.0f})",
@@ -726,7 +944,7 @@ def create_filtered_equity_curve_visualization(config):
     fig.update_yaxes(title_text="Monthly Return (%)", row=8, col=1)
     
     # Hide the empty subplots in the right column
-    for row in range(2, 9):
+    for row in range(3, 9):
         fig.update_xaxes(showticklabels=False, showgrid=False, row=row, col=2)
         fig.update_yaxes(showticklabels=False, showgrid=False, row=row, col=2)
     
@@ -745,6 +963,7 @@ def create_filtered_equity_curve_visualization(config):
     print(f"Average Return per Trade: {summary_stats.get('average_return_per_trade_pct', 0):.2f}%")
     print(f"Sharpe Ratio: {summary_stats.get('sharpe_ratio', 0):.3f}")
     print(f"Sortino Ratio: {summary_stats.get('sortino_ratio', 0):.3f}")
+    print(f"Omega Ratio: {summary_stats.get('omega_ratio', 0):.3f}")
     
     best_trade = summary_stats.get('best_trade', {})
     worst_trade = summary_stats.get('worst_trade', {})

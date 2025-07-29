@@ -1,0 +1,68 @@
+{
+  "input_prices_path": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/input_prices",
+  "identifiers_file_path": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/identifiers.json",
+  "normalization_window": 1,
+  "process_from_identifier_from_included": "2024-01-01",
+  "process_to_identifier_to_included": "2025-07-28",
+  "tournament_data_path": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/aggregated_tournament_results.json",
+  "equity_curve_file": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/equity_curve.json",
+  "equity_curve_visualization": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/equity_curve.html",
+  "equity_curve_file_filtered": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/equity_curve_filtered.json",
+  "equity_curve_visualization_filtered": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/equity_curve_filtered.html", 
+  "prices_slope_filtering_enabled": true,
+  "equity_curve_dema_filtering_enabled": false,
+  "assets": {
+    "btc": {
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/btc.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/btc_normalized.json"
+    },
+    "eth": {
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/eth.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/eth_normalized.json"
+    },
+    "xrp": {
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/xrp.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/xrp_normalized.json"
+    },
+    "bnb": {
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/bnb.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/bnb_normalized.json"
+    },
+    "sol": {
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/sol.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/sol_normalized.json"
+    },
+    "doge":{
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/doge.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/doge_normalized.json"
+    },
+    "trx":{
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/trx.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/trx_normalized.json"
+    },
+    "ada":{
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/ada.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/ada_normalized.json"
+    },
+    "sui":{
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/sui.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/sui_normalized.json"
+    },
+    "xlm":{
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/xlm.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/xlm_normalized.json"
+    },
+    "link":{
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/link.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/link_normalized.json"
+    },
+    "hbar":{
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/hbar.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/hbar_normalized.json"
+    },
+    "avax":{
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/avax.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/avax_normalized.json"
+    } 
+  }
+}

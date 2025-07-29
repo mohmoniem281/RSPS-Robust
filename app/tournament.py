@@ -2,6 +2,8 @@ import os
 import json
 from pathlib import Path
 from trend_filters.slope import apply_trend_slope_filter
+from trend_filters.dema import apply_dema_trend_filter
+from trend_filters.chandelier_exit import chandelier_exit_close_only
 
 def get_normalized_price_for_identifier(asset_name, asset_config, identifier):
     # Ensure identifier is treated as string
@@ -54,6 +56,19 @@ def run_tournament_round(identifier, config, assets_to_consider):
                 if str(entry["time"]) == str(identifier):
                     break
     
+            #apply chandelier exit trend filter
+            # chandelier_trend = chandelier_exit_close_only(filtered_prices)
+            # if chandelier_trend.iloc[-1]==1:
+            #     trending_assets.append(asset_name)
+            # else:
+            #     print(f"Asset {asset_name} filtered out - chandelier_trend: {chandelier_trend.iloc[-1]} (not trending upward)")
+
+
+            # dema_trend,signal = apply_dema_trend_filter(filtered_prices)
+            # if dema_trend:
+            #      trending_assets.append(asset_name)
+            # else:
+            #     print(f"Asset {asset_name} filtered out - dema_trend: {dema_trend} (not trending upward)")
             
             # Apply slope filter to determine if asset is trending
             slope = apply_trend_slope_filter(filtered_prices)
