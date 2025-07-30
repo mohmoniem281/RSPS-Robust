@@ -6,11 +6,9 @@ from pathlib import Path
 
 class KalmanEquityCurveTPI:
     """
-    Kalman Filter-based Trend Performance Indicator for Equity Curves
+    Kalman Filter-based Trend Performance Indicator for Equity Curves.
     
-    Based on the BackQuant Pine Script Kalman Price Filter implementation.
-    Uses Kalman filtering for smooth trend detection on equity curves.
-    Implements EXACT Pine Script algorithm including persistent trend state.
+    Based on BackQuant Pine Script implementation with persistent trend state.
     """
     
     def __init__(self, config_file: str = "app/trend_filters/kalman_tpi_config.json"):
@@ -21,9 +19,9 @@ class KalmanEquityCurveTPI:
         # Initialize Kalman filter state variables
         self.reset_filter_state()
         
-        # Pine Script persistent trend state (var Trend = 0)
-        self.trend_state = 0  # Persists across all filter operations
-        self.previous_filtered_value = None  # For trend comparison
+        # Persistent trend state (Pine Script: var Trend = 0)
+        self.trend_state = 0
+        self.previous_filtered_value = None
     
     def load_config(self):
         """Load Kalman TPI configuration from JSON file."""
@@ -35,11 +33,10 @@ class KalmanEquityCurveTPI:
             config = self.create_default_config()
             self.save_config(config)
         
-        # Kalman Filter Parameters (from Pine Script)
-        # Using exact names from Pine Script: processNoise, measurementNoise, N
+        # Kalman Filter Parameters
         self.process_noise = config.get("process_noise", 0.01)
         self.measurement_noise = config.get("measurement_noise", 3.0)
-        self.filter_order = config.get("filter_order", 5)  # N in Pine Script
+        self.filter_order = config.get("filter_order", 5)
         self.min_history_length = config.get("min_history_length", 10)
         
     def create_default_config(self) -> Dict:
@@ -59,9 +56,7 @@ class KalmanEquityCurveTPI:
             json.dump(config, f, indent=2)
     
     def reset_filter_state(self):
-        """Reset Kalman filter state variables - matches Pine Script var arrays."""
-        # Pine Script: var float[] stateEstimate = array.new_float(N, na)
-        # Pine Script: var float[] errorCovariance = array.new_float(N, 100.0)
+        """Reset Kalman filter state variables."""
         self.state_estimate = [None] * self.filter_order
         self.error_covariance = [100.0] * self.filter_order
         self.initialized = False
@@ -71,16 +66,7 @@ class KalmanEquityCurveTPI:
         self.previous_filtered_value = None
     
     def initialize_filter(self, initial_value: float):
-        """
-        Initialize Kalman filter with first equity value.
-        Matches Pine Script f_init function exactly.
-        """
-        # Pine Script f_init logic:
-        # if na(array.get(stateEstimate, 0))
-        #     for i = 0 to N-1
-        #         array.set(stateEstimate, i, pricesource)
-        #         array.set(errorCovariance, i, 1.0)
-        
+        """Initialize Kalman filter with first equity value (matches Pine Script f_init)."""
         for i in range(self.filter_order):
             self.state_estimate[i] = initial_value
             self.error_covariance[i] = 1.0
@@ -88,42 +74,25 @@ class KalmanEquityCurveTPI:
     
     def kalman_filter_step(self, observation: float) -> float:
         """
-        Perform one step of Kalman filtering.
-        Implements EXACT Pine Script f_kalman function logic.
+        Perform one step of Kalman filtering (implements Pine Script f_kalman function).
         
         Args:
-            observation: Current equity curve value (pricesource in Pine Script)
+            observation: Current equity curve value
             
         Returns:
-            Filtered value (kalmanFilteredPrice in Pine Script)
+            Filtered value
         """
-        # Pine Script f_init call
         if not self.initialized:
             self.initialize_filter(observation)
             return observation
         
-        # Pine Script f_kalman function implementation:
-        
         # Prediction Step
-        # predictedStateEstimate = array.new_float(N)
-        # predictedErrorCovariance = array.new_float(N)
-        # for i = 0 to N-1
-        #     array.set(predictedStateEstimate, i, array.get(stateEstimate, i)) // Simplified prediction
-        #     array.set(predictedErrorCovariance, i, array.get(errorCovariance, i) + processNoise)
-        
-        predicted_state_estimate = self.state_estimate.copy()  # Simplified prediction
+        predicted_state_estimate = self.state_estimate.copy()
         predicted_error_covariance = [
             cov + self.process_noise for cov in self.error_covariance
         ]
         
         # Update Step
-        # kalmanGain = array.new_float(N)
-        # for i = 0 to N-1
-        #     kg = array.get(predictedErrorCovariance, i) / (array.get(predictedErrorCovariance, i) + measurementNoise)
-        #     array.set(kalmanGain, i, kg)
-        #     array.set(stateEstimate, i, array.get(predictedStateEstimate, i) + kg * (pricesource - array.get(predictedStateEstimate, i)))
-        #     array.set(errorCovariance, i, (1 - kg) * array.get(predictedErrorCovariance, i))
-        
         for i in range(self.filter_order):
             # Calculate Kalman gain
             kg = predicted_error_covariance[i] / (predicted_error_covariance[i] + self.measurement_noise)
@@ -137,38 +106,23 @@ class KalmanEquityCurveTPI:
             # Update error covariance
             self.error_covariance[i] = (1 - kg) * predicted_error_covariance[i]
         
-        # Return the first element as the filtered value
-        # array.get(stateEstimate, 0)
         return self.state_estimate[0]
     
     def update_trend_state(self, current_filtered: float):
-        """
-        Update persistent trend state based on Pine Script logic.
-        Implements EXACT Pine Script trend detection:
-        
-        var Trend = 0
-        if kalmanFilteredPrice>kalmanFilteredPrice[1]
-            Trend := 1
-        if kalmanFilteredPrice<kalmanFilteredPrice[1] 
-            Trend := -1
-        """
+        """Update persistent trend state (Pine Script: Trend := 1 if rising, -1 if falling)."""
         if self.previous_filtered_value is not None:
-            # Pine Script logic: compare current vs previous
             if current_filtered > self.previous_filtered_value:
                 self.trend_state = 1
             elif current_filtered < self.previous_filtered_value:
                 self.trend_state = -1
-            # Note: trend_state remains unchanged if current_filtered == previous_filtered_value
+            # Note: trend_state unchanged if values are equal
         
-        # Update previous value for next comparison
         self.previous_filtered_value = current_filtered
-        
         return self.trend_state
     
     def process_equity_curve(self, equity_values: List[float]) -> Tuple[List[float], List[int]]:
         """
         Process entire equity curve through Kalman filter and detect trends.
-        Implements the complete Pine Script logic with persistent trend state.
         
         Args:
             equity_values: List of equity curve capital values
@@ -177,21 +131,17 @@ class KalmanEquityCurveTPI:
             Tuple of (filtered_values, trend_signals)
         """
         if len(equity_values) < self.min_history_length:
-            # Not enough data for reliable filtering
             return equity_values.copy(), [0] * len(equity_values)
         
-        # Reset filter state for clean processing
         self.reset_filter_state()
         
         filtered_values = []
         trend_signals = []
         
-        for i, equity_value in enumerate(equity_values):
-            # Apply Kalman filter (f_kalman in Pine Script)
+        for equity_value in equity_values:
             filtered_value = self.kalman_filter_step(equity_value)
             filtered_values.append(filtered_value)
             
-            # Update persistent trend state (Pine Script Trend variable logic)
             trend_signal = self.update_trend_state(filtered_value)
             trend_signals.append(trend_signal)
         
