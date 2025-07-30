@@ -355,21 +355,19 @@ class EquityCurveBuilder:
         # Get all tournament identifiers
         tournament_identifiers = [t["tournament_identifier"] for t in self.tournament_results["tournaments"]]
         
-        if len(tournament_identifiers) < 2:
+        if len(tournament_identifiers) < 1:
             # Not enough data for a proper signal
             return
         
-        # For consistency with our look-ahead bias prevention:
-        # The current signal should be based on the tournament result from 2 days ago
-        # If today is the last day in our data (e.g., 2025-07-29), 
-        # then our signal should come from 2025-07-27 (2 days ago)
-        latest_tournament_identifier = tournament_identifiers[-1]  # e.g., 2025-07-29
-        signal_tournament_identifier = tournament_identifiers[-2]  # e.g., 2025-07-28
+        # CORRECTED LOGIC: Today's signal should be based on the most recent CLOSED tournament result
+        # If our data goes up to process_to_identifier_to_included (e.g., 2025-07-25),
+        # then today's signal should be based on that day's tournament result (the most recent closed data)
+        # This is different from historical trade processing which uses N-2 for entry and N-1 for exit
         
-        # But we need to go back one more day to be consistent with our main loop logic
-        # In our main loop, when processing day N, we use tournament result from day N-2
-        if len(tournament_identifiers) >= 3:
-            signal_tournament_identifier = tournament_identifiers[-3]  # e.g., 2025-07-27
+        latest_tournament_identifier = tournament_identifiers[-1]  # Most recent closed data (e.g., 2025-07-25)
+        signal_tournament_identifier = latest_tournament_identifier  # Use the most recent closed tournament result
+        
+        print(f"📊 Current signal logic: Using most recent closed tournament data from {signal_tournament_identifier}")
         
         # Get the winner from the signal tournament
         current_signal_winner = self._get_tournament_winner(signal_tournament_identifier)
