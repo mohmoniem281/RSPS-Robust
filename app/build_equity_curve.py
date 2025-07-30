@@ -300,11 +300,8 @@ class EquityCurveBuilder:
                 self._add_cash_entry_both_curves(current_identifier, None)
                 continue
             
-            # Process reference curve (ALWAYS trades the winner)
-            # Use signal_identifier for entry price, exit_price_identifier for exit price
-            self._process_reference_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset)
-            
-            # Determine actual curve action based on filtering method
+            # CRITICAL FIX: Determine actual curve action BEFORE processing reference curve
+            # This ensures TPI decision uses only historical data (no look-ahead bias)
             if self.tpi_enabled:
                 # Use TPI to decide actual curve trades - based on historical data only
                 should_trade, tpi_analysis = self._should_trade_based_on_tpi()
@@ -318,7 +315,11 @@ class EquityCurveBuilder:
                 should_trade = True
                 filter_reason = "No filtering"
             
-            # Process actual curve based on decision
+            # Process reference curve (ALWAYS trades the winner)
+            # Use signal_identifier for entry price, exit_price_identifier for exit price
+            self._process_reference_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset)
+            
+            # Process actual curve based on decision made with historical data
             if should_trade:
                 # Use signal_identifier for entry price, exit_price_identifier for exit price
                 self._process_actual_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset, filter_reason)
@@ -337,19 +338,35 @@ class EquityCurveBuilder:
     
     def _add_current_signal_both_curves(self):
         """Add current signal entries to both curves."""
-        # Get the latest tournament identifier and winner
+        # Get all tournament identifiers
         tournament_identifiers = [t["tournament_identifier"] for t in self.tournament_results["tournaments"]]
-        latest_tournament_identifier = tournament_identifiers[-1]
-        previous_tournament_identifier = tournament_identifiers[-2] if len(tournament_identifiers) > 1 else None
         
-        # Use the winner from the previous tournament (not the latest)
-        latest_winner = self._get_tournament_winner(previous_tournament_identifier if previous_tournament_identifier else latest_tournament_identifier)
+        if len(tournament_identifiers) < 2:
+            # Not enough data for a proper signal
+            return
         
-        if latest_winner:
-            # Use the price from the previous day, not the current day
-            entry_price = self._get_price(latest_winner, previous_tournament_identifier if previous_tournament_identifier else latest_tournament_identifier)
+        # For consistency with our look-ahead bias prevention:
+        # The current signal should be based on the tournament result from 2 days ago
+        # If today is the last day in our data (e.g., 2025-07-29), 
+        # then our signal should come from 2025-07-27 (2 days ago)
+        latest_tournament_identifier = tournament_identifiers[-1]  # e.g., 2025-07-29
+        signal_tournament_identifier = tournament_identifiers[-2]  # e.g., 2025-07-28
+        
+        # But we need to go back one more day to be consistent with our main loop logic
+        # In our main loop, when processing day N, we use tournament result from day N-2
+        if len(tournament_identifiers) >= 3:
+            signal_tournament_identifier = tournament_identifiers[-3]  # e.g., 2025-07-27
+        
+        # Get the winner from the signal tournament
+        current_signal_winner = self._get_tournament_winner(signal_tournament_identifier)
+        
+        if current_signal_winner:
+            # Get the entry price from the signal day (avoiding look-ahead bias)
+            entry_price = self._get_price(current_signal_winner, signal_tournament_identifier)
         else:
             entry_price = None
+        
+        print(f"Current signal: Based on tournament {signal_tournament_identifier} -> {current_signal_winner}")
         
         # Add to reference curve
         self.reference_curve.append({
@@ -357,26 +374,37 @@ class EquityCurveBuilder:
             "capital": self.reference_capital,
             "pnl": 0.0,
             "return_pct": 0.0,
-            "position": latest_winner,
+            "position": current_signal_winner,
             "entry_price": entry_price,
             "exit_price": None,
-            "winner_asset": latest_winner,
-            "signal_source": previous_tournament_identifier if previous_tournament_identifier else latest_tournament_identifier
+            "winner_asset": current_signal_winner,
+            "signal_source": signal_tournament_identifier
         })
         
-        # Add to actual curve (with TPI info)
+        # For the actual curve, we need to check if TPI would allow this trade
+        if self.tpi_enabled and current_signal_winner:
+            should_trade, tpi_analysis = self._should_trade_based_on_tpi()
+            tpi_signal = "trade_allowed" if should_trade else "trade_blocked"
+            actual_position = current_signal_winner if should_trade else None
+            actual_entry_price = entry_price if should_trade else None
+        else:
+            tpi_signal = "no_filter"
+            actual_position = current_signal_winner
+            actual_entry_price = entry_price
+        
+        # Add to actual curve
         self.equity_curve.append({
             "identifier": "current_signal",
             "capital": self.actual_capital,
             "pnl": 0.0,
             "return_pct": 0.0,
-            "position": latest_winner,
-            "entry_price": entry_price,
+            "position": actual_position,
+            "entry_price": actual_entry_price,
             "exit_price": None,
-            "winner_asset": latest_winner,
-            "tpi_signal": "current_signal",
+            "winner_asset": current_signal_winner,
+            "tpi_signal": tpi_signal,
             "reference_capital": self.reference_capital,
-            "signal_source": previous_tournament_identifier if previous_tournament_identifier else latest_tournament_identifier
+            "signal_source": signal_tournament_identifier
         })
     
     def _save_dual_equity_curves(self):
