@@ -19,6 +19,11 @@ class KalmanEquityCurveTPI:
         
         # Initialize Kalman filter state variables
         self.reset_filter_state()
+        
+        # Initialize trend persistence state (like Pine Script's 'var Trend = 0')
+        self.current_trend = 0  # Persists between calls
+        self.last_filtered_value = None  # Track last filtered value
+        self.processed_count = 0  # Track how many equity points we've processed
     
     def load_config(self):
         """Load Kalman TPI configuration from JSON file."""
@@ -163,6 +168,7 @@ class KalmanEquityCurveTPI:
     def analyze_trend(self, equity_values: List[float]) -> Tuple[bool, Dict]:
         """
         Analyze trend for the latest equity curve state.
+        Uses incremental processing to maintain Kalman filter state continuity.
         
         Args:
             equity_values: List of equity curve capital values
@@ -177,37 +183,46 @@ class KalmanEquityCurveTPI:
                 "trending_up": True,
                 "kalman_filtered": None,
                 "current_value": equity_values[-1] if equity_values else 0,
-                "trend_signal": 0
+                "trend_signal": self.current_trend
             }
         
-        # Process through Kalman filter
-        filtered_values, trend_signals = self.process_equity_curve(equity_values)
+        # Process only new equity values incrementally (KEY FIX!)
+        new_data_count = len(equity_values) - self.processed_count
         
-        if not filtered_values:
-            return True, {
-                "reason": "kalman_calculation_failed",
-                "data_points": len(equity_values),
-                "trending_up": True,
-                "kalman_filtered": None,
-                "current_value": equity_values[-1],
-                "trend_signal": 0
-            }
+        if new_data_count > 0:
+            # Process only the new equity values we haven't seen before
+            new_equity_values = equity_values[-new_data_count:]
+            
+            for equity_value in new_equity_values:
+                # Apply Kalman filter to this single new point
+                filtered_value = self.kalman_filter_step(equity_value)
+                
+                # Update trend based on filtered value comparison (like Pine Script)
+                if self.last_filtered_value is not None:
+                    if filtered_value > self.last_filtered_value:
+                        self.current_trend = 1  # Uptrend
+                    elif filtered_value < self.last_filtered_value:
+                        self.current_trend = -1  # Downtrend
+                    # If equal, trend persists (no change)
+                
+                self.last_filtered_value = filtered_value
+            
+            # Update processed count
+            self.processed_count = len(equity_values)
         
         current_value = equity_values[-1]
-        current_filtered = filtered_values[-1]
-        current_trend = trend_signals[-1] if trend_signals else 0
         
-        # Trend decision: positive trend signal means trending up
-        is_trending_up = current_trend >= 0  # 1 (up) or 0 (neutral) = trade, -1 (down) = cash
+        # Trading decision: Trade on uptrend and neutral, block only on downtrend
+        is_trending_up = self.current_trend >= 0  # 1 (up) or 0 (neutral) = trade, -1 (down) = cash
         
         analysis = {
             "current_value": current_value,
-            "kalman_filtered": current_filtered,
-            "trend_signal": current_trend,
+            "kalman_filtered": self.last_filtered_value,
+            "trend_signal": self.current_trend,
             "data_points": len(equity_values),
             "trending_up": is_trending_up,
             "should_trade": is_trending_up,
-            "decision_reason": f"Trend signal: {current_trend} ({'UP' if current_trend > 0 else 'DOWN' if current_trend < 0 else 'NEUTRAL'})"
+            "decision_reason": f"Trend signal: {self.current_trend} ({'UP' if self.current_trend > 0 else 'DOWN' if self.current_trend < 0 else 'NEUTRAL'})"
         }
         
         return is_trending_up, analysis
