@@ -1,0 +1,7 @@
+{
+  "process_noise": 0.01,
+  "measurement_noise": 3.0,
+  "filter_order": 5,
+  "min_history_length": 10,
+  "description": "Kalman Filter TPI based on BackQuant Pine Script implementation"
+}

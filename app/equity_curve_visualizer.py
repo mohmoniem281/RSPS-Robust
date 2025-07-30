@@ -206,14 +206,16 @@ def create_equity_curve_visualization(config: Dict[str, Any]):
         reference_df = df.copy()
         actual_df = df.copy()
         curve_type = "Single"
+        kalman_data = None
     else:
         # New dual curve format
         reference_data = data.get('reference_curve', {}).get('equity_curve', [])
         actual_data = data.get('actual_curve', {}).get('equity_curve', [])
+        kalman_data = data.get('kalman_filter_data')
         
         reference_df = pd.DataFrame(reference_data) if reference_data else pd.DataFrame()
         actual_df = pd.DataFrame(actual_data) if actual_data else pd.DataFrame()
-        curve_type = "Dual"
+        curve_type = "Dual (Kalman TPI)" if data.get('kalman_tpi_enabled') else "Dual"
     
     if reference_df.empty or actual_df.empty:
         print("❌ No data to visualize")
@@ -236,20 +238,39 @@ def create_equity_curve_visualization(config: Dict[str, Any]):
     ref_asset_analysis = analyze_asset_distribution(reference_data if 'reference_curve' in data else data['equity_curve'])
     actual_asset_analysis = analyze_asset_distribution(actual_data if 'actual_curve' in data else data['equity_curve'])
     
-    # Create subplots: 2 equity curves + 2 asset distribution charts
-    fig = make_subplots(
-        rows=2, cols=2,
-        subplot_titles=[
-            'Reference Curve (Always Allocated)',
-            'Actual Curve (TPI Controlled)',
-            'Reference Asset Distribution',
-            'Actual Asset Distribution'
-        ],
-        specs=[[{"secondary_y": False}, {"secondary_y": False}],
-               [{"type": "pie"}, {"type": "pie"}]],
-        vertical_spacing=0.12,
-        horizontal_spacing=0.1
-    )
+    # Create subplots: 2 equity curves + Kalman filter + asset distribution charts
+    if kalman_data:
+        fig = make_subplots(
+            rows=3, cols=2,
+            subplot_titles=[
+                'Reference Curve (Always Allocated)',
+                'Actual Curve (TPI Controlled)', 
+                'Kalman Filter Signal',
+                'Combined View',
+                'Reference Asset Distribution',
+                'Actual Asset Distribution'
+            ],
+            specs=[[{"secondary_y": False}, {"secondary_y": False}],
+                   [{"secondary_y": False}, {"secondary_y": False}],
+                   [{"type": "pie"}, {"type": "pie"}]],
+            vertical_spacing=0.08,
+            horizontal_spacing=0.1
+        )
+    else:
+        # Original layout for non-Kalman systems
+        fig = make_subplots(
+            rows=2, cols=2,
+            subplot_titles=[
+                'Reference Curve (Always Allocated)',
+                'Actual Curve (TPI Controlled)',
+                'Reference Asset Distribution',
+                'Actual Asset Distribution'
+            ],
+            specs=[[{"secondary_y": False}, {"secondary_y": False}],
+                   [{"type": "pie"}, {"type": "pie"}]],
+            vertical_spacing=0.12,
+            horizontal_spacing=0.1
+        )
     
     # Add reference equity curve
     fig.add_trace(
@@ -328,6 +349,84 @@ def create_equity_curve_visualization(config: Dict[str, Any]):
         row=1, col=2
     )
     
+    # Add Kalman filter traces if available
+    if kalman_data and kalman_data['filtered_values']:
+        # Create datetime index for Kalman data
+        kalman_dates = pd.to_datetime(kalman_data['identifiers'], errors='coerce')
+        
+        # Kalman filter line
+        fig.add_trace(
+            go.Scatter(
+                x=kalman_dates,
+                y=kalman_data['filtered_values'],
+                mode='lines',
+                name='Kalman Filter',
+                line=dict(color='#F18F01', width=3),
+                hovertemplate='<b>Kalman Filter</b><br>' +
+                             'Date: %{x}<br>' +
+                             'Filtered Value: $%{y:,.2f}<br>' +
+                             'Signal: %{customdata}<br>' +
+                             '<extra></extra>',
+                customdata=[f"{'UP' if s > 0 else 'DOWN' if s < 0 else 'NEUTRAL'}" for s in kalman_data['trend_signals']]
+            ),
+            row=2, col=1
+        )
+        
+        # Add reference curve to Kalman subplot for comparison
+        fig.add_trace(
+            go.Scatter(
+                x=reference_df['identifier'],
+                y=reference_df['capital'],
+                mode='lines',
+                name='Reference (on Kalman)',
+                line=dict(color='#2E86AB', width=1, dash='dot'),
+                opacity=0.7,
+                showlegend=False
+            ),
+            row=2, col=1
+        )
+        
+        # Combined view showing all three lines
+        fig.add_trace(
+            go.Scatter(
+                x=reference_df['identifier'],
+                y=reference_df['capital'],
+                mode='lines',
+                name='Reference',
+                line=dict(color='#2E86AB', width=2),
+                showlegend=False
+            ),
+            row=2, col=2
+        )
+        
+        fig.add_trace(
+            go.Scatter(
+                x=actual_df['identifier'],
+                y=actual_df['capital'],
+                mode='lines',
+                name='Actual',
+                line=dict(color='#A23B72', width=2),
+                showlegend=False
+            ),
+            row=2, col=2
+        )
+        
+        fig.add_trace(
+            go.Scatter(
+                x=kalman_dates,
+                y=kalman_data['filtered_values'],
+                mode='lines',
+                name='Kalman',
+                line=dict(color='#F18F01', width=2),
+                showlegend=False
+            ),
+            row=2, col=2
+        )
+        
+        pie_row = 3
+    else:
+        pie_row = 2
+    
     # Add asset distribution pie charts
     if ref_asset_analysis['asset_stats']:
         ref_assets = list(ref_asset_analysis['asset_stats'].keys())
@@ -342,7 +441,7 @@ def create_equity_curve_visualization(config: Dict[str, Any]):
                 textposition='auto',
                 marker_colors=['#2E86AB', '#A23B72', '#F18F01', '#F3A712', '#C73E1D']
             ),
-            row=2, col=1
+            row=pie_row, col=1
         )
     
     if actual_asset_analysis['asset_stats']:
@@ -358,7 +457,7 @@ def create_equity_curve_visualization(config: Dict[str, Any]):
                 textposition='auto',
                 marker_colors=['#2E86AB', '#A23B72', '#F18F01', '#F3A712', '#C73E1D']
             ),
-            row=2, col=2
+            row=pie_row, col=2
         )
     
     # Update layout
@@ -369,7 +468,7 @@ def create_equity_curve_visualization(config: Dict[str, Any]):
             'xanchor': 'center',
             'font': {'size': 20}
         },
-        height=1000,
+        height=1400 if kalman_data else 1000,
         showlegend=True,
         legend=dict(
             orientation="h",
@@ -388,6 +487,13 @@ def create_equity_curve_visualization(config: Dict[str, Any]):
     fig.update_xaxes(title_text="Date", row=1, col=2, showgrid=True, gridcolor='lightgray')
     fig.update_yaxes(title_text="Capital ($)", row=1, col=1, showgrid=True, gridcolor='lightgray')
     fig.update_yaxes(title_text="Capital ($)", row=1, col=2, showgrid=True, gridcolor='lightgray')
+    
+    # Add axes for Kalman filter plots if they exist
+    if kalman_data:
+        fig.update_xaxes(title_text="Date", row=2, col=1, showgrid=True, gridcolor='lightgray')
+        fig.update_xaxes(title_text="Date", row=2, col=2, showgrid=True, gridcolor='lightgray')
+        fig.update_yaxes(title_text="Filtered Value ($)", row=2, col=1, showgrid=True, gridcolor='lightgray')
+        fig.update_yaxes(title_text="Capital ($)", row=2, col=2, showgrid=True, gridcolor='lightgray')
     
     # Create performance metrics HTML
     def format_metric(value, format_type="number"):

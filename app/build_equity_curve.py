@@ -12,6 +12,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from trend_filters.dema import apply_dema_trend_filter, calculate_dema
 from trend_filters.slope import apply_trend_slope_filter, calculate_trend_slope
 from equity_curve_tpi import EquityCurveTPI
+from equity_curve_kalman_tpi import KalmanEquityCurveTPI
 # except ImportError:
 #     # Fallback: try absolute import
 #     from app.trend_filters.dema import apply_dema_trend_filter, calculate_dema
@@ -31,9 +32,13 @@ class EquityCurveBuilder:
         # DEMA filtering configuration
         self.dema_filtering_enabled = self.config.get("equity_curve_dema_filtering_enabled", False)
         
-        # TPI configuration
+        # TPI configuration - now using Kalman filter instead of DEMA
         self.tpi_enabled = self.config.get("equity_curve_tpi_enabled", False)
-        if self.tpi_enabled:
+        self.kalman_tpi_enabled = self.config.get("equity_curve_kalman_tpi_enabled", False)
+        
+        if self.kalman_tpi_enabled:
+            self.tpi_analyzer = KalmanEquityCurveTPI()
+        elif self.tpi_enabled:
             self.tpi_analyzer = EquityCurveTPI()
         
         # Load data
@@ -107,11 +112,18 @@ class EquityCurveBuilder:
     
     def _should_trade_based_on_tpi(self) -> Tuple[bool, Dict]:
         """Determine if we should trade based on TPI analysis of reference curve."""
-        if not self.tpi_enabled or len(self.reference_history) < self.tpi_analyzer.min_history_length:
+        if not (self.tpi_enabled or self.kalman_tpi_enabled) or len(self.reference_history) < self.tpi_analyzer.min_history_length:
             return True, {"reason": "insufficient_data", "should_trade": True}
         
         # Use TPI analyzer on reference curve
         should_trade, tpi_analysis = self.tpi_analyzer.should_trade_based_on_reference_curve(self.reference_history)
+        
+        # If using Kalman TPI, also store the filtered values for visualization
+        if self.kalman_tpi_enabled and hasattr(self.tpi_analyzer, 'process_equity_curve'):
+            filtered_values, trend_signals = self.tpi_analyzer.process_equity_curve(self.reference_history)
+            tpi_analysis['kalman_filtered_values'] = filtered_values
+            tpi_analysis['kalman_trend_signals'] = trend_signals
+        
         return should_trade, tpi_analysis
     
     def _process_reference_curve_trade(self, current_identifier: str, signal_identifier: str, exit_price_identifier: str, winner_asset: str):
@@ -232,7 +244,9 @@ class EquityCurveBuilder:
         """Build dual equity curves from tournament results."""
         print(f"Building dual equity curves from {self.process_from} to {self.process_to}")
         
-        if self.tpi_enabled:
+        if self.kalman_tpi_enabled:
+            print("KALMAN TPI ENABLED - actual trades based on reference curve Kalman trend analysis")
+        elif self.tpi_enabled:
             print("TPI ENABLED - actual trades based on reference curve trend")
         elif self.dema_filtering_enabled:
             print("DEMA trend filtering is ENABLED - trades will only execute when trending")
@@ -300,12 +314,16 @@ class EquityCurveBuilder:
                 self._add_cash_entry_both_curves(current_identifier, None)
                 continue
             
-            # CRITICAL FIX: Determine actual curve action BEFORE processing reference curve
-            # This ensures TPI decision uses only historical data (no look-ahead bias)
-            if self.tpi_enabled:
-                # Use TPI to decide actual curve trades - based on historical data only
+            # Process reference curve (ALWAYS trades the winner)
+            # Use signal_identifier for entry price, exit_price_identifier for exit price
+            self._process_reference_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset)
+            
+            # Determine actual curve action based on filtering method
+            if self.kalman_tpi_enabled or self.tpi_enabled:
+                # Use TPI (Kalman or DEMA) to decide actual curve trades - based on historical data only
                 should_trade, tpi_analysis = self._should_trade_based_on_tpi()
-                filter_reason = f"TPI: {tpi_analysis.get('decision_reason', 'Unknown')}"
+                tpi_type = "Kalman TPI" if self.kalman_tpi_enabled else "DEMA TPI"
+                filter_reason = f"{tpi_type}: {tpi_analysis.get('decision_reason', 'Unknown')}"
             elif self.dema_filtering_enabled:
                 # Use legacy DEMA filtering - based on historical data only
                 should_trade, dema_value = self._should_trade_based_on_trend()
@@ -315,11 +333,7 @@ class EquityCurveBuilder:
                 should_trade = True
                 filter_reason = "No filtering"
             
-            # Process reference curve (ALWAYS trades the winner)
-            # Use signal_identifier for entry price, exit_price_identifier for exit price
-            self._process_reference_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset)
-            
-            # Process actual curve based on decision made with historical data
+            # Process actual curve based on decision
             if should_trade:
                 # Use signal_identifier for entry price, exit_price_identifier for exit price
                 self._process_actual_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset, filter_reason)
@@ -413,6 +427,16 @@ class EquityCurveBuilder:
         actual_stats = self._calculate_summary_statistics(self.equity_curve, self.initial_capital)
         reference_stats = self._calculate_summary_statistics(self.reference_curve, self.initial_capital)
         
+        # Generate Kalman filter data if enabled
+        kalman_data = None
+        if self.kalman_tpi_enabled and hasattr(self.tpi_analyzer, 'process_equity_curve'):
+            filtered_values, trend_signals = self.tpi_analyzer.process_equity_curve(self.reference_history)
+            kalman_data = {
+                "filtered_values": filtered_values,
+                "trend_signals": trend_signals,
+                "identifiers": [entry["identifier"] for entry in self.reference_curve[:-1]]  # Exclude current_signal
+            }
+        
         # Create dual curve data structure
         dual_curve_data = {
             "actual_curve": {
@@ -424,7 +448,9 @@ class EquityCurveBuilder:
                 "summary_statistics": reference_stats
             },
             "tpi_enabled": self.tpi_enabled,
-            "dema_enabled": self.dema_filtering_enabled
+            "kalman_tpi_enabled": self.kalman_tpi_enabled,
+            "dema_enabled": self.dema_filtering_enabled,
+            "kalman_filter_data": kalman_data
         }
         
         # Save to main file
