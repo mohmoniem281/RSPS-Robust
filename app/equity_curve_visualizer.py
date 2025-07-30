@@ -224,8 +224,8 @@ def create_equity_curve_visualization(config: Dict[str, Any]):
     actual_df = actual_df[actual_df['identifier'] != 'current_signal'].copy()
     
     # Convert identifiers to datetime
-    reference_df['identifier'] = pd.to_datetime(reference_df['identifier'], format='%Y-%m-%dT%H-%M-%SZ')
-    actual_df['identifier'] = pd.to_datetime(actual_df['identifier'], format='%Y-%m-%dT%H-%M-%SZ')
+    reference_df['identifier'] = pd.to_datetime(reference_df['identifier'], errors='coerce')
+    actual_df['identifier'] = pd.to_datetime(actual_df['identifier'], errors='coerce')
     
     # Calculate performance metrics
     initial_capital = 10000  # Default starting capital
