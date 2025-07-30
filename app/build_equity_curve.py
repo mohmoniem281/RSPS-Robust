@@ -314,11 +314,10 @@ class EquityCurveBuilder:
                 self._add_cash_entry_both_curves(current_identifier, None)
                 continue
             
-            # Process reference curve (ALWAYS trades the winner)
-            # Use signal_identifier for entry price, exit_price_identifier for exit price
-            self._process_reference_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset)
+            # CRITICAL FIX: Make TPI decision BEFORE processing reference curve trade
+            # to avoid look-ahead bias (TPI should only use reference history up to day i-1)
             
-            # Determine actual curve action based on filtering method
+            # Determine actual curve action based on filtering method - using ONLY historical data
             if self.kalman_tpi_enabled or self.tpi_enabled:
                 # Use TPI (Kalman or DEMA) to decide actual curve trades - based on historical data only
                 should_trade, tpi_analysis = self._should_trade_based_on_tpi()
@@ -333,7 +332,11 @@ class EquityCurveBuilder:
                 should_trade = True
                 filter_reason = "No filtering"
             
-            # Process actual curve based on decision
+            # Process reference curve (ALWAYS trades the winner)
+            # Use signal_identifier for entry price, exit_price_identifier for exit price
+            self._process_reference_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset)
+            
+            # Process actual curve based on TPI decision made on historical data only
             if should_trade:
                 # Use signal_identifier for entry price, exit_price_identifier for exit price
                 self._process_actual_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset, filter_reason)
