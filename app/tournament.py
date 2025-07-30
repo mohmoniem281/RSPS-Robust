@@ -4,6 +4,8 @@ from pathlib import Path
 from trend_filters.slope import apply_trend_slope_filter
 from trend_filters.dema import apply_dema_trend_filter
 from trend_filters.chandelier_exit import chandelier_exit_close_only
+from trend_filters.kalman_filter import kalman_trend_signal
+from mean_reversion_filters.adf import is_mean_reverting
 
 def get_normalized_price_for_identifier(asset_name, asset_config, identifier):
     # Ensure identifier is treated as string
@@ -55,7 +57,16 @@ def run_tournament_round(identifier, config, assets_to_consider):
                 # Stop when we reach the current identifier
                 if str(entry["time"]) == str(identifier):
                     break
-    
+
+
+
+            #mean reversion filter        
+            is_mean_reverting_signal, p_value = is_mean_reverting(filtered_prices)
+            if not is_mean_reverting_signal:
+                trending_assets.append(asset_name)
+            else:
+                print(f"Asset {asset_name} filtered out - is_mean_reverting: {is_mean_reverting_signal} (not mean reverting)")
+
             #apply chandelier exit trend filter
             # chandelier_trend = chandelier_exit_close_only(filtered_prices)
             # if chandelier_trend.iloc[-1]==1:
@@ -63,6 +74,12 @@ def run_tournament_round(identifier, config, assets_to_consider):
             # else:
             #     print(f"Asset {asset_name} filtered out - chandelier_trend: {chandelier_trend.iloc[-1]} (not trending upward)")
 
+            #apply kalman filter trend filter
+            # signal, trend_signals = kalman_trend_signal(filtered_prices)
+            # if signal == 1:
+            #     trending_assets.append(asset_name)
+            # else:
+            #     print(f"Asset {asset_name} filtered out - kalman_trend_signal: {signal} (not trending upward)")
 
             # dema_trend,signal = apply_dema_trend_filter(filtered_prices)
             # if dema_trend:
@@ -70,14 +87,14 @@ def run_tournament_round(identifier, config, assets_to_consider):
             # else:
             #     print(f"Asset {asset_name} filtered out - dema_trend: {dema_trend} (not trending upward)")
             
-            # Apply slope filter to determine if asset is trending
-            slope = apply_trend_slope_filter(filtered_prices)
+            # # Apply slope filter to determine if asset is trending
+            # slope = apply_trend_slope_filter(filtered_prices)
             
-            # Consider asset trending if slope is positive (upward trend)
-            if slope > 0:
-                trending_assets.append(asset_name)
-            else:
-                print(f"Asset {asset_name} filtered out - slope: {slope:.6f} (not trending upward)")
+            # # Consider asset trending if slope is positive (upward trend)
+            # if slope > 0:
+            #     trending_assets.append(asset_name)
+            # else:
+            #     print(f"Asset {asset_name} filtered out - slope: {slope:.6f} (not trending upward)")
         
         # Update assets_to_consider to only include trending assets
         if trending_assets:

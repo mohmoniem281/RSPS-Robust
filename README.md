@@ -11,3 +11,5 @@ Portfolio Level: Use DEMA on your total equity curve to determine overall market
 now the trend works, just need to test
 now the asset trend is appplied at the price level not normalization. ALTHOUGH IT GAVE ME BETTER REAULTS AT NORMALIZAION
 probably we need to keep the normalization at 1 bar. 
+
+could it be that we need different tools (mean reversion vs trending) or different settings in diffrent market regimes. we should try across different time series. 

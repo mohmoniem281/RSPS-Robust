@@ -10,9 +10,11 @@ from typing import Dict, List, Optional, Tuple
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # try:
-from trend_filters.dema import apply_dema_trend_filter, calculate_dema
+from trend_filters.dema import apply_dema_trend_filter
 from trend_filters.slope import apply_trend_slope_filter, calculate_trend_slope
 from trend_filters.chandelier_exit import chandelier_exit_close_only
+from trend_filters.sma import apply_sma_trend_filter
+from trend_filters.kalman_filter import kalman_trend_signal
 # except ImportError:
 #     # Fallback: try absolute import
 #     from app.trend_filters.dema import apply_dema_trend_filter, calculate_dema
@@ -89,19 +91,47 @@ class EquityCurveBuilder:
         if not self.dema_filtering_enabled or len(self.capital_history) < 2:
             return True, None  # Trade if no trend filters or insufficient history
         
-        # Apply DEMA trend filter
-        dema_trend,signal = apply_dema_trend_filter(self.capital_history)
-        return dema_trend,signal
+        overall_trend = 0
 
-        # Apply Chandelier Exit
-        ce_trend = chandelier_exit_close_only(self.capital_history)
-        # print("Mody")
-        # print(ce_trend)
-        signal = ce_trend.iloc[-1]
-        
+        signal, trend_signals = kalman_trend_signal(self.capital_history)
         if signal == 1:
-            return True, signal
-        return False, None
+            overall_trend +=1
+
+        # # Apply DEMA trend filter
+        # dema_trend,signal = apply_dema_trend_filter(self.capital_history)
+        # print(f"dema_trend: {dema_trend}")
+        # # return dema_trend,signal
+        # if dema_trend:
+        #     overall_trend +=1
+
+        # slope = apply_trend_slope_filter(self.capital_history)
+        # if slope > 0:
+        #     overall_trend +=1
+        # print(f"slope: {slope}")
+        
+
+        # sma,signal = apply_sma_trend_filter(self.capital_history)
+        # if sma:
+        #     overall_trend +=1
+
+        # print(f"sma: {sma}")
+
+        print(f"overall_trend: {overall_trend}")
+
+        if overall_trend >=1:
+            return True, overall_trend
+        else:
+            return False, None
+
+        # # Apply Chandelier Exit
+        # ce_trend = chandelier_exit_close_only(self.capital_history)
+        # # print("Mody")
+        # # print(ce_trend)
+        # signal = ce_trend.iloc[-1]
+        
+        # if signal == 1:
+        #     return True, signal
+        # return False, None
     
     def build_equity_curve(self):
         """Build the equity curve from tournament results."""
