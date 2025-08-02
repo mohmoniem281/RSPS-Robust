@@ -13,3 +13,5 @@ now the asset trend is appplied at the price level not normalization. ALTHOUGH I
 probably we need to keep the normalization at 1 bar. 
 
 could it be that we need different tools (mean reversion vs trending) or different settings in diffrent market regimes. we should try across different time series. 
+
+CHECK OUT THE WEIRD ERROR MESSAGE INT HE BEGGINING 
