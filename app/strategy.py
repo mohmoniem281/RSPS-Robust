@@ -15,7 +15,7 @@ from build_equity_curve import build_the_equity_curve
 from equity_curve_visualizer import create_equity_curve_visualization
 def load_config():
 
-    config_path = Path(__file__).parent / "config.json"  
+    config_path = Path(__file__).parent / "config" / "config.json"  
     with open(config_path, 'r') as f:
         return json.load(f)
 

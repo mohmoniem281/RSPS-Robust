@@ -11,9 +11,8 @@ class KalmanEquityCurveTPI:
     Based on BackQuant Pine Script implementation with persistent trend state.
     """
     
-    def __init__(self, config_file: str = "app/trend_filters/kalman_tpi_config.json"):
+    def __init__(self):
         """Initialize Kalman TPI with configurable parameters."""
-        self.config_file = config_file
         self.load_config()
         
         # Initialize Kalman filter state variables
@@ -25,35 +24,18 @@ class KalmanEquityCurveTPI:
     
     def load_config(self):
         """Load Kalman TPI configuration from JSON file."""
-        try:
-            with open(self.config_file, 'r') as f:
-                config = json.load(f)
-        except FileNotFoundError:
-            # Create default config if file doesn't exist
-            config = self.create_default_config()
-            self.save_config(config)
+        # Resolve path relative to this file's location to avoid path issues
+        config_path = Path(__file__).parent / "config" / "kalman_tpi_config.json"
         
-        # Kalman Filter Parameters
-        self.process_noise = config.get("process_noise", 0.01)
-        self.measurement_noise = config.get("measurement_noise", 3.0)
-        self.filter_order = config.get("filter_order", 5)
-        self.min_history_length = config.get("min_history_length", 10)
+        with open(config_path, 'r') as f:
+            config = json.load(f)
         
-    def create_default_config(self) -> Dict:
-        """Create default Kalman TPI configuration matching Pine Script settings."""
-        return {
-            "process_noise": 0.01,
-            "measurement_noise": 3.0,
-            "filter_order": 5,
-            "min_history_length": 10,
-            "description": "Kalman Filter TPI based on BackQuant Pine Script implementation"
-        }
-    
-    def save_config(self, config: Dict):
-        """Save configuration to file."""
-        Path(self.config_file).parent.mkdir(parents=True, exist_ok=True)
-        with open(self.config_file, 'w') as f:
-            json.dump(config, f, indent=2)
+        # Kalman Filter Parameters - read directly from config (no defaults)
+        self.process_noise = config["process_noise"]
+        self.measurement_noise = config["measurement_noise"]
+        self.filter_order = config["filter_order"]
+        self.min_history_length = config["min_history_length"]
+
     
     def reset_filter_state(self):
         """Reset Kalman filter state variables."""
@@ -223,13 +205,12 @@ class KalmanEquityCurveTPI:
 
 
 # Convenience function for integration
-def create_kalman_tpi_analyzer(config_file: str = "app/trend_filters/kalman_tpi_config.json") -> KalmanEquityCurveTPI:
+def create_kalman_tpi_analyzer() -> KalmanEquityCurveTPI:
     """Create and return a Kalman TPI analyzer instance."""
-    return KalmanEquityCurveTPI(config_file)
+    return KalmanEquityCurveTPI()
 
 
-def analyze_equity_curve_kalman_trend(equity_values: List[float], 
-                                     config_file: str = "app/trend_filters/kalman_tpi_config.json") -> Tuple[bool, Dict]:
+def analyze_equity_curve_kalman_trend(equity_values: List[float]) -> Tuple[bool, Dict]:
     """
     Quick function to analyze equity curve trend using Kalman filter.
     
@@ -240,5 +221,5 @@ def analyze_equity_curve_kalman_trend(equity_values: List[float],
     Returns:
         Tuple of (is_trending_up, analysis_details)
     """
-    kalman_tpi = KalmanEquityCurveTPI(config_file)
+    kalman_tpi = KalmanEquityCurveTPI()
     return kalman_tpi.analyze_trend(equity_values) 

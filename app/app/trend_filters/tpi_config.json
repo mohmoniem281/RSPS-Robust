@@ -1,8 +1,0 @@
-{
-  "dema_period": 10,
-  "slope_lookback": 7,
-  "ma_period": 15,
-  "min_history_length": 20,
-  "trend_agreement_threshold": 2,
-  "description": "TPI configuration for equity curve trend analysis"
-}
