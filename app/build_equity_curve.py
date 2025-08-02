@@ -166,11 +166,11 @@ class EquityCurveBuilder:
             self._add_actual_curve_cash_entry(current_identifier, winner_asset, f"No price data: {filter_reason}")
             return
         
-        # Calculate position and PnL
-        position_size = self.actual_capital / entry_price
+        # Calculate position and PnL (use reference capital for fair comparison)
+        position_size = self.reference_capital / entry_price
         pnl = (exit_price - entry_price) * position_size
         new_capital = self.actual_capital + pnl
-        return_pct = (pnl / self.actual_capital) * 100 if self.actual_capital > 0 else 0
+        return_pct = (pnl / self.reference_capital) * 100 if self.reference_capital > 0 else 0
         
         # Update actual curve
         tpi_signal = "trade_allowed" if self.tpi_enabled else "no_filter"
