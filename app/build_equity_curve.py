@@ -120,11 +120,11 @@ class EquityCurveBuilder:
         
         return should_trade, tpi_analysis
     
-    def _process_reference_curve_trade(self, current_identifier: str, signal_identifier: str, exit_price_identifier: str, winner_asset: str):
+    def _process_reference_curve_trade(self, current_identifier: str, entry_identifier: str, winner_asset: str):
         """Process a trade for the reference curve (always trades)."""
-        # Get entry and exit prices
-        entry_price = self._get_price(winner_asset, signal_identifier)
-        exit_price = self._get_price(winner_asset, exit_price_identifier)
+        # Get entry and exit prices (realistic timing)
+        entry_price = self._get_price(winner_asset, entry_identifier)    # Day after signal
+        exit_price = self._get_price(winner_asset, current_identifier)   # Current day
         
         if entry_price is None or exit_price is None:
             # Can't execute trade - add cash entry
@@ -155,11 +155,11 @@ class EquityCurveBuilder:
         
         print(f"  REFERENCE Trade: {winner_asset} | Entry: ${entry_price:.2f} | Exit: ${exit_price:.2f} | PnL: ${pnl:.2f} | Capital: ${new_capital:.2f}")
     
-    def _process_actual_curve_trade(self, current_identifier: str, signal_identifier: str, exit_price_identifier: str, winner_asset: str, filter_reason: str):
+    def _process_actual_curve_trade(self, current_identifier: str, entry_identifier: str, winner_asset: str, filter_reason: str):
         """Process a trade for the actual curve (TPI controlled)."""
-        # Get entry and exit prices
-        entry_price = self._get_price(winner_asset, signal_identifier)
-        exit_price = self._get_price(winner_asset, exit_price_identifier)
+        # Get entry and exit prices (realistic timing)
+        entry_price = self._get_price(winner_asset, entry_identifier)    # Day after signal
+        exit_price = self._get_price(winner_asset, current_identifier)   # Current day
         
         if entry_price is None or exit_price is None:
             # Can't execute trade - add cash entry
@@ -294,11 +294,12 @@ class EquityCurveBuilder:
         # We need at least 2 previous days: one for tournament signal, one for exit price
         for i in range(start_idx + 2, end_idx + 1):
             current_identifier = tournament_identifiers[i]
-            exit_price_identifier = tournament_identifiers[i - 1]  # Previous day for exit price
-            signal_identifier = tournament_identifiers[i - 2]     # Two days ago for signal
+            entry_identifier = tournament_identifiers[i - 1]     # Day after signal (realistic entry)
+            signal_identifier = tournament_identifiers[i - 2]    # Two days ago for signal
             
             # CRITICAL: Use tournament result from 2 days ago to avoid look-ahead bias
-            print(f"Processing {current_identifier}: Using signal from {signal_identifier}, exit price from {exit_price_identifier}")
+            # Entry at day after signal, exit at current day (realistic timing)
+            print(f"Processing {current_identifier}: Using signal from {signal_identifier}, entry on {entry_identifier}, exit on {current_identifier}")
             
             # Get the winner from the tournament 2 days ago
             winner_asset = self._get_tournament_winner(signal_identifier)
@@ -309,8 +310,8 @@ class EquityCurveBuilder:
                 continue
             
             # Process reference curve (ALWAYS trades the winner)
-            # Use signal_identifier for entry price, exit_price_identifier for exit price
-            self._process_reference_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset)
+            # Entry on day after signal, exit on current day (realistic timing)
+            self._process_reference_curve_trade(current_identifier, entry_identifier, winner_asset)
             
             # Determine actual curve action based on filtering method
             if self.kalman_tpi_enabled or self.tpi_enabled:
@@ -329,8 +330,8 @@ class EquityCurveBuilder:
             
             # Process actual curve based on decision
             if should_trade:
-                # Use signal_identifier for entry price, exit_price_identifier for exit price
-                self._process_actual_curve_trade(current_identifier, signal_identifier, exit_price_identifier, winner_asset, filter_reason)
+                # Entry on day after signal, exit on current day (realistic timing)
+                self._process_actual_curve_trade(current_identifier, entry_identifier, winner_asset, filter_reason)
             else:
                 self._add_actual_curve_cash_entry(current_identifier, winner_asset, filter_reason)
                 print(f"  Filter BLOCKED trade: {winner_asset} | {filter_reason}")
