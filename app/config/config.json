@@ -1,9 +1,9 @@
 {
   "input_prices_path": "/Users/mostafamohamed/Desktop/RSPS-Robust/data/input_prices",
   "identifiers_file_path": "/Users/mostafamohamed/Desktop/RSPS-Robust/data/identifiers.json",
-  "normalization_window":20,
-  "process_from_identifier_from_included": "2024-01-01",
-  "process_to_identifier_to_included": "2025-07-27",
+  "normalization_window":3,
+  "process_from_identifier_from_included": "2025-01-01",
+  "process_to_identifier_to_included": "2025-08-01",
   "tournament_data_path": "/Users/mostafamohamed/Desktop/RSPS-Robust/data/aggregated_tournament_results.json",
   "equity_curve_file": "/Users/mostafamohamed/Desktop/RSPS-Robust/data/equity_curve.json",
   "equity_curve_visualization": "/Users/mostafamohamed/Desktop/RSPS-Robust/data/equity_curve.html",

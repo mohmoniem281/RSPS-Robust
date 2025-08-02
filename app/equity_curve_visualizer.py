@@ -690,13 +690,16 @@ def create_equity_curve_visualization(config: Dict[str, Any]):
             <div style="background-color: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
                 <h3 style="color: #0D47A1; margin-top: 0;">📋 Signal Details</h3>
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-                    <div><strong>Signal Asset:</strong> {signal_info['signal_asset'] or 'None'}</div>
+                    <div><strong>Raw Signal (Winner):</strong> {signal_info['signal_asset'] or 'None'}</div>
+                    <div><strong>TPI-Filtered Signal:</strong> {signal_info['actual_signal'] if signal_info['actual_signal'] else 'CASH'}</div>
                     <div><strong>Entry Price:</strong> {entry_price_str}</div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(1, 1fr); margin-top: 10px;">
                     <div><strong>Signal Date:</strong> {signal_info['signal_source'] or 'N/A'}</div>
                 </div>
-                                 <p style="margin-top: 15px; color: #666; font-style: italic;">
-                     ✅ Signal based on most recent CLOSED tournament result ({signal_info['signal_source'] or 'N/A'})
-                 </p>
+                <p style="margin-top: 15px; color: #666; font-style: italic;">
+                    ✅ Signal based on most recent CLOSED tournament result ({signal_info['signal_source'] or 'N/A'})
+                </p>
             </div>
         </div>
         """

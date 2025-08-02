@@ -388,7 +388,7 @@ class EquityCurveBuilder:
         })
         
         # For the actual curve, we need to check if TPI would allow this trade
-        if self.tpi_enabled and current_signal_winner:
+        if self.kalman_tpi_enabled or self.tpi_enabled:
             should_trade, tpi_analysis = self._should_trade_based_on_tpi()
             tpi_signal = "trade_allowed" if should_trade else "trade_blocked"
             actual_position = current_signal_winner if should_trade else None
