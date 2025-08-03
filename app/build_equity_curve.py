@@ -120,11 +120,13 @@ class EquityCurveBuilder:
         
         return should_trade, tpi_analysis
     
-    def _process_reference_curve_trade(self, current_identifier: str, entry_identifier: str, winner_asset: str):
+    def _process_reference_curve_trade(self, current_identifier: str, exit_identifier: str, winner_asset: str, last_day: bool):
         """Process a trade for the reference curve (always trades)."""
+
+
         # Get entry and exit prices (realistic timing) (both of them are all closed prices for our convention)
-        entry_price = self._get_price(winner_asset, entry_identifier)   
-        exit_price = self._get_price(winner_asset, current_identifier)   
+        entry_price = self._get_price(winner_asset, current_identifier)   
+        exit_price = self._get_price(winner_asset, exit_identifier)   
         
         if entry_price is None or exit_price is None:
             # Can't execute trade - add cash entry
@@ -134,9 +136,14 @@ class EquityCurveBuilder:
         # Calculate position and PnL
         position_size = self.reference_capital / entry_price
         pnl = (exit_price - entry_price) * position_size
-        new_capital = self.reference_capital + pnl
         return_pct = (pnl / self.reference_capital) * 100 if self.reference_capital > 0 else 0
-        
+
+        if last_day:
+            exit_price = None
+            pnl = 0
+            return_pct = 0
+
+        new_capital = self.reference_capital + pnl
         # Update reference curve
         self.reference_curve.append({
             "identifier": current_identifier,
@@ -155,11 +162,11 @@ class EquityCurveBuilder:
         
         print(f"  REFERENCE Trade: {winner_asset} | Entry: ${entry_price:.2f} | Exit: ${exit_price:.2f} | PnL: ${pnl:.2f} | Capital: ${new_capital:.2f}")
     
-    def _process_actual_curve_trade(self, current_identifier: str, entry_identifier: str, winner_asset: str, filter_reason: str):
+    def _process_actual_curve_trade(self, current_identifier: str, exit_identifier: str, winner_asset: str, filter_reason: str, last_day: bool):
         """Process a trade for the actual curve (TPI controlled)."""
         # Get entry and exit prices (realistic timing) (both of them are all closed prices for our convention)
-        entry_price = self._get_price(winner_asset, entry_identifier)    
-        exit_price = self._get_price(winner_asset, current_identifier)  
+        entry_price = self._get_price(winner_asset, current_identifier)    
+        exit_price = self._get_price(winner_asset, exit_identifier)  
         
         if entry_price is None or exit_price is None:
             # Can't execute trade - add cash entry
@@ -169,8 +176,14 @@ class EquityCurveBuilder:
         # Calculate position and PnL using actual available capital
         position_size = self.actual_capital / entry_price
         pnl = (exit_price - entry_price) * position_size
-        new_capital = self.actual_capital + pnl
         return_pct = (pnl / self.actual_capital) * 100 if self.actual_capital > 0 else 0
+
+        if last_day:
+            exit_price = None
+            pnl = 0
+            return_pct = 0
+
+        new_capital = self.actual_capital + pnl
         
         # Update actual curve
         tpi_signal = "trade_allowed" if self.tpi_enabled else "no_filter"
@@ -290,12 +303,16 @@ class EquityCurveBuilder:
             "reference_capital": self.reference_capital
         })
         
-        for i in range(start_idx + 2, end_idx + 1):
+        for i in range(start_idx + 1, end_idx + 1):
+            last_day = False
             current_identifier = tournament_identifiers[i]
-            entry_identifier = tournament_identifiers[i - 1]
+            if i == end_idx:
+                exit_identifier = "current signal"
+                last_day = True
+            else:
+                exit_identifier = tournament_identifiers[i + 1]
             
-            # Get the winner from the tournament 2 days ago
-            winner_asset = self._get_tournament_winner(entry_identifier)
+            winner_asset = self._get_tournament_winner(current_identifier)
             
             if winner_asset is None:
                 # No tournament winner - both curves stay in cash
@@ -304,7 +321,7 @@ class EquityCurveBuilder:
             
             # Process reference curve (ALWAYS trades the winner)
             # Entry on day after signal, exit on current day (realistic timing)
-            self._process_reference_curve_trade(current_identifier, entry_identifier, winner_asset)
+            self._process_reference_curve_trade(current_identifier, exit_identifier, winner_asset, last_day)
             
             # Determine actual curve action based on filtering method
             if self.kalman_tpi_enabled or self.tpi_enabled:
@@ -324,7 +341,7 @@ class EquityCurveBuilder:
             # Process actual curve based on decision
             if should_trade:
                 # Entry on day after signal, exit on current day (realistic timing)
-                self._process_actual_curve_trade(current_identifier, entry_identifier, winner_asset, filter_reason)
+                self._process_actual_curve_trade(current_identifier, exit_identifier, winner_asset, filter_reason, last_day)
             else:
                 self._add_actual_curve_cash_entry(current_identifier, winner_asset, filter_reason)
                 print(f"  Filter BLOCKED trade: {winner_asset} | {filter_reason}")
