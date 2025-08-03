@@ -122,9 +122,9 @@ class EquityCurveBuilder:
     
     def _process_reference_curve_trade(self, current_identifier: str, entry_identifier: str, winner_asset: str):
         """Process a trade for the reference curve (always trades)."""
-        # Get entry and exit prices (realistic timing)
-        entry_price = self._get_price(winner_asset, entry_identifier)    # Day after signal
-        exit_price = self._get_price(winner_asset, current_identifier)   # Current day
+        # Get entry and exit prices (realistic timing) (both of them are all closed prices for our convention)
+        entry_price = self._get_price(winner_asset, entry_identifier)   
+        exit_price = self._get_price(winner_asset, current_identifier)   
         
         if entry_price is None or exit_price is None:
             # Can't execute trade - add cash entry
@@ -157,20 +157,20 @@ class EquityCurveBuilder:
     
     def _process_actual_curve_trade(self, current_identifier: str, entry_identifier: str, winner_asset: str, filter_reason: str):
         """Process a trade for the actual curve (TPI controlled)."""
-        # Get entry and exit prices (realistic timing)
-        entry_price = self._get_price(winner_asset, entry_identifier)    # Day after signal
-        exit_price = self._get_price(winner_asset, current_identifier)   # Current day
+        # Get entry and exit prices (realistic timing) (both of them are all closed prices for our convention)
+        entry_price = self._get_price(winner_asset, entry_identifier)    
+        exit_price = self._get_price(winner_asset, current_identifier)  
         
         if entry_price is None or exit_price is None:
             # Can't execute trade - add cash entry
             self._add_actual_curve_cash_entry(current_identifier, winner_asset, f"No price data: {filter_reason}")
             return
         
-        # Calculate position and PnL (use reference capital for fair comparison)
-        position_size = self.reference_capital / entry_price
+        # Calculate position and PnL using actual available capital
+        position_size = self.actual_capital / entry_price
         pnl = (exit_price - entry_price) * position_size
         new_capital = self.actual_capital + pnl
-        return_pct = (pnl / self.reference_capital) * 100 if self.reference_capital > 0 else 0
+        return_pct = (pnl / self.actual_capital) * 100 if self.actual_capital > 0 else 0
         
         # Update actual curve
         tpi_signal = "trade_allowed" if self.tpi_enabled else "no_filter"
@@ -290,19 +290,12 @@ class EquityCurveBuilder:
             "reference_capital": self.reference_capital
         })
         
-        # Process each tournament starting from the third one to avoid look-ahead bias
-        # We need at least 2 previous days: one for tournament signal, one for exit price
         for i in range(start_idx + 2, end_idx + 1):
             current_identifier = tournament_identifiers[i]
-            entry_identifier = tournament_identifiers[i - 1]     # Day after signal (realistic entry)
-            signal_identifier = tournament_identifiers[i - 2]    # Two days ago for signal
-            
-            # CRITICAL: Use tournament result from 2 days ago to avoid look-ahead bias
-            # Entry at day after signal, exit at current day (realistic timing)
-            print(f"Processing {current_identifier}: Using signal from {signal_identifier}, entry on {entry_identifier}, exit on {current_identifier}")
+            entry_identifier = tournament_identifiers[i - 1]
             
             # Get the winner from the tournament 2 days ago
-            winner_asset = self._get_tournament_winner(signal_identifier)
+            winner_asset = self._get_tournament_winner(entry_identifier)
             
             if winner_asset is None:
                 # No tournament winner - both curves stay in cash
@@ -336,7 +329,7 @@ class EquityCurveBuilder:
                 self._add_actual_curve_cash_entry(current_identifier, winner_asset, filter_reason)
                 print(f"  Filter BLOCKED trade: {winner_asset} | {filter_reason}")
         
-        # Add current signal for both curves - using previous day's data
+        # [TODO - Check effect for visualization] We don't need this, we just keep it commented out for now
         self._add_current_signal_both_curves()
         
         # Save both equity curves
@@ -345,6 +338,7 @@ class EquityCurveBuilder:
         # Print summary for both curves
         self._print_dual_summary()
     
+    #  We don't need this, we just keep it commented out for now
     def _add_current_signal_both_curves(self):
         """Add current signal entries to both curves."""
         # Get all tournament identifiers
