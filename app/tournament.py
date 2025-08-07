@@ -82,16 +82,29 @@ def run_tournament_round(identifier, config, assets_to_consider):
     # Calculate ratios and find assets that advance (ratio > 1)
     advancing_assets = []
     asset_ratios = {}
-    for asset_name, normalized_price in asset_prices.items():
-        ratio = normalized_price / index
-        asset_ratios[asset_name] = ratio
-        if ratio > 1:
-            advancing_assets.append(asset_name)
-    
-    # If no assets have ratio > 1, advance the asset with highest ratio
-    if not advancing_assets:
-        best_asset = max(asset_ratios.items(), key=lambda x: x[1])
-        advancing_assets = [best_asset[0]]
+    if config["use_ema_filtering_price_normalization"]:
+        # this means we are using the ema method to filter assets, we don't create ratios, we directly compare against the index
+        for asset_name, normalized_price in asset_prices.items():
+            if normalized_price > index:
+                advancing_assets.append(asset_name)
+        
+        # If no assets have ratio > 1, advance the asset with highest ratio
+        if not advancing_assets:
+            # Compare normalized prices since asset_prices contains normalized values from the EMA calculation
+            best_asset = max(asset_prices.items(), key=lambda x: x[1])  # x[1] is the normalized price
+            advancing_assets = [best_asset[0]]
+    else:
+        # this is the standard original method
+        for asset_name, normalized_price in asset_prices.items():
+            ratio = normalized_price / index
+            asset_ratios[asset_name] = ratio
+            if ratio > 1:
+                advancing_assets.append(asset_name)
+        
+        # If no assets have ratio > 1, advance the asset with highest ratio
+        if not advancing_assets:
+            best_asset = max(asset_ratios.items(), key=lambda x: x[1])
+            advancing_assets = [best_asset[0]]
     
     return advancing_assets, asset_ratios
 
