@@ -1,0 +1,5 @@
+{
+    "process_noise": 0.01,
+    "measurement_noise": 3.0,
+    "filter_order": 5
+}

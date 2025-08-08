@@ -14,7 +14,7 @@
   "equity_curve_dema_filtering_enabled": false,
   "equity_curve_tpi_enabled": false,
   "equity_curve_kalman_tpi_enabled": true,
-  "use_ema_filtering_price_normalization": true,
+  "use_ema_filtering_price_normalization": false,
   "assets": {
     "btc": {
       "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/btc.json",

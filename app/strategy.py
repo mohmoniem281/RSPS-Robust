@@ -12,8 +12,8 @@ from price_to_json import price_to_json
 from price_normalization import normalize_prices
 from tournament import run_tournament
 # from build_equity_curve import build_the_equity_curve
-from equity_curve_latest import build_the_equity_curve
-from equity_curve_visualizer import create_equity_curve_visualization
+from equity_curve import build_the_equity_curve
+from equity_curve_visualizer import create_equity_curve_dashboard
 def load_config():
 
     config_path = Path(__file__).parent / "config" / "config.json"  
@@ -56,17 +56,11 @@ def main():
     build_the_equity_curve(config)
     print(f"✅ Equity curve built successfully!")
 
-    # # Build equity curve visualization
-    # create_equity_curve_visualization(config)
-    # print(f"✅ Equity curve visualization built successfully!")
+    # Build equity curve visualization
+    create_equity_curve_dashboard(config)
+    print(f"✅ Equity curve visualization built successfully!")
 
-    # # Apply trend filters to the equity curve
-    # if config["equity_curve_dema_filtering_enabled"]:
-    #     apply_trend_filters(config)
-    #     print(f"✅ Trend filters applied successfully!")
-    #     # Build equity curve visualization filtered
-    #     create_filtered_equity_curve_visualization(config)
-    #     print(f"✅ Equity curve visualization filtered built successfully!")
+   
 
 
 if __name__ == "__main__":
