@@ -217,14 +217,14 @@ def open_new_trade(equity_curve: List[Dict], tournament_data: Dict, signal_bar: 
     winner_asset = get_tournament_winner_asset(tournament_data, closed_tournament_bar)
 
     #get the price of the winner asset on the signal bar which will be from the closed tournament bar
-    winner_asset_price_close = get_asset_price_close(config, winner_asset, closed_tournament_bar)   # this is the same as the open price on the actual signal day
+    if winner_asset is not None:
+        winner_asset_price_close = get_asset_price_close(config, winner_asset, closed_tournament_bar)   # this is the same as the open price on the actual signal day
 
     #get the capital from the closed trade
     closed_trade = next((trade for trade in equity_curve if trade["identifier"] == closed_tournament_bar), None)
     capital = closed_trade["capital"] # this was already updated when we closed the trade
 
     #open a new trade
-
     if winner_asset is None or not is_trending:   # means this is a cash position 
         #open cash positions on the signal day
         equity_curve.append({
@@ -238,6 +238,7 @@ def open_new_trade(equity_curve: List[Dict], tournament_data: Dict, signal_bar: 
             "winner_asset": None
         })
         return 
+
 
     #there was an actual winner asset
     #open a new trade

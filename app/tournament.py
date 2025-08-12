@@ -2,6 +2,7 @@ import os
 import json
 from pathlib import Path
 from trend_filters.slope import apply_trend_slope_filter
+from trend_filters.kalman import kalman_filter_backquant
 
 def get_normalized_price_for_identifier(asset_name, asset_config, identifier):
     # Ensure identifier is treated as string
@@ -49,20 +50,20 @@ def run_tournament_round(identifier, config, assets_to_consider):
             # Include every value until we hit the current identifier, then stop
             filtered_prices = []
             for entry in normalized_data:
-                filtered_prices.append(entry["normalized_price"])
+                filtered_prices.append(entry["current_price"])
                 # Stop when we reach the current identifier
                 if str(entry["time"]) == str(identifier):
                     break
     
             
             # Apply slope filter to determine if asset is trending
-            slope = apply_trend_slope_filter(filtered_prices)
+            kalmans,kalman_signal = kalman_filter_backquant(filtered_prices)
             
             # Consider asset trending if slope is positive (upward trend)
-            if slope > 0:
+            if kalman_signal > 0:
                 trending_assets.append(asset_name)
             else:
-                print(f"Asset {asset_name} filtered out - slope: {slope:.6f} (not trending upward)")
+                print(f"Asset {asset_name} filtered out - slope: {kalman_signal} (not trending upward)")
         
         # Update assets_to_consider to only include trending assets
         if trending_assets:
@@ -77,8 +78,7 @@ def run_tournament_round(identifier, config, assets_to_consider):
         else:
             print("No assets passed trend filtering - declaring cash as winner")
             # Return cash as the winner and empty ratios
-            return ["cash"], {}
-    
+            return [None], {}
     # Calculate ratios and find assets that advance (ratio > 1)
     advancing_assets = []
     asset_ratios = {}

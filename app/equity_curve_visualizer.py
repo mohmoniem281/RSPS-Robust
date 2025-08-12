@@ -90,7 +90,23 @@ def create_equity_curve_dashboard(config: Dict[str, Any]):
                 mode='lines',
                 name='Non-Filtered',
                 line=dict(color='blue', width=2),
-                hovertemplate='<b>Identifier:</b> %{x}<br><b>Capital:</b> $%{y:,.2f}<extra></extra>'
+                hovertemplate='<b>Non-Filtered Trade</b><br>' +
+                            '<b>Identifier:</b> %{x}<br>' +
+                            '<b>Capital:</b> $%{y:,.2f}<br>' +
+                            '<b>Return %:</b> %{customdata[0]:.2f}%<br>' +
+                            '<b>Winner Asset:</b> %{customdata[1]}<br>' +
+                            '<b>Position:</b> %{customdata[2]}<br>' +
+                            '<b>Entry Price:</b> $%{customdata[3]:.2f}<br>' +
+                            '<b>Exit Price:</b> $%{customdata[4]:.2f}<br>' +
+                            '<b>P&L:</b> $%{customdata[5]:.2f}<extra></extra>',
+                customdata=np.column_stack((
+                    df_non_filtered['return_pct'],
+                    df_non_filtered['winner_asset'],
+                    df_non_filtered.get('position', ['N/A'] * len(df_non_filtered)),
+                    df_non_filtered.get('entry_price', [0] * len(df_non_filtered)),
+                    df_non_filtered.get('exit_price', [0] * len(df_non_filtered)),
+                    df_non_filtered.get('pnl', [0] * len(df_non_filtered))
+                ))
             ),
             row=1, col=1
         )
@@ -103,7 +119,23 @@ def create_equity_curve_dashboard(config: Dict[str, Any]):
                 mode='lines',
                 name='Filtered',
                 line=dict(color='red', width=2),
-                hovertemplate='<b>Identifier:</b> %{x}<br><b>Capital:</b> $%{y:,.2f}<extra></extra>'
+                hovertemplate='<b>Filtered Trade</b><br>' +
+                            '<b>Identifier:</b> %{x}<br>' +
+                            '<b>Capital:</b> $%{y:,.2f}<br>' +
+                            '<b>Return %:</b> %{customdata[0]:.2f}%<br>' +
+                            '<b>Winner Asset:</b> %{customdata[1]}<br>' +
+                            '<b>Position:</b> %{customdata[2]}<br>' +
+                            '<b>Entry Price:</b> $%{customdata[3]:.2f}<br>' +
+                            '<b>Exit Price:</b> $%{customdata[4]:.2f}<br>' +
+                            '<b>P&L:</b> $%{customdata[5]:.2f}<extra></extra>',
+                customdata=np.column_stack((
+                    df_filtered['return_pct'],
+                    df_filtered['winner_asset'],
+                    df_filtered.get('position', ['N/A'] * len(df_filtered)),
+                    df_filtered.get('entry_price', [0] * len(df_filtered)),
+                    df_filtered.get('exit_price', [0] * len(df_filtered)),
+                    df_filtered.get('pnl', [0] * len(df_filtered))
+                ))
             ),
             row=1, col=1
         )
@@ -117,7 +149,18 @@ def create_equity_curve_dashboard(config: Dict[str, Any]):
                 y=returns_non_filtered,
                 name='Non-Filtered Returns',
                 marker_color='lightblue',
-                opacity=0.7
+                opacity=0.7,
+                hovertemplate='<b>Non-Filtered Trade</b><br>' +
+                            '<b>Identifier:</b> %{x}<br>' +
+                            '<b>Return %:</b> %{y:.2f}%<br>' +
+                            '<b>Capital:</b> $%{customdata[0]:,.2f}<br>' +
+                            '<b>Winner Asset:</b> %{customdata[1]}<br>' +
+                            '<b>P&L:</b> $%{customdata[2]:.2f}<extra></extra>',
+                customdata=np.column_stack((
+                    df_non_filtered['capital'],
+                    df_non_filtered['winner_asset'],
+                    df_non_filtered.get('pnl', [0] * len(df_non_filtered))
+                ))
             ),
             row=1, col=2
         )
@@ -130,7 +173,18 @@ def create_equity_curve_dashboard(config: Dict[str, Any]):
                 y=returns_filtered,
                 name='Filtered Returns',
                 marker_color='lightcoral',
-                opacity=0.7
+                opacity=0.7,
+                hovertemplate='<b>Filtered Trade</b><br>' +
+                            '<b>Identifier:</b> %{x}<br>' +
+                            '<b>Return %:</b> %{y:.2f}%<br>' +
+                            '<b>Capital:</b> $%{customdata[0]:,.2f}<br>' +
+                            '<b>Winner Asset:</b> %{customdata[1]}<br>' +
+                            '<b>P&L:</b> $%{customdata[2]:.2f}<extra></extra>',
+                customdata=np.column_stack((
+                    df_filtered['capital'],
+                    df_filtered['winner_asset'],
+                    df_filtered.get('pnl', [0] * len(df_filtered))
+                ))
             ),
             row=1, col=2
         )
@@ -155,7 +209,58 @@ def create_equity_curve_dashboard(config: Dict[str, Any]):
                 name='Non-Filtered Drawdown',
                 line=dict(color='orange', width=2),
                 fill='tonexty',
-                fillcolor='rgba(255, 165, 0, 0.3)'
+                fillcolor='rgba(255, 165, 0, 0.3)',
+                hovertemplate='<b>Non-Filtered Trade</b><br>' +
+                            '<b>Identifier:</b> %{x}<br>' +
+                            '<b>Drawdown %:</b> %{y:.2f}%<br>' +
+                            '<b>Capital:</b> $%{customdata[0]:,.2f}<br>' +
+                            '<b>Return %:</b> %{customdata[1]:.2f}%<br>' +
+                            '<b>Winner Asset:</b> %{customdata[2]}<br>' +
+                            '<b>P&L:</b> $%{customdata[3]:.2f}<extra></extra>',
+                customdata=np.column_stack((
+                    df_non_filtered['capital'],
+                    df_non_filtered['return_pct'],
+                    df_non_filtered['winner_asset'],
+                    df_non_filtered.get('pnl', [0] * len(df_non_filtered))
+                ))
+            ),
+            row=2, col=1
+        )
+    
+    # Add filtered drawdown analysis
+    if not df_filtered.empty:
+        capitals_filtered = df_filtered['capital'].values
+        peak_filtered = capitals_filtered[0]
+        drawdowns_filtered = []
+        
+        for capital in capitals_filtered:
+            if capital > peak_filtered:
+                peak_filtered = capital
+            drawdown = (peak_filtered - capital) / peak_filtered * 100
+            drawdowns_filtered.append(drawdown)
+        
+        fig.add_trace(
+            go.Scatter(
+                x=df_filtered['identifier'],
+                y=drawdowns_filtered,
+                mode='lines',
+                name='Filtered Drawdown',
+                line=dict(color='purple', width=2),
+                fill='tonexty',
+                fillcolor='rgba(128, 0, 128, 0.3)',
+                hovertemplate='<b>Filtered Trade</b><br>' +
+                            '<b>Identifier:</b> %{x}<br>' +
+                            '<b>Drawdown %:</b> %{y:.2f}%<br>' +
+                            '<b>Capital:</b> $%{customdata[0]:,.2f}<br>' +
+                            '<b>Return %:</b> %{customdata[1]:.2f}%<br>' +
+                            '<b>Winner Asset:</b> %{customdata[2]}<br>' +
+                            '<b>P&L:</b> $%{customdata[3]:.2f}<extra></extra>',
+                customdata=np.column_stack((
+                    df_filtered['capital'],
+                    df_filtered['return_pct'],
+                    df_filtered['winner_asset'],
+                    df_filtered.get('pnl', [0] * len(df_filtered))
+                ))
             ),
             row=2, col=1
         )
@@ -220,7 +325,29 @@ def create_equity_curve_dashboard(config: Dict[str, Any]):
                 x=asset_counts.index,
                 y=asset_counts.values,
                 name='Non-Filtered Assets',
-                marker_color='steelblue'
+                marker_color='steelblue',
+                hovertemplate='<b>Non-Filtered Asset</b><br>' +
+                            '<b>Asset:</b> %{x}<br>' +
+                            '<b>Win Count:</b> %{y}<br>' +
+                            '<b>Win Rate:</b> %{customdata[0]:.1f}%<extra></extra>',
+                customdata=[(count / len(df_non_filtered) * 100) for count in asset_counts.values]
+            ),
+            row=3, col=1
+        )
+    
+    if not df_filtered.empty:
+        asset_counts_filtered = df_filtered['winner_asset'].value_counts()
+        fig.add_trace(
+            go.Bar(
+                x=asset_counts_filtered.index,
+                y=asset_counts_filtered.values,
+                name='Filtered Assets',
+                marker_color='indianred',
+                hovertemplate='<b>Filtered Asset</b><br>' +
+                            '<b>Asset:</b> %{x}<br>' +
+                            '<b>Win Count:</b> %{y}<br>' +
+                            '<b>Win Rate:</b> %{customdata[0]:.1f}%<extra></extra>',
+                customdata=[(count / len(df_filtered) * 100) for count in asset_counts_filtered.values]
             ),
             row=3, col=1
         )
@@ -246,7 +373,12 @@ def create_equity_curve_dashboard(config: Dict[str, Any]):
             y=non_filtered_values,
             name='Non-Filtered',
             marker_color='blue',
-            opacity=0.7
+            opacity=0.7,
+            hovertemplate='<b>Non-Filtered</b><br>' +
+                        '<b>Metric:</b> %{x}<br>' +
+                        '<b>Value:</b> %{y:.2f}<br>' +
+                        '<b>Total Trades:</b> %{customdata[0]}<extra></extra>',
+            customdata=[stats_non_filtered.get('number_of_trades', 0)] * len(risk_metrics)
         ),
         row=3, col=2
     )
@@ -257,7 +389,12 @@ def create_equity_curve_dashboard(config: Dict[str, Any]):
             y=filtered_values,
             name='Filtered',
             marker_color='red',
-            opacity=0.7
+            opacity=0.7,
+            hovertemplate='<b>Filtered</b><br>' +
+                        '<b>Metric:</b> %{x}<br>' +
+                        '<b>Value:</b> %{y:.2f}<br>' +
+                        '<b>Total Trades:</b> %{customdata[0]}<extra></extra>',
+            customdata=[stats_filtered.get('number_of_trades', 0)] * len(risk_metrics)
         ),
         row=3, col=2
     )
