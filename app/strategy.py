@@ -14,6 +14,10 @@ from tournament import run_tournament
 # from build_equity_curve import build_the_equity_curve
 from equity_curve import build_the_equity_curve
 from equity_curve_visualizer import create_equity_curve_dashboard
+from index import create_index
+from ratios import create_ratios
+
+
 def load_config():
 
     config_path = Path(__file__).parent / "config" / "config.json"  
@@ -47,6 +51,14 @@ def main():
     # Filter identifiers
     filter_identifiers(config)
     print(f"✅ Identifiers filtered successfully!")
+
+    # Create index
+    create_index(config)
+    print(f"✅ Index created successfully!")
+
+    # Create ratios
+    create_ratios(config)
+    print(f"✅ Ratios created successfully!")
 
     # Run tournament
     run_tournament(config)

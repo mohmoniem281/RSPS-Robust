@@ -1,5 +1,0 @@
-{
-  "dema_period": 2,
-  "min_history_length": 5,
-  "description": "Simplified TPI using only 2-day DEMA for trend detection"
-}

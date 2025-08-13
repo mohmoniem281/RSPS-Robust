@@ -35,12 +35,14 @@ def build_the_equity_curve(config: Dict):
         else: # this means we have reached the end of the identifiers array and i+1 is out of range, we will replace it with "Current Signal"
             open_new_trade(equity_curve_non_filtered, tournament_data, "Current Signal", identifiers[i], config, is_trending)
 
-        # is_trending, analysis_data  = analyze_equity_curve_kalman_trend(capital_values)
-        values , signal = kalman_filter_backquant(capital_values)
-        if signal >= 1:
-            is_trending = True
-        else:
-            is_trending = False
+
+        # THIS WILL FORCE IS TRENDING TO BE TRUE ALL THE TIME AS WE DON"T TREND AT THE EQUITY CURVE YET
+        # # is_trending, analysis_data  = analyze_equity_curve_kalman_trend(capital_values)
+        # values , signal = kalman_filter_backquant(capital_values)
+        # if signal >= 1:
+        #     is_trending = True
+        # else:
+        #     is_trending = False
 
         # we open a new trade based on the trend filter (or none) results on i+1 (for the filtered curve)
         if i+1 < len(identifiers):   # this means we are still processing days which we have data for and can get i+1

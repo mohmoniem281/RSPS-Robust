@@ -1,8 +1,9 @@
 import pandas as pd
 import json
 from pathlib import Path
+from typing import Dict, Any
 
-def calculate_ema(prices):
+def calculate_ema(prices, config: Dict[str, Any]):
     """
     Calculate the Exponential Moving Average (EMA) for a given price series.
     
@@ -13,11 +14,8 @@ def calculate_ema(prices):
     Returns:
     - Pandas Series with EMA values.
     """
-    # Load window from config if not provided
-    config_path = Path(__file__).parent / "ema.json"
-    with open(config_path, 'r') as f:
-        config = json.load(f)
-    window = config['window_size']
+
+    window = config.get("trend_filters_settings", {}).get("ema", {}).get("window_size")
     
     prices_series = pd.Series(prices)
     ema = prices_series.ewm(span=window, adjust=False).mean()

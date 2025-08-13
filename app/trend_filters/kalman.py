@@ -1,17 +1,10 @@
 import numpy as np
 import pandas as pd
 import json
+from typing import Dict, Any
 
-def kalman_filter_backquant(prices):
+def kalman_filter_backquant(prices,process_noise,measurement_noise,filter_order):
     # Load Kalman filter configurations
-    from pathlib import Path
-    config_path = Path(__file__).parent / "kalman.json"
-    with open(config_path, 'r') as f:
-        config = json.load(f)
-        
-    process_noise = config['process_noise']
-    measurement_noise = config['measurement_noise'] 
-    filter_order = config['filter_order']
     n = len(prices)
     state_estimates = np.full((n, filter_order), np.nan)
     error_covariances = np.full((n, filter_order), 1.0)
