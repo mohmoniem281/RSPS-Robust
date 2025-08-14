@@ -1,5 +1,5 @@
 # optimizer.py
-import json, copy, itertools, io, re, argparse, traceback, shutil
+import json, copy, itertools, io, re, argparse, traceback, shutil, random, time, os
 from pathlib import Path
 from contextlib import redirect_stdout, redirect_stderr
 from multiprocessing import Pool
@@ -51,20 +51,17 @@ def frange(start: float, stop: float, step: float, *, inclusive=True, ndigits=10
 
 def unique_list(vals, tol=1e-12):
     out = []
+    seen_set = set()
     for v in vals:
-        if not out:
-            out.append(v); continue
-        if isinstance(v, float):
-            j = len(out) - 1
-            while j >= 0 and not isinstance(out[j], float):
-                j -= 1
-            if j >= 0 and abs(v - out[j]) <= tol:
-                continue
-        if v not in out:
-            out.append(v)
+        key = (round(v, 12) if isinstance(v, float) else v)
+        if key in seen_set:
+            continue
+        seen_set.add(key)
+        out.append(v)
     return out
 
 def expand_from_ranges(range_space: dict):
+    """Grid expansion from min/step/max ranges into discrete value lists."""
     values = {}
     for path, spec in range_space.items():
         start = spec["start"]; stop = spec["stop"]; step = spec["step"]
@@ -74,6 +71,7 @@ def expand_from_ranges(range_space: dict):
     return values
 
 def expand_grid(space: dict):
+    """Cartesian product over dot-path -> [values...] into nested override dicts."""
     if not space:
         yield {}
         return
@@ -89,6 +87,22 @@ def expand_grid(space: dict):
             continue
         seen.add(sig)
         yield ov
+
+def random_overrides_from_ranges(range_space: dict, n: int, seed: int | None = None):
+    """Uniform random sampling within continuous ranges specified in range_space."""
+    if seed is not None:
+        random.seed(seed)
+    keys = list(range_space.keys())
+    specs = [range_space[k] for k in keys]
+    overrides = []
+    for _ in range(n):
+        ov = {}
+        for path, spec in zip(keys, specs):
+            start = spec["start"]; stop = spec["stop"]; nd = spec.get("round", 6)
+            val = round(random.uniform(start, stop), nd)
+            deep_update(ov, build_override(path, val))
+        overrides.append(ov)
+    return overrides
 
 def run_and_capture_capital(cfg: dict):
     """
@@ -173,7 +187,6 @@ def evaluate_override(args):
         try:
             failures_dir.mkdir(parents=True, exist_ok=True)
             failed_run_dir = failures_dir / f"run_{i:06d}"
-            # if exists from a prior attempt, clear it
             if failed_run_dir.exists():
                 shutil.rmtree(failed_run_dir, ignore_errors=True)
             if run_dir.exists():
@@ -187,31 +200,24 @@ def evaluate_override(args):
             pass
         return i, float("-inf"), override, None
 
-# -------- optimizer --------
-def optimize(
-    explicit_space: dict | None = None,
-    range_space: dict | None = None,
-    outdir: Path | None = None,
-    processes: int = 8,
-):
-    base_cfg_path = Path(strategy.__file__).parent / "config" / "config.json"
-    base_cfg = json.loads(Path(base_cfg_path).read_text())
+def _set_num_threads():
+    """Prevent BLAS oversubscription—1 thread per worker process."""
+    os.environ["OMP_NUM_THREADS"] = "1"
+    os.environ["OPENBLAS_NUM_THREADS"] = "1"
+    os.environ["MKL_NUM_THREADS"] = "1"
+    os.environ["NUMEXPR_NUM_THREADS"] = "1"
 
-    unified_space = {}
-    if range_space:
-        unified_space.update(expand_from_ranges(range_space))
-    if explicit_space:
-        for k, v in explicit_space.items():
-            unified_space[k] = unique_list(list(v))
-    if not unified_space:
-        raise ValueError("No search space provided (explicit or ranges).")
+def print_top_k(leaderboard, k=10):
+    print("\n===== TOP {} =====".format(k))
+    for rank, row in enumerate(leaderboard[:k], 1):
+        print(f"#{rank:02d}  capital={row['capital']:.6f}  override={row['override']}")
 
-    outdir = outdir or (Path(__file__).parent / "tuning_results")
-    outdir.mkdir(parents=True, exist_ok=True)
+# -------- optimizer core --------
+def run_overrides(overrides, processes: int, outdir: Path, base_cfg: dict):
+    """Common runner for any list of overrides."""
     failures_dir = outdir / "failures"
     runs_root = outdir / "runs"
 
-    overrides = list(expand_grid(unified_space))
     total = len(overrides)
     print(f"Total unique combinations: {total}")
 
@@ -220,46 +226,148 @@ def optimize(
     leaderboard = []
     best = {"capital": float("-inf"), "override": None, "config": None}
 
-    with Pool(processes=processes) as pool:
-        iterator = pool.imap_unordered(evaluate_override, worker_args, 1)  # stream asap
+    # Slightly recycle workers to avoid RAM creep in long runs
+    with Pool(processes=processes, initializer=_set_num_threads, maxtasksperchild=50) as pool:
+        # Larger chunksize reduces IPC overhead when tasks are long (~2 min)
+        chunksize = max(1, total // (processes * 8)) or 1
+        iterator = pool.imap_unordered(evaluate_override, worker_args, chunksize)
         if tqdm:
             iterator = tqdm(iterator, total=total)
 
+        start = time.time()
         for i, capital, ov, cfg in iterator:
             leaderboard.append({"i": i, "capital": capital, "override": ov})
             if capital > best["capital"]:
                 best = {"capital": capital, "override": ov, "config": cfg or base_cfg}
-            print(f"[{i}] capital={capital:.6f} override={ov}", flush=True)
+            if len(leaderboard) % processes == 0:
+                elapsed = time.time() - start
+                rps = len(leaderboard) / max(elapsed, 1e-6)
+                print(f"[progress] {len(leaderboard)}/{total}  "
+                      f"{elapsed/60:.1f} min  {rps:.3f} runs/s", flush=True)
 
     leaderboard.sort(key=lambda x: x["capital"], reverse=True)
 
+    # save results at the end
     (outdir / "leaderboard.json").write_text(json.dumps(leaderboard, indent=2))
     (outdir / "best_override.json").write_text(json.dumps(best["override"] or {}, indent=2))
     (outdir / "best_config.json").write_text(json.dumps(best["config"] or base_cfg, indent=2))
     (outdir / "best_capital.json").write_text(json.dumps({"capital": best["capital"]}, indent=2))
 
+    print_top_k(leaderboard, k=10)
     print("\n===== BEST RESULT =====")
     print(f"Capital: {best['capital']:.6f}")
     print(json.dumps(best["override"], indent=2))
     print(f"Saved results to {outdir.resolve()}")
 
-if __name__ == "__main__":
+    return leaderboard, best
+
+# -------- refine helpers --------
+def load_best_config(outdir: Path) -> dict:
+    p = outdir / "best_config.json"
+    if not p.exists():
+        raise FileNotFoundError(f"{p} not found. Run a prior stage first.")
+    return json.loads(p.read_text())
+
+def build_local_refine_space(best_cfg: dict,
+                             d_r2_l1: float, d_slope_l1: float,
+                             d_r2_l2: float, d_slope_l2: float,
+                             step_r2: float, step_slope_l1: float, step_slope_l2: float):
+    b1 = best_cfg["trend_filters_settings"]["layer_1"]["slope_and_r2"]
+    b2 = best_cfg["trend_filters_settings"]["layer_2"]["slope_and_r2"]
+    def clamp(x, lo, hi): return max(lo, min(hi, x))
+    return {
+        # L1
+        "trend_filters_settings.layer_1.slope_and_r2.r2_threshold": {
+            "start": clamp(b1["r2_threshold"] - d_r2_l1, 0.0, 0.90),
+            "stop":  clamp(b1["r2_threshold"] + d_r2_l1, 0.0, 0.90),
+            "step":  step_r2, "round": 2
+        },
+        "trend_filters_settings.layer_1.slope_and_r2.slope_threshold": {
+            "start": clamp(b1["slope_threshold"] - d_slope_l1, 0.0, 1.0),
+            "stop":  clamp(b1["slope_threshold"] + d_slope_l1, 0.0, 1.0),
+            "step":  step_slope_l1, "round": 8
+        },
+        # L2
+        "trend_filters_settings.layer_2.slope_and_r2.r2_threshold": {
+            "start": clamp(b2["r2_threshold"] - d_r2_l2, 0.0, 0.90),
+            "stop":  clamp(b2["r2_threshold"] + d_r2_l2, 0.0, 0.90),
+            "step":  step_r2, "round": 2
+        },
+        "trend_filters_settings.layer_2.slope_and_r2.slope_threshold": {
+            "start": clamp(b2["slope_threshold"] - d_slope_l2, 0.0, 1.0),
+            "stop":  clamp(b2["slope_threshold"] + d_slope_l2, 0.0, 1.0),
+            "step":  step_slope_l2, "round": 8
+        },
+    }
+
+# -------- main modes --------
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--procs", type=int, default=8, help="Number of worker processes")
+    parser.add_argument("--mode", type=str, default="grid",
+                        choices=["grid", "coarse_random", "refine_from_best"],
+                        help="Search mode")
+    parser.add_argument("--budget", type=int, default=400,
+                        help="For coarse_random: number of random samples")
+    parser.add_argument("--seed", type=int, default=None,
+                        help="Random seed for reproducibility")
+    parser.add_argument("--outdir", type=str, default=None,
+                        help="Output directory (default: ./tuning_results)")
+
+    # local refine knobs
+    parser.add_argument("--k", type=int, default=1,
+                        help="Not used in this minimal refine (kept for future top-K refine)")
+    parser.add_argument("--d_r2_l1", type=float, default=0.10)
+    parser.add_argument("--d_slope_l1", type=float, default=0.00020)
+    parser.add_argument("--d_r2_l2", type=float, default=0.10)
+    parser.add_argument("--d_slope_l2", type=float, default=0.00008)
+    parser.add_argument("--step_r2", type=float, default=0.02)
+    parser.add_argument("--step_slope_l1", type=float, default=0.00002)
+    parser.add_argument("--step_slope_l2", type=float, default=0.00001)
+
     args = parser.parse_args()
 
+    base_cfg_path = Path(strategy.__file__).parent / "config" / "config.json"
+    base_cfg = json.loads(Path(base_cfg_path).read_text())
+    outdir = Path(args.outdir) if args.outdir else (Path(__file__).parent / "tuning_results")
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    # Default global ranges (used by grid & coarse_random)
     RANGE_SPACE = {
-        #layer 1
-        "trend_filters_settings.layer_1.slope_and_r2.r2_threshold":   {"start": 0.00, "stop": 0.90, "step": 0.10, "round": 2},
-        "trend_filters_settings.layer_1.slope_and_r2.slope_threshold": {"start": 0.0000, "stop": 0.0010, "step": 0.0002, "round": 6},
-        #layer 2
-        "trend_filters_settings.layer_2.slope_and_r2.r2_threshold":   {"start": 0.00, "stop": 0.90, "step": 0.10, "round": 2},
-        "trend_filters_settings.layer_2.slope_and_r2.slope_threshold": {"start": 0.00000, "stop": 0.00030, "step": 0.00005, "round": 8},
+        # layer 1
+        "trend_filters_settings.layer_1.slope_and_r2.r2_threshold":
+            {"start": 0.00, "stop": 0.90, "step": 0.10, "round": 2},
+        "trend_filters_settings.layer_1.slope_and_r2.slope_threshold":
+            {"start": 0.0000, "stop": 0.0010, "step": 0.0002, "round": 6},
+        # layer 2
+        "trend_filters_settings.layer_2.slope_and_r2.r2_threshold":
+            {"start": 0.00, "stop": 0.90, "step": 0.10, "round": 2},
+        "trend_filters_settings.layer_2.slope_and_r2.slope_threshold":
+            {"start": 0.00000, "stop": 0.00030, "step": 0.00005, "round": 8},
     }
 
-    EXPLICIT_SPACE = {
-        # optional hand-picked values to merge
-        # "trend_filters_settings.layer_2.slope_and_r2.r2_threshold": [0.62, 0.66, 0.70],
-    }
+    if args.mode == "grid":
+        space = expand_from_ranges(RANGE_SPACE)
+        overrides = list(expand_grid(space))
+        run_overrides(overrides, args.procs, outdir, base_cfg)
 
-    optimize(EXPLICIT_SPACE, RANGE_SPACE, processes=args.procs)
+    elif args.mode == "coarse_random":
+        overrides = random_overrides_from_ranges(RANGE_SPACE, n=args.budget, seed=args.seed)
+        run_overrides(overrides, args.procs, outdir, base_cfg)
+
+    elif args.mode == "refine_from_best":
+        best_cfg = load_best_config(outdir)
+        local_space = build_local_refine_space(
+            best_cfg,
+            d_r2_l1=args.d_r2_l1, d_slope_l1=args.d_slope_l1,
+            d_r2_l2=args.d_r2_l2, d_slope_l2=args.d_slope_l2,
+            step_r2=args.step_r2,
+            step_slope_l1=args.step_slope_l1,
+            step_slope_l2=args.step_slope_l2,
+        )
+        space = expand_from_ranges(local_space)
+        overrides = list(expand_grid(space))
+        run_overrides(overrides, args.procs, outdir, base_cfg)
+
+if __name__ == "__main__":
+    main()
