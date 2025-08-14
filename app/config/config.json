@@ -29,7 +29,20 @@
     "sol": {
       "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/sol.json",
       "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/sol_normalized.json"
+    }, 
+    "sui": {
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/sui.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/sui_normalized.json"
+    },
+    "hbar": {
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/hbar.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/hbar_normalized.json"
+    },
+    "doge": {
+      "price_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/doge.json",
+      "normalized_history": "/Users/mohamedmohamed/Desktop/trading-and-Investing/RSPS-Robust/data/output_prices/doge_normalized.json"
     }
+
   },
   "trend_filters_settings": {
     "layer_1": {
@@ -40,7 +53,7 @@
       },
       "slope_and_r2": {
         "trend_slope_window": 20,
-        "r2_threshold": 0.70,
+        "r2_threshold": 0.20,
         "slope_threshold": 0.0004
       }
     },

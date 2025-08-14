@@ -48,10 +48,12 @@ def build_the_equity_curve(config: Dict):
         if i+1 < len(identifiers):   # this means we are still processing days which we have data for and can get i+1
             open_new_trade(equity_curve_filtered, tournament_data, identifiers[i+1], identifiers[i], config, is_trending)
         else: # this means we have reached the end of the identifiers array and i+1 is out of range, we will replace it with "Current Signal"
-            print("DEBUG - NON _ FILTERED DATA!!!!!!!!!!!!")
-            print([entry["capital"] for entry in equity_curve_non_filtered])
-            print("DEBUG - FILTERED DATA!!!!!!!!!!!!")
-            print([entry["capital"] for entry in equity_curve_filtered])
+            # print("DEBUG - NON _ FILTERED DATA!!!!!!!!!!!!")
+            # print([entry["capital"] for entry in equity_curve_non_filtered])
+            # print("DEBUG - FILTERED DATA!!!!!!!!!!!!")
+            # print([entry["capital"] for entry in equity_curve_filtered])
+            print("capital to check non filtered... ", equity_curve_non_filtered[-1]["capital"])
+            # print("capital to check filtered... ", equity_curve_filtered[-1]["capital"])
             
             open_new_trade(equity_curve_filtered, tournament_data, "Current Signal", identifiers[i], config, is_trending)
 
