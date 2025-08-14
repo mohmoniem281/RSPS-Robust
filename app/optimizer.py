@@ -249,12 +249,15 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     RANGE_SPACE = {
-        # Layer 1 thresholds
-        "trend_filters_settings.layer_1.slope_and_r2.r2_threshold":   {"start": 0.00, "stop": 0.90, "step": 0.05, "round": 2},
-        "trend_filters_settings.layer_1.slope_and_r2.slope_threshold": {"start": 0.0000, "stop": 0.0010, "step": 0.0001, "round": 6},
-        # Layer 2 thresholds
-        "trend_filters_settings.layer_2.slope_and_r2.r2_threshold":   {"start": 0.00, "stop": 0.90, "step": 0.05, "round": 2},
-        "trend_filters_settings.layer_2.slope_and_r2.slope_threshold": {"start": 0.00000, "stop": 0.00030, "step": 0.00002, "round": 8},
+      RANGE_SPACE_COARSE = {
+        #layer 1
+        "trend_filters_settings.layer_1.slope_and_r2.r2_threshold":   {"start": 0.00, "stop": 0.90, "step": 0.10, "round": 2},
+        "trend_filters_settings.layer_1.slope_and_r2.slope_threshold": {"start": 0.0000, "stop": 0.0010, "step": 0.0002, "round": 6},
+
+        #layer 2
+        "trend_filters_settings.layer_2.slope_and_r2.r2_threshold":   {"start": 0.00, "stop": 0.90, "step": 0.10, "round": 2},
+        "trend_filters_settings.layer_2.slope_and_r2.slope_threshold": {"start": 0.00000, "stop": 0.00030, "step": 0.00005, "round": 8},
+}
     }
 
     EXPLICIT_SPACE = {
