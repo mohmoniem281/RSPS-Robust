@@ -1,5 +1,5 @@
 {
-  "total_identifiers": 401,
+  "total_identifiers": 409,
   "tournaments": [
     {
       "tournament_identifier": "2024-07-01",
@@ -11,10 +11,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -32,10 +29,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -53,10 +47,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -74,10 +65,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -95,10 +83,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -116,10 +101,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -137,10 +119,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -158,10 +137,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -179,10 +155,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -200,10 +173,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -221,10 +191,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -242,10 +209,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -263,10 +227,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -284,10 +245,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -305,10 +263,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -326,10 +281,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -347,10 +299,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -368,10 +317,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -389,10 +335,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -410,10 +353,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -431,10 +371,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -445,17 +382,14 @@
     {
       "tournament_identifier": "2024-07-22",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -473,10 +407,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -494,10 +425,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -515,10 +443,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -536,10 +461,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -557,10 +479,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -571,24 +490,16 @@
     {
       "tournament_identifier": "2024-07-28",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.8054026439416755
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -597,26 +508,19 @@
     {
       "tournament_identifier": "2024-07-29",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "sol",
-              0.6885342122662338
-            ],
-            [
-              "doge",
-              0.7351983782177209
+              0.705295255647048
             ]
           ],
           "advancing_assets": null,
@@ -634,19 +538,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "doge",
-              0.6510172362527865
-            ],
-            [
               "sol",
-              0.8208513016137218
+              0.7108108844655192
             ]
           ],
           "advancing_assets": null,
@@ -664,17 +561,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sol",
-              0.6969044323796608
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -690,10 +579,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -711,10 +597,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -732,10 +615,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -753,10 +633,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -767,24 +644,16 @@
     {
       "tournament_identifier": "2024-08-05",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8267492200378916
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -800,10 +669,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -821,10 +687,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -835,17 +698,14 @@
     {
       "tournament_identifier": "2024-08-08",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -856,17 +716,14 @@
     {
       "tournament_identifier": "2024-08-09",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -884,10 +741,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -905,10 +759,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -926,10 +777,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -947,10 +795,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -968,10 +813,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -989,10 +831,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1010,10 +849,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1031,10 +867,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1052,10 +885,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1073,10 +903,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1087,17 +914,14 @@
     {
       "tournament_identifier": "2024-08-20",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1108,17 +932,14 @@
     {
       "tournament_identifier": "2024-08-21",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1129,17 +950,14 @@
     {
       "tournament_identifier": "2024-08-22",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1150,17 +968,14 @@
     {
       "tournament_identifier": "2024-08-23",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1171,17 +986,14 @@
     {
       "tournament_identifier": "2024-08-24",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1192,17 +1004,14 @@
     {
       "tournament_identifier": "2024-08-25",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1213,17 +1022,14 @@
     {
       "tournament_identifier": "2024-08-26",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1234,17 +1040,14 @@
     {
       "tournament_identifier": "2024-08-27",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1255,17 +1058,14 @@
     {
       "tournament_identifier": "2024-08-28",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1276,17 +1076,14 @@
     {
       "tournament_identifier": "2024-08-29",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1297,17 +1094,14 @@
     {
       "tournament_identifier": "2024-08-30",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1318,17 +1112,14 @@
     {
       "tournament_identifier": "2024-08-31",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1339,17 +1130,14 @@
     {
       "tournament_identifier": "2024-09-01",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1360,17 +1148,14 @@
     {
       "tournament_identifier": "2024-09-02",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1381,17 +1166,14 @@
     {
       "tournament_identifier": "2024-09-03",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1402,17 +1184,14 @@
     {
       "tournament_identifier": "2024-09-04",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1423,17 +1202,14 @@
     {
       "tournament_identifier": "2024-09-05",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1444,17 +1220,14 @@
     {
       "tournament_identifier": "2024-09-06",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1465,17 +1238,14 @@
     {
       "tournament_identifier": "2024-09-07",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1493,10 +1263,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1514,10 +1281,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1535,10 +1299,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1556,10 +1317,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1577,10 +1335,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1598,10 +1353,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1612,17 +1364,14 @@
     {
       "tournament_identifier": "2024-09-14",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1633,24 +1382,16 @@
     {
       "tournament_identifier": "2024-09-15",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.7089633793426187
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1659,24 +1400,16 @@
     {
       "tournament_identifier": "2024-09-16",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.7777376120159516
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1685,24 +1418,16 @@
     {
       "tournament_identifier": "2024-09-17",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.8044501883538357
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1711,24 +1436,16 @@
     {
       "tournament_identifier": "2024-09-18",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.8058360163751846
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1737,24 +1454,16 @@
     {
       "tournament_identifier": "2024-09-19",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.8417982950271687
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1763,24 +1472,16 @@
     {
       "tournament_identifier": "2024-09-20",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.8522021421401051
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1789,24 +1490,16 @@
     {
       "tournament_identifier": "2024-09-21",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.8503582141001766
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1815,24 +1508,16 @@
     {
       "tournament_identifier": "2024-09-22",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.850708990372298
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1841,24 +1526,16 @@
     {
       "tournament_identifier": "2024-09-23",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.8232890150191944
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1867,24 +1544,16 @@
     {
       "tournament_identifier": "2024-09-24",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.8231950762748547
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1893,24 +1562,16 @@
     {
       "tournament_identifier": "2024-09-25",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.8067367418064726
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1919,24 +1580,16 @@
     {
       "tournament_identifier": "2024-09-26",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.7043687777339026
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -1945,17 +1598,14 @@
     {
       "tournament_identifier": "2024-09-27",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1966,17 +1616,14 @@
     {
       "tournament_identifier": "2024-09-28",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -1987,17 +1634,14 @@
     {
       "tournament_identifier": "2024-09-29",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2008,17 +1652,14 @@
     {
       "tournament_identifier": "2024-09-30",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2029,17 +1670,14 @@
     {
       "tournament_identifier": "2024-10-01",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2050,17 +1688,14 @@
     {
       "tournament_identifier": "2024-10-02",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2071,17 +1706,14 @@
     {
       "tournament_identifier": "2024-10-03",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2092,17 +1724,14 @@
     {
       "tournament_identifier": "2024-10-04",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2113,17 +1742,14 @@
     {
       "tournament_identifier": "2024-10-05",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2134,17 +1760,14 @@
     {
       "tournament_identifier": "2024-10-06",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2155,17 +1778,14 @@
     {
       "tournament_identifier": "2024-10-07",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2176,17 +1796,14 @@
     {
       "tournament_identifier": "2024-10-08",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2197,17 +1814,14 @@
     {
       "tournament_identifier": "2024-10-09",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2218,17 +1832,14 @@
     {
       "tournament_identifier": "2024-10-10",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2239,17 +1850,14 @@
     {
       "tournament_identifier": "2024-10-11",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2260,17 +1868,14 @@
     {
       "tournament_identifier": "2024-10-12",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2281,17 +1886,14 @@
     {
       "tournament_identifier": "2024-10-13",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2302,17 +1904,14 @@
     {
       "tournament_identifier": "2024-10-14",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2323,17 +1922,14 @@
     {
       "tournament_identifier": "2024-10-15",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2344,17 +1940,14 @@
     {
       "tournament_identifier": "2024-10-16",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2365,17 +1958,14 @@
     {
       "tournament_identifier": "2024-10-17",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2386,17 +1976,14 @@
     {
       "tournament_identifier": "2024-10-18",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2407,17 +1994,14 @@
     {
       "tournament_identifier": "2024-10-19",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2428,17 +2012,14 @@
     {
       "tournament_identifier": "2024-10-20",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2449,24 +2030,16 @@
     {
       "tournament_identifier": "2024-10-21",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.6603176097256421
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2475,24 +2048,16 @@
     {
       "tournament_identifier": "2024-10-22",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.6791087188784094
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2501,24 +2066,16 @@
     {
       "tournament_identifier": "2024-10-23",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.7211579896509808
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2527,24 +2084,16 @@
     {
       "tournament_identifier": "2024-10-24",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.74595455159179
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2553,28 +2102,16 @@
     {
       "tournament_identifier": "2024-10-25",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sol",
-              0.691514462169162
-            ],
-            [
-              "doge",
-              0.7494424937842429
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2583,28 +2120,16 @@
     {
       "tournament_identifier": "2024-10-26",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.756959394040294
-            ],
-            [
-              "sol",
-              0.7652059732786932
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2613,28 +2138,16 @@
     {
       "tournament_identifier": "2024-10-27",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.7501518490639824
-            ],
-            [
-              "sol",
-              0.8018146222963101
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2643,28 +2156,16 @@
     {
       "tournament_identifier": "2024-10-28",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.7569430500557985
-            ],
-            [
-              "sol",
-              0.8183462375262918
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2673,28 +2174,16 @@
     {
       "tournament_identifier": "2024-10-29",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sol",
-              0.7225346960359205
-            ],
-            [
-              "doge",
-              0.7868374529754374
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2703,24 +2192,16 @@
     {
       "tournament_identifier": "2024-10-30",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.7860695139178763
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2729,24 +2210,16 @@
     {
       "tournament_identifier": "2024-10-31",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.7664692878774984
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2755,24 +2228,16 @@
     {
       "tournament_identifier": "2024-11-01",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.7127393987708083
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2781,24 +2246,16 @@
     {
       "tournament_identifier": "2024-11-02",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "doge",
-              0.6570267804308711
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -2807,17 +2264,14 @@
     {
       "tournament_identifier": "2024-11-03",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2828,17 +2282,14 @@
     {
       "tournament_identifier": "2024-11-04",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2849,17 +2300,14 @@
     {
       "tournament_identifier": "2024-11-05",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2870,17 +2318,14 @@
     {
       "tournament_identifier": "2024-11-06",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2891,17 +2336,14 @@
     {
       "tournament_identifier": "2024-11-07",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2912,17 +2354,14 @@
     {
       "tournament_identifier": "2024-11-08",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2933,17 +2372,14 @@
     {
       "tournament_identifier": "2024-11-09",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2954,17 +2390,14 @@
     {
       "tournament_identifier": "2024-11-10",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2975,17 +2408,14 @@
     {
       "tournament_identifier": "2024-11-11",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -2996,17 +2426,14 @@
     {
       "tournament_identifier": "2024-11-12",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3017,17 +2444,14 @@
     {
       "tournament_identifier": "2024-11-13",
       "total_rounds": 1,
-      "winner": "doge",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3038,24 +2462,16 @@
     {
       "tournament_identifier": "2024-11-14",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.6509475992578507
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3064,24 +2480,16 @@
     {
       "tournament_identifier": "2024-11-15",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.6594938714991435
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3097,10 +2505,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3118,10 +2523,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3139,10 +2541,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3160,10 +2559,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3181,10 +2577,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3202,10 +2595,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3216,24 +2606,16 @@
     {
       "tournament_identifier": "2024-11-22",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "hbar",
-              0.692985392087754
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3242,24 +2624,16 @@
     {
       "tournament_identifier": "2024-11-23",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "hbar",
-              0.7385138010513472
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3268,24 +2642,16 @@
     {
       "tournament_identifier": "2024-11-24",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "hbar",
-              0.7631295232011449
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3294,24 +2660,16 @@
     {
       "tournament_identifier": "2024-11-25",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "hbar",
-              0.7717214307748425
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3320,24 +2678,16 @@
     {
       "tournament_identifier": "2024-11-26",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "hbar",
-              0.753590223169974
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3346,24 +2696,16 @@
     {
       "tournament_identifier": "2024-11-27",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "hbar",
-              0.7055754208330474
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3372,24 +2714,16 @@
     {
       "tournament_identifier": "2024-11-28",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "hbar",
-              0.6589695756777596
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3405,10 +2739,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3426,10 +2757,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3447,10 +2775,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3461,17 +2786,14 @@
     {
       "tournament_identifier": "2024-12-02",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3482,19 +2804,21 @@
     {
       "tournament_identifier": "2024-12-03",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.7375605332085224
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3503,19 +2827,21 @@
     {
       "tournament_identifier": "2024-12-04",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.8172935036096368
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3531,12 +2857,14 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.8325224227423962
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3552,12 +2880,14 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.8866365105057749
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3573,12 +2903,14 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.8744890122454094
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3594,12 +2926,14 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.8655430981211312
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3615,12 +2949,14 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.812022655932868
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3636,12 +2972,14 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.7246956529239823
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3657,10 +2995,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3678,10 +3013,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3699,10 +3031,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3720,10 +3049,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3741,10 +3067,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -3755,24 +3078,16 @@
     {
       "tournament_identifier": "2024-12-16",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.6628023621495094
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3781,24 +3096,16 @@
     {
       "tournament_identifier": "2024-12-17",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.72397372718623
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -3807,22 +3114,19 @@
     {
       "tournament_identifier": "2024-12-18",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "sui",
-              0.7821487718263263
+              "btc",
+              0.7311340182311907
             ]
           ],
           "advancing_assets": null,
@@ -3833,26 +3137,19 @@
     {
       "tournament_identifier": "2024-12-19",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "btc",
-              0.7286844975800222
-            ],
-            [
-              "sui",
-              0.7790033968461316
+              0.7741838909948113
             ]
           ],
           "advancing_assets": null,
@@ -3870,27 +3167,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "sol",
-              0.6987901155598534
-            ],
-            [
-              "eth",
-              0.8061259402090687
-            ],
-            [
-              "sui",
-              0.8187397663733808
-            ],
-            [
               "btc",
-              0.8559958352743324
+              0.7926748437055532
             ]
           ],
           "advancing_assets": null,
@@ -3908,23 +3190,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "sui",
-              0.8148814987625126
-            ],
-            [
-              "eth",
-              0.8802977243623525
-            ],
-            [
               "btc",
-              0.9311478073808412
+              0.8108033322633321
             ]
           ],
           "advancing_assets": null,
@@ -3942,23 +3213,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "sui",
-              0.8067568706320731
-            ],
-            [
-              "eth",
-              0.8311616362808549
-            ],
-            [
               "btc",
-              0.9325096328922815
+              0.8699602898646227
             ]
           ],
           "advancing_assets": null,
@@ -3976,23 +3236,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "eth",
-              0.7809055324165444
-            ],
-            [
-              "sui",
-              0.7967270724771018
-            ],
-            [
               "btc",
-              0.8747484641544607
+              0.8084759383697365
             ]
           ],
           "advancing_assets": null,
@@ -4010,23 +3259,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "eth",
-              0.6845340639093017
-            ],
-            [
-              "sui",
-              0.7112534524880691
-            ],
-            [
               "btc",
-              0.8260603710697512
+              0.764486500354532
             ]
           ],
           "advancing_assets": null,
@@ -4044,17 +3282,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.7787042804669203
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4070,17 +3300,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.7550536926517898
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4096,17 +3318,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.7306828676277477
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4122,17 +3336,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.6666287178063499
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4141,17 +3347,14 @@
     {
       "tournament_identifier": "2024-12-29",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4162,17 +3365,14 @@
     {
       "tournament_identifier": "2024-12-30",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4183,17 +3383,14 @@
     {
       "tournament_identifier": "2024-12-31",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4204,17 +3401,14 @@
     {
       "tournament_identifier": "2025-01-01",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4225,17 +3419,14 @@
     {
       "tournament_identifier": "2025-01-02",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4246,17 +3437,14 @@
     {
       "tournament_identifier": "2025-01-03",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4267,17 +3455,14 @@
     {
       "tournament_identifier": "2025-01-04",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4288,17 +3473,14 @@
     {
       "tournament_identifier": "2025-01-05",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4309,17 +3491,14 @@
     {
       "tournament_identifier": "2025-01-06",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4330,17 +3509,14 @@
     {
       "tournament_identifier": "2025-01-07",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4351,17 +3527,14 @@
     {
       "tournament_identifier": "2025-01-08",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4372,17 +3545,14 @@
     {
       "tournament_identifier": "2025-01-09",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4393,17 +3563,14 @@
     {
       "tournament_identifier": "2025-01-10",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4414,17 +3581,14 @@
     {
       "tournament_identifier": "2025-01-11",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4435,17 +3599,14 @@
     {
       "tournament_identifier": "2025-01-12",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4456,17 +3617,14 @@
     {
       "tournament_identifier": "2025-01-13",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4477,17 +3635,14 @@
     {
       "tournament_identifier": "2025-01-14",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4498,17 +3653,14 @@
     {
       "tournament_identifier": "2025-01-15",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4519,17 +3671,14 @@
     {
       "tournament_identifier": "2025-01-16",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4540,17 +3689,14 @@
     {
       "tournament_identifier": "2025-01-17",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4561,17 +3707,14 @@
     {
       "tournament_identifier": "2025-01-18",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4582,17 +3725,14 @@
     {
       "tournament_identifier": "2025-01-19",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4603,17 +3743,14 @@
     {
       "tournament_identifier": "2025-01-20",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4624,17 +3761,14 @@
     {
       "tournament_identifier": "2025-01-21",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4645,17 +3779,14 @@
     {
       "tournament_identifier": "2025-01-22",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4666,17 +3797,14 @@
     {
       "tournament_identifier": "2025-01-23",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4687,24 +3815,16 @@
     {
       "tournament_identifier": "2025-01-24",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sol",
-              0.7046527094131823
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4713,24 +3833,16 @@
     {
       "tournament_identifier": "2025-01-25",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sol",
-              0.7393102903346624
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4739,24 +3851,16 @@
     {
       "tournament_identifier": "2025-01-26",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sol",
-              0.7507917206853065
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4765,24 +3869,16 @@
     {
       "tournament_identifier": "2025-01-27",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sol",
-              0.7298378749215519
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4791,24 +3887,16 @@
     {
       "tournament_identifier": "2025-01-28",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sol",
-              0.6919563447067627
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4824,10 +3912,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4845,10 +3930,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4866,10 +3948,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -4887,17 +3966,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.6549235700703284
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4913,17 +3984,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.7607574353828651
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4939,17 +4002,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8633234435982051
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4965,17 +4020,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8864439574420601
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -4991,15 +4038,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "btc",
-              0.8919285367324664
+              0.7073456435437344
             ]
           ],
           "advancing_assets": null,
@@ -5017,15 +4061,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "btc",
-              0.8904307862476464
+              0.8510462938073478
             ]
           ],
           "advancing_assets": null,
@@ -5043,15 +4084,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "btc",
-              0.8912276811127113
+              0.8607509532359316
             ]
           ],
           "advancing_assets": null,
@@ -5069,15 +4107,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "btc",
-              0.8812790984810347
+              0.8438198873326155
             ]
           ],
           "advancing_assets": null,
@@ -5088,24 +4123,16 @@
     {
       "tournament_identifier": "2025-02-09",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8680380335978866
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -5121,10 +4148,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5142,10 +4166,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5163,10 +4184,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5184,10 +4202,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5205,10 +4220,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5226,10 +4238,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5247,10 +4256,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5268,10 +4274,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5289,10 +4292,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5310,10 +4310,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5331,10 +4328,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5352,10 +4346,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5373,10 +4364,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5394,10 +4382,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5415,10 +4400,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5436,10 +4418,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5457,10 +4436,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5478,10 +4454,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5499,10 +4472,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5520,10 +4490,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5541,10 +4508,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5562,10 +4526,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5583,10 +4544,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5604,10 +4562,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5625,10 +4580,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5646,10 +4598,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5667,10 +4616,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5688,10 +4634,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5709,10 +4652,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5730,10 +4670,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5751,10 +4688,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5772,10 +4706,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5793,10 +4724,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5814,10 +4742,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5835,10 +4760,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5856,10 +4778,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5877,10 +4796,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5898,10 +4814,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5919,10 +4832,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5940,10 +4850,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5961,10 +4868,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -5982,10 +4886,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6003,10 +4904,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6024,10 +4922,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6045,10 +4940,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6066,10 +4958,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6087,10 +4976,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6108,10 +4994,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6129,10 +5012,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6150,10 +5030,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6171,10 +5048,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6192,10 +5066,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6213,10 +5084,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6234,10 +5102,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6255,10 +5120,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6276,10 +5138,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6297,10 +5156,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6318,10 +5174,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6339,10 +5192,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6360,10 +5210,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6381,10 +5228,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6402,10 +5246,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6423,10 +5264,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6444,10 +5282,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6465,10 +5300,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6486,10 +5318,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6507,10 +5336,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6528,10 +5354,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6549,10 +5372,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6570,10 +5390,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6591,10 +5408,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6612,10 +5426,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6633,10 +5444,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6654,10 +5462,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6668,17 +5473,14 @@
     {
       "tournament_identifier": "2025-04-25",
       "total_rounds": 1,
-      "winner": "sol",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6696,10 +5498,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6717,10 +5516,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6738,10 +5534,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6752,24 +5545,16 @@
     {
       "tournament_identifier": "2025-04-29",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.6534457085279723
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -6778,24 +5563,16 @@
     {
       "tournament_identifier": "2025-04-30",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.6958821199764142
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -6804,24 +5581,16 @@
     {
       "tournament_identifier": "2025-05-01",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.7063934094530818
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -6830,24 +5599,16 @@
     {
       "tournament_identifier": "2025-05-02",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "sol",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "sui",
-              0.6823308101481841
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -6863,10 +5624,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6884,10 +5642,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6905,10 +5660,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6926,10 +5678,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -6940,19 +5689,21 @@
     {
       "tournament_identifier": "2025-05-07",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.8693839036005895
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -6961,19 +5712,21 @@
     {
       "tournament_identifier": "2025-05-08",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.8147775769845509
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -6989,15 +5742,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.6870500206700725
+              0.7778011757293481
             ]
           ],
           "advancing_assets": null,
@@ -7015,15 +5765,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.7756000831732821
+              0.7255547730995802
             ]
           ],
           "advancing_assets": null,
@@ -7041,15 +5788,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.8293658613329528
+              0.7288830266532402
             ]
           ],
           "advancing_assets": null,
@@ -7067,15 +5811,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.8829827610696638
+              0.7550214507667845
             ]
           ],
           "advancing_assets": null,
@@ -7093,15 +5834,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.9310489989659723
+              0.7901127801527771
             ]
           ],
           "advancing_assets": null,
@@ -7119,15 +5857,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.9354288443785455
+              0.802537271702793
             ]
           ],
           "advancing_assets": null,
@@ -7145,15 +5880,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.9348008052003101
+              0.8074362997612575
             ]
           ],
           "advancing_assets": null,
@@ -7171,15 +5903,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.9343566798635661
+              0.815676183278039
             ]
           ],
           "advancing_assets": null,
@@ -7197,15 +5926,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.9078728755205357
+              0.7835120021589039
             ]
           ],
           "advancing_assets": null,
@@ -7223,15 +5949,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "eth",
-              0.8195362048037362
+              0.6950304806337291
             ]
           ],
           "advancing_assets": null,
@@ -7242,24 +5965,16 @@
     {
       "tournament_identifier": "2025-05-19",
       "total_rounds": 1,
-      "winner": "eth",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "eth",
-              0.7706339827131548
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7268,24 +5983,16 @@
     {
       "tournament_identifier": "2025-05-20",
       "total_rounds": 1,
-      "winner": "eth",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "eth",
-              0.6903753397696284
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7301,10 +6008,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7322,10 +6026,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7343,10 +6044,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7364,10 +6062,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7385,10 +6080,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7406,10 +6098,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7427,17 +6116,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.7456839619167864
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7453,15 +6134,12 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "btc",
-              0.8310140740415621
+              0.6923602965844065
             ]
           ],
           "advancing_assets": null,
@@ -7479,17 +6157,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8449067698335466
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7505,17 +6175,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8504278429996588
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7531,17 +6193,9 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8527335915565453
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7550,24 +6204,16 @@
     {
       "tournament_identifier": "2025-06-01",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8482925581397761
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7576,24 +6222,16 @@
     {
       "tournament_identifier": "2025-06-02",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8726380654387178
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7602,24 +6240,16 @@
     {
       "tournament_identifier": "2025-06-03",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.878937170137309
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7628,24 +6258,16 @@
     {
       "tournament_identifier": "2025-06-04",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8719971046175926
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7654,24 +6276,16 @@
     {
       "tournament_identifier": "2025-06-05",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8686290306720943
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7680,24 +6294,16 @@
     {
       "tournament_identifier": "2025-06-06",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8696975180715539
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7706,24 +6312,16 @@
     {
       "tournament_identifier": "2025-06-07",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.8358214665078652
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7732,24 +6330,16 @@
     {
       "tournament_identifier": "2025-06-08",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.7923362051521439
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -7765,10 +6355,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7786,10 +6373,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7807,10 +6391,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7828,10 +6409,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7849,10 +6427,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7870,10 +6445,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7891,10 +6463,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7912,10 +6481,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7933,10 +6499,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7954,10 +6517,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7975,10 +6535,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -7996,10 +6553,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8017,10 +6571,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8038,10 +6589,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8059,10 +6607,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8080,10 +6625,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8101,10 +6643,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8115,17 +6654,14 @@
     {
       "tournament_identifier": "2025-06-26",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8136,17 +6672,14 @@
     {
       "tournament_identifier": "2025-06-27",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8164,10 +6697,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8185,10 +6715,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8206,10 +6733,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8227,10 +6751,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8241,17 +6762,14 @@
     {
       "tournament_identifier": "2025-07-02",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8262,17 +6780,14 @@
     {
       "tournament_identifier": "2025-07-03",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": null,
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8290,10 +6805,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8311,10 +6823,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8332,10 +6841,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8353,10 +6859,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8374,10 +6877,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8395,10 +6895,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8416,10 +6913,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8437,10 +6931,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8458,10 +6949,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8472,19 +6960,21 @@
     {
       "tournament_identifier": "2025-07-13",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.7252012275067957
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -8493,22 +6983,19 @@
     {
       "tournament_identifier": "2025-07-14",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "hbar",
-              0.676589729118753
+              "eth",
+              0.789245329681405
             ]
           ],
           "advancing_assets": null,
@@ -8519,22 +7006,19 @@
     {
       "tournament_identifier": "2025-07-15",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "hbar",
-              0.7411742433780184
+              "eth",
+              0.8153255974099309
             ]
           ],
           "advancing_assets": null,
@@ -8545,22 +7029,19 @@
     {
       "tournament_identifier": "2025-07-16",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "hbar",
-              0.7515015949130761
+              "eth",
+              0.8575081987558961
             ]
           ],
           "advancing_assets": null,
@@ -8571,22 +7052,19 @@
     {
       "tournament_identifier": "2025-07-17",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "hbar",
-              0.7875447786942319
+              "eth",
+              0.8851006902033285
             ]
           ],
           "advancing_assets": null,
@@ -8597,22 +7075,19 @@
     {
       "tournament_identifier": "2025-07-18",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "hbar",
-              0.7909263471077401
+              "eth",
+              0.8839850991549111
             ]
           ],
           "advancing_assets": null,
@@ -8623,22 +7098,19 @@
     {
       "tournament_identifier": "2025-07-19",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "hbar",
-              0.7914868896708003
+              "eth",
+              0.8980316367732832
             ]
           ],
           "advancing_assets": null,
@@ -8649,22 +7121,19 @@
     {
       "tournament_identifier": "2025-07-20",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "hbar",
-              0.747441300602138
+              "eth",
+              0.9013371636884636
             ]
           ],
           "advancing_assets": null,
@@ -8675,22 +7144,19 @@
     {
       "tournament_identifier": "2025-07-21",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
-              "hbar",
-              0.6621943710611616
+              "eth",
+              0.8862070940976717
             ]
           ],
           "advancing_assets": null,
@@ -8701,19 +7167,21 @@
     {
       "tournament_identifier": "2025-07-22",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.8064447374257575
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -8722,19 +7190,21 @@
     {
       "tournament_identifier": "2025-07-23",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.7347069629187385
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -8743,19 +7213,21 @@
     {
       "tournament_identifier": "2025-07-24",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [],
+          "asset_ratios": [
+            [
+              "eth",
+              0.6987072874811023
+            ]
+          ],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -8771,10 +7243,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8785,17 +7254,14 @@
     {
       "tournament_identifier": "2025-07-26",
       "total_rounds": 1,
-      "winner": "sui",
+      "winner": "btc",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8806,17 +7272,14 @@
     {
       "tournament_identifier": "2025-07-27",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8827,17 +7290,14 @@
     {
       "tournament_identifier": "2025-07-28",
       "total_rounds": 1,
-      "winner": "hbar",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8855,10 +7315,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8876,10 +7333,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8897,10 +7351,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8918,10 +7369,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8939,10 +7387,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8960,10 +7405,7 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [],
           "advancing_assets": null,
@@ -8974,24 +7416,16 @@
     {
       "tournament_identifier": "2025-08-04",
       "total_rounds": 1,
-      "winner": "btc",
+      "winner": "eth",
       "rounds": [
         {
           "round": 0,
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
-          "asset_ratios": [
-            [
-              "btc",
-              0.7057229318981678
-            ]
-          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -9007,17 +7441,168 @@
           "assets_competing": [
             "btc",
             "eth",
-            "sol",
-            "sui",
-            "hbar",
-            "doge"
+            "sol"
           ],
           "asset_ratios": [
             [
               "btc",
-              0.8007176215323426
+              0.7031312062995916
             ]
           ],
+          "advancing_assets": null,
+          "eliminated_assets": null
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-08-06",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 0,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": [
+            [
+              "btc",
+              0.7701072323826847
+            ]
+          ],
+          "advancing_assets": null,
+          "eliminated_assets": null
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-08-07",
+      "total_rounds": 1,
+      "winner": "btc",
+      "rounds": [
+        {
+          "round": 0,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": [
+            [
+              "btc",
+              0.7385346339523302
+            ]
+          ],
+          "advancing_assets": null,
+          "eliminated_assets": null
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-08-08",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 0,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": [],
+          "advancing_assets": null,
+          "eliminated_assets": null
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-08-09",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 0,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": [],
+          "advancing_assets": null,
+          "eliminated_assets": null
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-08-10",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 0,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": [],
+          "advancing_assets": null,
+          "eliminated_assets": null
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-08-11",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 0,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": [],
+          "advancing_assets": null,
+          "eliminated_assets": null
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-08-12",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 0,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": [],
+          "advancing_assets": null,
+          "eliminated_assets": null
+        }
+      ]
+    },
+    {
+      "tournament_identifier": "2025-08-13",
+      "total_rounds": 1,
+      "winner": "eth",
+      "rounds": [
+        {
+          "round": 0,
+          "assets_competing": [
+            "btc",
+            "eth",
+            "sol"
+          ],
+          "asset_ratios": [],
           "advancing_assets": null,
           "eliminated_assets": null
         }
@@ -9025,14 +7610,11 @@
     }
   ],
   "summary_stats": {
-    "total_tournaments": 401,
+    "total_tournaments": 409,
     "winners_by_asset": {
       "sol": 37,
-      "doge": 23,
-      "btc": 70,
-      "sui": 70,
-      "hbar": 43,
-      "eth": 43
+      "btc": 125,
+      "eth": 75
     }
   }
 }

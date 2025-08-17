@@ -334,16 +334,22 @@ def main():
 
     # Default global ranges (used by grid & coarse_random)
     RANGE_SPACE = {
-        # layer 1
-        "trend_filters_settings.layer_1.slope_and_r2.r2_threshold":
-            {"start": 0.00, "stop": 0.90, "step": 0.10, "round": 2},
-        "trend_filters_settings.layer_1.slope_and_r2.slope_threshold":
-            {"start": 0.0000, "stop": 0.0010, "step": 0.0002, "round": 6},
-        # layer 2
-        "trend_filters_settings.layer_2.slope_and_r2.r2_threshold":
-            {"start": 0.00, "stop": 0.90, "step": 0.10, "round": 2},
-        "trend_filters_settings.layer_2.slope_and_r2.slope_threshold":
-            {"start": 0.00000, "stop": 0.00030, "step": 0.00005, "round": 8},
+        # # layer 1
+        "trend_filters_settings.layer_1.slope_and_r2.r2_threshold": {
+            "start": 0.00, "stop": 0.90, "step": 0.10, "round": 2
+        },
+        "trend_filters_settings.layer_1.slope_and_r2.slope_threshold": {
+            "start": 0.0000, "stop": 0.0020, "step": 0.0002, "round": 6
+        },
+        "trend_filters_settings.layer_1.slope_and_r2.trend_slope_window": {
+            "start": 3, "stop": 30, "step": 3, "round": 0
+        },
+        # # layer 2
+        # "trend_filters_settings.layer_2.slope_and_r2.trend_slope_window":{"start": 3,"stop": 30,"step": 2,"round": 0},
+        # "trend_filters_settings.layer_2.slope_and_r2.r2_threshold":
+        #     {"start": 0.684, "stop": 0.691, "step": 0.001, "round": 3},
+        # "trend_filters_settings.layer_2.slope_and_r2.slope_threshold":
+        #     {"start": 0.00016, "stop": 0.00018, "step": 0.000005, "round": 8}
     }
 
     if args.mode == "grid":

@@ -60,15 +60,19 @@ def is_ratio_trending_layer_2(config, identifier, asset_name):
         if entry["identifier"] == identifier:
             break
     
-    # Apply logarithm to the ratios
-    ratios_only_log = [math.log(ratio) for ratio in filtered_ratios]
+    # # Apply logarithm to the ratios
+    # ratios_only_log = [math.log(ratio) for ratio in filtered_ratios]
+
 
     #apply kalman trend filter to the price series (logarithm)
     # WE SHOULD IGNORE KALMAN_SIGNAL HERE FORM THE INDICATOR, NOT RELIABE, WE WILL DO SLOPE AND R2 INSTEAD
     process_noise = config.get("trend_filters_settings", {}).get("layer_2", {}).get("kalman", {}).get("process_noise")
     measurement_noise = config.get("trend_filters_settings", {}).get("layer_2", {}).get("kalman", {}).get("measurement_noise")
     filter_order = config.get("trend_filters_settings", {}).get("layer_2", {}).get("kalman", {}).get("filter_order")
-    kalman_trend,kalman_signal = kalman.kalman_filter_backquant(ratios_only_log, process_noise, measurement_noise, filter_order)
+    # kalman_trend,kalman_signal = kalman.kalman_filter_backquant(ratios_only_log, process_noise, measurement_noise, filter_order)
+
+    #wer are doing the kalman on the ratios directly as they are already logged from the normalizations step
+    kalman_trend,kalman_signal = kalman.kalman_filter_backquant(filtered_ratios, process_noise, measurement_noise, filter_order)
     
     #apply slope and r2 trend filters to the kalman trend
     trend_slope_window = config.get("trend_filters_settings", {}).get("layer_2", {}).get("slope_and_r2", {}).get("trend_slope_window")

@@ -33,8 +33,11 @@ def create_ratios(config):
                     normalized_price = entry["normalized_price"]
                     break
             
-            # Calculate ratio
-            ratio = normalized_price / index_value
+            # # Calculate ratio
+            # ratio = normalized_price / index_value
+
+            #calcualte ratio. now based on log 
+            ratio = normalized_price - index_value
             
             # Find or create entry for this identifier
             identifier_entry = None

@@ -13,7 +13,7 @@ from price_normalization import normalize_prices
 from tournament import run_tournament
 # from build_equity_curve import build_the_equity_curve
 from equity_curve import build_the_equity_curve
-# from equity_curve_visualizer import create_equity_curve_dashboard
+from equity_curve_visualizer import create_equity_curve_dashboard
 from index import create_index
 from ratios import create_ratios
 
@@ -61,9 +61,9 @@ def test(config):
     build_the_equity_curve(config)
     print(f"✅ Equity curve built successfully!")
 
-    # # Build equity curve visualization
-    # create_equity_curve_dashboard(config)
-    # print(f"✅ Equity curve visualization built successfully!")
+    # Build equity curve visualization
+    create_equity_curve_dashboard(config)
+    print(f"✅ Equity curve visualization built successfully!")
 
 
 def main():
@@ -109,9 +109,9 @@ def main():
     build_the_equity_curve(config)
     print(f"✅ Equity curve built successfully!")
 
-    # # Build equity curve visualization
-    # create_equity_curve_dashboard(config)
-    # print(f"✅ Equity curve visualization built successfully!")
+    # Build equity curve visualization
+    create_equity_curve_dashboard(config)
+    print(f"✅ Equity curve visualization built successfully!")
 
    
 

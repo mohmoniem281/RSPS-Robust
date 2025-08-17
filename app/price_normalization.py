@@ -2,6 +2,7 @@ import json
 import os
 from pathlib import Path
 from trend_filters.ema import calculate_ema
+import math
 
 def normalize_prices(config):
     """
@@ -84,8 +85,11 @@ def normalize_prices(config):
                         print(f"Warning: Historical price is zero for identifier {historical_identifier} in asset {asset_name}")
                         continue
                     
-                    # Calculate normalized price
-                    normalized_price = current_price / historical_price
+                    # # Calculate normalized price
+                    # normalized_price = current_price / historical_price
+
+                    #normalized prices are now log
+                    normalized_price = math.log(current_price) - math.log(historical_price)
                     
                     normalized_prices.append({
                         "time": identifier,
