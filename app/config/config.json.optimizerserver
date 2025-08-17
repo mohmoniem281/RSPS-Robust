@@ -29,18 +29,6 @@
     "sol": {
       "price_history": "/home/ec2-user/RSPS-Robust/data/output_prices/sol.json",
       "normalized_history": "/home/ec2-user/RSPS-Robust/data/output_prices/sol_normalized.json"
-    }, 
-    "sui": {
-      "price_history": "/home/ec2-user/RSPS-Robust/data/output_prices/sui.json",
-      "normalized_history": "/home/ec2-user/RSPS-Robust/data/output_prices/sui_normalized.json"
-    },
-    "hbar": {
-      "price_history": "/home/ec2-user/RSPS-Robust/data/output_prices/hbar.json",
-      "normalized_history": "/home/ec2-user/RSPS-Robust/data/output_prices/hbar_normalized.json"
-    },
-    "doge": {
-      "price_history": "/home/ec2-user/RSPS-Robust/data/output_prices/doge.json",
-      "normalized_history": "/home/ec2-user/RSPS-Robust/data/output_prices/doge_normalized.json"
     }
 
   },
