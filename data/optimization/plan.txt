@@ -6,6 +6,7 @@ we will optimize layer 1 and then layer 2
 
 =======================Layer 1=======================
 ===========First run (01)===========
+----SETUP----
 RANGE_SPACE = {
     # Layer 1 broad exploration
     "trend_filters_settings.layer_1.slope_and_r2.r2_threshold": {
@@ -18,3 +19,27 @@ RANGE_SPACE = {
         "start": 3, "stop": 30, "step": 3, "round": 0
     },
 }
+----BEST RESULT----
+Capital: 47027.077022
+{
+  "trend_filters_settings": {
+    "layer_1": {
+      "slope_and_r2": {
+        "r2_threshold": 0.0,
+        "slope_threshold": 0.002,
+        "trend_slope_window": 15
+      }
+    }
+  }
+}
+===========Second run (02)===========
+# # layer 1
+    "trend_filters_settings.layer_1.slope_and_r2.r2_threshold": {
+        "start": 0.00, "stop": 0.40, "step": 0.02, "round": 2
+    },
+    "trend_filters_settings.layer_1.slope_and_r2.slope_threshold": {
+        "start": 0.0016, "stop": 0.0022, "step": 0.00005, "round": 6
+    },
+    "trend_filters_settings.layer_1.slope_and_r2.trend_slope_window": {
+        "start": 12, "stop": 21, "step": 1, "round": 0
+    }

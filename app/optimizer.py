@@ -336,13 +336,13 @@ def main():
     RANGE_SPACE = {
         # # layer 1
         "trend_filters_settings.layer_1.slope_and_r2.r2_threshold": {
-            "start": 0.00, "stop": 0.90, "step": 0.10, "round": 2
+            "start": 0.00, "stop": 0.40, "step": 0.02, "round": 2
         },
         "trend_filters_settings.layer_1.slope_and_r2.slope_threshold": {
-            "start": 0.0000, "stop": 0.0020, "step": 0.0002, "round": 6
+            "start": 0.0016, "stop": 0.0022, "step": 0.00005, "round": 6
         },
         "trend_filters_settings.layer_1.slope_and_r2.trend_slope_window": {
-            "start": 3, "stop": 30, "step": 3, "round": 0
+            "start": 12, "stop": 21, "step": 1, "round": 0
         },
         # # layer 2
         # "trend_filters_settings.layer_2.slope_and_r2.trend_slope_window":{"start": 3,"stop": 30,"step": 2,"round": 0},

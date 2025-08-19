@@ -61,9 +61,9 @@ def test(config):
     build_the_equity_curve(config)
     print(f"✅ Equity curve built successfully!")
 
-    # Build equity curve visualization
-    create_equity_curve_dashboard(config)
-    print(f"✅ Equity curve visualization built successfully!")
+    # # Build equity curve visualization
+    # create_equity_curve_dashboard(config)
+    # print(f"✅ Equity curve visualization built successfully!")
 
 
 def main():
