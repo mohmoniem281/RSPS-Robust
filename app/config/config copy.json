@@ -52,9 +52,9 @@
         "filter_order": 5
       },
       "slope_and_r2": {
-        "trend_slope_window": 5,
-        "r2_threshold": 0.4,
-        "slope_threshold": 0.00035
+        "trend_slope_window": 20,
+        "r2_threshold": 0.685,
+        "slope_threshold": 0.00017
       }
     }
   }

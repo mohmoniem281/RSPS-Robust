@@ -345,11 +345,11 @@ def main():
         #     "start": 12, "stop": 21, "step": 1, "round": 0
         # },
         # layer 2
-        "trend_filters_settings.layer_2.slope_and_r2.trend_slope_window":{"start": 3,"stop": 15,"step": 2,"round": 0},
+        "trend_filters_settings.layer_2.slope_and_r2.trend_slope_window":{"start": 3,"stop": 7,"step": 1,"round": 0},
         "trend_filters_settings.layer_2.slope_and_r2.r2_threshold":
-            {"start": 0.20, "stop": 0.80, "step": 0.10, "round": 2},
+            {"start": 0.30, "stop": 0.50, "step": 0.02, "round": 2},
         "trend_filters_settings.layer_2.slope_and_r2.slope_threshold":
-            {"start": 0.00005, "stop": 0.00050, "step": 0.00005, "round": 6}
+            {"start": 0.00025, "stop": 0.00045, "step": 0.00001, "round": 6}
     }
 
     if args.mode == "grid":

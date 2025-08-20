@@ -59,13 +59,13 @@ def build_the_equity_curve(config: Dict):
 
 
     
-    # #summarize the equity curve
-    # equity_curve_non_filtered_summarized = summarize_equity_curve(equity_curve_non_filtered)
-    # equity_curve_filtered_summarized = summarize_equity_curve(equity_curve_filtered)
+    #summarize the equity curve
+    equity_curve_non_filtered_summarized = summarize_equity_curve(equity_curve_non_filtered)
+    equity_curve_filtered_summarized = summarize_equity_curve(equity_curve_filtered)
 
-    # #save the equity curve
-    # save_equity_curve(equity_curve_non_filtered_summarized, config["equity_curve_file"])
-    # save_equity_curve(equity_curve_filtered_summarized, config["equity_curve_file_filtered"])
+    #save the equity curve
+    save_equity_curve(equity_curve_non_filtered_summarized, config["equity_curve_file"])
+    save_equity_curve(equity_curve_filtered_summarized, config["equity_curve_file_filtered"])
 
 
 from typing import List, Dict
