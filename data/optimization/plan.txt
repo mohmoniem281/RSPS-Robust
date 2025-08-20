@@ -58,6 +58,7 @@ Capital: 49037.489265
 }
 
 =======================Layer 2=======================
+===========Third run (03)===========
 # # layer 2
   "trend_filters_settings.layer_2.slope_and_r2.r2_threshold": {
       "start": 0.20, "stop": 0.80, "step": 0.10, "round": 2
@@ -68,3 +69,19 @@ Capital: 49037.489265
   "trend_filters_settings.layer_2.slope_and_r2.trend_slope_window": {
       "start": 3, "stop": 15, "step": 2, "round": 0
   }
+----BEST RESULT----
+Capital: 58157.283830
+{
+  "trend_filters_settings": {
+    "layer_2": {
+      "slope_and_r2": {
+        "trend_slope_window": 5,
+        "r2_threshold": 0.4,
+        "slope_threshold": 0.00035
+      }
+    }
+  }
+}
+===========Fourth run (04)===========
+# # layer 2
+
