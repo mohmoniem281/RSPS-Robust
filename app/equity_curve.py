@@ -1,6 +1,7 @@
 import json
 from typing import Dict, List, Any
 from trend_filters.kalman import kalman_filter_backquant
+from trend_filters.trend_manager import is_equity_curve_trending
 import math
 
 def build_the_equity_curve(config: Dict):
@@ -36,13 +37,7 @@ def build_the_equity_curve(config: Dict):
             open_new_trade(equity_curve_non_filtered, tournament_data, "Current Signal", identifiers[i], config, is_trending)
 
 
-        # THIS WILL FORCE IS TRENDING TO BE TRUE ALL THE TIME AS WE DON"T TREND AT THE EQUITY CURVE YET
-        # # is_trending, analysis_data  = analyze_equity_curve_kalman_trend(capital_values)
-        # values , signal = kalman_filter_backquant(capital_values)
-        # if signal >= 1:
-        #     is_trending = True
-        # else:
-        #     is_trending = False
+        is_trending, latest_r2  = is_equity_curve_trending(config, equity_curve_non_filtered)
 
         # we open a new trade based on the trend filter (or none) results on i+1 (for the filtered curve)
         if i+1 < len(identifiers):   # this means we are still processing days which we have data for and can get i+1
@@ -52,20 +47,20 @@ def build_the_equity_curve(config: Dict):
             # print([entry["capital"] for entry in equity_curve_non_filtered])
             # print("DEBUG - FILTERED DATA!!!!!!!!!!!!")
             # print([entry["capital"] for entry in equity_curve_filtered])
-            print("capital to check non filtered... ", equity_curve_non_filtered[-1]["capital"])
+            print("capital to check non filtered... ", equity_curve_filtered[-1]["capital"])    #the print language is wrong but we are doing this now to test the filtered
             # print("capital to check filtered... ", equity_curve_filtered[-1]["capital"])
             
             open_new_trade(equity_curve_filtered, tournament_data, "Current Signal", identifiers[i], config, is_trending)
 
 
     
-    #summarize the equity curve
-    equity_curve_non_filtered_summarized = summarize_equity_curve(equity_curve_non_filtered)
-    equity_curve_filtered_summarized = summarize_equity_curve(equity_curve_filtered)
+    # #summarize the equity curve
+    # equity_curve_non_filtered_summarized = summarize_equity_curve(equity_curve_non_filtered)
+    # equity_curve_filtered_summarized = summarize_equity_curve(equity_curve_filtered)
 
-    #save the equity curve
-    save_equity_curve(equity_curve_non_filtered_summarized, config["equity_curve_file"])
-    save_equity_curve(equity_curve_filtered_summarized, config["equity_curve_file_filtered"])
+    # #save the equity curve
+    # save_equity_curve(equity_curve_non_filtered_summarized, config["equity_curve_file"])
+    # save_equity_curve(equity_curve_filtered_summarized, config["equity_curve_file_filtered"])
 
 
 from typing import List, Dict

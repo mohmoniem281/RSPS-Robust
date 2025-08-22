@@ -86,3 +86,25 @@ def is_ratio_trending_layer_2(config, identifier, asset_name):
         return False, last_r2
 
     return True, last_r2
+
+def is_equity_curve_trending(config, equity_curve):
+    process_noise = config.get("trend_filters_settings", {}).get("equity_curve", {}).get("kalman", {}).get("process_noise")
+    measurement_noise = config.get("trend_filters_settings", {}).get("equity_curve", {}).get("kalman", {}).get("measurement_noise")
+    filter_order = config.get("trend_filters_settings", {}).get("equity_curve", {}).get("kalman", {}).get("filter_order")
+
+    # Extract capital values and apply logarithm
+    capital_values = [entry["capital"] for entry in equity_curve]
+    equity_curve_log = [math.log(capital) for capital in capital_values]
+    kalman_trend,kalman_signal = kalman.kalman_filter_backquant(equity_curve_log, process_noise, measurement_noise, filter_order)
+
+    trend_slope_window = config.get("trend_filters_settings", {}).get("equity_curve", {}).get("slope_and_r2", {}).get("trend_slope_window")
+    slope_series, r2_series, last_slope, last_r2 = slope_and_r2.rolling_slope_and_r2(kalman_trend, trend_slope_window)
+
+    min_slope = config.get("trend_filters_settings", {}).get("equity_curve", {}).get("slope_and_r2", {}).get("slope_threshold")
+    r2_threshold = config.get("trend_filters_settings", {}).get("equity_curve", {}).get("slope_and_r2", {}).get("r2_threshold")
+
+        #check if the trend is bullish or bearish
+    if last_r2 < r2_threshold or last_slope < min_slope:
+        return False, last_r2
+
+    return True, last_r2

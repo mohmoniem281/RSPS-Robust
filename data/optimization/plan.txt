@@ -82,6 +82,19 @@ Capital: 58157.283830
     }
   }
 }
+=======================equity curve=======================
 ===========Fourth run (04)===========
-# # layer 2
+# kalman optimization
+Capital: 118474.429514
+{
+  "trend_filters_settings": {
+    "equity_curve": {
+      "kalman": {
+        "process_noise": 0.04,
+        "measurement_noise": 2.5,
+        "filter_order": 3
+      }
+    }
+  }
+}
 

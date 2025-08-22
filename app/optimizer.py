@@ -100,6 +100,9 @@ def random_overrides_from_ranges(range_space: dict, n: int, seed: int | None = N
         for path, spec in zip(keys, specs):
             start = spec["start"]; stop = spec["stop"]; nd = spec.get("round", 6)
             val = round(random.uniform(start, stop), nd)
+            # For integer-like params (e.g., windows), if round=0 → cast to int
+            if nd == 0:
+                val = int(val)
             deep_update(ov, build_override(path, val))
         overrides.append(ov)
     return overrides
@@ -271,11 +274,24 @@ def load_best_config(outdir: Path) -> dict:
 def build_local_refine_space(best_cfg: dict,
                              d_r2_l1: float, d_slope_l1: float,
                              d_r2_l2: float, d_slope_l2: float,
-                             step_r2: float, step_slope_l1: float, step_slope_l2: float):
+                             d_r2_eq: float, d_slope_eq: float,
+                             step_r2: float, step_slope_l1: float, step_slope_l2: float,
+                             step_r2_eq: float, step_slope_eq: float):
+    """
+    Build a local refine grid around the best config for:
+      - layer_1.slope_and_r2
+      - layer_2.slope_and_r2
+      - equity_curve.slope_and_r2  (NEW)
+    """
+    def clamp(x, lo, hi): return max(lo, min(hi, x))
     b1 = best_cfg["trend_filters_settings"]["layer_1"]["slope_and_r2"]
     b2 = best_cfg["trend_filters_settings"]["layer_2"]["slope_and_r2"]
-    def clamp(x, lo, hi): return max(lo, min(hi, x))
-    return {
+
+    # equity guardrail block is optional; if missing, skip gracefully
+    has_eq = "equity_curve" in best_cfg and "slope_and_r2" in best_cfg["equity_curve"]
+    beq = best_cfg["equity_curve"]["slope_and_r2"] if has_eq else None
+
+    space = {
         # L1
         "trend_filters_settings.layer_1.slope_and_r2.r2_threshold": {
             "start": clamp(b1["r2_threshold"] - d_r2_l1, 0.0, 0.90),
@@ -300,6 +316,22 @@ def build_local_refine_space(best_cfg: dict,
         },
     }
 
+    if has_eq:
+        space.update({
+            # Equity guardrail (slope/r2 only—refine Kalman separately if needed)
+            "equity_curve.slope_and_r2.r2_threshold": {
+                "start": clamp(beq["r2_threshold"] - d_r2_eq, 0.0, 0.95),
+                "stop":  clamp(beq["r2_threshold"] + d_r2_eq, 0.0, 0.95),
+                "step":  step_r2_eq, "round": 2
+            },
+            "equity_curve.slope_and_r2.slope_threshold": {
+                "start": beq["slope_threshold"] - d_slope_eq,
+                "stop":  beq["slope_threshold"] + d_slope_eq,
+                "step":  step_slope_eq, "round": 8
+            }
+        })
+    return space
+
 # -------- main modes --------
 def main():
     parser = argparse.ArgumentParser()
@@ -321,9 +353,14 @@ def main():
     parser.add_argument("--d_slope_l1", type=float, default=0.00020)
     parser.add_argument("--d_r2_l2", type=float, default=0.10)
     parser.add_argument("--d_slope_l2", type=float, default=0.00008)
+    parser.add_argument("--d_r2_eq", type=float, default=0.10)        # NEW
+    parser.add_argument("--d_slope_eq", type=float, default=0.00020)  # NEW
+
     parser.add_argument("--step_r2", type=float, default=0.02)
     parser.add_argument("--step_slope_l1", type=float, default=0.00002)
     parser.add_argument("--step_slope_l2", type=float, default=0.00001)
+    parser.add_argument("--step_r2_eq", type=float, default=0.02)        # NEW
+    parser.add_argument("--step_slope_eq", type=float, default=0.00001)  # NEW
 
     args = parser.parse_args()
 
@@ -332,26 +369,38 @@ def main():
     outdir = Path(args.outdir) if args.outdir else (Path(__file__).parent / "tuning_results")
     outdir.mkdir(parents=True, exist_ok=True)
 
-    # Default global ranges (used by grid & coarse_random)
+    # ===========================
+    # Default global ranges
+    # Toggle/comment blocks to control what you optimize per run.
+    # ===========================
     RANGE_SPACE = {
-        # # layer 1
-        # "trend_filters_settings.layer_1.slope_and_r2.r2_threshold": {
-        #     "start": 0.00, "stop": 0.40, "step": 0.02, "round": 2
-        # },
-        # "trend_filters_settings.layer_1.slope_and_r2.slope_threshold": {
-        #     "start": 0.0016, "stop": 0.0022, "step": 0.00005, "round": 6
-        # },
-        # "trend_filters_settings.layer_1.slope_and_r2.trend_slope_window": {
-        #     "start": 12, "stop": 21, "step": 1, "round": 0
-        # },
-        # layer 2
-        "trend_filters_settings.layer_2.slope_and_r2.trend_slope_window":{"start": 3,"stop": 7,"step": 1,"round": 0},
-        "trend_filters_settings.layer_2.slope_and_r2.r2_threshold":
-            {"start": 0.30, "stop": 0.50, "step": 0.02, "round": 2},
-        "trend_filters_settings.layer_2.slope_and_r2.slope_threshold":
-            {"start": 0.00025, "stop": 0.00045, "step": 0.00001, "round": 6}
-    }
+    # ------------------------------------------
+    # 🛡️ Equity curve guardrail — slope / R² only
+    # (Run first without Kalman for speed)
+    # ------------------------------------------
+    "trend_filters_settings.equity_curve.slope_and_r2.trend_slope_window": {
+        "start": 3, "stop": 20, "step": 1, "round": 0
+    },
+    "trend_filters_settings.equity_curve.slope_and_r2.r2_threshold": {
+        "start": 0.00, "stop": 0.70, "step": 0.05, "round": 2
+    },
+    "trend_filters_settings.equity_curve.slope_and_r2.slope_threshold": {
+        "start": -0.00020, "stop": 0.00300, "step": 0.00020, "round": 6
+    },
 
+    # -----------------------------------------------------
+    # (Optional) Equity curve Kalman — do this in a 2nd run
+    # -----------------------------------------------------
+    # "trend_filters_settings.equity_curve.kalman.process_noise": {
+    #     "start": 0.02, "stop": 0.06, "step": 0.01, "round": 3
+    # },
+    # "trend_filters_settings.equity_curve.kalman.measurement_noise": {
+    #     "start": 2.0, "stop": 3.5, "step": 0.5, "round": 1
+    # },
+    # "trend_filters_settings.equity_curve.kalman.filter_order": {
+    #     "start": 3, "stop": 5, "step": 1, "round": 0
+    # },
+    }
     if args.mode == "grid":
         space = expand_from_ranges(RANGE_SPACE)
         overrides = list(expand_grid(space))
@@ -367,9 +416,12 @@ def main():
             best_cfg,
             d_r2_l1=args.d_r2_l1, d_slope_l1=args.d_slope_l1,
             d_r2_l2=args.d_r2_l2, d_slope_l2=args.d_slope_l2,
+            d_r2_eq=args.d_r2_eq, d_slope_eq=args.d_slope_eq,
             step_r2=args.step_r2,
             step_slope_l1=args.step_slope_l1,
             step_slope_l2=args.step_slope_l2,
+            step_r2_eq=args.step_r2_eq,
+            step_slope_eq=args.step_slope_eq,
         )
         space = expand_from_ranges(local_space)
         overrides = list(expand_grid(space))
