@@ -380,14 +380,14 @@ def main():
     # ------------------------------------------
     # RANGE_SPACE (Kalman-only for ETH)
     "trend_filters_settings.layer_1.kalman.process_noise": {
-        "start": 0.01, "stop": 0.08, "step": 0.005, "round": 3
-    },
-    "trend_filters_settings.layer_1.kalman.measurement_noise": {
-        "start": 1.0, "stop": 5.0, "step": 0.5, "round": 1
-    },
-    "trend_filters_settings.layer_1.kalman.filter_order": {
-        "start": 3, "stop": 7, "step": 2, "round": 0
-    },
+      "start": 0.06, "stop": 0.12, "step": 0.002, "round": 3
+  },
+  "trend_filters_settings.layer_1.kalman.measurement_noise": {
+      "start": 0.6, "stop": 2.0, "step": 0.10, "round": 1
+  },
+  "trend_filters_settings.layer_1.kalman.filter_order": {
+      "start": 2, "stop": 6, "step": 1, "round": 0
+  },
 
     # -----------------------------------------------------
     # (Optional) Equity curve Kalman — do this in a 2nd run
