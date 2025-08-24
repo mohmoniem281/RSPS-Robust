@@ -22,9 +22,9 @@
   "trend_filters_settings": {
     "layer_1": {
       "kalman": {
-        "process_noise": 0.01,
-        "measurement_noise": 3.0,
-        "filter_order": 5
+        "process_noise": 0.08,
+        "measurement_noise": 1.0,
+        "filter_order": 3
       },
       "slope_and_r2": {
         "trend_slope_window": 15,
