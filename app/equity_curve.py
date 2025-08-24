@@ -47,7 +47,7 @@ def build_the_equity_curve(config: Dict):
             # print([entry["capital"] for entry in equity_curve_non_filtered])
             # print("DEBUG - FILTERED DATA!!!!!!!!!!!!")
             # print([entry["capital"] for entry in equity_curve_filtered])
-            print("capital to check non filtered... ", equity_curve_filtered[-1]["capital"])    #the print language is wrong but we are doing this now to test the filtered
+            print("capital to check non filtered... ", equity_curve_non_filtered[-1]["capital"])    #the print language is wrong but we are doing this now to test the filtered
             # print("capital to check filtered... ", equity_curve_filtered[-1]["capital"])
             
             open_new_trade(equity_curve_filtered, tournament_data, "Current Signal", identifiers[i], config, is_trending)
