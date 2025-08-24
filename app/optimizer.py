@@ -378,14 +378,15 @@ def main():
     # 🛡️ Equity curve guardrail — slope / R² only
     # (Run first without Kalman for speed)
     # ------------------------------------------
-    "trend_filters_settings.equity_curve.slope_and_r2.trend_slope_window": {
-        "start": 3, "stop": 20, "step": 1, "round": 0
+    # RANGE_SPACE (Kalman-only for ETH)
+    "trend_filters_settings.layer_1.kalman.process_noise": {
+        "start": 0.01, "stop": 0.08, "step": 0.005, "round": 3
     },
-    "trend_filters_settings.equity_curve.slope_and_r2.r2_threshold": {
-        "start": 0.00, "stop": 0.70, "step": 0.05, "round": 2
+    "trend_filters_settings.layer_1.kalman.measurement_noise": {
+        "start": 1.0, "stop": 5.0, "step": 0.5, "round": 1
     },
-    "trend_filters_settings.equity_curve.slope_and_r2.slope_threshold": {
-        "start": -0.00020, "stop": 0.00300, "step": 0.00020, "round": 6
+    "trend_filters_settings.layer_1.kalman.filter_order": {
+        "start": 3, "stop": 7, "step": 2, "round": 0
     },
 
     # -----------------------------------------------------
