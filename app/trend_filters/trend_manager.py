@@ -27,18 +27,18 @@ def is_asset_trending_layer_1(config, identifier, asset_name):
 
     #apply kalman trend filter to the price series (logarithm)
     # WE SHOULD IGNORE KALMAN_SIGNAL HERE FORM THE INDICATOR, NOT RELIABE, WE WILL DO SLOPE AND R2 INSTEAD
-    process_noise = config.get("trend_filters_settings", {}).get("layer_1", {}).get("kalman", {}).get("process_noise")
-    measurement_noise = config.get("trend_filters_settings", {}).get("layer_1", {}).get("kalman", {}).get("measurement_noise")
-    filter_order = config.get("trend_filters_settings", {}).get("layer_1", {}).get("kalman", {}).get("filter_order")
+    process_noise = config.get("trend_filters_settings", {}).get("layer_1", {}).get("per_asset", {}).get(asset_name, {}).get("kalman", {}).get("process_noise")
+    measurement_noise = config.get("trend_filters_settings", {}).get("layer_1", {}).get("per_asset", {}).get(asset_name, {}).get("kalman", {}).get("measurement_noise")
+    filter_order = config.get("trend_filters_settings", {}).get("layer_1", {}).get("per_asset", {}).get(asset_name, {}).get("kalman", {}).get("filter_order")
     kalman_trend,kalman_signal = kalman.kalman_filter_backquant(prices_only_log, process_noise, measurement_noise, filter_order)
-    
+
     #apply slope and r2 trend filters to the kalman trend
-    trend_slope_window = config.get("trend_filters_settings", {}).get("layer_1", {}).get("slope_and_r2", {}).get("trend_slope_window")
+    trend_slope_window = config.get("trend_filters_settings", {}).get("layer_1", {}).get("per_asset", {}).get(asset_name, {}).get("slope_and_r2", {}).get("trend_slope_window")
 
     slope_series, r2_series, last_slope, last_r2 = slope_and_r2.rolling_slope_and_r2(kalman_trend, trend_slope_window)
 
-    min_slope = config.get("trend_filters_settings", {}).get("layer_1", {}).get("slope_and_r2", {}).get("slope_threshold")
-    r2_threshold = config.get("trend_filters_settings", {}).get("layer_1", {}).get("slope_and_r2", {}).get("r2_threshold")
+    min_slope = config.get("trend_filters_settings", {}).get("layer_1", {}).get("per_asset", {}).get(asset_name, {}).get("slope_and_r2", {}).get("slope_threshold")
+    r2_threshold = config.get("trend_filters_settings", {}).get("layer_1", {}).get("per_asset", {}).get(asset_name, {}).get("slope_and_r2", {}).get("r2_threshold")
     
     #check if the trend is bullish or bearish
     if last_r2 < r2_threshold or last_slope < min_slope:
