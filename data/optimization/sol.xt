@@ -5,3 +5,11 @@ equity curve print disable
 while doing layer 1 kalman keep slope and r2 0 and window 5 
 
 
+first one was only kalman 
+     "kalman": {
+        "process_noise": 0.01,
+        "measurement_noise": 4.0,
+        "filter_order": 3
+      }
+this ran fine on the training period but actually lost on the testing period
+
