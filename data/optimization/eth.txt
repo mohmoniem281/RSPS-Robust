@@ -5,3 +5,8 @@
         "filter_order": 3
       },
 
+      "slope_and_r2": {
+        "trend_slope_window": 15,
+        "r2_threshold": 0.0,
+        "slope_threshold": 0.00215
+      }
