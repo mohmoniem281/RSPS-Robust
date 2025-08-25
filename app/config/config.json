@@ -13,9 +13,9 @@
   "index_file_path": "/home/ubuntu/data/index.json",
   "ratios_file_path": "/home/ubuntu/data/ratios.json",
   "assets": {
-    "eth": {
-      "price_history": "/home/ubuntu/data/output_prices/eth.json",
-      "normalized_history": "/home/ubuntu/data/output_prices/eth_normalized.json"
+    "btc": {
+      "price_history": "/home/ubuntu/data/output_prices/btc.json",
+      "normalized_history": "/home/ubuntu/data/output_prices/btc_normalized.json"
     }
 
   },
