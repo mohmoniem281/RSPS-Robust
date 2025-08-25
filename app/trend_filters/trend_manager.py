@@ -47,6 +47,7 @@ def is_asset_trending_layer_1(config, identifier, asset_name):
     return True, last_r2
 
 def is_ratio_trending_layer_2(config, identifier, asset_name):
+    return True, 1
     # Extract ratio data up to the identifier for this asset
     ratios_file_path = config.get("ratios_file_path")
     with open(ratios_file_path, 'r') as f:

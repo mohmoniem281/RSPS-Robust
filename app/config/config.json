@@ -13,9 +13,9 @@
   "index_file_path": "/home/ubuntu/data/index.json",
   "ratios_file_path": "/home/ubuntu/data/ratios.json",
   "assets": {
-    "btc": {
-      "price_history": "/home/ubuntu/data/output_prices/btc.json",
-      "normalized_history": "/home/ubuntu/data/output_prices/btc_normalized.json"
+    "sol": {
+      "price_history": "/home/ubuntu/data/output_prices/sol.json",
+      "normalized_history": "/home/ubuntu/data/output_prices/sol_normalized.json"
     }
 
   },
@@ -27,9 +27,9 @@
         "filter_order": 3
       },
       "slope_and_r2": {
-        "trend_slope_window": 15,
+        "trend_slope_window": 5,
         "r2_threshold": 0.0,
-        "slope_threshold": 0.00215
+        "slope_threshold": 0.0
       }
     },
     "layer_2": {

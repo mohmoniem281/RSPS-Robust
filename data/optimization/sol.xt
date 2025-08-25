@@ -1,0 +1,7 @@
+we chane:
+config
+trend filter layer 2 disable
+equity curve print disable
+while doing layer 1 kalman keep slope and r2 0 and window 5 
+
+

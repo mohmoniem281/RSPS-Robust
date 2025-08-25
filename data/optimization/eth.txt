@@ -10,3 +10,7 @@
         "r2_threshold": 0.0,
         "slope_threshold": 0.00215
       }
+
+
+      need to redo optimization as we diable layer 2 and make slope and r2 as zero
+      

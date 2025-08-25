@@ -379,13 +379,13 @@ def main():
     # (Run first without Kalman for speed)
     # ------------------------------------------
     # RANGE_SPACE (Kalman-only for ETH)
-    "trend_filters_settings.layer_1.kalman.process_noise": {
-        "start": 0.01, "stop": 0.08, "step": 0.005, "round": 3
+     "trend_filters_settings.layer_1.per_asset.sol.kalman.process_noise": {
+        "start": 0.005, "stop": 0.080, "step": 0.005, "round": 3
     },
-    "trend_filters_settings.layer_1.kalman.measurement_noise": {
+    "trend_filters_settings.layer_1.per_asset.sol.kalman.measurement_noise": {
         "start": 1.0, "stop": 5.0, "step": 0.5, "round": 1
     },
-    "trend_filters_settings.layer_1.kalman.filter_order": {
+    "trend_filters_settings.layer_1.per_asset.sol.kalman.filter_order": {
         "start": 3, "stop": 7, "step": 2, "round": 0
     }
 
